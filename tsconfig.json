@@ -17,7 +17,7 @@
     "resolveJsonModule": true,
     "isolatedModules": false,
     "jsx": "react",
-    "declaration": true,
+    "declaration": false,
     "outDir": "build",
     "sourceMap": true
   },

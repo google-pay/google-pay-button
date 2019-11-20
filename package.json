@@ -1,0 +1,26 @@
+{
+  "name": "react-google-pay-button",
+  "version": "1.0.0",
+  "description": "React component for Google Pay Button",
+  "main": "src/index.ts",
+  "scripts": {
+    "build": "rimraf dist && rollup -c",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "socsieng@gmail.com",
+  "license": "ISC",
+  "dependencies": {
+    "react": "^16.12.0",
+    "react-dom": "^16.12.0"
+  },
+  "devDependencies": {
+    "@types/googlepay": "^0.2.3",
+    "@types/node": "^12.12.11",
+    "@types/react": "^16.9.11",
+    "@types/react-dom": "^16.9.4",
+    "rimraf": "^3.0.0",
+    "rollup": "^1.27.2",
+    "rollup-plugin-typescript2": "^0.25.2",
+    "typescript": "^3.7.2"
+  }
+}

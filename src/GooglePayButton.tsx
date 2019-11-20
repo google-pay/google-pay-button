@@ -62,19 +62,15 @@ export type Props = {
   appearance: {
     buttonColor?: 'default' | 'black' | 'white',
     buttonType?: 'long' | 'short',
-    width?: string | number,
-    height?: string | number,
   },
   transactionInfo: google.payments.api.TransactionInfo,
+  className?: string,
+  style?: any,
 };
 
 type State ={
   isReadyToPay: boolean,
 };
-
-function getCssUnit(value: any): string {
-  return typeof value === 'number' ? `${value}px` : `${value}`;
-}
 
 export default class GooglePayButton extends React.Component<Props, State> {
   static defaultProps = {
@@ -93,7 +89,6 @@ export default class GooglePayButton extends React.Component<Props, State> {
   };
 
   private baseRequest: BasePaymentRequest;
-  private container: React.RefObject<HTMLDivElement>;
   private paymentRequest?: PaymentRequest;
   private client?: google.payments.api.PaymentsClient;
 
@@ -111,7 +106,6 @@ export default class GooglePayButton extends React.Component<Props, State> {
       allowedPaymentMethods: this.props.allowedPaymentMethods,
     };
 
-    this.container = React.createRef();
     this.handleClick = this.handleClick.bind(this);
   }
 
@@ -209,28 +203,9 @@ export default class GooglePayButton extends React.Component<Props, State> {
 
     if ((existingPaymentMethodRequired && readyToPayResponse.paymentMethodPresent && readyToPayResponse.result)
       || (!existingPaymentMethodRequired && readyToPayResponse.result)) {
-      const button = this.client.createButton({
-        buttonColor: appearance.buttonColor,
-        buttonType: appearance.buttonType,
-        onClick: this.handleClick,
+      this.client.createButton({
+        onClick: () => {},
       });
-
-      if (appearance.width || appearance.height) {
-        const style: any = {};
-        const gPayButton = button.querySelector('button');
-        if (gPayButton) {
-          if (appearance.width) {
-            style.width = '100%';
-          }
-          if (appearance.height) {
-            style.height = getCssUnit(appearance.height);
-          }
-
-          Object.assign(gPayButton.style, style);
-        }
-      }
-
-      this.container.current!.appendChild(button);
       isReadyToPay = true;
     }
 
@@ -243,24 +218,23 @@ export default class GooglePayButton extends React.Component<Props, State> {
 
   render() {
     const { isReadyToPay } = this.state;
-    const { width, height } = this.props.appearance;
-    const size: any = {};
+    const { className, style, appearance } = this.props;
 
-    if (width) {
-      size.width = getCssUnit(width);
-    }
+    const color = appearance.buttonColor === 'default' ? 'black' : 'white';
+    const buttonType = appearance.buttonType || 'long';
 
-    if (height) {
-      size.height = getCssUnit(height);
-    }
+    const classNames = ['gpay-button', color, buttonType, className]
+      .filter(c => c)
+      .join(' ');
 
     return (
-      <div
-          ref={this.container}
-          style={{
-            ...size,
-            display: isReadyToPay ? 'inline-block' : 'none',
-          }}
+        isReadyToPay &&
+        <button
+          type='button'
+          aria-label='Google Pay'
+          className={classNames}
+          style={style}
+          onClick={this.handleClick}
         />
     );
   }

@@ -37,7 +37,7 @@ interface PaymentsClientConfig {
 
 type Environment = 'TEST' | 'PRODUCTION';
 
-type Props = {
+export type Props = {
   environment: Environment,
   version: {
     major: number,

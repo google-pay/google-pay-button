@@ -25,6 +25,7 @@
     "src"
   ],
   "exclude": [
-    "rollup.config.js"
+    "*.config.js",
+    "src/**/*.test.(ts|tsx)",
   ]
 }

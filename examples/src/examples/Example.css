@@ -1,0 +1,19 @@
+.example {
+  margin: 5px;
+  display: flex;
+  flex-direction: row;
+}
+
+.example > .title {
+  width: 400px;
+  align-items: center;
+  display: inherit;
+}
+
+.example > .demo {
+  flex: 1 0 0;
+}
+
+.example > .demo > * {
+  margin: 1px;
+}

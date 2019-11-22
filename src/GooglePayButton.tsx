@@ -5,7 +5,7 @@ interface BasePaymentRequest {
   apiVersion: number,
   apiVersionMinor: number,
   merchantInfo: any,
-  allowedPaymentMethods: google.payments.api.BasePaymentMethod[],
+  allowedPaymentMethods: BasePaymentMethod[],
 };
 
 interface PaymentRequest extends BasePaymentRequest {
@@ -15,7 +15,7 @@ interface PaymentRequest extends BasePaymentRequest {
   shippingAddressParameters?: google.payments.api.ShippingAddressParameters,
   shippingOptionRequired?: boolean,
   shippingOptionParameters?: ShippingOptionParameters,
-  transactionInfo: google.payments.api.TransactionInfo,
+  transactionInfo: TransactionInfo,
   callbackIntents?: string[],
 }
 
@@ -35,6 +35,40 @@ interface PaymentsClientConfig {
   paymentDataCallbacks?: Record<string, Function>,
 }
 
+interface BasePaymentMethod {
+  type: string,
+  parameters: any,
+  tokenizationSpecification?: TokenizationSpecification,
+}
+
+interface TokenizationSpecification {
+  type: string,
+  parameters: any,
+}
+
+type DisplayItemType = 'LINE_ITEM' | 'SUBTOTAL' | string;
+type DisplayItemStatus = 'FINAL' | 'PENDING' | string;
+type TotalPriceStatus = 'ESTIMATED' | 'FINAL' | 'NOT_CURRENTLY_KNOWN' | string;
+type CheckoutOption = 'DEFAULT' | 'COMPLETE_IMMEDIATE_PURCHASE' | string;
+
+interface DisplayItem {
+  label: string;
+  type: DisplayItemType;
+  price: string;
+  status?: DisplayItemStatus;
+}
+
+interface TransactionInfo {
+  totalPriceStatus: TotalPriceStatus;
+  currencyCode: string;
+  countryCode?: string;
+  transactionId?: string;
+  displayItems?: DisplayItem[];
+  totalPriceLabel?: string;
+  totalPrice?: string;
+  checkoutOption?: CheckoutOption;
+}
+
 type Environment = 'TEST' | 'PRODUCTION';
 
 export type Props = {
@@ -49,7 +83,7 @@ export type Props = {
     merchantId?: string,
     merchantName?: string,
   },
-  allowedPaymentMethods: google.payments.api.BasePaymentMethod[],
+  allowedPaymentMethods: BasePaymentMethod[],
   shippingAddressRequired?: boolean,
   shippingAddressParameters?: google.payments.api.ShippingAddressParameters,
   shippingOptionParameters?: ShippingOptionParameters,
@@ -63,7 +97,7 @@ export type Props = {
     buttonColor?: 'default' | 'black' | 'white',
     buttonType?: 'long' | 'short',
   },
-  transactionInfo: google.payments.api.TransactionInfo,
+  transactionInfo: TransactionInfo,
   className?: string,
   style?: any,
 };
@@ -161,8 +195,10 @@ export default class GooglePayButton extends React.Component<Props, State> {
         }
       })
       .catch(error => {
-        if (error.statusCode === 'CANCELED' && this.props.onCancel) {
-          this.props.onCancel(error);
+        if (error.statusCode === 'CANCELED') {
+          if (this.props.onCancel) {
+            this.props.onCancel(error);
+          }
         } else if (this.props.onError) {
           this.props.onError(error);
         }
@@ -220,7 +256,7 @@ export default class GooglePayButton extends React.Component<Props, State> {
     const { isReadyToPay } = this.state;
     const { className, style, appearance } = this.props;
 
-    const color = appearance.buttonColor === 'default' ? 'black' : 'white';
+    const color = appearance.buttonColor === 'default' ? 'black' : appearance.buttonColor;
     const buttonType = appearance.buttonType || 'long';
 
     const classNames = ['gpay-button', color, buttonType, className]

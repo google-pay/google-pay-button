@@ -2,6 +2,7 @@
   "name": "examples",
   "version": "0.1.0",
   "private": true,
+  "homepage": "https://react-gpay-button.firebaseapp.com/",
   "dependencies": {
     "@types/jest": "24.0.23",
     "@types/node": "12.12.11",

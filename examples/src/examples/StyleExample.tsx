@@ -31,7 +31,7 @@ function onPaymentDataResult (paymentRequest: any) {
 
 export default (props: any) => {
   return (
-    <Example title="Button Appearance">
+    <Example title="Button Style">
       <GooglePayButton
         allowedPaymentMethods={allowedPaymentMethods}
         merchantInfo={merchantInfo}

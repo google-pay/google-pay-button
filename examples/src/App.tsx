@@ -16,6 +16,7 @@ import DisplayItemsExample from './examples/DisplayItemsExample';
 import DisplayItemsDynamicTotalExample from './examples/DisplayItemsDynamicTotalExample';
 import DynamicPriceUpdateExample from './examples/DynamicPriceUpdateExample';
 import StyleExample from './examples/StyleExample';
+import ProductionExample from './examples/ProductionDirectExample';
 
 const App: React.FC = () => {
   const [amount, setAmount] = useState('100.00');
@@ -33,6 +34,7 @@ const App: React.FC = () => {
         </label>
       </div>
       <BasicExample amount={amount} />
+      <ProductionExample amount={amount} />
       <EmailRequiredExample amount={amount} />
       <AmexExample amount={amount} />
       <ExistingAmexExample amount={amount} />

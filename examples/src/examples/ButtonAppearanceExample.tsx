@@ -2,7 +2,7 @@ import React from 'react';
 import Example from './Example';
 import GooglePayButton from 'react-google-pay-button';
 
-const allowedPaymentMethods = [
+const allowedPaymentMethods: google.payments.api.PaymentMethodSpecification[] = [
   {
     type: 'CARD',
     parameters: {

@@ -30,6 +30,7 @@ export default (props: any) => {
         transactionInfo={{
           totalPriceStatus: 'FINAL',
           totalPriceLabel: 'Total',
+          totalPrice: '',
           currencyCode: 'USD',
           countryCode: 'US',
           displayItems: [

@@ -19,7 +19,7 @@ export default (props: any) => {
               parameters: {
                 'gateway': 'stripe',
                 'stripe:version': '2018-10-31',
-                'stripe:publishableKey': 'pk_test_MNKMwKAvgdo2yKOhIeCOE6MZ00yS3mWShu',
+                'stripe:publishableKey': 'pk_live_u4W1tkj5FEHBipLTfqrBYJyp',
               },
             },
           },

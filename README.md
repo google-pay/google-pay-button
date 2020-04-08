@@ -3,7 +3,7 @@ This is React component for the Google Pay Button.
 ## Installation
 
 ```sh
-npm install --save github:socsieng/react-google-pay-button
+npm install --save github:google-pay/react-google-pay-button
 ```
 
 ## Example Usage

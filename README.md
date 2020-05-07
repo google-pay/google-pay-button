@@ -47,3 +47,5 @@ npm install --save react-google-pay-button
   }}
 />
 ```
+
+More examples can be found in the [examples folder](./examples/src/examples) of this repository.

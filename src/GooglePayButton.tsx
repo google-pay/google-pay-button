@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { CSSProperties } from 'react';
 import loadScript from './load-script';
 
 export type Props = {
@@ -14,7 +14,7 @@ export type Props = {
   buttonColor?: google.payments.api.ButtonColor,
   buttonType?: google.payments.api.ButtonType,
   className?: string,
-  style?: any,
+  style?: CSSProperties,
 };
 
 type State = {

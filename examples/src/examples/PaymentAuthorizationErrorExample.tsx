@@ -51,6 +51,8 @@ export default (props: any) => {
           },
         })}
         existingPaymentMethodRequired={props.existingPaymentMethodRequired}
+        buttonColor={props.buttonColor}
+        buttonType={props.buttonType}
       />
     </Example>
   );

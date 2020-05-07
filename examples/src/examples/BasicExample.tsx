@@ -4,7 +4,7 @@ import GooglePayButton from 'react-google-pay-button';
 
 export default (props: any) => {
   return (
-    <Example title="Mastercard and Visa">
+    <Example title="Mastercard and VISA">
       <GooglePayButton
         environment={props.environment}
         paymentRequest={{
@@ -43,6 +43,8 @@ export default (props: any) => {
           console.log('Success', paymentRequest);
         }}
         existingPaymentMethodRequired={props.existingPaymentMethodRequired}
+        buttonColor={props.buttonColor}
+        buttonType={props.buttonType}
       />
     </Example>
   );

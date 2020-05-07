@@ -233,12 +233,20 @@ export default class GooglePayButton extends React.Component<Props, State> {
   }
 
   componentDidUpdate(prevProps: Props) {
-    const props = this.props;
-
-    if (props.environment !== prevProps.environment
-        || props.existingPaymentMethodRequired !== prevProps.existingPaymentMethodRequired) {
+    if (this.isClientInvalidated(prevProps, this.props)) {
       this.updateElement();
     }
+  }
+
+  isClientInvalidated(oldProps: Props, newProps: Props) {
+    return (
+      oldProps.environment !== newProps.environment
+      || oldProps.existingPaymentMethodRequired !== newProps.existingPaymentMethodRequired
+      || !!oldProps.onPaymentDataChanged !== !!newProps.onPaymentDataChanged
+      || !!oldProps.onPaymentAuthorized !== !!newProps.onPaymentAuthorized
+      || oldProps.buttonColor !== newProps.buttonColor
+      || oldProps.buttonType !== newProps.buttonType
+    );
   }
 
   render() {

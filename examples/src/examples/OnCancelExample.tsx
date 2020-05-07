@@ -44,6 +44,8 @@ export default (props: any) => {
         }}
         onCancel={() => alert('Cancelled')}
         existingPaymentMethodRequired={props.existingPaymentMethodRequired}
+        buttonColor={props.buttonColor}
+        buttonType={props.buttonType}
       />
     </Example>
   );

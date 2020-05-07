@@ -64,6 +64,8 @@ export default (props: any) => {
           transactionState: 'SUCCESS',
         })}
         existingPaymentMethodRequired={props.existingPaymentMethodRequired}
+        buttonColor={props.buttonColor}
+        buttonType={props.buttonType}
       />
     </Example>
   );

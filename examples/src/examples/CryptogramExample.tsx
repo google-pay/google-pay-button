@@ -51,6 +51,8 @@ export default (props: any) => {
         style={{
           display: isReadyToPay ? 'inline-block' : 'none',
         }}
+        buttonColor={props.buttonColor}
+        buttonType={props.buttonType}
       />
       <div
         style={{

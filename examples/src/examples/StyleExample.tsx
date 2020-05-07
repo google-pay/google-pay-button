@@ -49,6 +49,8 @@ export default (props: any) => {
         }}
         onLoadPaymentData={onLoadPaymentData}
         existingPaymentMethodRequired={props.existingPaymentMethodRequired}
+        buttonColor={props.buttonColor}
+        buttonType={props.buttonType}
         className="fill"
         style={{
           width: '40%',
@@ -73,6 +75,8 @@ export default (props: any) => {
         }}
         onLoadPaymentData={onLoadPaymentData}
         existingPaymentMethodRequired={props.existingPaymentMethodRequired}
+        buttonColor={props.buttonColor}
+        buttonType={props.buttonType}
         className="fill"
         style={{
           height: 70,
@@ -96,6 +100,8 @@ export default (props: any) => {
         }}
         onLoadPaymentData={onLoadPaymentData}
         existingPaymentMethodRequired={props.existingPaymentMethodRequired}
+        buttonColor={props.buttonColor}
+        buttonType={props.buttonType}
         className="fill"
         style={{
           width: 200,

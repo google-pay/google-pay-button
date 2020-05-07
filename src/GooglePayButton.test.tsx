@@ -256,3 +256,196 @@ describe('Callbacks', () => {
     testButton.unmount();
   });
 });
+
+describe('Google Pay client invalidation', () => {
+  it('invalidates client when environment changes', async () => {
+    const props1: Props = {
+      ...defaults,
+      environment: 'TEST',
+    };
+    const props2: Props = {
+      ...defaults,
+      environment: 'PRODUCTION',
+    };
+    const testButton = await createTestButton(props1);
+    const button = testButton.component;
+
+    const invalidated = button.isClientInvalidated(props1, props2);
+
+    expect(invalidated).toBe(true);
+
+    testButton.unmount();
+  });
+
+  it('invalidates client when existingPaymentMethodRequired changes', async () => {
+    const props1: Props = {
+      ...defaults,
+      existingPaymentMethodRequired: false,
+    };
+    const props2: Props = {
+      ...defaults,
+      existingPaymentMethodRequired: true,
+    };
+    const testButton = await createTestButton(props1);
+    const button = testButton.component;
+
+    const invalidated = button.isClientInvalidated(props1, props2);
+
+    expect(invalidated).toBe(true);
+
+    testButton.unmount();
+  });
+
+  it('invalidates client when onPaymentDataChanged added', async () => {
+    const props1: Props = {
+      ...defaults,
+    };
+    const props2: Props = {
+      ...defaults,
+      onPaymentDataChanged: () => ({}),
+    };
+    const testButton = await createTestButton(props1);
+    const button = testButton.component;
+
+    const invalidated = button.isClientInvalidated(props1, props2);
+
+    expect(invalidated).toBe(true);
+
+    testButton.unmount();
+  });
+
+  it('invalidates client when onPaymentDataChanged removed', async () => {
+    const props1: Props = {
+      ...defaults,
+      onPaymentDataChanged: () => ({}),
+    };
+    const props2: Props = {
+      ...defaults,
+    };
+    const testButton = await createTestButton(props1);
+    const button = testButton.component;
+
+    const invalidated = button.isClientInvalidated(props1, props2);
+
+    expect(invalidated).toBe(true);
+
+    testButton.unmount();
+  });
+
+  it('invalidates client when onPaymentAuthorized added', async () => {
+    const props1: Props = {
+      ...defaults,
+    };
+    const props2: Props = {
+      ...defaults,
+      onPaymentAuthorized: () => ({ transactionState: 'SUCCESS' }),
+    };
+    const testButton = await createTestButton(props1);
+    const button = testButton.component;
+
+    const invalidated = button.isClientInvalidated(props1, props2);
+
+    expect(invalidated).toBe(true);
+
+    testButton.unmount();
+  });
+
+  it('invalidates client when onPaymentAuthorized removed', async () => {
+    const props1: Props = {
+      ...defaults,
+      onPaymentAuthorized: () => ({ transactionState: 'SUCCESS' }),
+    };
+    const props2: Props = {
+      ...defaults,
+    };
+    const testButton = await createTestButton(props1);
+    const button = testButton.component;
+
+    const invalidated = button.isClientInvalidated(props1, props2);
+
+    expect(invalidated).toBe(true);
+
+    testButton.unmount();
+  });
+
+  it('does not invalidate client when onPaymentAuthorized modified', async () => {
+    const props1: Props = {
+      ...defaults,
+      onPaymentAuthorized: () => ({ transactionState: 'SUCCESS' }),
+    };
+    const props2: Props = {
+      ...defaults,
+      onPaymentAuthorized: () => ({ transactionState: 'ERROR' }),
+    };
+    const testButton = await createTestButton(props1);
+    const button = testButton.component;
+
+    const invalidated = button.isClientInvalidated(props1, props2);
+
+    expect(invalidated).toBe(false);
+
+    testButton.unmount();
+  });
+
+  it('does not invalidate client transactionInfoChannges', async () => {
+    const props1: Props = {
+      ...defaults,
+    };
+    const props2: Props = {
+      ...defaults,
+      paymentRequest: {
+        ...defaults.paymentRequest,
+        transactionInfo: {
+          ...defaults.paymentRequest.transactionInfo,
+          totalPrice: '200.00',
+        },
+      },
+    };
+    const testButton = await createTestButton(props1);
+    const button = testButton.component;
+
+    const invalidated = button.isClientInvalidated(props1, props2);
+
+    expect(invalidated).toBe(false);
+
+    testButton.unmount();
+  });
+
+  it('invalidates client when buttonType changes', async () => {
+    const props1: Props = {
+      ...defaults,
+      buttonType: 'long',
+    };
+    const props2: Props = {
+      ...defaults,
+      buttonType: 'short',
+    };
+    const testButton = await createTestButton(props1);
+    const button = testButton.component;
+
+    const invalidated = button.isClientInvalidated(props1, props2);
+
+    expect(invalidated).toBe(true);
+
+    testButton.unmount();
+  });
+
+  it('invalidates client when buttonColor changes', async () => {
+    const props1: Props = {
+      ...defaults,
+      buttonColor: 'default',
+    };
+    const props2: Props = {
+      ...defaults,
+      buttonColor: 'white',
+    };
+    const testButton = await createTestButton(props1);
+    const button = testButton.component;
+
+    const invalidated = button.isClientInvalidated(props1, props2);
+
+    expect(invalidated).toBe(true);
+
+    testButton.unmount();
+  });
+});

@@ -42,6 +42,8 @@ export default (props: any) => {
           console.log('Success', paymentRequest);
         }}
         existingPaymentMethodRequired={props.existingPaymentMethodRequired}
+        buttonColor={props.buttonColor}
+        buttonType={props.buttonType}
       />
     </Example>
   );

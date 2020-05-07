@@ -256,24 +256,3 @@ describe('Callbacks', () => {
     testButton.unmount();
   });
 });
-
-// describe('Component updates', () => {
-//   it('checks isReadyToPay again when environment changes', async () => {
-//     const props = {
-//       ...defaults
-//     };
-//     const testButton = await createTestButton(props);
-//     const button = testButton.component;
-
-//     const options = button.createClientOptions();
-//     const request = button.createLoadPaymentDataRequest();
-
-//     expect(options.paymentDataCallbacks?.onPaymentAuthorized).toBeTruthy();
-//     expect(request.callbackIntents).not.toContain('PAYMENT_METHOD');
-//     expect(request.callbackIntents).not.toContain('SHIPPING_OPTION');
-//     expect(request.callbackIntents).not.toContain('SHIPPING_ADDRESS');
-//     expect(request.callbackIntents).toContain('PAYMENT_AUTHORIZATION');
-
-//     testButton.unmount();
-//   });
-// });

@@ -24,6 +24,7 @@ type State = {
 export default class GooglePayButton extends React.Component<Props, State> {
   private client?: google.payments.api.PaymentsClient;
   private elementRef: React.RefObject<HTMLDivElement>;
+  private componentMounted: boolean;
 
   constructor(props: Props) {
     super(props);
@@ -33,6 +34,7 @@ export default class GooglePayButton extends React.Component<Props, State> {
     };
 
     this.elementRef = React.createRef<HTMLDivElement>();
+    this.componentMounted = false;
   }
 
   createClientOptions() {
@@ -135,14 +137,16 @@ export default class GooglePayButton extends React.Component<Props, State> {
   private async updateElement(prevProps?: Props) {
     const element = this.elementRef.current;
 
-    if (!element) {
-      return;
-    }
+    if (!element) return;
+    if (!this.componentMounted) return;
 
     // remove children
     Array.from(element.children).forEach(child => child.remove());
 
     await loadScript('https://pay.google.com/gp/p/js/pay.js');
+
+    if (!this.componentMounted) return;
+
     this.client = new google.payments.api.PaymentsClient(this.createClientOptions());
 
     let isReadyToPay = false;
@@ -155,6 +159,8 @@ export default class GooglePayButton extends React.Component<Props, State> {
     } catch (err) {
       console.error(err);
     }
+
+    if (!this.componentMounted) return;
 
     if (isReadyToPay) {
       const button = this.client.createButton({
@@ -217,8 +223,13 @@ export default class GooglePayButton extends React.Component<Props, State> {
   }
 
   componentDidMount() {
+    this.componentMounted = true;
     this.appendStyles();
     this.updateElement();
+  }
+
+  componentWillUnmount() {
+    this.componentMounted = false;
   }
 
   componentDidUpdate(prevProps: Props) {

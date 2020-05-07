@@ -9,6 +9,9 @@
     "test": "jest",
     "prepublishOnly": "npm run test && npm run build"
   },
+  "repository": {
+    "url": "https://github.com/google-pay/react-google-pay-button"
+  },
   "engines": {
     "node": ">=8.0.0"
   },

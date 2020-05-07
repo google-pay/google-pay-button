@@ -37,7 +37,7 @@ npm install --save react-google-pay-button
     transactionInfo: {
       totalPriceStatus: 'FINAL',
       totalPriceLabel: 'Total',
-      totalPrice: props.amount,
+      totalPrice: '100.00',
       currencyCode: 'USD',
       countryCode: 'US',
     },

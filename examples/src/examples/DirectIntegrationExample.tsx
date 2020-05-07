@@ -4,7 +4,7 @@ import GooglePayButton from 'react-google-pay-button';
 
 export default (props: any) => {
   return (
-    <Example title="Require Shipping">
+    <Example title="Direct Integration">
       <GooglePayButton
         environment={props.environment}
         paymentRequest={{
@@ -18,11 +18,10 @@ export default (props: any) => {
                 allowedCardNetworks: ['MASTERCARD', 'VISA'],
               },
               tokenizationSpecification: {
-                type: 'PAYMENT_GATEWAY',
+                type: 'DIRECT',
                 parameters: {
-                  'gateway': 'stripe',
-                  'stripe:version': '2018-10-31',
-                  'stripe:publishableKey': 'pk_test_MNKMwKAvgdo2yKOhIeCOE6MZ00yS3mWShu',
+                  'protocolVersion': 'ECv2',
+                  'publicKey': 'BMzk6xvwPgU8vjB6O/HnFFkMQL/w17yIoKy/6KuRYjOrh0eV12xM6guaYPHdgMHyUzTm9/Vi7KRu4tuRmhm6nv8=',
                 },
               },
             },
@@ -38,7 +37,6 @@ export default (props: any) => {
             currencyCode: 'USD',
             countryCode: 'US',
           },
-          shippingAddressRequired: true,
         }}
         onLoadPaymentData={paymentRequest => {
           console.log('Success', paymentRequest);

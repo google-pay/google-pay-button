@@ -17,70 +17,77 @@ const shippingOptions = [
   },
 ];
 
+const paymentRequest: google.payments.api.PaymentDataRequest = {
+  apiVersion: 2,
+  apiVersionMinor: 0,
+  allowedPaymentMethods: [
+    {
+      type: 'CARD',
+      parameters: {
+        allowedAuthMethods: ['PAN_ONLY', 'CRYPTOGRAM_3DS'],
+        allowedCardNetworks: ['MASTERCARD', 'VISA'],
+      },
+      tokenizationSpecification: {
+        type: 'PAYMENT_GATEWAY',
+        parameters: {
+          'gateway': 'stripe',
+          'stripe:version': '2018-10-31',
+          'stripe:publishableKey': 'pk_test_MNKMwKAvgdo2yKOhIeCOE6MZ00yS3mWShu',
+        },
+      },
+    },
+  ],
+  merchantInfo: {
+    merchantId: '17613812255336763067',
+    merchantName: 'Demo Merchant',
+  },
+  transactionInfo: {
+    totalPriceStatus: 'FINAL',
+    totalPriceLabel: 'Total',
+    totalPrice: '12.00',
+    currencyCode: 'USD',
+    countryCode: 'US',
+    displayItems: [
+      {
+        label: 'Subtotal',
+        type: 'SUBTOTAL',
+        price: '11.00',
+      },
+      {
+        label: 'Tax',
+        type: 'TAX',
+        price: '1.00',
+      },
+      {
+        label: 'Shipping',
+        type: 'LINE_ITEM',
+        price: '0',
+        status: 'PENDING',
+      }
+    ],
+  },
+  shippingAddressRequired: true,
+  shippingOptionParameters: {
+    defaultSelectedOptionId: 'free',
+    shippingOptions: shippingOptions.map(o => ({
+      id: o.id,
+      label: o.label,
+      description: o.description,
+    })),
+  },
+};
+
 export default (props: any) => {
   return (
     <Example title="Dynamic Price Updates">
       <GooglePayButton
-        allowedPaymentMethods={[
-          {
-            type: 'CARD',
-            parameters: {
-              allowedAuthMethods: ['PAN_ONLY', 'CRYPTOGRAM_3DS'],
-              allowedCardNetworks: ['MASTERCARD', 'VISA'],
-            },
-            tokenizationSpecification: {
-              type: 'PAYMENT_GATEWAY',
-              parameters: {
-                'gateway': 'stripe',
-                'stripe:version': '2018-10-31',
-                'stripe:publishableKey': 'pk_test_MNKMwKAvgdo2yKOhIeCOE6MZ00yS3mWShu',
-              },
-            },
-          },
-        ]}
-        merchantInfo={{
-          merchantId: '17613812255336763067',
-          merchantName: 'Demo Merchant',
-        }}
-        transactionInfo={{
-          totalPriceStatus: 'FINAL',
-          totalPriceLabel: 'Total',
-          totalPrice: '',
-          currencyCode: 'USD',
-          countryCode: 'US',
-          displayItems: [
-            {
-              label: 'Subtotal',
-              type: 'SUBTOTAL',
-              price: '11.00',
-            },
-            {
-              label: 'Tax',
-              type: 'TAX',
-              price: '1.00',
-            },
-            {
-              label: 'Shipping',
-              type: 'LINE_ITEM',
-              price: '0',
-              status: 'PENDING',
-            }
-          ],
-        }}
-        onPaymentDataResult={(paymentRequest: any) => {
+        environment={props.environment}
+        paymentRequest={paymentRequest}
+        onLoadPaymentData={paymentRequest => {
           console.log('Success', paymentRequest);
         }}
-        shippingAddressRequired={true}
-        shippingOptionParameters={{
-          defaultSelectedOptionId: 'free',
-          shippingOptions: shippingOptions.map(o => ({
-            id: o.id,
-            label: o.label,
-            description: o.description,
-          })),
-        }}
-        onPaymentDataChanged={(paymentData: any, paymentRequest: any) => {
-          const shippingOption = shippingOptions.find(o => o.id === paymentData.shippingOptionData.id);
+        onPaymentDataChanged={paymentData => {
+          const shippingOption = shippingOptions.find(o => o.id === paymentData.shippingOptionData?.id);
           const { displayItems } = paymentRequest.transactionInfo;
           if (displayItems) {
             const shippingItem = displayItems.find((i: any) => i.label === 'Shipping');
@@ -98,7 +105,9 @@ export default (props: any) => {
               };
             }
           }
+          return {};
         }}
+        existingPaymentMethodRequired={props.existingPaymentMethodRequired}
       />
     </Example>
   );

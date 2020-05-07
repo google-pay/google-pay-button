@@ -2,55 +2,28 @@ import React from 'react';
 import loadScript from './load-script';
 
 export type Props = {
-  environment: google.payments.api.Environment,
-  version: {
-    major: number,
-    minor: number,
-  },
-  emailRequired?: boolean,
+  environment?: google.payments.api.Environment,
   existingPaymentMethodRequired?: boolean,
-  merchantInfo: google.payments.api.MerchantInfo,
-  allowedPaymentMethods: google.payments.api.PaymentMethodSpecification[],
-  shippingAddressRequired?: boolean,
-  shippingAddressParameters?: google.payments.api.ShippingAddressParameters,
-  shippingOptionParameters?: google.payments.api.ShippingOptionParameters,
-  onPaymentDataChanged?: Function,
-  onPaymentAuthorized?: Function,
-  onPaymentDataResult?: Function,
-  onCancel?: Function,
-  onError?: Function,
-  onReadyToPayChange?: Function,
-  appearance: {
-    buttonColor?: google.payments.api.ButtonColor,
-    buttonType?: google.payments.api.ButtonType,
-  },
-  transactionInfo: google.payments.api.TransactionInfo,
+  paymentRequest: google.payments.api.PaymentDataRequest,
+  onPaymentDataChanged?: google.payments.api.PaymentDataChangedHandler,
+  onPaymentAuthorized?: google.payments.api.PaymentAuthorizedHandler,
+  onLoadPaymentData?: (paymentData: google.payments.api.PaymentData) => void,
+  onCancel?: (reason: google.payments.api.PaymentsError) => void,
+  onError?: (error: Error) => void,
+  onReadyToPayChange?: (isReadyToPay: boolean) => void,
+  buttonColor?: google.payments.api.ButtonColor,
+  buttonType?: google.payments.api.ButtonType,
   className?: string,
   style?: any,
 };
 
-type State ={
+type State = {
   isReadyToPay: boolean,
 };
 
 export default class GooglePayButton extends React.Component<Props, State> {
-  static defaultProps: Partial<Props> = {
-    environment: 'TEST',
-    version: {
-      major: 2,
-      minor: 0,
-    },
-    emailRequired: false,
-    existingPaymentMethodRequired: false,
-    shippingAddressRequired: false,
-    appearance: {
-      buttonColor: 'default',
-      buttonType: 'long',
-    },
-  };
-
-  private paymentRequest?: google.payments.api.PaymentDataRequest;
   private client?: google.payments.api.PaymentsClient;
+  private elementRef: React.RefObject<HTMLDivElement>;
 
   constructor(props: Props) {
     super(props);
@@ -59,141 +32,211 @@ export default class GooglePayButton extends React.Component<Props, State> {
       isReadyToPay: false,
     };
 
-    this.handleClick = this.handleClick.bind(this);
+    this.elementRef = React.createRef<HTMLDivElement>();
   }
 
-  buildPaymentRequest(): google.payments.api.PaymentDataRequest {
-    const paymentRequest: google.payments.api.PaymentDataRequest = {
-      apiVersion: this.props.version.major,
-      apiVersionMinor: this.props.version.minor,
-      merchantInfo: this.props.merchantInfo,
-      allowedPaymentMethods: this.props.allowedPaymentMethods,
-      emailRequired: this.props.emailRequired,
-      transactionInfo: this.props.transactionInfo,
-      shippingAddressRequired: this.props.shippingAddressRequired,
-      shippingAddressParameters: this.props.shippingAddressParameters,
-    };
-    const callbackIntents: google.payments.api.CallbackIntent[] = [];
-
-    if (this.props.onPaymentDataChanged) {
-      callbackIntents.push('SHIPPING_ADDRESS');
-  
-      if (this.props.shippingOptionParameters) {
-        callbackIntents.push('SHIPPING_OPTION');
-      }
-    }
-  
-    if (this.props.onPaymentAuthorized) {
-      callbackIntents.push('PAYMENT_AUTHORIZATION');
-    }
-
-    if (callbackIntents.length) {
-      paymentRequest.callbackIntents = callbackIntents;
-    }
-
-    if (this.props.shippingOptionParameters) {
-      paymentRequest.shippingOptionParameters = this.props.shippingOptionParameters;
-      paymentRequest.shippingOptionRequired = true;
-    }
-
-    const transactionInfo = paymentRequest.transactionInfo;
-    const { displayItems } = transactionInfo;
-    if (displayItems && !transactionInfo.totalPrice) {
-      const total = displayItems.reduce((sum, item) => sum + parseFloat(item.price), 0);
-      transactionInfo.totalPrice = total.toFixed(2);
-    }
-
-    return paymentRequest;
-  }
-
-  async handleClick() {
-    const paymentRequest = this.buildPaymentRequest();
-    this.paymentRequest = paymentRequest;
-
-    this.client!.loadPaymentData(paymentRequest)
-      .then(paymentResponse => {
-        if (this.props.onPaymentDataResult) {
-          this.props.onPaymentDataResult(paymentResponse);
-        }
-      })
-      .catch(error => {
-        if (error.statusCode === 'CANCELED') {
-          if (this.props.onCancel) {
-            this.props.onCancel(error);
-          }
-        } else if (this.props.onError) {
-          this.props.onError(error);
-        }
-        console.log('Error', { error, paymentRequest });
-      });
-  }
-
-  async componentDidMount() {
-    await loadScript('https://pay.google.com/gp/p/js/pay.js');
-    const google = window.google;
-
-    const { environment, onPaymentDataChanged, onPaymentAuthorized, onReadyToPayChange, existingPaymentMethodRequired } = this.props
+  createClientOptions() {
     const clientConfig: google.payments.api.PaymentOptions = {
-      environment: environment,
+      environment: this.props.environment,
     };
-  
-    if (onPaymentDataChanged || onPaymentAuthorized) {
+
+    if (this.props.onPaymentDataChanged || this.props.onPaymentAuthorized) {
       clientConfig.paymentDataCallbacks = {};
 
-      if (onPaymentDataChanged) {
-        clientConfig.paymentDataCallbacks.onPaymentDataChanged = (...args: any[]) => {
-          const result = onPaymentDataChanged(...args, this.paymentRequest);
+      if (this.props.onPaymentDataChanged) {
+        clientConfig.paymentDataCallbacks.onPaymentDataChanged = (paymentData) => {
+          const result = this.props.onPaymentDataChanged!(paymentData);
           return result || {};
         };
       }
-    
-      if (onPaymentAuthorized) {
-        clientConfig.paymentDataCallbacks.onPaymentAuthorized = (...args: any[]) => {
-          const result = onPaymentAuthorized(...args, this.paymentRequest);
+
+      if (this.props.onPaymentAuthorized) {
+        clientConfig.paymentDataCallbacks.onPaymentAuthorized = (paymentData) => {
+          const result = this.props.onPaymentAuthorized!(paymentData);
           return result || {};
-        }
+        };
       }
     }
-  
-    this.client = new google.payments.api.PaymentsClient(clientConfig);
-    const readyToPayResponse = await this.client.isReadyToPay(this.baseRequest as google.payments.api.IsReadyToPayRequest);
+
+    return clientConfig;
+  }
+
+  createIsReadyToPayRequest() {
+    const paymentRequest = this.props.paymentRequest;
+    const request: google.payments.api.IsReadyToPayRequest = {
+      apiVersion: paymentRequest.apiVersion,
+      apiVersionMinor: paymentRequest.apiVersionMinor,
+      allowedPaymentMethods: paymentRequest.allowedPaymentMethods,
+      existingPaymentMethodRequired: this.props.existingPaymentMethodRequired,
+    };
+
+    return request;
+  }
+
+  createLoadPaymentDataRequest() {
+    const request = {
+      ...this.props.paymentRequest
+    };
+
+    // infer shippingAddressRequired
+    if (request.shippingAddressParameters && request.shippingAddressRequired === undefined) {
+      request.shippingAddressRequired = true;
+    }
+
+    // infer shippingOptionRequired
+    if (request.shippingOptionParameters && request.shippingOptionRequired === undefined) {
+      request.shippingOptionRequired = true;
+    }
+
+    // infer callback intents if not set
+    if (!request.callbackIntents) {
+      const intents: google.payments.api.CallbackIntent[] = [];
+      if (this.props.onPaymentDataChanged) {
+        intents.push('PAYMENT_METHOD');
+
+        if (request.shippingAddressRequired) {
+          intents.push('SHIPPING_ADDRESS');
+        }
+
+        if (request.shippingOptionRequired) {
+          intents.push('SHIPPING_OPTION');
+        }
+      }
+
+      if (this.props.onPaymentAuthorized) {
+        intents.push('PAYMENT_AUTHORIZATION');
+      }
+
+      if (intents.length) {
+        request.callbackIntents = intents;
+      }
+    }
+
+    // infer billingAddressRequired
+    request.allowedPaymentMethods = request.allowedPaymentMethods.map(pm => {
+      const paymentMethod = {
+        ...pm,
+        parameters: {
+          ...pm.parameters,
+        }
+      };
+
+      if (paymentMethod.parameters.billingAddressParameters
+          && paymentMethod.parameters.billingAddressRequired === undefined) {
+        paymentMethod.parameters.billingAddressRequired = true;
+      }
+
+      return paymentMethod;
+    });
+
+    return request;
+  }
+
+  private async updateElement(prevProps?: Props) {
+    const element = this.elementRef.current;
+
+    if (!element) {
+      return;
+    }
+
+    // remove children
+    Array.from(element.children).forEach(child => child.remove());
+
+    await loadScript('https://pay.google.com/gp/p/js/pay.js');
+    this.client = new google.payments.api.PaymentsClient(this.createClientOptions());
+
     let isReadyToPay = false;
 
-    if ((existingPaymentMethodRequired && readyToPayResponse.paymentMethodPresent && readyToPayResponse.result)
-      || (!existingPaymentMethodRequired && readyToPayResponse.result)) {
-      this.client.createButton({
-        onClick: () => {},
+    try {
+      const readyToPay = await this.client.isReadyToPay(this.createIsReadyToPayRequest());
+      isReadyToPay = readyToPay.result && !this.props.existingPaymentMethodRequired
+        || (readyToPay.result && readyToPay.paymentMethodPresent && this.props.existingPaymentMethodRequired)
+        || false;
+    } catch (err) {
+      console.error(err);
+    }
+
+    if (isReadyToPay) {
+      const button = this.client.createButton({
+        buttonType: this.props.buttonType,
+        buttonColor: this.props.buttonColor,
+        onClick: this.handleClick,
       });
-      isReadyToPay = true;
+      element.appendChild(button);
     }
 
     this.setState({ isReadyToPay }, () => {
-      if (onReadyToPayChange) {
-        onReadyToPayChange(isReadyToPay);
+      if (this.props.onReadyToPayChange) {
+        this.props.onReadyToPayChange(isReadyToPay);
       }
     });
   }
 
+  private handleClick = async () => {
+    const request = this.createLoadPaymentDataRequest();
+
+    try {
+      const result = await this.client!.loadPaymentData(request);
+
+      if (this.props.onLoadPaymentData) {
+        this.props.onLoadPaymentData(result);
+      }
+    } catch (err) {
+      if (err.statusCode === 'CANCELED') {
+        if (this.props.onCancel) {
+          this.props.onCancel(err);
+        } else if (this.props.onError) {
+          this.props.onError(err);
+        }
+      }
+    }
+  };
+
+  private appendStyles() {
+    const styleId = 'default-google-style';
+    if (!document.getElementById(styleId)) {
+      const head = document.querySelector('head');
+
+      if (head) {
+        const style = document.createElement('style');
+        style.id = styleId;
+        style.type = 'text/css';
+        style.innerHTML = `
+          .google-pay-button-container {
+            display: inline-block;
+          }
+          .google-pay-button-container.fill > div, .google-pay-button-container.fill > div > .gpay-button {
+            width: 100%;
+            height: inherit;
+          }
+        `;
+
+        head.appendChild(style);
+      }
+    }
+  }
+
+  componentDidMount() {
+    this.appendStyles();
+    this.updateElement();
+  }
+
+  componentDidUpdate(prevProps: Props) {
+    const props = this.props;
+
+    if (props.environment !== prevProps.environment
+        || props.existingPaymentMethodRequired !== prevProps.existingPaymentMethodRequired) {
+      this.updateElement();
+    }
+  }
+
   render() {
-    const { isReadyToPay } = this.state;
-    const { className, style, appearance } = this.props;
-
-    const color = appearance.buttonColor === 'default' ? 'black' : appearance.buttonColor;
-    const buttonType = appearance.buttonType || 'long';
-
-    const classNames = ['gpay-button', color, buttonType, className]
-      .filter(c => c)
-      .join(' ');
-
     return (
-        isReadyToPay &&
-        <button
-          type='button'
-          aria-label='Google Pay'
-          className={classNames}
-          style={style}
-          onClick={this.handleClick}
-        />
+      <div
+        ref={this.elementRef}
+        className={['google-pay-button-container', this.props.className].filter(c => c).join(' ')}
+        style={this.props.style}
+      />
     );
   }
 }

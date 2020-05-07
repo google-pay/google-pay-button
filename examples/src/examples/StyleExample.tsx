@@ -25,7 +25,7 @@ const merchantInfo = {
   merchantName: 'Demo Merchant',
 };
 
-function onPaymentDataResult (paymentRequest: any) {
+function onLoadPaymentData(paymentRequest: any) {
   console.log('Success', paymentRequest);
 }
 
@@ -33,16 +33,23 @@ export default (props: any) => {
   return (
     <Example title="Button Style">
       <GooglePayButton
-        allowedPaymentMethods={allowedPaymentMethods}
-        merchantInfo={merchantInfo}
-        transactionInfo={{
-          totalPriceStatus: 'FINAL',
-          totalPriceLabel: 'Total',
-          totalPrice: props.amount,
-          currencyCode: 'USD',
-          countryCode: 'US',
+        environment={props.environment}
+        paymentRequest={{
+          apiVersion: 2,
+          apiVersionMinor: 0,
+          allowedPaymentMethods,
+          merchantInfo,
+          transactionInfo: {
+            totalPriceStatus: 'FINAL',
+            totalPriceLabel: 'Total',
+            totalPrice: props.amount,
+            currencyCode: 'USD',
+            countryCode: 'US',
+          },
         }}
-        onPaymentDataResult={onPaymentDataResult}
+        onLoadPaymentData={onLoadPaymentData}
+        existingPaymentMethodRequired={props.existingPaymentMethodRequired}
+        className="fill"
         style={{
           width: '40%',
           height: 80,
@@ -50,32 +57,46 @@ export default (props: any) => {
       />
 
       <GooglePayButton
-        allowedPaymentMethods={allowedPaymentMethods}
-        merchantInfo={merchantInfo}
-        transactionInfo={{
-          totalPriceStatus: 'FINAL',
-          totalPriceLabel: 'Total',
-          totalPrice: props.amount,
-          currencyCode: 'USD',
-          countryCode: 'US',
+        environment={props.environment}
+        paymentRequest={{
+          apiVersion: 2,
+          apiVersionMinor: 0,
+          allowedPaymentMethods,
+          merchantInfo,
+          transactionInfo: {
+            totalPriceStatus: 'FINAL',
+            totalPriceLabel: 'Total',
+            totalPrice: props.amount,
+            currencyCode: 'USD',
+            countryCode: 'US',
+          },
         }}
-        onPaymentDataResult={onPaymentDataResult}
+        onLoadPaymentData={onLoadPaymentData}
+        existingPaymentMethodRequired={props.existingPaymentMethodRequired}
+        className="fill"
         style={{
           height: 70,
         }}
       />
 
       <GooglePayButton
-        allowedPaymentMethods={allowedPaymentMethods}
-        merchantInfo={merchantInfo}
-        transactionInfo={{
-          totalPriceStatus: 'FINAL',
-          totalPriceLabel: 'Total',
-          totalPrice: props.amount,
-          currencyCode: 'USD',
-          countryCode: 'US',
+        environment={props.environment}
+        paymentRequest={{
+          apiVersion: 2,
+          apiVersionMinor: 0,
+          allowedPaymentMethods,
+          merchantInfo,
+          transactionInfo: {
+            totalPriceStatus: 'FINAL',
+            totalPriceLabel: 'Total',
+            totalPrice: props.amount,
+            currencyCode: 'USD',
+            countryCode: 'US',
+          },
         }}
-        onPaymentDataResult={onPaymentDataResult}
+        onLoadPaymentData={onLoadPaymentData}
+        existingPaymentMethodRequired={props.existingPaymentMethodRequired}
+        className="fill"
         style={{
           width: 200,
         }}

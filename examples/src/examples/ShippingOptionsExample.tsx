@@ -21,46 +21,52 @@ export default (props: any) => {
   return (
     <Example title="Shipping Options">
       <GooglePayButton
-        allowedPaymentMethods={[
-          {
-            type: 'CARD',
-            parameters: {
-              allowedAuthMethods: ['PAN_ONLY', 'CRYPTOGRAM_3DS'],
-              allowedCardNetworks: ['MASTERCARD', 'VISA'],
-            },
-            tokenizationSpecification: {
-              type: 'PAYMENT_GATEWAY',
+        environment={props.environment}
+        paymentRequest={{
+          apiVersion: 2,
+          apiVersionMinor: 0,
+          allowedPaymentMethods: [
+            {
+              type: 'CARD',
               parameters: {
-                'gateway': 'stripe',
-                'stripe:version': '2018-10-31',
-                'stripe:publishableKey': 'pk_test_MNKMwKAvgdo2yKOhIeCOE6MZ00yS3mWShu',
+                allowedAuthMethods: ['PAN_ONLY', 'CRYPTOGRAM_3DS'],
+                allowedCardNetworks: ['MASTERCARD', 'VISA'],
+              },
+              tokenizationSpecification: {
+                type: 'PAYMENT_GATEWAY',
+                parameters: {
+                  'gateway': 'stripe',
+                  'stripe:version': '2018-10-31',
+                  'stripe:publishableKey': 'pk_test_MNKMwKAvgdo2yKOhIeCOE6MZ00yS3mWShu',
+                },
               },
             },
+          ],
+          merchantInfo: {
+            merchantId: '17613812255336763067',
+            merchantName: 'Demo Merchant',
           },
-        ]}
-        merchantInfo={{
-          merchantId: '17613812255336763067',
-          merchantName: 'Demo Merchant',
+          transactionInfo: {
+            totalPriceStatus: 'FINAL',
+            totalPriceLabel: 'Total',
+            totalPrice: props.amount,
+            currencyCode: 'USD',
+            countryCode: 'US',
+          },
+          shippingAddressRequired: true,
+          shippingOptionParameters: {
+            defaultSelectedOptionId: 'free',
+            shippingOptions: shippingOptions.map(o => ({
+              id: o.id,
+              label: o.label,
+              description: o.description,
+            })),
+          },
         }}
-        transactionInfo={{
-          totalPriceStatus: 'FINAL',
-          totalPriceLabel: 'Total',
-          totalPrice: props.amount,
-          currencyCode: 'USD',
-          countryCode: 'US',
-        }}
-        onPaymentDataResult={(paymentRequest: any) => {
+        onLoadPaymentData={paymentRequest => {
           console.log('Success', paymentRequest);
         }}
-        shippingAddressRequired={true}
-        shippingOptionParameters={{
-          defaultSelectedOptionId: 'free',
-          shippingOptions: shippingOptions.map(o => ({
-            id: o.id,
-            label: o.label,
-            description: o.description,
-          })),
-        }}
+        existingPaymentMethodRequired={props.existingPaymentMethodRequired}
       />
     </Example>
   );

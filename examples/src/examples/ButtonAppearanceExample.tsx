@@ -25,7 +25,7 @@ const merchantInfo = {
   merchantName: 'Demo Merchant',
 };
 
-function onPaymentDataResult (paymentRequest: any) {
+function onLoadPaymentData(paymentRequest: any) {
   console.log('Success', paymentRequest);
 }
 
@@ -33,71 +33,87 @@ export default (props: any) => {
   return (
     <Example title="Button Appearance">
       <GooglePayButton
-        allowedPaymentMethods={allowedPaymentMethods}
-        appearance={{
-          buttonType: 'short',
-          buttonColor: 'black',
+        buttonType="short"
+        buttonColor="black"
+        environment={props.environment}
+        paymentRequest={{
+          apiVersion: 2,
+          apiVersionMinor: 0,
+          allowedPaymentMethods,
+          merchantInfo,
+          transactionInfo: {
+            totalPriceStatus: 'FINAL',
+            totalPriceLabel: 'Total',
+            totalPrice: props.amount,
+            currencyCode: 'USD',
+            countryCode: 'US',
+          },
         }}
-        merchantInfo={merchantInfo}
-        transactionInfo={{
-          totalPriceStatus: 'FINAL',
-          totalPriceLabel: 'Total',
-          totalPrice: props.amount,
-          currencyCode: 'USD',
-          countryCode: 'US',
-        }}
-        onPaymentDataResult={onPaymentDataResult}
+        onLoadPaymentData={onLoadPaymentData}
+        existingPaymentMethodRequired={props.existingPaymentMethodRequired}
       />
 
       <GooglePayButton
-        allowedPaymentMethods={allowedPaymentMethods}
-        appearance={{
-          buttonType: 'long',
-          buttonColor: 'black',
+        buttonType="long"
+        buttonColor="black"
+        environment={props.environment}
+        paymentRequest={{
+          apiVersion: 2,
+          apiVersionMinor: 0,
+          allowedPaymentMethods,
+          merchantInfo,
+          transactionInfo: {
+            totalPriceStatus: 'FINAL',
+            totalPriceLabel: 'Total',
+            totalPrice: props.amount,
+            currencyCode: 'USD',
+            countryCode: 'US',
+          },
         }}
-        merchantInfo={merchantInfo}
-        transactionInfo={{
-          totalPriceStatus: 'FINAL',
-          totalPriceLabel: 'Total',
-          totalPrice: props.amount,
-          currencyCode: 'USD',
-          countryCode: 'US',
-        }}
-        onPaymentDataResult={onPaymentDataResult}
+        onLoadPaymentData={onLoadPaymentData}
+        existingPaymentMethodRequired={props.existingPaymentMethodRequired}
       />
 
       <GooglePayButton
-        allowedPaymentMethods={allowedPaymentMethods}
-        appearance={{
-          buttonType: 'short',
-          buttonColor: 'white',
+        buttonType="short"
+        buttonColor="white"
+        environment={props.environment}
+        paymentRequest={{
+          apiVersion: 2,
+          apiVersionMinor: 0,
+          allowedPaymentMethods,
+          merchantInfo,
+          transactionInfo: {
+            totalPriceStatus: 'FINAL',
+            totalPriceLabel: 'Total',
+            totalPrice: props.amount,
+            currencyCode: 'USD',
+            countryCode: 'US',
+          },
         }}
-        merchantInfo={merchantInfo}
-        transactionInfo={{
-          totalPriceStatus: 'FINAL',
-          totalPriceLabel: 'Total',
-          totalPrice: props.amount,
-          currencyCode: 'USD',
-          countryCode: 'US',
-        }}
-        onPaymentDataResult={onPaymentDataResult}
+        onLoadPaymentData={onLoadPaymentData}
+        existingPaymentMethodRequired={props.existingPaymentMethodRequired}
       />
 
       <GooglePayButton
-        allowedPaymentMethods={allowedPaymentMethods}
-        appearance={{
-          buttonType: 'long',
-          buttonColor: 'white',
+        buttonType="long"
+        buttonColor="white"
+        environment={props.environment}
+        paymentRequest={{
+          apiVersion: 2,
+          apiVersionMinor: 0,
+          allowedPaymentMethods,
+          merchantInfo,
+          transactionInfo: {
+            totalPriceStatus: 'FINAL',
+            totalPriceLabel: 'Total',
+            totalPrice: props.amount,
+            currencyCode: 'USD',
+            countryCode: 'US',
+          },
         }}
-        merchantInfo={merchantInfo}
-        transactionInfo={{
-          totalPriceStatus: 'FINAL',
-          totalPriceLabel: 'Total',
-          totalPrice: props.amount,
-          currencyCode: 'USD',
-          countryCode: 'US',
-        }}
-        onPaymentDataResult={onPaymentDataResult}
+        onLoadPaymentData={onLoadPaymentData}
+        existingPaymentMethodRequired={props.existingPaymentMethodRequired}
       />
     </Example>
   );

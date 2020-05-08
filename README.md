@@ -156,12 +156,6 @@ Visit the [Google Pay developer site](https://developers.google.com/pay/api/web/
     </td>
   </tr>
   <tr>
-    <td><p>onReadyToPayChange</p></td>
-    <td>
-      <p>Invoked when the user's <code>isReadyToPay</code> state changes. This callback can be used to change the application's behaviour based on whether or not the user is ready to pay.</p>
-    </td>
-  </tr>
-  <tr>
     <td><p>onPaymentAuthorized</p></td>
     <td>
       <p>Invoked when a user chooses a payment method. This callback should be used to validate whether or not the payment method can be used to complete a payment.</p>
@@ -174,6 +168,12 @@ Visit the [Google Pay developer site](https://developers.google.com/pay/api/web/
     <td>
       <p>Invoked when payment the user changes payment data options including payment method, shipping details, and contact details. This callback can be used to dynamically update <code>transactionInfo</code> when payment details, shipping address, or shipping options change.</p>
       <p>See <a href="https://developers.google.com/pay/api/web/reference/client#onPaymentDataChanged">payment data changed reference</a> for more information.</p>
+    </td>
+  </tr>
+  <tr>
+    <td><p>onReadyToPayChange</p></td>
+    <td>
+      <p>Invoked when the user's <code>isReadyToPay</code> state changes. This callback can be used to change the application's behaviour based on whether or not the user is ready to pay.</p>
     </td>
   </tr>
   <tr>

@@ -17,6 +17,7 @@ import GooglePayButton from 'react-google-pay-button';
 
 const App = () => (
   <GooglePayButton
+    environment="TEST"
     paymentRequest={{
       apiVersion: 2,
       apiVersionMinor: 0,

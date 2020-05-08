@@ -1,7 +1,7 @@
 {
-  "name": "react-google-pay-button",
+  "name": "google-pay-button",
   "version": "0.0.1",
-  "description": "React component for Google Pay Button",
+  "description": "Google Pay button component",
   "main": "dist/GooglePayButton.js",
   "types": "dist/GooglePayButton.d.ts",
   "scripts": {
@@ -10,7 +10,7 @@
     "prepublishOnly": "npm run test && npm run build"
   },
   "repository": {
-    "url": "https://github.com/google-pay/react-google-pay-button"
+    "url": "https://github.com/google-pay/google-pay-button"
   },
   "engines": {
     "node": ">=8.0.0"

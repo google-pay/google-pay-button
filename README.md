@@ -179,7 +179,7 @@ Visit the [Google Pay developer site](https://developers.google.com/pay/api/web/
   <tr>
     <td><p>onLoadPaymentData</p></td>
     <td>
-      <p>Invoked when a user has successfully nominated payment details.</p>
+      <p>Invoked when a user has successfully nominated payment details. This callback receives the <a href="https://developers.google.com/pay/api/web/reference/response-objects#PaymentData"><code>PaymentData</code> response</a> which includes the <a href="https://developers.google.com/pay/api/web/reference/response-objects#PaymentMethodData"><code>PaymentMethodData</code></a> that can be sent to <a href="https://developers.google.com/pay/api#participating-processors">supported payment processors</a>.</p>
     </td>
   </tr>
 </table>

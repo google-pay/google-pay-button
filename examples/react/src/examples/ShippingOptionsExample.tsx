@@ -1,10 +1,25 @@
 import React from 'react';
 import Example from './Example';
-import GooglePayButton from 'react-google-pay-button';
+import GooglePayButton from '@google-pay-button/react';
+
+const shippingOptions = [
+  {
+    id: 'free',
+    label: 'Free shipping',
+    description: 'Arrives in 5 to 7 days',
+    price: '0.00',
+  },
+  {
+    id: 'express',
+    label: 'Express shipping',
+    description: '$5.00 - Arrives in 1 to 3 days',
+    price: '5.00',
+  },
+];
 
 export default (props: any) => {
   return (
-    <Example title="On Cancel">
+    <Example title="Shipping Options">
       <GooglePayButton
         environment={props.environment}
         paymentRequest={{
@@ -38,11 +53,19 @@ export default (props: any) => {
             currencyCode: 'USD',
             countryCode: 'US',
           },
+          shippingAddressRequired: true,
+          shippingOptionParameters: {
+            defaultSelectedOptionId: 'free',
+            shippingOptions: shippingOptions.map(o => ({
+              id: o.id,
+              label: o.label,
+              description: o.description,
+            })),
+          },
         }}
         onLoadPaymentData={paymentRequest => {
           console.log('Success', paymentRequest);
         }}
-        onCancel={() => alert('Cancelled')}
         existingPaymentMethodRequired={props.existingPaymentMethodRequired}
         buttonColor={props.buttonColor}
         buttonType={props.buttonType}

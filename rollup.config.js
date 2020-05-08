@@ -3,9 +3,9 @@ import dts from "rollup-plugin-dts";
 
 export default [
   {
-    input: 'src/index.ts',
+    input: 'src/react/index.ts',
     output: {
-      file: 'dist/GooglePayButton.js',
+      file: 'src/react/dist/GooglePayButton.js',
       format: 'cjs'
     },
     external: [
@@ -16,9 +16,9 @@ export default [
     ],
   },
   {
-    input: 'src/index.ts',
+    input: 'src/react/index.ts',
     output: {
-      file: 'dist/GooglePayButton.d.ts',
+      file: 'src/react/dist/GooglePayButton.d.ts',
       format: 'cjs'
     },
     plugins: [

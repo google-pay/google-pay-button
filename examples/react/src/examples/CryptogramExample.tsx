@@ -1,10 +1,12 @@
-import React from 'react';
+import React, { useState } from 'react';
 import Example from './Example';
-import GooglePayButton from 'react-google-pay-button';
+import GooglePayButton from '@google-pay-button/react';
 
 export default (props: any) => {
+  const [ isReadyToPay, setIsReadyToPay ] = useState(false);
+
   return (
-    <Example title="American Express">
+    <Example title="Cryptogram 3ds">
       <GooglePayButton
         environment={props.environment}
         paymentRequest={{
@@ -14,8 +16,8 @@ export default (props: any) => {
             {
               type: 'CARD',
               parameters: {
-                allowedAuthMethods: ['PAN_ONLY', 'CRYPTOGRAM_3DS'],
-                allowedCardNetworks: ['AMEX'],
+                allowedAuthMethods: ['CRYPTOGRAM_3DS'],
+                allowedCardNetworks: ['AMEX', 'VISA', 'MASTERCARD'],
               },
               tokenizationSpecification: {
                 type: 'PAYMENT_GATEWAY',
@@ -42,10 +44,20 @@ export default (props: any) => {
         onLoadPaymentData={paymentRequest => {
           console.log('Success', paymentRequest);
         }}
+        onReadyToPayChange={isReady => {
+          setIsReadyToPay(isReady);
+        }}
         existingPaymentMethodRequired={props.existingPaymentMethodRequired}
+        style={{
+          display: isReadyToPay ? 'inline-block' : 'none',
+        }}
         buttonColor={props.buttonColor}
         buttonType={props.buttonType}
       />
+      <div
+        style={{
+          display: isReadyToPay ? 'none' : 'block',
+        }}>No payment methods available</div>
     </Example>
   );
 }

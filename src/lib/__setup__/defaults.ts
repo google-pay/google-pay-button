@@ -1,4 +1,4 @@
-import { Props } from '../GooglePayButton';
+import { Props } from '../../react/GooglePayButton';
 
 const defaults: Props = {
   environment: 'TEST',

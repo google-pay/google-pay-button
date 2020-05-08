@@ -1,10 +1,10 @@
 import React from 'react';
 import Example from './Example';
-import GooglePayButton from 'react-google-pay-button';
+import GooglePayButton from '@google-pay-button/react';
 
 export default (props: any) => {
   return (
-    <Example title="Payment Data Changed">
+    <Example title="American Express">
       <GooglePayButton
         environment={props.environment}
         paymentRequest={{
@@ -15,7 +15,7 @@ export default (props: any) => {
               type: 'CARD',
               parameters: {
                 allowedAuthMethods: ['PAN_ONLY', 'CRYPTOGRAM_3DS'],
-                allowedCardNetworks: ['MASTERCARD', 'VISA'],
+                allowedCardNetworks: ['AMEX'],
               },
               tokenizationSpecification: {
                 type: 'PAYMENT_GATEWAY',
@@ -38,13 +38,9 @@ export default (props: any) => {
             currencyCode: 'USD',
             countryCode: 'US',
           },
-          shippingAddressRequired: true,
         }}
         onLoadPaymentData={paymentRequest => {
           console.log('Success', paymentRequest);
-        }}
-        onPaymentDataChanged={paymentData => {
-          return {};
         }}
         existingPaymentMethodRequired={props.existingPaymentMethodRequired}
         buttonColor={props.buttonColor}

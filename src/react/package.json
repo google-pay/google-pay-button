@@ -1,0 +1,24 @@
+{
+  "name": "@google-pay-button/react",
+  "version": "0.0.1",
+  "description": "React component for Google Pay button",
+  "main": "dist/GooglePayButton.js",
+  "types": "dist/GooglePayButton.d.ts",
+  "repository": {
+    "url": "https://github.com/google-pay/google-pay-button"
+  },
+  "engines": {
+    "node": ">=8.0.0"
+  },
+  "author": "socsieng@google.com",
+  "license": "ISC",
+  "dependencies": {
+    "@types/googlepay": "^0.3.0"
+  },
+  "peerDependencies": {
+    "@types/react": ">=16.0.0",
+    "@types/react-dom": ">=16.0.0",
+    "react": ">=16.0.0",
+    "react-dom": ">=16.0.0"
+  }
+}

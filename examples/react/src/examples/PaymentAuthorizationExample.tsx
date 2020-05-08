@@ -1,10 +1,10 @@
 import React from 'react';
 import Example from './Example';
-import GooglePayButton from 'react-google-pay-button';
+import GooglePayButton from '@google-pay-button/react';
 
 export default (props: any) => {
   return (
-    <Example title="Display Items">
+    <Example title="Payment Authorization">
       <GooglePayButton
         environment={props.environment}
         paymentRequest={{
@@ -37,30 +37,12 @@ export default (props: any) => {
             totalPrice: props.amount,
             currencyCode: 'USD',
             countryCode: 'US',
-            displayItems: [
-              {
-                label: 'Subtotal',
-                type: 'SUBTOTAL',
-                price: '11.00',
-              },
-              {
-                label: 'Tax',
-                type: 'TAX',
-                price: '1.00',
-              },
-              {
-                label: 'Shipping',
-                type: 'LINE_ITEM',
-                price: '0',
-                status: 'PENDING',
-              }
-            ],
           },
         }}
         onLoadPaymentData={paymentRequest => {
           console.log('Success', paymentRequest);
         }}
-        onPaymentAuthorized={() => ({
+        onPaymentAuthorized={paymentData => ({
           transactionState: 'SUCCESS',
         })}
         existingPaymentMethodRequired={props.existingPaymentMethodRequired}

@@ -1,10 +1,10 @@
 import React from 'react';
 import Example from './Example';
-import GooglePayButton from 'react-google-pay-button';
+import GooglePayButton from '@google-pay-button/react';
 
 export default (props: any) => {
   return (
-    <Example title="Email Required">
+    <Example title="Payment Data Changed Error (no US address)">
       <GooglePayButton
         environment={props.environment}
         paymentRequest={{
@@ -38,10 +38,22 @@ export default (props: any) => {
             currencyCode: 'USD',
             countryCode: 'US',
           },
-          emailRequired: true,
+          shippingAddressRequired: true,
         }}
         onLoadPaymentData={paymentRequest => {
           console.log('Success', paymentRequest);
+        }}
+        onPaymentDataChanged={paymentData => {
+          if (paymentData.shippingAddress?.countryCode === 'US') {
+            return {
+              error: {
+                reason: 'SHIPPING_ADDRESS_UNSERVICEABLE',
+                message: 'Cannot ship to the United States of America',
+                intent: 'SHIPPING_ADDRESS'
+              }
+            };
+          }
+          return {};
         }}
         existingPaymentMethodRequired={props.existingPaymentMethodRequired}
         buttonColor={props.buttonColor}

@@ -13,7 +13,7 @@ npm install --save react-google-pay-button
 ```jsx
 import React from 'react';
 import ReactDOM from 'react-dom';
-import GooglePayButton from 'react-google-pay-button';
+import GooglePayButton from '@google-pay-button/react';
 
 const App = () => (
   <GooglePayButton
@@ -57,7 +57,7 @@ const App = () => (
 ReactDOM.render(<App />, document.getElementById('root'));
 ```
 
-More examples can be found in the [examples folder](./examples/src/examples) of this repository.
+More examples can be found in the [examples folder](./examples/react/src/examples) of this repository.
 
 ## Documentation
 

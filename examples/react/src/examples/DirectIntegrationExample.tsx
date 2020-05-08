@@ -1,25 +1,10 @@
 import React from 'react';
 import Example from './Example';
-import GooglePayButton from 'react-google-pay-button';
-
-const shippingOptions = [
-  {
-    id: 'free',
-    label: 'Free shipping',
-    description: 'Arrives in 5 to 7 days',
-    price: '0.00',
-  },
-  {
-    id: 'express',
-    label: 'Express shipping',
-    description: '$5.00 - Arrives in 1 to 3 days',
-    price: '5.00',
-  },
-];
+import GooglePayButton from '@google-pay-button/react';
 
 export default (props: any) => {
   return (
-    <Example title="Shipping Options">
+    <Example title="Direct Integration">
       <GooglePayButton
         environment={props.environment}
         paymentRequest={{
@@ -33,11 +18,10 @@ export default (props: any) => {
                 allowedCardNetworks: ['MASTERCARD', 'VISA'],
               },
               tokenizationSpecification: {
-                type: 'PAYMENT_GATEWAY',
+                type: 'DIRECT',
                 parameters: {
-                  'gateway': 'stripe',
-                  'stripe:version': '2018-10-31',
-                  'stripe:publishableKey': 'pk_test_MNKMwKAvgdo2yKOhIeCOE6MZ00yS3mWShu',
+                  'protocolVersion': 'ECv2',
+                  'publicKey': 'BMzk6xvwPgU8vjB6O/HnFFkMQL/w17yIoKy/6KuRYjOrh0eV12xM6guaYPHdgMHyUzTm9/Vi7KRu4tuRmhm6nv8=',
                 },
               },
             },
@@ -52,15 +36,6 @@ export default (props: any) => {
             totalPrice: props.amount,
             currencyCode: 'USD',
             countryCode: 'US',
-          },
-          shippingAddressRequired: true,
-          shippingOptionParameters: {
-            defaultSelectedOptionId: 'free',
-            shippingOptions: shippingOptions.map(o => ({
-              id: o.id,
-              label: o.label,
-              description: o.description,
-            })),
           },
         }}
         onLoadPaymentData={paymentRequest => {

@@ -75,14 +75,16 @@ Visit the [Google Pay developer site](https://developers.google.com/pay/api/web/
     <td><p><code>"default" | "black" | "white"</code></p></td>
     <td>
       <p>Optional.</p>
+      <p><code>"default"</code>/<code>"black"</code> buttons are suitable to be used on light colored backgrounds, with <code>"white"</code> being appropriate for dark colored backgrounds.</p>
       <p>Default value <code>"default"</code>.</p>
     </td>
   </tr>
   <tr>
     <td><p>buttonType</p></td>
-    <td><p><code>"short" | "long"</code></p></td>
+    <td><p><code>"long" | "short"</code></p></td>
     <td>
       <p>Optional.</p>
+      <p><code>"long"</code> buttons are presented with the <em>But with</em> prefix (localized based on the user's browser settings) in front of the Google Pay logo, while <code>"short"</code> buttons only displays the Google Pay logo.</p>
       <p>Default value <code>"long"</code>.</p>
     </td>
   </tr>

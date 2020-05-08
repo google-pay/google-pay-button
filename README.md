@@ -107,6 +107,7 @@ Visit the [Google Pay developer site](https://developers.google.com/pay/api/web/
     <td><p><code>boolean</code></p></td>
     <td>
       <p>Optional.</p>
+      <p>When set to <code>true</code> (and <code>environment</code> is <code>Production</code>), the Google Pay button will only be displayed if the user already has an existing payment that they can use to make a purchase.</p>
       <p>Default value <code>false</code>.</p>
     </td>
   </tr>

@@ -61,7 +61,7 @@ More examples can be found in the [examples folder](./examples/src/examples) of 
 
 ## Documentation
 
-Visit the [Google Pay developer site](https://developers.google.com/pay/api/web/overview) for more information.
+Visit the [Google Pay developer site](https://developers.google.com/pay/api/web/overview) for more information about integrating Google Pay into your website.
 
 ### Properties
 
@@ -172,7 +172,7 @@ Visit the [Google Pay developer site](https://developers.google.com/pay/api/web/
   <tr>
     <td><p>onPaymentDataChanged</p></td>
     <td>
-      <p>Invoked when payment the user changes payment data options including payment method, shipping details, and contact details. This callback can be used to dynamically update `transactionInfo` when payment details, shipping address, or shipping options change.</p>
+      <p>Invoked when payment the user changes payment data options including payment method, shipping details, and contact details. This callback can be used to dynamically update <code>transactionInfo</code> when payment details, shipping address, or shipping options change.</p>
       <p>See <a href="https://developers.google.com/pay/api/web/reference/client#onPaymentDataChanged">payment data changed reference</a> for more information.</p>
     </td>
   </tr>

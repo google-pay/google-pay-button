@@ -1,0 +1,64 @@
+
+.params {
+  padding: 5px;
+  background-color: #fff;
+  position: fixed;
+  width: 100%;
+  bottom: 0;
+  left: 0;
+  box-shadow: 0 0 5px rgba(0, 0, 0, 0.2);
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  box-sizing: border-box;
+
+
+  & > label {
+    margin: 5px 10px;
+    font-size: 12px;
+    display: flex;
+    flex-direction: column;
+    width: 150px;
+
+    & > * {
+      display: block;
+    }
+
+    & > span {
+      margin-bottom: 2px;
+      text-overflow: ellipsis;
+      white-space: nowrap;
+    }
+
+    & > input, & > select {
+      -webkit-appearance: none;
+      -moz-appearance: none;
+      appearance: none;
+      padding: 4px;
+      border: 1px solid #999;
+      background-color: #fff;
+      border-radius: 0;
+      color: #000;
+    }
+  }
+}
+
+.example {
+  margin: 5px;
+  display: flex;
+  flex-direction: row;
+
+  & > .title {
+    width: 400px;
+    align-items: center;
+    display: inherit;
+  }
+
+  & > .demo {
+    flex: 1 0 0;
+
+    & > * {
+      margin: 1px;
+    }
+  }
+}

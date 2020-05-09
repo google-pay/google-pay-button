@@ -1,0 +1,219 @@
+<style>
+</style>
+
+<div class="content" role="main">
+  <div class="params">
+    <label>
+      <span>Default amount:</span>
+      <input type="text" [(ngModel)]="amount" />
+    </label>
+    <label>
+      <span>Payment method required:</span>
+      <select [(ngModel)]="existingPaymentMethodRequired">
+        <option value="false">No</option>
+        <option value="true">Yes</option>
+      </select>
+    </label>
+    <label>
+      <span>Button color:</span>
+      <select [(ngModel)]="buttonColor">
+        <option value="default">default</option>
+        <option value="black">black</option>
+        <option value="white">white</option>
+      </select>
+    </label>
+    <label>
+      <span>Button type:</span>
+      <select [(ngModel)]="buttonType">
+        <option value="long">long</option>
+        <option value="short">short</option>
+      </select>
+    </label>
+  </div>
+
+  <div class="examples">
+    <div class="example">
+      <div class="title">Basic Example</div>
+      <div class="demo">
+        <google-pay-button
+          [buttonType]="buttonType"
+          [buttonColor]="buttonColor"
+          [existingPaymentMethodRequired]="existingPaymentMethodRequired"
+          [paymentRequest]="{
+            apiVersion: paymentRequest.apiVersion,
+            apiVersionMinor: paymentRequest.apiVersionMinor,
+            allowedPaymentMethods: paymentRequest.allowedPaymentMethods,
+            merchantInfo: paymentRequest.merchantInfo,
+            transactionInfo: {
+              totalPriceStatus: 'FINAL',
+              totalPriceLabel: 'Total',
+              totalPrice: amount,
+              currencyCode: 'USD',
+              countryCode: 'US'
+            }
+          }"
+          [loadPaymentDataCallback]="onLoadPaymentData"
+        ></google-pay-button>
+      </div>
+    </div>
+    <div class="example">
+      <div class="title">Payment Authorization</div>
+      <div class="demo">
+        <google-pay-button
+          [buttonType]="buttonType"
+          [buttonColor]="buttonColor"
+          [existingPaymentMethodRequired]="existingPaymentMethodRequired"
+          [paymentRequest]="{
+            apiVersion: paymentRequest.apiVersion,
+            apiVersionMinor: paymentRequest.apiVersionMinor,
+            allowedPaymentMethods: paymentRequest.allowedPaymentMethods,
+            merchantInfo: paymentRequest.merchantInfo,
+            transactionInfo: {
+              totalPriceStatus: 'FINAL',
+              totalPriceLabel: 'Total',
+              totalPrice: amount,
+              currencyCode: 'USD',
+              countryCode: 'US'
+            }
+          }"
+          [loadPaymentDataCallback]="onLoadPaymentData"
+          [paymentAuthorizedCallback]="onPaymentDataAuthorized"
+        ></google-pay-button>
+      </div>
+    </div>
+    <div class="example">
+      <div class="title">Cryptogram 3ds</div>
+      <div class="demo">
+        <google-pay-button
+          [buttonType]="buttonType"
+          [buttonColor]="buttonColor"
+          [existingPaymentMethodRequired]="existingPaymentMethodRequired"
+          [paymentRequest]="{
+            apiVersion: paymentRequest.apiVersion,
+            apiVersionMinor: paymentRequest.apiVersionMinor,
+            allowedPaymentMethods: [
+              {
+                type: 'CARD',
+                parameters: {
+                  allowedAuthMethods: ['CRYPTOGRAM_3DS'],
+                  allowedCardNetworks: ['AMEX', 'VISA', 'MASTERCARD']
+                },
+                tokenizationSpecification: {
+                  type: 'PAYMENT_GATEWAY',
+                  parameters: {
+                    'gateway': 'stripe'
+                  }
+                }
+              }
+            ],
+            merchantInfo: paymentRequest.merchantInfo,
+            transactionInfo: {
+              totalPriceStatus: 'FINAL',
+              totalPriceLabel: 'Total',
+              totalPrice: amount,
+              currencyCode: 'USD',
+              countryCode: 'US'
+            }
+          }"
+          [loadpaymentdataCallback]="onLoadPaymentData"
+          [paymentAuthorizedCallback]="onPaymentDataAuthorized"
+        ></google-pay-button>
+      </div>
+    </div>
+    <div class="example">
+      <div class="title">Require Shipping</div>
+      <div class="demo">
+        <google-pay-button
+          [buttonType]="buttonType"
+          [buttonColor]="buttonColor"
+          [existingPaymentMethodRequired]="existingPaymentMethodRequired"
+          [paymentRequest]="{
+            apiVersion: paymentRequest.apiVersion,
+            apiVersionMinor: paymentRequest.apiVersionMinor,
+            allowedPaymentMethods: paymentRequest.allowedPaymentMethods,
+            merchantInfo: paymentRequest.merchantInfo,
+            transactionInfo: {
+              totalPriceStatus: 'FINAL',
+              totalPriceLabel: 'Total',
+              totalPrice: amount,
+              currencyCode: 'USD',
+              countryCode: 'US'
+            },
+            shippingAddressRequired: true
+          }"
+          [loadPaymentDataCallback]="onLoadPaymentData"
+          [paymentAuthorizedCallback]="onPaymentDataAuthorized"
+        ></google-pay-button>
+      </div>
+    </div>
+    <div class="example">
+      <div class="title">Button Style</div>
+      <div class="demo">
+        <google-pay-button
+          [buttonType]="buttonType"
+          [buttonColor]="buttonColor"
+          [existingPaymentMethodRequired]="existingPaymentMethodRequired"
+          [paymentRequest]="{
+            apiVersion: paymentRequest.apiVersion,
+            apiVersionMinor: paymentRequest.apiVersionMinor,
+            allowedPaymentMethods: paymentRequest.allowedPaymentMethods,
+            merchantInfo: paymentRequest.merchantInfo,
+            transactionInfo: {
+              totalPriceStatus: 'FINAL',
+              totalPriceLabel: 'Total',
+              totalPrice: amount,
+              currencyCode: 'USD',
+              countryCode: 'US'
+            }
+          }"
+          [loadPaymentDataCallback]="onLoadPaymentData"
+          class="fill"
+          [style.width]="'40%'"
+          [style.height]="'80px'"
+        ></google-pay-button>
+        <google-pay-button
+          [buttonType]="buttonType"
+          [buttonColor]="buttonColor"
+          [existingPaymentMethodRequired]="existingPaymentMethodRequired"
+          [paymentRequest]="{
+            apiVersion: paymentRequest.apiVersion,
+            apiVersionMinor: paymentRequest.apiVersionMinor,
+            allowedPaymentMethods: paymentRequest.allowedPaymentMethods,
+            merchantInfo: paymentRequest.merchantInfo,
+            transactionInfo: {
+              totalPriceStatus: 'FINAL',
+              totalPriceLabel: 'Total',
+              totalPrice: amount,
+              currencyCode: 'USD',
+              countryCode: 'US'
+            }
+          }"
+          [loadPaymentDataCallback]="onLoadPaymentData"
+          class="fill"
+          [style.height]="'70px'"
+        ></google-pay-button>
+        <google-pay-button
+          [buttonType]="buttonType"
+          [buttonColor]="buttonColor"
+          [existingPaymentMethodRequired]="existingPaymentMethodRequired"
+          [paymentRequest]="{
+            apiVersion: paymentRequest.apiVersion,
+            apiVersionMinor: paymentRequest.apiVersionMinor,
+            allowedPaymentMethods: paymentRequest.allowedPaymentMethods,
+            merchantInfo: paymentRequest.merchantInfo,
+            transactionInfo: {
+              totalPriceStatus: 'FINAL',
+              totalPriceLabel: 'Total',
+              totalPrice: amount,
+              currencyCode: 'USD',
+              countryCode: 'US'
+            }
+          }"
+          [loadPaymentDataCallback]="onLoadPaymentData"
+          class="fill"
+          [style.width]="'200px'"
+        ></google-pay-button>
+      </div>
+    </div>
+  </div>
+</div>

@@ -1,5 +1,5 @@
 import { ButtonManager, Config } from '../lib/button-manager';
-import { Notify, NotifyAttribute, NotifyBooleanAttribute } from './property-decorators';
+import { Notify, NotifyAttribute, NotifyBooleanAttribute, Alias } from './property-decorators';
 import { debounce } from '../lib/debounce';
 
 class GooglePayButton extends HTMLElement {
@@ -23,17 +23,23 @@ class GooglePayButton extends HTMLElement {
   buttonType?: google.payments.api.ButtonType;
 
   @Notify()
+  @Alias('paymentDataChangedCallback')
   onPaymentDataChanged?: google.payments.api.PaymentDataChangedHandler;
 
   @Notify()
+  @Alias('paymentAuthorizedCallback')
   onPaymentAuthorized?: google.payments.api.PaymentAuthorizedHandler;
 
+  @Alias('readyToPayChangeCallback')
   onReadyToPayChange?: (isReadyToPay: boolean) => void;
 
+  @Alias('loadPaymentDataCallback')
   onLoadPaymentData?: (paymentData: google.payments.api.PaymentData) => void;
 
+  @Alias('cancelCallback')
   onCancel?: (reason: google.payments.api.PaymentsError) => void;
 
+  @Alias('errorCallback')
   onError?: (error: Error) => void;
 
   get isReadyToPay() {

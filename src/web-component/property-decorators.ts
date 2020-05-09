@@ -79,3 +79,18 @@ export function Notify(attribute?: string) {
     });
   }
 }
+
+export function Alias(alias: string) {
+  return function(target: NotifyTarget, key: string) {
+    Object.defineProperty(target, alias, {
+      get(this: NotifyTarget) {
+        return this[key];
+      },
+      set(this: NotifyTarget, value: any) {
+        this[key] = value;
+      },
+      enumerable: true,
+      configurable: false,
+    });
+  }
+}

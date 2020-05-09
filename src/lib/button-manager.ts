@@ -20,10 +20,14 @@ export class ButtonManager {
   private element?: HTMLElement;
   private selector: string;
 
-  isReadyToPay: boolean = false;
+  isReadyToPay?: boolean;
 
   constructor(selector: string) {
     this.selector = selector;
+  }
+
+  getElement() {
+    return this.element;
   }
 
   mount(element: HTMLElement) {
@@ -188,9 +192,11 @@ export class ButtonManager {
       element.appendChild(button);
     }
 
-    this.isReadyToPay = isReadyToPay;
-    if (this.config.onReadyToPayChange) {
-      this.config.onReadyToPayChange(isReadyToPay);
+    if (this.isReadyToPay !== isReadyToPay) {
+      this.isReadyToPay = isReadyToPay;
+      if (this.config.onReadyToPayChange) {
+        this.config.onReadyToPayChange(isReadyToPay);
+      }
     }
   }
 

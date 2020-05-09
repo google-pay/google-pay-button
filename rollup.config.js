@@ -5,7 +5,7 @@ export default [
   {
     input: 'src/react/index.ts',
     output: {
-      file: 'src/react/dist/GooglePayButton.js',
+      file: 'src/react/dist/index.js',
       format: 'cjs'
     },
     external: [
@@ -18,8 +18,33 @@ export default [
   {
     input: 'src/react/index.ts',
     output: {
-      file: 'src/react/dist/GooglePayButton.d.ts',
+      file: 'src/react/dist/index.d.ts',
       format: 'cjs'
+    },
+    plugins: [
+      dts()
+    ],
+  },
+
+  {
+    input: 'src/web-component/index.ts',
+    output: {
+      file: 'src/web-component/dist/index.js',
+      format: 'es',
+      name: 'google-pay-button'
+    },
+    external: [
+      'react'
+    ],
+    plugins: [
+      typescript()
+    ],
+  },
+  {
+    input: 'src/web-component/index.ts',
+    output: {
+      file: 'src/web-component/dist/index.d.ts',
+      format: 'es'
     },
     plugins: [
       dts()

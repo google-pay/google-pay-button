@@ -20,7 +20,7 @@ jobs:
         run: |
           cd src/react
           npm publish
-          cd ../src/web-component
+          cd ../web-component
           npm publish
         env:
           NODE_AUTH_TOKEN: ${{secrets.GITHUB_TOKEN}}

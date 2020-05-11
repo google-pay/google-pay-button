@@ -1,4 +1,5 @@
 {
+  "private": true,
   "name": "google-pay-button",
   "version": "0.0.2",
   "description": "Google Pay button component",

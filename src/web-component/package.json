@@ -1,5 +1,5 @@
 {
-  "name": "@google-pay-button/web-component",
+  "name": "@google-pay/web-component-button",
   "version": "0.0.1",
   "description": "Web component for Google Pay button",
   "main": "dist/index.js",

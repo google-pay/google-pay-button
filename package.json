@@ -8,7 +8,9 @@
   "scripts": {
     "build": "rimraf src/react/dist && rimraf src/web-component/dist && rollup -c",
     "test": "jest",
-    "prepublishOnly": "npm run test && npm run build"
+    "prepublishOnly": "npm run test && npm run build",
+    "tag": "git tag -f \"v$(node scripts/version.js)\"",
+    "publish": "npm run prepublishOnly && scripts/publish.sh"
   },
   "repository": {
     "url": "https://github.com/google-pay/google-pay-button"

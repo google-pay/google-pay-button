@@ -10,7 +10,7 @@
     "test": "jest",
     "prepublishOnly": "npm run test && npm run build",
     "tag": "git tag -f \"v$(node scripts/version.js)\"",
-    "publish": "npm run prepublishOnly && scripts/publish.sh"
+    "publish:custom": "npm run prepublishOnly && scripts/publish.sh"
   },
   "repository": {
     "url": "https://github.com/google-pay/google-pay-button"

@@ -6,7 +6,7 @@
   "main": "dist/GooglePayButton.js",
   "types": "dist/GooglePayButton.d.ts",
   "scripts": {
-    "build": "rimraf src/react/dist && rimraf src/web-component/dist && rollup -c",
+    "build": "scripts/build.sh",
     "test": "jest",
     "prepublishOnly": "npm run test && npm run build",
     "tag": "git tag -f \"v$(node scripts/version.js)\"",

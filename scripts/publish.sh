@@ -5,7 +5,7 @@ cwd=`pwd`
 script_folder=`cd $(dirname $0) && pwd`
 root_version=`node $script_folder/version.js`
 
-folders=("src/react" "src/web-component")
+source $script_folder/folders.sh
 
 # generate package.json
 for folder in "${folders[@]}"

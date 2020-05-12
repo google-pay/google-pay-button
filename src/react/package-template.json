@@ -11,7 +11,7 @@
     "node": ">=8.0.0"
   },
   "author": "socsieng@google.com",
-  "license": "ISC",
+  "license": "Apache-2.0",
   "dependencies": {
     "@types/googlepay": "^0.3.0"
   },

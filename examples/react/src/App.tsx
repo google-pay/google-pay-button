@@ -18,17 +18,12 @@ import DirectIntegrationExample from './examples/DirectIntegrationExample';
 
 const App: React.FC = () => {
   const [amount, setAmount] = useState('100.00');
-  const [environment, setEnvironment] = useState('TEST');
   const [existingPaymentMethodRequired, setExistingPaymentMethodRequired] = useState(false);
   const [buttonColor, setButtonColor] = useState('default');
   const [buttonType, setButtonType] = useState('long');
 
   function handleAmountChange(event: any) {
     setAmount(event.target.value);
-  }
-
-  function handleEnvironmentChange(event: any) {
-    setEnvironment(event.target.value);
   }
 
   function handleExistingPaymentMethodRequired(event: any) {
@@ -45,7 +40,6 @@ const App: React.FC = () => {
 
   const props = {
     amount,
-    environment,
     existingPaymentMethodRequired,
     buttonColor: buttonColor,
     buttonType: buttonType,
@@ -57,13 +51,6 @@ const App: React.FC = () => {
         <label>
           <span>Default amount:</span>
           <input type='text' defaultValue={amount} onBlur={handleAmountChange} />
-        </label>
-        <label>
-          <span>Default environment:</span>
-          <select onChange={handleEnvironmentChange} value={environment}>
-            <option value="TEST">TEST</option>
-            <option value="PRODUCTION">PRODUCTION</option>
-          </select>
         </label>
         <label>
           <span>Payment method required:</span>

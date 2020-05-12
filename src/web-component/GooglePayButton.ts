@@ -1,5 +1,5 @@
 import { ButtonManager, Config } from '../lib/button-manager';
-import { Notify, NotifyAttribute, NotifyBooleanAttribute, Alias } from './property-decorators';
+import { Notify, NotifyAttribute, NotifyBooleanAttribute, Alias } from '../lib/property-decorators';
 import { debounce } from '../lib/debounce';
 
 class GooglePayButton extends HTMLElement {

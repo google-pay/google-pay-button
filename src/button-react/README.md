@@ -123,7 +123,6 @@ Visit the [Google Pay developer site](https://developers.google.com/pay/api/web/
     <td>
       <p>Optional.</p>
       <p>The CSS style attributes to apply to the element.</p>
-      <p>Note: to customize the width or heifht of the Google Pay button, the <code>fill</code> class should be included in <code>className</code>.</p>
     </td>
   </tr>
 </table>

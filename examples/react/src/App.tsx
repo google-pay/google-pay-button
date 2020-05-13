@@ -13,7 +13,6 @@ import PaymentDataChangedErrorExample from './examples/PaymentDataChangedErrorEx
 import OnCancelExample from './examples/OnCancelExample';
 import DisplayItemsExample from './examples/DisplayItemsExample';
 import DynamicPriceUpdateExample from './examples/DynamicPriceUpdateExample';
-import StyleExample from './examples/StyleExample';
 import DirectIntegrationExample from './examples/DirectIntegrationExample';
 
 const App: React.FC = () => {
@@ -89,7 +88,6 @@ const App: React.FC = () => {
       <OnCancelExample {...props} />
       <DisplayItemsExample {...props} />
       <DynamicPriceUpdateExample {...props} />
-      <StyleExample {...props} />
     </div>
   );
 }

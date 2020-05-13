@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import Example from './Example';
-import GooglePayButton from '@google-pay-button/react';
+import GooglePayButton from '@google-pay/button-react';
 
 export default (props: any) => {
   const [ isReadyToPay, setIsReadyToPay ] = useState(false);

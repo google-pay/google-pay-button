@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import '@google-pay-button/web-component';
+import '@google-pay/button-element';
 
 @Component({
   selector: 'app-root',

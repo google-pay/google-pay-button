@@ -12,4 +12,4 @@
 # See the License for the specific language governing permissions and
 # limitations under the License.
 
-folders=("src/react" "src/web-component")
+folders=("src/button-react" "src/button-element")

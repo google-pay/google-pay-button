@@ -1,5 +1,5 @@
 {
-  "name": "@google-pay/react-button",
+  "name": "@google-pay/button-react",
   "version": "0.0.0",
   "description": "React component for Google Pay button",
   "main": "dist/index.js",

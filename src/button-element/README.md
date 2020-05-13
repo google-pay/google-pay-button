@@ -5,7 +5,7 @@ This is the web component for the Google Pay button. This component can be used 
 ## Installation
 
 ```sh
-npm install @google-pay/web-component-button
+npm install @google-pay/button-element
 ```
 
 ## Example usage: HTML website
@@ -19,7 +19,7 @@ npm install @google-pay/web-component-button
   </google-pay-button>
 </div>
 <script type="module">
-  import './node_modules/@google-pay-button/web-component/dist/index.js';
+  import './node_modules/@google-pay/button-element/dist/index.js';
   
   const button = document.querySelector('google-pay-button');
   button.paymentRequest = {
@@ -60,7 +60,7 @@ npm install @google-pay/web-component-button
 </script>
 ```
 
-More HTML examples can be found in the [examples folder](../../examples/web-component) of this repository.
+More HTML examples can be found in the [examples folder](../../examples/html) of this repository.
 
 ## Example usage: Angular website
 

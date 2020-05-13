@@ -1,5 +1,5 @@
 {
-  "name": "web-component",
+  "name": "html",
   "version": "0.1.0",
   "description": "",
   "main": "index.js",
@@ -13,6 +13,6 @@
     "http-server": "^0.12.3"
   },
   "dependencies": {
-    "@google-pay-button/web-component": "file:../../src/web-component"
+    "@google-pay/button-element": "file:../../src/button-element"
   }
 }

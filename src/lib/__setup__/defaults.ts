@@ -14,7 +14,7 @@
  * limitations under the License.
  */
 
-import { Props } from '../../react/GooglePayButton';
+import { Props } from '../../button-react/GooglePayButton';
 
 const defaults: Props = {
   environment: 'TEST',

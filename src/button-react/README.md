@@ -5,7 +5,7 @@ This is the React component for the Google Pay button.
 ## Installation
 
 ```sh
-npm install @google-pay/react-button
+npm install @google-pay/button-react
 ```
 
 ## Example usage

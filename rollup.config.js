@@ -3,9 +3,9 @@ import dts from "rollup-plugin-dts";
 
 export default [
   {
-    input: 'src/react/index.ts',
+    input: 'src/button-react/index.ts',
     output: {
-      file: 'src/react/dist/index.js',
+      file: 'src/button-react/dist/index.js',
       format: 'cjs'
     },
     external: [
@@ -16,9 +16,9 @@ export default [
     ],
   },
   {
-    input: 'src/react/index.ts',
+    input: 'src/button-react/index.ts',
     output: {
-      file: 'src/react/dist/index.d.ts',
+      file: 'src/button-react/dist/index.d.ts',
       format: 'cjs'
     },
     plugins: [
@@ -27,23 +27,20 @@ export default [
   },
 
   {
-    input: 'src/web-component/index.ts',
+    input: 'src/button-element/index.ts',
     output: {
-      file: 'src/web-component/dist/index.js',
+      file: 'src/button-element/dist/index.js',
       format: 'es',
       name: 'google-pay-button'
     },
-    external: [
-      'react'
-    ],
     plugins: [
       typescript()
     ],
   },
   {
-    input: 'src/web-component/index.ts',
+    input: 'src/button-element/index.ts',
     output: {
-      file: 'src/web-component/dist/index.d.ts',
+      file: 'src/button-element/dist/index.d.ts',
       format: 'es'
     },
     plugins: [

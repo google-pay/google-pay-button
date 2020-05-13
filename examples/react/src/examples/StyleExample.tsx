@@ -1,6 +1,6 @@
 import React from 'react';
 import Example from './Example';
-import GooglePayButton from '@google-pay-button/react';
+import GooglePayButton from '@google-pay/button-react';
 
 const allowedPaymentMethods: google.payments.api.PaymentMethodSpecification[] = [
   {

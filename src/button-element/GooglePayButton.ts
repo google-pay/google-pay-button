@@ -19,7 +19,7 @@ import { Notify, NotifyAttribute, NotifyBooleanAttribute, Alias } from '../lib/p
 import { debounce } from '../lib/debounce';
 
 class GooglePayButton extends HTMLElement {
-  private manager = new ButtonManager('google-pay-button');
+  private manager: ButtonManager;
 
   private static _observedAttributes: string[] = [];
 
@@ -94,6 +94,19 @@ class GooglePayButton extends HTMLElement {
     GooglePayButton._observedAttributes.push(name);
   }
 
+  constructor() {
+    super();
+
+    if (ShadowRoot) {
+      this.attachShadow({
+        mode: 'open',
+      });
+      this.manager = new ButtonManager(':host');
+    } else {
+      this.manager = new ButtonManager('google-pay-button');
+    }
+  }
+
   private dispatch<T>(type: string, detail: T) {
     this.dispatchEvent(new CustomEvent(type, {
       bubbles: true,
@@ -145,7 +158,7 @@ class GooglePayButton extends HTMLElement {
   });
 
   connectedCallback() {
-    this.manager.mount(this);
+    this.manager.mount(this.shadowRoot || this);
     return this.initializeButton();
   }
 

@@ -33,7 +33,7 @@ export interface Config {
 export class ButtonManager {
   private client?: google.payments.api.PaymentsClient;
   private config?: Config;
-  private element?: HTMLElement;
+  private element?: Node;
   private selector: string;
 
   isReadyToPay?: boolean;
@@ -46,7 +46,7 @@ export class ButtonManager {
     return this.element;
   }
 
-  mount(element: HTMLElement) {
+  mount(element: Node) {
     this.element = element;
     if (element) {
       this.appendStyles();
@@ -169,6 +169,16 @@ export class ButtonManager {
     return this.element != null && this.element.isConnected !== false;
   }
 
+  private removeButton() {
+    if (this.element instanceof ShadowRoot || this.element instanceof Element) {
+      Array.from(this.element.children).forEach(child => {
+        if (child.tagName !== 'STYLE') {
+          child.remove();
+        }
+      });
+    }
+  }
+
   private async updateElement() {
     if (!this.isMounted()) return;
     const element = this.element!;
@@ -177,8 +187,8 @@ export class ButtonManager {
       throw Error('google-pay-button: Missing configuration');
     }
 
-    // remove children
-    element.textContent = '';
+    // remove button
+    this.removeButton();
 
     await loadScript('https://pay.google.com/gp/p/js/pay.js');
 
@@ -205,6 +215,8 @@ export class ButtonManager {
         buttonColor: this.config.buttonColor,
         onClick: this.handleClick,
       });
+
+      this._copyGPayStyles();
       element.appendChild(button);
     }
 
@@ -242,25 +254,61 @@ export class ButtonManager {
   };
 
   private appendStyles() {
-    const styleId = `default-google-style-${this.selector.replace(/\./g, '')}`;
+    if (typeof document === 'undefined') return;
+
+    const rootNode = this.element?.getRootNode() as (Document | ShadowRoot | undefined);
+    const styleId = `default-google-style-${this.selector.replace(/[^\w-]+/g, '')}`;
 
     // initialize styles if rendering on the client:
-    if (typeof document !== 'undefined' && !document.getElementById(styleId)) {
-      const style = document.createElement('style');
-      style.id = styleId;
-      style.type = 'text/css';
-      style.innerHTML = `
-        ${this.selector} {
-          display: inline-block;
-        }
-        ${this.selector}.fill > div,
-        ${this.selector}.fill > div > .gpay-button {
-          width: 100%;
-          height: inherit;
-        }
-      `;
+    if (rootNode) {
+      if (!rootNode.getElementById?.(styleId)) {
+        const style = document.createElement('style');
+        style.id = styleId;
+        style.type = 'text/css';
+        style.innerHTML = `
+          ${this.selector} {
+            display: inline-block;
+          }
+          ${this.selector}.fill > div,
+          ${this.selector}.fill > div > .gpay-button {
+            width: 100%;
+            height: inherit;
+          }
+        `;
 
-      document.head.appendChild(style);
+        if (rootNode instanceof Document && rootNode.head) {
+          rootNode.head.appendChild(style);
+        } else {
+          rootNode.appendChild(style);
+        }
+      }
+    }
+  }
+
+  /**
+   * workaround to get css styles into component
+   * @param node Node to append styles to
+   */
+  private _copyGPayStyles() {
+    const node = this.element?.getRootNode();
+
+    if (node && node instanceof ShadowRoot) {
+      const styles = document.querySelectorAll('head > style');
+      const gPayStyles = Array.from(styles).filter(s => s.innerHTML.indexOf('.gpay-button') !== -1);
+      const existingStyles = new Set(
+        Array.from(node.childNodes)
+          .filter(n => n instanceof HTMLElement && n.nodeName === 'STYLE' && n.id)
+          .map(n => (n as HTMLElement).id)
+      );
+  
+      gPayStyles.forEach((s, i) => {
+        const id = `google-pay-button-style-${i + 1}`;
+        if (!existingStyles.has(id)) {
+          const style = document.createElement('style');
+          style.innerHTML = s.innerHTML;
+          node.appendChild(style);
+        }
+      });  
     }
   }
 

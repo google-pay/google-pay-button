@@ -4,129 +4,51 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <title>Google Pay Example</title>
+    <link rel="stylesheet" type="text/css" href="app.css">
   </head>
   <body>
-    <div id="buttons">
-      <google-pay-button
-        environment="TEST"
-        button-type="short"
-        button-color="black">
-      </google-pay-button>
+    <div class="params">
+      <label>
+        <span>Default amount:</span>
+        <input type="text" id="amount" value="100.00" />
+      </label>
+      <label>
+        <span>Payment method required:</span>
+        <select id="existing-payment-method-required">
+          <option value="false" selected>No</option>
+          <option value="true">Yes</option>
+        </select>
+      </label>
+      <label>
+        <span>Button color:</span>
+        <select id="button-color">
+          <option value="default" selected>default</option>
+          <option value="black">black</option>
+          <option value="white">white</option>
+        </select>
+      </label>
+      <label>
+        <span>Button type:</span>
+        <select id="button-type">
+          <option value="long" selected>long</option>
+          <option value="short">short</option>
+        </select>
+      </label>
+    </div>
+
+    <div id="examples" class="examples">
+      <div class="example">
+        <div class="title">Static Example</div>
+        <div class="demo">
+          <google-pay-button
+            id="static"
+            environment="TEST"
+            button-type="short"
+            button-color="black">
+          </google-pay-button>
+        </div>
+      </div>
     </div>
   </body>
-  <script type="module">
-    import './node_modules/@google-pay/button-element/dist/index.js';
-    
-    const button = document.querySelector('google-pay-button');
-    button.paymentRequest = {
-      apiVersion: 2,
-      apiVersionMinor: 0,
-      allowedPaymentMethods: [
-        {
-          type: 'CARD',
-          parameters: {
-            allowedAuthMethods: ['PAN_ONLY', 'CRYPTOGRAM_3DS'],
-            allowedCardNetworks: ['MASTERCARD', 'VISA'],
-            billingAddressRequired: true,
-          },
-          tokenizationSpecification: {
-            type: 'PAYMENT_GATEWAY',
-            parameters: {
-              'gateway': 'stripe',
-              'stripe:version': '2018-10-31',
-              'stripe:publishableKey': 'pk_test_MNKMwKAvgdo2yKOhIeCOE6MZ00yS3mWShu',
-            },
-          },
-        },
-      ],
-      merchantInfo: {
-        merchantId: '17613812255336763067',
-        merchantName: 'Demo Merchant',
-      },
-      transactionInfo: {
-        totalPriceStatus: 'FINAL',
-        totalPriceLabel: 'Total',
-        totalPrice: '100',
-        currencyCode: 'USD',
-        countryCode: 'US',
-      },
-      shippingAddressParameters: {},
-    };
-    button.addEventListener('loadpaymentdata', event => {
-      console.log('load payment data', event.detail);
-    });
-    button.addEventListener('error', event => {
-      console.log('load payment data error', event.error);
-    });
-    button.addEventListener('cancel', event => {
-      console.log('cancelled');
-    });
-    button.onPaymentDataChanged = (intermediatePaymentData) => {
-      return {};
-    };
-    button.onPaymentAuthorized = (paymentData) => {
-      console.log('authorized');
-      return {
-        transactionState: 'SUCCESS',
-      };
-    };
-  </script>
-  <script type="module">
-    import GooglePayButton from './node_modules/@google-pay/button-element/dist/index.js';
-    
-    // create the button
-    const button = new GooglePayButton();
-
-    button.paymentRequest = {
-      apiVersion: 2,
-      apiVersionMinor: 0,
-      allowedPaymentMethods: [
-        {
-          type: 'CARD',
-          parameters: {
-            allowedAuthMethods: ['PAN_ONLY', 'CRYPTOGRAM_3DS'],
-            allowedCardNetworks: ['MASTERCARD', 'VISA'],
-            billingAddressParameters: {
-              format: 'MIN',
-            },
-          },
-          tokenizationSpecification: {
-            type: 'PAYMENT_GATEWAY',
-            parameters: {
-              'gateway': 'stripe',
-              'stripe:version': '2018-10-31',
-              'stripe:publishableKey': 'pk_test_MNKMwKAvgdo2yKOhIeCOE6MZ00yS3mWShu',
-            },
-          },
-        },
-      ],
-      merchantInfo: {
-        merchantId: '17613812255336763067',
-        merchantName: 'Demo Merchant',
-      },
-      transactionInfo: {
-        totalPriceStatus: 'FINAL',
-        totalPriceLabel: 'Total',
-        totalPrice: '100',
-        currencyCode: 'USD',
-        countryCode: 'US',
-      },
-    };
-    button.existingPaymentRequired = true;
-    button.addEventListener('loadpaymentdata', event => {
-      console.log('load payment data', event.detail);
-    });
-    button.addEventListener('error', event => {
-      console.log('load payment data error', event.error);
-    });
-    button.addEventListener('cancel', event => {
-      console.log('cancelled');
-    });
-    button.addEventListener('readytopaychange', event => {
-      console.log('isReadyToPay', event.detail);
-    });
-    
-    const container = document.querySelector('#buttons');
-    container.appendChild(button);
-  </script>
+  <script type="module" src="app.js"></script>
 </html>

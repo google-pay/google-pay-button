@@ -1,0 +1,63 @@
+.params {
+  padding: 5px;
+  background-color: #fff;
+  position: fixed;
+  width: 100%;
+  bottom: 0;
+  left: 0;
+  box-shadow: 0 0 5px rgba(0, 0, 0, 0.2);
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  box-sizing: border-box;
+
+}
+
+.params > label {
+  margin: 5px 10px;
+  font-size: 12px;
+  display: flex;
+  flex-direction: column;
+  width: 150px;
+}
+
+.params > label > * {
+  display: block;
+}
+
+.params > label > span {
+  margin-bottom: 2px;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.params > label > input, .params > label > select {
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+  padding: 4px;
+  border: 1px solid #999;
+  background-color: #fff;
+  border-radius: 0;
+  color: #000;
+}
+
+.example {
+  margin: 5px;
+  display: flex;
+  flex-direction: row;
+}
+
+.example > .title {
+  width: 250px;
+  align-items: center;
+  display: inherit;
+}
+
+.example > .demo {
+  flex: 1 0 0;
+}
+
+.example > .demo > * {
+  margin: 1px;
+}

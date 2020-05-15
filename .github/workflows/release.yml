@@ -6,16 +6,17 @@ on:
 
 jobs:
   publish-gpr:
+    name: github
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v2
-      - run: npm install
-      - run: npm build
       - uses: actions/setup-node@v1
         with:
           node-version: '12.x'
           registry-url: https://npm.pkg.github.com/
           scope: '@google-pay'
-      - run: npm run publish:custom
+      - run: npm install
+      - run: npm run build
+      - run: npm run publish:all
         env:
           NODE_AUTH_TOKEN: ${{secrets.GITHUB_TOKEN}}

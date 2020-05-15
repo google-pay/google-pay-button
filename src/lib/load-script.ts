@@ -16,6 +16,10 @@
 
 let cachedScripts: Record<string, Promise<any>> = {};
 
+export function clearScriptCache() {
+  cachedScripts = {};
+}
+
 export default function loadScript(src: string) {
   let existing = cachedScripts[src];
   if (existing) {
@@ -36,14 +40,11 @@ export default function loadScript(src: string) {
     const onScriptError = () => {
       cleanup();
 
-      // Remove from cachedScripts we can try loading again
-      existing = cachedScripts[src];
-      if (existing) {
-        delete cachedScripts[src];
-      }
+      // Remove from cachedScripts so that we can try loading again
+      delete cachedScripts[src];
       script.remove();
 
-      reject(new Error('Unable to load script'));
+      reject(new Error(`Unable to load script ${src}`));
     };
 
     script.addEventListener('load', onScriptLoad);

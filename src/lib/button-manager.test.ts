@@ -14,7 +14,7 @@
  * limitations under the License.
  */
 
-import './__setup__/mocks';
+import './__mocks__';
 import defaults from './__setup__/defaults';
 import { ButtonManager, Config } from './button-manager';
 

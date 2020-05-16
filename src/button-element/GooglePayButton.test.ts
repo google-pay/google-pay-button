@@ -14,11 +14,11 @@
  * limitations under the License.
  */
 
-import '../lib/__setup__/mocks';
+import '../lib/__mocks__';
 import GooglePayButton from './GooglePayButton';
 import defaults from '../lib/__setup__/defaults';
 import { ButtonManager } from '../lib/button-manager';
-import { MockWrapper, mock, wait } from '../lib/__setup__/test-util';
+import { MockWrapper, mock } from '../lib/__util__/test-util';
 
 describe('Render', () => {
   function isMounted(this: ButtonManager) {

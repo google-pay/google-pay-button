@@ -17,8 +17,8 @@
 import loadScript, { clearScriptCache } from './load-script';
 import { mock, MockWrapper } from './__setup__/test-util';
 
-let createElementMock: MockWrapper;
-let appendChildMock: MockWrapper;
+let createElementMock: MockWrapper<(...args: any[]) => any>;
+let appendChildMock: MockWrapper<(...args: any[]) => any>;
 let scriptElement: HTMLScriptElement;
 
 beforeEach(() => {

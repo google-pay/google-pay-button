@@ -26,7 +26,7 @@ describe('Render', () => {
   }
   const throwError = jest.fn();
 
-  let mocked: MockWrapper[];
+  let mocked: MockWrapper<(...args: any[]) => any>[];
 
   beforeEach(() => {
     mocked = [

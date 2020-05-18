@@ -216,7 +216,7 @@ export class ButtonManager {
         onClick: this.handleClick,
       });
 
-      this._copyGPayStyles();
+      this.copyGPayStyles();
       element.appendChild(button);
     }
 
@@ -289,7 +289,7 @@ export class ButtonManager {
    * workaround to get css styles into component
    * @param node Node to append styles to
    */
-  private _copyGPayStyles() {
+  private copyGPayStyles() {
     const node = this.element?.getRootNode();
 
     if (node && node instanceof ShadowRoot) {

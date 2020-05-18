@@ -157,8 +157,8 @@ class GooglePayButton extends HTMLElement {
     this.manager.configure(config);
   });
 
-  connectedCallback() {
-    this.manager.mount(this.shadowRoot || this);
+  async connectedCallback() {
+    await this.manager.mount(this.shadowRoot || this);
     return this.initializeButton();
   }
 

@@ -28,10 +28,10 @@ export default class GooglePayButton extends React.Component<Props> {
   private instance = new ButtonManager(`.${CLASS}`);
   private elementRef = React.createRef<HTMLDivElement>();
 
-  componentDidMount() {
+  async componentDidMount() {
     const element = this.elementRef.current;
     if (element) {
-      this.instance.mount(element);
+      await this.instance.mount(element);
       this.instance.configure(this.props);
     }
   }

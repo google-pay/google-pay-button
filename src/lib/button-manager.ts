@@ -46,7 +46,9 @@ export class ButtonManager {
     return this.element;
   }
 
-  mount(element: Node) {
+  async mount(element: Node) {
+    await loadScript('https://pay.google.com/gp/p/js/pay.js');
+
     this.element = element;
     if (element) {
       this.appendStyles();
@@ -189,10 +191,6 @@ export class ButtonManager {
 
     // remove button
     this.removeButton();
-
-    await loadScript('https://pay.google.com/gp/p/js/pay.js');
-
-    if (!this.isMounted()) return;
 
     this.client = new google.payments.api.PaymentsClient(this.createClientOptions(this.config));
 

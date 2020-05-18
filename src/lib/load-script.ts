@@ -16,11 +16,15 @@
 
 let cachedScripts: Record<string, Promise<any>> = {};
 
-export function clearScriptCache() {
-  cachedScripts = {};
-}
-
-export default function loadScript(src: string) {
+/**
+ * Asynchronously loads a script keeping track of which scripts have already
+ * requested and loaded.
+ * 
+ * Multiple requests to the same resource will return the same promise.
+ * 
+ * @param src Script URL to load
+ */
+export function loadScript(src: string) {
   let existing = cachedScripts[src];
   if (existing) {
     return existing;
@@ -63,4 +67,11 @@ export default function loadScript(src: string) {
   cachedScripts[src] = promise;
 
   return promise;
+}
+
+/**
+ * Clears the script cache. Used for testing purposes only.
+ */
+export function clearScriptCache() {
+  cachedScripts = {};
 }

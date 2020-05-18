@@ -14,6 +14,14 @@
  * limitations under the License.
  */
 
+/**
+ * Returns a new function that delays invocations to the original function
+ * within a specified wait period. The last invocation within this time period
+ * gets invoked. All earlier invocations are ignore.
+ * 
+ * @param func The function to invoke.
+ * @param wait The time in milliseconds to wait for idle invocations.
+ */
 export function debounce<T>(func: (...params: any[]) => T, wait: number = 0): () => Promise<T> {
   let timeout: number | undefined;
 

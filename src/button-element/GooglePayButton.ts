@@ -18,6 +18,9 @@ import { ButtonManager, Config } from '../lib/button-manager';
 import { Notify, NotifyAttribute, NotifyBooleanAttribute, Alias } from '../lib/property-decorators';
 import { debounce } from '../lib/debounce';
 
+/**
+ * Custom element for the Google Pay button
+ */
 class GooglePayButton extends HTMLElement {
   private manager: ButtonManager;
 
@@ -73,8 +76,9 @@ class GooglePayButton extends HTMLElement {
   }
 
   /**
-   * Used for testing purposes
-   * @param error 
+   * Throws an error.
+   * 
+   * Used for testing purposes so that the method can be spied on.
    */
   private throwError(error: Error) {
     throw error;
@@ -85,9 +89,9 @@ class GooglePayButton extends HTMLElement {
   }
 
   /**
-   * registers an attribute to be observed
+   * Registers an attribute to be observed.
    *
-   * @param name Attribute name to observe
+   * @param name Attribute name to observe.
    * @internal
    */
   addObservedAttribute(name: string) {

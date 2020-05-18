@@ -14,7 +14,7 @@
  * limitations under the License.
  */
 
-import loadScript, { clearScriptCache } from './load-script';
+import { clearScriptCache, loadScript } from './load-script';
 import { mock, MockWrapper } from './__util__/test-util';
 
 let createElementMock: MockWrapper<(...args: any[]) => any>;

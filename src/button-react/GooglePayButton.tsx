@@ -17,6 +17,9 @@
 import React, { CSSProperties } from 'react';
 import { Config, ButtonManager } from '../lib/button-manager';
 
+/**
+ * Properties for the Google Pay button React component
+ */
 export interface Props extends Config {
   className?: string;
   style?: CSSProperties;
@@ -24,6 +27,9 @@ export interface Props extends Config {
 
 const CLASS = 'google-pay-button-container';
 
+/**
+ * React component for the Google Pay button
+ */
 export default class GooglePayButton extends React.Component<Props> {
   private manager = new ButtonManager(`.${CLASS}`);
   private elementRef = React.createRef<HTMLDivElement>();

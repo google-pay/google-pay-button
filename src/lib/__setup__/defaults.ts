@@ -16,6 +16,9 @@
 
 import { Props } from '../../button-react/GooglePayButton';
 
+/**
+ * Default properties to use for the purpose of executing tests.
+ */
 const defaults: Props = {
   environment: 'TEST',
   paymentRequest: {

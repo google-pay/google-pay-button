@@ -14,6 +14,9 @@
  * limitations under the License.
  */
 
+/**
+ * Describes notification target for the `Notify` decorators
+ */
 interface NotifyTarget {
   notifyPropertyChanged: (name: string) => void;
   addObservedAttribute?: (name: string) => void;
@@ -24,6 +27,14 @@ function getAttributeName(propertyName: string) {
   return propertyName.replace(/[A-Z]+/g, sub => `-${sub}`).replace(/^-/, '').toLowerCase();
 }
 
+/**
+ * Defines that the target property should be exposed as an attribute, and
+ * that changes to the attribute should trigger a `notifyPropertyChanged`
+ * callback.
+ * 
+ * @param attribute Override the attribute name to use. If ommitted, the
+ * property name is used (coverted from camelCase, to snake-case).
+ */
 export function NotifyAttribute(attribute?: string) {
   return function(target: NotifyTarget & HTMLElement, key: string) {
     const attr = attribute || getAttributeName(key);
@@ -50,6 +61,14 @@ export function NotifyAttribute(attribute?: string) {
   }
 }
 
+/**
+ * Defines that the target property should be exposed as boolean attribute, and
+ * that changes to the attribute should trigger a `notifyPropertyChanged`
+ * callback.
+ * 
+ * @param attribute Override the attribute name to use. If ommitted, the
+ * property name is used (coverted from camelCase, to snake-case).
+ */
 export function NotifyBooleanAttribute(attribute?: string) {
   return function(target: NotifyTarget & HTMLElement, key: string) {
     const attr = attribute || getAttributeName(key);
@@ -76,6 +95,14 @@ export function NotifyBooleanAttribute(attribute?: string) {
   }
 }
 
+/**
+ * Defines that the target property should trigger a `notifyPropertyChanged`
+ * callback when the property changes.
+ * 
+ * @param attribute Expose the property as an attribute. Note that when
+ * attribute is specified, this method has the same behavior as
+ * `NotifyAttribute`.
+ */
 export function Notify(attribute?: string) {
   if (attribute) {
     return NotifyAttribute(attribute);
@@ -96,6 +123,11 @@ export function Notify(attribute?: string) {
   }
 }
 
+/**
+ * Creates an alias for the given property with a getter and a setter.
+ * 
+ * @param alias Name of the alias.
+ */
 export function Alias(alias: string) {
   return function(target: NotifyTarget, key: string) {
     Object.defineProperty(target, alias, {

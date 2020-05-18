@@ -14,7 +14,7 @@
  * limitations under the License.
  */
 
-import loadScript from '../lib/load-script';
+import { loadScript } from '../lib/load-script';
 
 export interface Config {
   environment?: google.payments.api.Environment;
@@ -30,6 +30,12 @@ export interface Config {
   buttonType?: google.payments.api.ButtonType;
 }
 
+/**
+ * Manages the lifecycle of the Google Pay button.
+ * 
+ * Includes lifecycle management of the `PaymentsClient` instance,
+ * `isReadyToPay`, `onClick`, `loadPaymentData`, and other callback methods.
+ */
 export class ButtonManager {
   private client?: google.payments.api.PaymentsClient;
   private config?: Config;
@@ -70,6 +76,15 @@ export class ButtonManager {
     }
   }
 
+  /**
+   * Creates client configuration options based on button configuration
+   * options.
+   * 
+   * This method would normally be private but has been made public for
+   * testing purposes.
+   * 
+   * @private
+   */
   createClientOptions(config: Config) {
     const clientConfig: google.payments.api.PaymentOptions = {
       environment: config.environment,
@@ -96,7 +111,7 @@ export class ButtonManager {
     return clientConfig;
   }
 
-  createIsReadyToPayRequest(config: Config) {
+  private createIsReadyToPayRequest(config: Config) {
     const paymentRequest = config.paymentRequest;
     const request: google.payments.api.IsReadyToPayRequest = {
       apiVersion: paymentRequest.apiVersion,
@@ -108,6 +123,20 @@ export class ButtonManager {
     return request;
   }
 
+  /**
+   * Constructs `loadPaymentData` request object based on button configuration.
+   * 
+   * It infers request properties like `shippingAddressRequired`,
+   * `shippingOptionRequired`, and `billingAddressRequired` if not already set
+   * based on the presence of their associated options and parameters. It also
+   * infers `callbackIntents` based on the callback methods defined in button
+   * configuration.
+   * 
+   * This method would normally be private but has been made public for
+   * testing purposes.
+   * 
+   * @private
+   */
   createLoadPaymentDataRequest(config: Config) {
     const request = {
       ...config.paymentRequest
@@ -310,6 +339,15 @@ export class ButtonManager {
     }
   }
 
+  /**
+   * Determines whether or not the `PaymentsClient` should be invalidated and
+   * re-instantiated based on changes in button configuration.
+   * 
+   * This method would normally be private but has been made public for
+   * testing purposes.
+   * 
+   * @private
+   */
   isClientInvalidated(oldConfig: Config, newConfig: Config) {
     return (
       oldConfig.environment !== newConfig.environment

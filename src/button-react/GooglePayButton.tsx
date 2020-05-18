@@ -25,23 +25,23 @@ export interface Props extends Config {
 const CLASS = 'google-pay-button-container';
 
 export default class GooglePayButton extends React.Component<Props> {
-  private instance = new ButtonManager(`.${CLASS}`);
+  private manager = new ButtonManager(`.${CLASS}`);
   private elementRef = React.createRef<HTMLDivElement>();
 
   async componentDidMount() {
     const element = this.elementRef.current;
     if (element) {
-      await this.instance.mount(element);
-      this.instance.configure(this.props);
+      await this.manager.mount(element);
+      this.manager.configure(this.props);
     }
   }
 
   componentWillUnmount() {
-    this.instance.unmount();
+    this.manager.unmount();
   }
 
   componentDidUpdate() {
-    this.instance.configure(this.props);
+    this.manager.configure(this.props);
   }
 
   render() {

@@ -37,9 +37,9 @@ describe('Render', () => {
 
   afterEach(() => {
     throwError.mockReset();
-    mocked.forEach(m => {
-      m.restore();
-    });
+    for (const mock of mocked) {
+      mock.restore();
+    }
   });
 
   it('renders without crashing', async () => {

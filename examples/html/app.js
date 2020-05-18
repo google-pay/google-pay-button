@@ -180,15 +180,16 @@ const googlePayButtons = [
 window.controls = controls;
 
 function initializeControls() {
-  Object.values(controls).forEach(props => {
+  for (const props of Object.values(controls)) {
     props.control.addEventListener('change', () => {
       updateGooglePayButtons();
     });
-  });
+  }
 }
 
 function updateGooglePayButtons() {
-  googlePayButtons.forEach((gpay, index) => {
+  let index = 0;
+  for (const gpay of googlePayButtons) {
     const id = `button${index}`;
     let button = document.getElementById(id);
 
@@ -201,7 +202,8 @@ function updateGooglePayButtons() {
     }
 
     Object.assign(button, gpay.props);
-  });
+    index++;
+  }
 }
 
 function createExample(text, button) {

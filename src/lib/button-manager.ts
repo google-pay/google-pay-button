@@ -202,11 +202,11 @@ export class ButtonManager {
 
   private removeButton() {
     if (this.element instanceof ShadowRoot || this.element instanceof Element) {
-      Array.from(this.element.children).forEach(child => {
+      for (const child of Array.from(this.element.children)) {
         if (child.tagName !== 'STYLE') {
           child.remove();
         }
-      });
+      }
     }
   }
 
@@ -327,15 +327,17 @@ export class ButtonManager {
           .filter(n => n instanceof HTMLElement && n.nodeName === 'STYLE' && n.id)
           .map(n => (n as HTMLElement).id)
       );
-  
-      gPayStyles.forEach((s, i) => {
-        const id = `google-pay-button-style-${i + 1}`;
+
+      let index = 0;
+      for (const style of gPayStyles) {
+        index++;
+        const id = `google-pay-button-style-${index}`;
         if (!existingStyles.has(id)) {
-          const style = document.createElement('style');
-          style.innerHTML = s.innerHTML;
-          node.appendChild(style);
+          const styleElement = document.createElement('style');
+          styleElement.innerHTML = style.innerHTML;
+          node.appendChild(styleElement);
         }
-      });  
+      }
     }
   }
 

@@ -77,6 +77,7 @@ function onLoadPaymentData(paymentData) {
   console.log('load payment data', paymentData);
 }
 
+// eslint-disable-next-line no-unused-vars
 function onPaymentAuthorized(paymentData) {
   return {
     transactionState: 'SUCCESS',

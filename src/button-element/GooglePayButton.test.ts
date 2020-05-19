@@ -21,7 +21,7 @@ import { ButtonManager } from '../lib/button-manager';
 import { MockWrapper, mock } from '../lib/__util__/test-util';
 
 describe('Render', () => {
-  function isMounted(this: ButtonManager) {
+  function isMounted(this: ButtonManager): boolean {
     return !!this.getElement();
   }
   const throwError = jest.fn();

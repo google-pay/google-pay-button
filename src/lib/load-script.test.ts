@@ -15,7 +15,7 @@
  */
 
 import { clearScriptCache, loadScript } from './load-script';
-import { mock, MockWrapper } from './__util__/test-util';
+import { MockWrapper, mock } from './__util__/test-util';
 
 let createElementMock: MockWrapper<(...args: any[]) => any>;
 let appendChildMock: MockWrapper<(...args: any[]) => any>;

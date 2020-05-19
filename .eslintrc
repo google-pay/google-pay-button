@@ -1,0 +1,48 @@
+{
+  "parser": "@typescript-eslint/parser", // Specifies the ESLint parser
+  "parserOptions": {
+    "ecmaVersion": 2020, // Allows for the parsing of modern ECMAScript features
+    "sourceType": "module", // Allows for the use of imports
+    "ecmaFeatures": {
+      "jsx": true // Allows for the parsing of JSX
+    }
+  },
+  "extends": [
+  ],
+  "rules": {
+    "comma-dangle": ["error", "only-multiline"],
+    "semi": "error"
+  },
+  "env": {
+    "browser": true,
+    "node": true
+  },
+  "overrides": [
+    {
+      "parser": "@typescript-eslint/parser",
+      "settings": {
+        "react": {
+          "version": "detect" // Tells eslint-plugin-react to automatically detect the version of React to use
+        }
+      },
+      "files": ["*.ts", "*.tsx"],
+      "extends": [
+        "plugin:react/recommended",
+        "plugin:@typescript-eslint/recommended"
+      ],
+      "rules": {
+        "@typescript-eslint/no-empty-function": "off",
+        "@typescript-eslint/no-explicit-any": "off",
+        "@typescript-eslint/no-non-null-assertion": "off"
+      }
+    },
+    {
+      "files": ["*.js"],
+      "extends": [
+        "eslint:recommended"
+      ],
+      "rules": {
+      }
+    }
+  ]
+}

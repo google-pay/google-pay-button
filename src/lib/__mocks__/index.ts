@@ -14,9 +14,11 @@
  * limitations under the License.
  */
 
+/* eslint-disable @typescript-eslint/no-unused-vars */
+
 jest.mock('../load-script', () => {
   return {
-    loadScript: (src: string) => Promise.resolve(),
+    loadScript: (src: string): Promise<void> => Promise.resolve(),
   };
 });
 

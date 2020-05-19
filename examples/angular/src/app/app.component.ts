@@ -54,7 +54,7 @@ export class AppComponent {
     },
   };
 
-  onLoadPaymentData = (paymentData: google.payments.api.PaymentData) => {
+  onLoadPaymentData = (paymentData: google.payments.api.PaymentData): void => {
     console.log('load payment data', paymentData);
   };
 

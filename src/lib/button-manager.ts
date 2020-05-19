@@ -14,6 +14,8 @@
  * limitations under the License.
  */
 
+/* eslint-disable react/no-is-mounted */
+
 import { loadScript } from '../lib/load-script';
 
 export interface Config {
@@ -48,11 +50,11 @@ export class ButtonManager {
     this.selector = selector;
   }
 
-  getElement() {
+  getElement(): Node | undefined {
     return this.element;
   }
 
-  async mount(element: Node) {
+  async mount(element: Node): Promise<void> {
     await loadScript('https://pay.google.com/gp/p/js/pay.js');
 
     this.element = element;
@@ -64,11 +66,11 @@ export class ButtonManager {
     }
   }
 
-  unmount() {
+  unmount(): void {
     this.element = undefined;
   }
 
-  configure(newConfig: Config) {
+  configure(newConfig: Config): void {
     const oldConfig = this.config;
     this.config = newConfig;
     if (!oldConfig || this.isClientInvalidated(oldConfig, newConfig)) {
@@ -85,7 +87,7 @@ export class ButtonManager {
    * 
    * @private
    */
-  createClientOptions(config: Config) {
+  createClientOptions(config: Config): google.payments.api.PaymentOptions {
     const clientConfig: google.payments.api.PaymentOptions = {
       environment: config.environment,
     };
@@ -94,6 +96,7 @@ export class ButtonManager {
       clientConfig.paymentDataCallbacks = {};
 
       if (config.onPaymentDataChanged) {
+        // eslint-disable-next-line @typescript-eslint/explicit-function-return-type
         clientConfig.paymentDataCallbacks.onPaymentDataChanged = (paymentData) => {
           const result = config.onPaymentDataChanged!(paymentData);
           return result || {};
@@ -101,6 +104,7 @@ export class ButtonManager {
       }
 
       if (config.onPaymentAuthorized) {
+        // eslint-disable-next-line @typescript-eslint/explicit-function-return-type
         clientConfig.paymentDataCallbacks.onPaymentAuthorized = (paymentData) => {
           const result = config.onPaymentAuthorized!(paymentData);
           return result || {};
@@ -111,7 +115,7 @@ export class ButtonManager {
     return clientConfig;
   }
 
-  private createIsReadyToPayRequest(config: Config) {
+  private createIsReadyToPayRequest(config: Config): google.payments.api.IsReadyToPayRequest {
     const paymentRequest = config.paymentRequest;
     const request: google.payments.api.IsReadyToPayRequest = {
       apiVersion: paymentRequest.apiVersion,
@@ -137,7 +141,7 @@ export class ButtonManager {
    * 
    * @private
    */
-  createLoadPaymentDataRequest(config: Config) {
+  createLoadPaymentDataRequest(config: Config): google.payments.api.PaymentDataRequest {
     const request = {
       ...config.paymentRequest
     };
@@ -196,11 +200,11 @@ export class ButtonManager {
     return request;
   }
 
-  private isMounted() {
+  private isMounted(): boolean {
     return this.element != null && this.element.isConnected !== false;
   }
 
-  private removeButton() {
+  private removeButton(): void {
     if (this.element instanceof ShadowRoot || this.element instanceof Element) {
       for (const child of Array.from(this.element.children)) {
         if (child.tagName !== 'STYLE') {
@@ -210,7 +214,7 @@ export class ButtonManager {
     }
   }
 
-  private async updateElement() {
+  private async updateElement(): Promise<void> {
     if (!this.isMounted()) return;
     const element = this.element!;
     
@@ -255,10 +259,10 @@ export class ButtonManager {
     }
   }
 
-  private handleClick = async () => {
+  private handleClick = async (): Promise<void> => {
     const config = this.config;
     if (!config) {
-      throw Error('google-pay-button: Missing configuration')
+      throw new Error('google-pay-button: Missing configuration');
     }
 
     const request = this.createLoadPaymentDataRequest(config);
@@ -280,7 +284,7 @@ export class ButtonManager {
     }
   };
 
-  private appendStyles() {
+  private appendStyles(): void {
     if (typeof document === 'undefined') return;
 
     const rootNode = this.element?.getRootNode() as (Document | ShadowRoot | undefined);
@@ -316,7 +320,7 @@ export class ButtonManager {
    * workaround to get css styles into component
    * @param node Node to append styles to
    */
-  private copyGPayStyles() {
+  private copyGPayStyles(): void {
     const node = this.element?.getRootNode();
 
     if (node && node instanceof ShadowRoot) {
@@ -350,7 +354,7 @@ export class ButtonManager {
    * 
    * @private
    */
-  isClientInvalidated(oldConfig: Config, newConfig: Config) {
+  isClientInvalidated(oldConfig: Config, newConfig: Config): boolean {
     return (
       oldConfig.environment !== newConfig.environment
       || oldConfig.existingPaymentMethodRequired !== newConfig.existingPaymentMethodRequired

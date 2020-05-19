@@ -14,6 +14,8 @@
  * limitations under the License.
  */
 
+/* eslint-disable @typescript-eslint/no-unused-vars */
+
  /**
   * Mock implementation of the Google Pay PaymentsClient for testing purposes.
   */

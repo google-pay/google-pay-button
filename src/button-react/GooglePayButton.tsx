@@ -15,7 +15,7 @@
  */
 
 import React, { CSSProperties } from 'react';
-import { Config, ButtonManager } from '../lib/button-manager';
+import { ButtonManager, Config } from '../lib/button-manager';
 
 /**
  * Properties for the Google Pay button React component
@@ -34,7 +34,7 @@ export default class GooglePayButton extends React.Component<Props> {
   private manager = new ButtonManager(`.${CLASS}`);
   private elementRef = React.createRef<HTMLDivElement>();
 
-  async componentDidMount() {
+  async componentDidMount(): Promise<void> {
     const element = this.elementRef.current;
     if (element) {
       await this.manager.mount(element);
@@ -42,15 +42,15 @@ export default class GooglePayButton extends React.Component<Props> {
     }
   }
 
-  componentWillUnmount() {
+  componentWillUnmount(): void {
     this.manager.unmount();
   }
 
-  componentDidUpdate() {
+  componentDidUpdate(): void {
     this.manager.configure(this.props);
   }
 
-  render() {
+  render(): JSX.Element {
     return (
       <div
         ref={this.elementRef}

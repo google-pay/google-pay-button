@@ -33,19 +33,16 @@ export interface MockWrapper<T extends (...args: any[]) => any> {
 export function mock<TTarget, TFunction extends jest.FunctionPropertyNames<Required<TTarget>>>(
   target: TTarget,
   functionName: TFunction,
-  implementation: Required<TTarget>[TFunction])
-  : Required<TTarget>[TFunction] extends (...args: any[]) => any
+  implementation: Required<TTarget>[TFunction]): Required<TTarget>[TFunction] extends (...args: any[]) => any
   ? MockWrapper<Required<TTarget>[TFunction]>
   : never;
-export function mock<T>(target: T, functionName: string, implementation: (...args: any[]) => any)
-  : MockWrapper<(...args: any[]) => any>;
-export function mock<T>(target: T, functionName: string, implementation: (...args: any[]) => any)
-  : MockWrapper<(...args: any[]) => any> {
-  const obj: any = target
+export function mock<T>(target: T, functionName: string, implementation: (...args: any[]) => any): MockWrapper<(...args: any[]) => any>;
+export function mock<T>(target: T, functionName: string, implementation: (...args: any[]) => any): MockWrapper<(...args: any[]) => any> {
+  const obj: any = target;
   const original = obj[functionName] as unknown as (...args: any[]) => any;
   obj[functionName] = implementation as any;
 
-  function restore() {
+  function restore(): void {
     obj[functionName] = original as any;
   }
 
@@ -61,6 +58,6 @@ export function mock<T>(target: T, functionName: string, implementation: (...arg
  * 
  * @param timeout Timeout in milliseconds to wait.
  */
-export function wait(timeout: number) {
+export function wait(timeout: number): Promise<void> {
   return new Promise(resolve => setTimeout(resolve, timeout));
 }

@@ -23,7 +23,7 @@ interface NotifyTarget {
   [key: string]: any;
 }
 
-function getAttributeName(propertyName: string) {
+function getAttributeName(propertyName: string): string {
   return propertyName.replace(/[A-Z]+/g, sub => `-${sub}`).replace(/^-/, '').toLowerCase();
 }
 
@@ -36,7 +36,7 @@ function getAttributeName(propertyName: string) {
  * property name is used (coverted from camelCase, to snake-case).
  */
 export function NotifyAttribute(attribute?: string) {
-  return function(target: NotifyTarget & HTMLElement, key: string) {
+  return function (target: NotifyTarget & HTMLElement, key: string): void {
     const attr = attribute || getAttributeName(key);
 
     if (target.addObservedAttribute) {
@@ -58,7 +58,7 @@ export function NotifyAttribute(attribute?: string) {
       enumerable: true,
       configurable: true,
     });
-  }
+  };
 }
 
 /**
@@ -70,7 +70,7 @@ export function NotifyAttribute(attribute?: string) {
  * property name is used (coverted from camelCase, to snake-case).
  */
 export function NotifyBooleanAttribute(attribute?: string) {
-  return function(target: NotifyTarget & HTMLElement, key: string) {
+  return function (target: NotifyTarget & HTMLElement, key: string): void {
     const attr = attribute || getAttributeName(key);
 
     if (target.addObservedAttribute) {
@@ -92,7 +92,7 @@ export function NotifyBooleanAttribute(attribute?: string) {
       enumerable: true,
       configurable: true,
     });
-  }
+  };
 }
 
 /**
@@ -103,12 +103,12 @@ export function NotifyBooleanAttribute(attribute?: string) {
  * attribute is specified, this method has the same behavior as
  * `NotifyAttribute`.
  */
-export function Notify(attribute?: string) {
+export function Notify(attribute?: string): (target: NotifyTarget & HTMLElement, key: string) => void {
   if (attribute) {
     return NotifyAttribute(attribute);
   }
 
-  return function(target: NotifyTarget, key: string) {
+  return function (target: NotifyTarget, key: string): void {
     Object.defineProperty(target, key, {
       get(this: NotifyTarget) {
         return this[`$__${key}`];
@@ -120,7 +120,7 @@ export function Notify(attribute?: string) {
       enumerable: true,
       configurable: true,
     });
-  }
+  };
 }
 
 /**
@@ -129,7 +129,7 @@ export function Notify(attribute?: string) {
  * @param alias Name of the alias.
  */
 export function Alias(alias: string) {
-  return function(target: NotifyTarget, key: string) {
+  return function(target: NotifyTarget, key: string): void {
     Object.defineProperty(target, alias, {
       get(this: NotifyTarget) {
         return this[key];
@@ -140,5 +140,5 @@ export function Alias(alias: string) {
       enumerable: true,
       configurable: false,
     });
-  }
+  };
 }

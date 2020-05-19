@@ -15,7 +15,7 @@
  */
 
 import { ButtonManager, Config } from '../lib/button-manager';
-import { Notify, NotifyAttribute, NotifyBooleanAttribute, Alias } from '../lib/property-decorators';
+import { Alias, Notify, NotifyAttribute, NotifyBooleanAttribute } from '../lib/property-decorators';
 import { debounce } from '../lib/debounce';
 
 /**
@@ -61,11 +61,11 @@ class GooglePayButton extends HTMLElement {
   @Alias('errorCallback')
   onError?: (error: Error) => void;
 
-  get isReadyToPay() {
+  get isReadyToPay(): boolean | undefined {
     return this.manager.isReadyToPay;
   }
 
-  private assertRequiredProperty(name: string) {
+  private assertRequiredProperty(name: string): boolean {
     const value = (this as any)[name];
     if (value === null || value === undefined) {
       this.throwError(Error(`Required property not set: ${name}`));
@@ -80,11 +80,11 @@ class GooglePayButton extends HTMLElement {
    * 
    * Used for testing purposes so that the method can be spied on.
    */
-  private throwError(error: Error) {
+  private throwError(error: Error): never {
     throw error;
   }
 
-  static get observedAttributes() {
+  static get observedAttributes(): string[] {
     return GooglePayButton._observedAttributes;
   }
 
@@ -94,7 +94,7 @@ class GooglePayButton extends HTMLElement {
    * @param name Attribute name to observe.
    * @internal
    */
-  addObservedAttribute(name: string) {
+  addObservedAttribute(name: string): void {
     GooglePayButton._observedAttributes.push(name);
   }
 
@@ -111,7 +111,7 @@ class GooglePayButton extends HTMLElement {
     }
   }
 
-  private dispatch<T>(type: string, detail: T) {
+  private dispatch<T>(type: string, detail: T): void {
     this.dispatchEvent(new CustomEvent(type, {
       bubbles: true,
       cancelable: false,
@@ -148,7 +148,7 @@ class GooglePayButton extends HTMLElement {
         if (this.onError) {
           this.onError?.(error);
         }
-        this.dispatchEvent(new ErrorEvent('error', { error }))
+        this.dispatchEvent(new ErrorEvent('error', { error }));
       },
       onLoadPaymentData: paymentData => {
         if (this.onLoadPaymentData) {
@@ -161,20 +161,22 @@ class GooglePayButton extends HTMLElement {
     this.manager.configure(config);
   });
 
-  async connectedCallback() {
+  async connectedCallback(): Promise<void> {
     await this.manager.mount(this.shadowRoot || this);
     return this.initializeButton();
   }
 
-  disconnectedCallback() {
+  disconnectedCallback(): void {
     this.manager.unmount();
   }
 
-  attributeChangedCallback(name: string) {
+  // eslint-disable-next-line @typescript-eslint/no-unused-vars
+  attributeChangedCallback(name: string): Promise<void> {
     return this.initializeButton();
   }
 
-  notifyPropertyChanged(property: string) {
+  // eslint-disable-next-line @typescript-eslint/no-unused-vars
+  notifyPropertyChanged(property: string): Promise<void> {
     return this.initializeButton();
   }
 }

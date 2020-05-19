@@ -22,15 +22,15 @@
  * @param func The function to invoke.
  * @param wait The time in milliseconds to wait for idle invocations.
  */
-export function debounce<T>(func: (...params: any[]) => T, wait: number = 0): () => Promise<T> {
+export function debounce<T>(func: (...params: any[]) => T, wait = 0): () => Promise<T> {
   let timeout: number | undefined;
 
-  return function(...args: any[]) {
+  return function(...args: any[]): Promise<any> {
     window.clearTimeout(timeout);
 
-    var later = function() {
+    const later = function(): any {
       timeout = undefined;
-      return func.apply<any, any[], T>(null, args);
+      return func(...args);
     };
 
     return new Promise(resolve => {

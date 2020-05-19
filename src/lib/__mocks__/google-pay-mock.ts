@@ -16,9 +16,9 @@
 
 /* eslint-disable @typescript-eslint/no-unused-vars */
 
- /**
-  * Mock implementation of the Google Pay PaymentsClient for testing purposes.
-  */
+/**
+ * Mock implementation of the Google Pay PaymentsClient for testing purposes.
+ */
 class PaymentsClient {
   isReadyToPay(request: google.payments.api.IsReadyToPayRequest): Promise<google.payments.api.IsReadyToPayResponse> {
     return Promise.resolve({
@@ -54,6 +54,6 @@ window.google = {
   payments: {
     api: {
       PaymentsClient,
-    }
-  }
+    },
+  },
 };

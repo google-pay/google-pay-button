@@ -47,7 +47,7 @@ describe('Render', () => {
     button.paymentRequest = {
       ...defaults.paymentRequest,
     };
-  
+
     await button.connectedCallback();
   });
 

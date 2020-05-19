@@ -25,7 +25,7 @@ export interface MockWrapper<T extends (...args: any[]) => any> {
 
 /**
  * Selectively mock methods on an existing object
- * 
+ *
  * @param target Target object to apply the mock to.
  * @param functionName The function name on the object that will be mocked.
  * @param implementation The new implementation for the object.
@@ -33,13 +33,20 @@ export interface MockWrapper<T extends (...args: any[]) => any> {
 export function mock<TTarget, TFunction extends jest.FunctionPropertyNames<Required<TTarget>>>(
   target: TTarget,
   functionName: TFunction,
-  implementation: Required<TTarget>[TFunction]): Required<TTarget>[TFunction] extends (...args: any[]) => any
-  ? MockWrapper<Required<TTarget>[TFunction]>
-  : never;
-export function mock<T>(target: T, functionName: string, implementation: (...args: any[]) => any): MockWrapper<(...args: any[]) => any>;
-export function mock<T>(target: T, functionName: string, implementation: (...args: any[]) => any): MockWrapper<(...args: any[]) => any> {
+  implementation: Required<TTarget>[TFunction],
+): Required<TTarget>[TFunction] extends (...args: any[]) => any ? MockWrapper<Required<TTarget>[TFunction]> : never;
+export function mock<T>(
+  target: T,
+  functionName: string,
+  implementation: (...args: any[]) => any,
+): MockWrapper<(...args: any[]) => any>;
+export function mock<T>(
+  target: T,
+  functionName: string,
+  implementation: (...args: any[]) => any,
+): MockWrapper<(...args: any[]) => any> {
   const obj: any = target;
-  const original = obj[functionName] as unknown as (...args: any[]) => any;
+  const original = (obj[functionName] as unknown) as (...args: any[]) => any;
   obj[functionName] = implementation as any;
 
   function restore(): void {
@@ -55,7 +62,7 @@ export function mock<T>(target: T, functionName: string, implementation: (...arg
 
 /**
  * Returns a promise that waits for a specified amount of time.
- * 
+ *
  * @param timeout Timeout in milliseconds to wait.
  */
 export function wait(timeout: number): Promise<void> {

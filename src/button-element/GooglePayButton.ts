@@ -77,7 +77,7 @@ class GooglePayButton extends HTMLElement {
 
   /**
    * Throws an error.
-   * 
+   *
    * Used for testing purposes so that the method can be spied on.
    */
   private throwError(error: Error): never {
@@ -112,11 +112,13 @@ class GooglePayButton extends HTMLElement {
   }
 
   private dispatch<T>(type: string, detail: T): void {
-    this.dispatchEvent(new CustomEvent(type, {
-      bubbles: true,
-      cancelable: false,
-      detail,
-    }));
+    this.dispatchEvent(
+      new CustomEvent(type, {
+        bubbles: true,
+        cancelable: false,
+        detail,
+      }),
+    );
   }
 
   private initializeButton = debounce(() => {
@@ -182,17 +184,31 @@ class GooglePayButton extends HTMLElement {
 }
 
 interface GooglePayButton {
-  addEventListener(type: 'loadpaymentdata', listener: (event: CustomEvent<google.payments.api.PaymentData>) => void): void;
+  addEventListener(
+    type: 'loadpaymentdata',
+    listener: (event: CustomEvent<google.payments.api.PaymentData>) => void,
+  ): void;
   addEventListener(type: 'error', listener: (event: ErrorEvent) => void): void;
   addEventListener(type: 'cancel', listener: (event: CustomEvent<google.payments.api.PaymentsError>) => void): void;
   addEventListener(type: 'readytopaychange', listener: (event: CustomEvent<boolean>) => void): void;
-  addEventListener(type: string, listener: EventListenerOrEventListenerObject, options?: boolean | AddEventListenerOptions): void;
+  addEventListener(
+    type: string,
+    listener: EventListenerOrEventListenerObject,
+    options?: boolean | AddEventListenerOptions,
+  ): void;
 
-  removeEventListener(type: 'loadpaymentdata', listener: (event: CustomEvent<google.payments.api.PaymentData>) => void): void;
+  removeEventListener(
+    type: 'loadpaymentdata',
+    listener: (event: CustomEvent<google.payments.api.PaymentData>) => void,
+  ): void;
   removeEventListener(type: 'error', listener: (event: ErrorEvent) => void): void;
   removeEventListener(type: 'cancel', listener: (event: CustomEvent<google.payments.api.PaymentsError>) => void): void;
   removeEventListener(type: 'readytopaychange', listener: (event: CustomEvent<boolean>) => void): void;
-  removeEventListener(type: string, listener: EventListenerOrEventListenerObject, options?: boolean | EventListenerOptions): void;
+  removeEventListener(
+    type: string,
+    listener: EventListenerOrEventListenerObject,
+    options?: boolean | EventListenerOptions,
+  ): void;
 }
 
 export default GooglePayButton;

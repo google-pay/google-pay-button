@@ -19,9 +19,9 @@ let cachedScripts: Record<string, Promise<any>> = {};
 /**
  * Asynchronously loads a script keeping track of which scripts have already
  * requested and loaded.
- * 
+ *
  * Multiple requests to the same resource will return the same promise.
- * 
+ *
  * @param src Script URL to load
  */
 export function loadScript(src: string): Promise<void> {
@@ -62,7 +62,7 @@ export function loadScript(src: string): Promise<void> {
     function cleanup(): void {
       script.removeEventListener('load', onScriptLoad);
       script.removeEventListener('error', onScriptError);
-    };
+    }
   });
 
   cachedScripts[src] = promise;

@@ -70,7 +70,7 @@ it('returns a different promise for the same resource when the first request fai
   const first = loadScript('https://pay.google.com/gp/p/js/pay.js');
 
   scriptElement.dispatchEvent(new Event('error'));
-  
+
   try {
     await first;
   } catch (err) {

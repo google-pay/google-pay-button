@@ -34,7 +34,7 @@ export interface Config {
 
 /**
  * Manages the lifecycle of the Google Pay button.
- * 
+ *
  * Includes lifecycle management of the `PaymentsClient` instance,
  * `isReadyToPay`, `onClick`, `loadPaymentData`, and other callback methods.
  */
@@ -81,10 +81,10 @@ export class ButtonManager {
   /**
    * Creates client configuration options based on button configuration
    * options.
-   * 
+   *
    * This method would normally be private but has been made public for
    * testing purposes.
-   * 
+   *
    * @private
    */
   createClientOptions(config: Config): google.payments.api.PaymentOptions {
@@ -97,7 +97,7 @@ export class ButtonManager {
 
       if (config.onPaymentDataChanged) {
         // eslint-disable-next-line @typescript-eslint/explicit-function-return-type
-        clientConfig.paymentDataCallbacks.onPaymentDataChanged = (paymentData) => {
+        clientConfig.paymentDataCallbacks.onPaymentDataChanged = paymentData => {
           const result = config.onPaymentDataChanged!(paymentData);
           return result || {};
         };
@@ -105,7 +105,7 @@ export class ButtonManager {
 
       if (config.onPaymentAuthorized) {
         // eslint-disable-next-line @typescript-eslint/explicit-function-return-type
-        clientConfig.paymentDataCallbacks.onPaymentAuthorized = (paymentData) => {
+        clientConfig.paymentDataCallbacks.onPaymentAuthorized = paymentData => {
           const result = config.onPaymentAuthorized!(paymentData);
           return result || {};
         };
@@ -129,21 +129,21 @@ export class ButtonManager {
 
   /**
    * Constructs `loadPaymentData` request object based on button configuration.
-   * 
+   *
    * It infers request properties like `shippingAddressRequired`,
    * `shippingOptionRequired`, and `billingAddressRequired` if not already set
    * based on the presence of their associated options and parameters. It also
    * infers `callbackIntents` based on the callback methods defined in button
    * configuration.
-   * 
+   *
    * This method would normally be private but has been made public for
    * testing purposes.
-   * 
+   *
    * @private
    */
   createLoadPaymentDataRequest(config: Config): google.payments.api.PaymentDataRequest {
     const request = {
-      ...config.paymentRequest
+      ...config.paymentRequest,
     };
 
     // infer shippingAddressRequired
@@ -186,11 +186,13 @@ export class ButtonManager {
         ...pm,
         parameters: {
           ...pm.parameters,
-        }
+        },
       };
 
-      if (paymentMethod.parameters.billingAddressParameters
-          && paymentMethod.parameters.billingAddressRequired === undefined) {
+      if (
+        paymentMethod.parameters.billingAddressParameters &&
+        paymentMethod.parameters.billingAddressRequired === undefined
+      ) {
         paymentMethod.parameters.billingAddressRequired = true;
       }
 
@@ -217,7 +219,7 @@ export class ButtonManager {
   private async updateElement(): Promise<void> {
     if (!this.isMounted()) return;
     const element = this.element!;
-    
+
     if (!this.config) {
       throw Error('google-pay-button: Missing configuration');
     }
@@ -231,9 +233,10 @@ export class ButtonManager {
 
     try {
       const readyToPay = await this.client.isReadyToPay(this.createIsReadyToPayRequest(this.config));
-      isReadyToPay = readyToPay.result && !this.config.existingPaymentMethodRequired
-        || (readyToPay.result && readyToPay.paymentMethodPresent && this.config.existingPaymentMethodRequired)
-        || false;
+      isReadyToPay =
+        (readyToPay.result && !this.config.existingPaymentMethodRequired) ||
+        (readyToPay.result && readyToPay.paymentMethodPresent && this.config.existingPaymentMethodRequired) ||
+        false;
     } catch (err) {
       console.error(err);
     }
@@ -287,7 +290,7 @@ export class ButtonManager {
   private appendStyles(): void {
     if (typeof document === 'undefined') return;
 
-    const rootNode = this.element?.getRootNode() as (Document | ShadowRoot | undefined);
+    const rootNode = this.element?.getRootNode() as Document | ShadowRoot | undefined;
     const styleId = `default-google-style-${this.selector.replace(/[^\w-]+/g, '')}`;
 
     // initialize styles if rendering on the client:
@@ -329,7 +332,7 @@ export class ButtonManager {
       const existingStyles = new Set(
         Array.from(node.childNodes)
           .filter(n => n instanceof HTMLElement && n.nodeName === 'STYLE' && n.id)
-          .map(n => (n as HTMLElement).id)
+          .map(n => (n as HTMLElement).id),
       );
 
       let index = 0;
@@ -348,20 +351,20 @@ export class ButtonManager {
   /**
    * Determines whether or not the `PaymentsClient` should be invalidated and
    * re-instantiated based on changes in button configuration.
-   * 
+   *
    * This method would normally be private but has been made public for
    * testing purposes.
-   * 
+   *
    * @private
    */
   isClientInvalidated(oldConfig: Config, newConfig: Config): boolean {
     return (
-      oldConfig.environment !== newConfig.environment
-      || oldConfig.existingPaymentMethodRequired !== newConfig.existingPaymentMethodRequired
-      || !!oldConfig.onPaymentDataChanged !== !!newConfig.onPaymentDataChanged
-      || !!oldConfig.onPaymentAuthorized !== !!newConfig.onPaymentAuthorized
-      || oldConfig.buttonColor !== newConfig.buttonColor
-      || oldConfig.buttonType !== newConfig.buttonType
+      oldConfig.environment !== newConfig.environment ||
+      oldConfig.existingPaymentMethodRequired !== newConfig.existingPaymentMethodRequired ||
+      !!oldConfig.onPaymentDataChanged !== !!newConfig.onPaymentDataChanged ||
+      !!oldConfig.onPaymentAuthorized !== !!newConfig.onPaymentAuthorized ||
+      oldConfig.buttonColor !== newConfig.buttonColor ||
+      oldConfig.buttonType !== newConfig.buttonType
     );
   }
 }

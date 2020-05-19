@@ -24,14 +24,17 @@ interface NotifyTarget {
 }
 
 function getAttributeName(propertyName: string): string {
-  return propertyName.replace(/[A-Z]+/g, sub => `-${sub}`).replace(/^-/, '').toLowerCase();
+  return propertyName
+    .replace(/[A-Z]+/g, sub => `-${sub}`)
+    .replace(/^-/, '')
+    .toLowerCase();
 }
 
 /**
  * Defines that the target property should be exposed as an attribute, and
  * that changes to the attribute should trigger a `notifyPropertyChanged`
  * callback.
- * 
+ *
  * @param attribute Override the attribute name to use. If ommitted, the
  * property name is used (coverted from camelCase, to snake-case).
  */
@@ -65,7 +68,7 @@ export function NotifyAttribute(attribute?: string) {
  * Defines that the target property should be exposed as boolean attribute, and
  * that changes to the attribute should trigger a `notifyPropertyChanged`
  * callback.
- * 
+ *
  * @param attribute Override the attribute name to use. If ommitted, the
  * property name is used (coverted from camelCase, to snake-case).
  */
@@ -98,7 +101,7 @@ export function NotifyBooleanAttribute(attribute?: string) {
 /**
  * Defines that the target property should trigger a `notifyPropertyChanged`
  * callback when the property changes.
- * 
+ *
  * @param attribute Expose the property as an attribute. Note that when
  * attribute is specified, this method has the same behavior as
  * `NotifyAttribute`.
@@ -125,11 +128,11 @@ export function Notify(attribute?: string): (target: NotifyTarget & HTMLElement,
 
 /**
  * Creates an alias for the given property with a getter and a setter.
- * 
+ *
  * @param alias Name of the alias.
  */
 export function Alias(alias: string) {
-  return function(target: NotifyTarget, key: string): void {
+  return function (target: NotifyTarget, key: string): void {
     Object.defineProperty(target, alias, {
       get(this: NotifyTarget) {
         return this[key];

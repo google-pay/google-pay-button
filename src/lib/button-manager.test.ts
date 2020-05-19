@@ -23,7 +23,7 @@ describe('Apply default configuration', () => {
     const manager = new ButtonManager('google-pay-button');
 
     const request = manager.createLoadPaymentDataRequest({
-      ...defaults
+      ...defaults,
     });
 
     expect(request.shippingAddressRequired).toBe(undefined);
@@ -45,16 +45,18 @@ describe('Apply default configuration', () => {
         shippingOptionParameters: {
           shippingOptions: [],
         },
-        allowedPaymentMethods: [{
-          ...defaults.paymentRequest.allowedPaymentMethods[0],
-          parameters: {
-            ...defaults.paymentRequest.allowedPaymentMethods[0].parameters,
-            billingAddressParameters: {
-              format: 'MIN',
-            }
-          }
-        }]
-      }
+        allowedPaymentMethods: [
+          {
+            ...defaults.paymentRequest.allowedPaymentMethods[0],
+            parameters: {
+              ...defaults.paymentRequest.allowedPaymentMethods[0].parameters,
+              billingAddressParameters: {
+                format: 'MIN',
+              },
+            },
+          },
+        ],
+      },
     });
 
     expect(request.shippingAddressRequired).toBe(true);
@@ -78,17 +80,19 @@ describe('Apply default configuration', () => {
         shippingOptionParameters: {
           shippingOptions: [],
         },
-        allowedPaymentMethods: [{
-          ...defaults.paymentRequest.allowedPaymentMethods[0],
-          parameters: {
-            ...defaults.paymentRequest.allowedPaymentMethods[0].parameters,
-            billingAddressRequired: false,
-            billingAddressParameters: {
-              format: 'MIN',
-            }
-          }
-        }]
-      }
+        allowedPaymentMethods: [
+          {
+            ...defaults.paymentRequest.allowedPaymentMethods[0],
+            parameters: {
+              ...defaults.paymentRequest.allowedPaymentMethods[0].parameters,
+              billingAddressRequired: false,
+              billingAddressParameters: {
+                format: 'MIN',
+              },
+            },
+          },
+        ],
+      },
     });
 
     expect(request.shippingAddressRequired).toBe(false);
@@ -113,17 +117,19 @@ describe('Callbacks', () => {
         shippingOptionParameters: {
           shippingOptions: [],
         },
-        allowedPaymentMethods: [{
-          ...defaults.paymentRequest.allowedPaymentMethods[0],
-          parameters: {
-            ...defaults.paymentRequest.allowedPaymentMethods[0].parameters,
-            billingAddressRequired: false,
-            billingAddressParameters: {
-              format: 'MIN',
-            }
-          }
-        }]
-      }
+        allowedPaymentMethods: [
+          {
+            ...defaults.paymentRequest.allowedPaymentMethods[0],
+            parameters: {
+              ...defaults.paymentRequest.allowedPaymentMethods[0].parameters,
+              billingAddressRequired: false,
+              billingAddressParameters: {
+                format: 'MIN',
+              },
+            },
+          },
+        ],
+      },
     };
 
     const options = manager.createClientOptions(config);

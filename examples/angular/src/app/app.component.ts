@@ -14,8 +14,8 @@
  * limitations under the License.
  */
 
-import { Component } from '@angular/core';
 import '@google-pay/button-element';
+import { Component } from '@angular/core';
 
 @Component({
   selector: 'app-root',

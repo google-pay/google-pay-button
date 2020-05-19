@@ -14,9 +14,9 @@
  * limitations under the License.
  */
 
+import GooglePayButton from './GooglePayButton';
 import React from 'react';
 import ReactDOM from 'react-dom';
-import GooglePayButton from './GooglePayButton';
 import defaults from '../lib/__setup__/defaults';
 
 describe('Render', () => {

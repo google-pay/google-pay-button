@@ -41,7 +41,10 @@
       "extends": [
         "prettier/@typescript-eslint",
         "plugin:prettier/recommended"
-      ]
+      ],
+      "rules": {
+        "sort-imports": "error"
+      }
     },
     {
       "files": ["*.js"],

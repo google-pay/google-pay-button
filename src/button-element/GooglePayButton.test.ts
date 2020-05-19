@@ -15,10 +15,10 @@
  */
 
 import '../lib/__mocks__';
+import { MockWrapper, mock } from '../lib/__util__/test-util';
+import { ButtonManager } from '../lib/button-manager';
 import GooglePayButton from './GooglePayButton';
 import defaults from '../lib/__setup__/defaults';
-import { ButtonManager } from '../lib/button-manager';
-import { MockWrapper, mock } from '../lib/__util__/test-util';
 
 describe('Render', () => {
   function isMounted(this: ButtonManager): boolean {

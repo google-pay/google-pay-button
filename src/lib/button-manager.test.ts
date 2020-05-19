@@ -15,8 +15,8 @@
  */
 
 import './__mocks__';
-import defaults from './__setup__/defaults';
 import { ButtonManager, Config } from './button-manager';
+import defaults from './__setup__/defaults';
 
 describe('Apply default configuration', () => {
   it('maintains default request parameters', async () => {

@@ -14,8 +14,8 @@
  * limitations under the License.
  */
 
-import React, { CSSProperties } from 'react';
 import { ButtonManager, Config } from '../lib/button-manager';
+import React, { CSSProperties } from 'react';
 
 /**
  * Properties for the Google Pay button React component

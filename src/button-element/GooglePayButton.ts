@@ -14,8 +14,8 @@
  * limitations under the License.
  */
 
-import { ButtonManager, Config } from '../lib/button-manager';
 import { Alias, Notify, NotifyAttribute, NotifyBooleanAttribute } from '../lib/property-decorators';
+import { ButtonManager, Config } from '../lib/button-manager';
 import { debounce } from '../lib/debounce';
 
 /**

@@ -36,7 +36,7 @@ function getAttributeName(propertyName: string): string {
  * callback.
  *
  * @param attribute Override the attribute name to use. If ommitted, the
- * property name is used (coverted from camelCase, to snake-case).
+ * property name is used (coverted from camelCase, to kebab-case).
  */
 export function NotifyAttribute(attribute?: string) {
   return function (target: NotifyTarget & HTMLElement, key: string): void {

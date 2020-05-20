@@ -23,7 +23,11 @@ import { debounce } from '../lib/debounce';
  * Custom element for the Google Pay button
  */
 class GooglePayButton extends HTMLElement {
-  private manager: ButtonManager;
+  private manager = new ButtonManager({
+    cssSelector: 'google-pay-button',
+    softwareInfoId: softwareId,
+    softwareInfoVersion: softwareVersion,
+  });
 
   private static _observedAttributes: string[] = [];
 
@@ -99,27 +103,6 @@ class GooglePayButton extends HTMLElement {
     GooglePayButton._observedAttributes.push(name);
   }
 
-  constructor() {
-    super();
-
-    if (ShadowRoot) {
-      this.attachShadow({
-        mode: 'open',
-      });
-      this.manager = new ButtonManager({
-        cssSelector: ':host',
-        softwareInfoId: softwareId,
-        softwareInfoVersion: softwareVersion,
-      });
-    } else {
-      this.manager = new ButtonManager({
-        cssSelector: 'google-pay-button',
-        softwareInfoId: softwareId,
-        softwareInfoVersion: softwareVersion,
-      });
-    }
-  }
-
   private dispatch<T>(type: string, detail: T): void {
     this.dispatchEvent(
       new CustomEvent(type, {
@@ -173,7 +156,7 @@ class GooglePayButton extends HTMLElement {
   });
 
   async connectedCallback(): Promise<void> {
-    await this.manager.mount(this.shadowRoot || this);
+    await this.manager.mount(this);
     return this.initializeButton();
   }
 

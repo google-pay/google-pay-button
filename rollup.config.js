@@ -16,6 +16,7 @@
 
 import dts from "rollup-plugin-dts";
 import typescript from 'rollup-plugin-typescript2';
+import rollupJson from '@rollup/plugin-json';
 
 export default [
   {
@@ -28,6 +29,7 @@ export default [
       'react'
     ],
     plugins: [
+      rollupJson(),
       typescript()
     ],
   },
@@ -50,6 +52,7 @@ export default [
       name: 'google-pay-button'
     },
     plugins: [
+      rollupJson(),
       typescript()
     ],
   },

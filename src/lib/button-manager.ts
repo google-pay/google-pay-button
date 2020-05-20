@@ -32,6 +32,12 @@ export interface Config {
   buttonType?: google.payments.api.ButtonType;
 }
 
+interface ButtonManagerOptions {
+  cssSelector: string;
+  softwareInfoId: string;
+  softwareInfoVersion: string;
+}
+
 /**
  * Manages the lifecycle of the Google Pay button.
  *
@@ -42,12 +48,12 @@ export class ButtonManager {
   private client?: google.payments.api.PaymentsClient;
   private config?: Config;
   private element?: Node;
-  private selector: string;
+  private options: ButtonManagerOptions;
 
   isReadyToPay?: boolean;
 
-  constructor(selector: string) {
-    this.selector = selector;
+  constructor(options: ButtonManagerOptions) {
+    this.options = options;
   }
 
   getElement(): Node | undefined {
@@ -199,6 +205,14 @@ export class ButtonManager {
       return paymentMethod;
     });
 
+    // apply softwareInfo if not set
+    if (!request.merchantInfo.softwareInfo) {
+      request.merchantInfo.softwareInfo = {
+        id: this.options.softwareInfoId,
+        version: this.options.softwareInfoVersion,
+      };
+    }
+
     return request;
   }
 
@@ -291,7 +305,7 @@ export class ButtonManager {
     if (typeof document === 'undefined') return;
 
     const rootNode = this.element?.getRootNode() as Document | ShadowRoot | undefined;
-    const styleId = `default-google-style-${this.selector.replace(/[^\w-]+/g, '')}`;
+    const styleId = `default-google-style-${this.options.cssSelector.replace(/[^\w-]+/g, '')}`;
 
     // initialize styles if rendering on the client:
     if (rootNode) {
@@ -300,11 +314,11 @@ export class ButtonManager {
         style.id = styleId;
         style.type = 'text/css';
         style.innerHTML = `
-          ${this.selector} {
+          ${this.options.cssSelector} {
             display: inline-block;
           }
-          ${this.selector}.fill > div,
-          ${this.selector}.fill > div > .gpay-button {
+          ${this.options.cssSelector}.fill > div,
+          ${this.options.cssSelector}.fill > div > .gpay-button {
             width: 100%;
             height: inherit;
           }

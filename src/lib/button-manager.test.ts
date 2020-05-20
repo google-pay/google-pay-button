@@ -18,9 +18,15 @@ import './__mocks__';
 import { ButtonManager, Config } from './button-manager';
 import defaults from './__setup__/defaults';
 
+const managerOptions = {
+  cssSelector: 'google-pay-button',
+  softwareInfoId: 'test',
+  softwareInfoVersion: '1.0.0',
+};
+
 describe('Apply default configuration', () => {
   it('maintains default request parameters', async () => {
-    const manager = new ButtonManager('google-pay-button');
+    const manager = new ButtonManager(managerOptions);
 
     const request = manager.createLoadPaymentDataRequest({
       ...defaults,
@@ -32,7 +38,7 @@ describe('Apply default configuration', () => {
   });
 
   it('sets default required parameters when options are supplied', async () => {
-    const manager = new ButtonManager('google-pay-button');
+    const manager = new ButtonManager(managerOptions);
 
     const request = manager.createLoadPaymentDataRequest({
       ...defaults,
@@ -65,7 +71,7 @@ describe('Apply default configuration', () => {
   });
 
   it('does not override required parameters when options are supplied', async () => {
-    const manager = new ButtonManager('google-pay-button');
+    const manager = new ButtonManager(managerOptions);
 
     const request = manager.createLoadPaymentDataRequest({
       ...defaults,
@@ -103,7 +109,7 @@ describe('Apply default configuration', () => {
 
 describe('Callbacks', () => {
   it('maintains default callback values', async () => {
-    const manager = new ButtonManager('google-pay-button');
+    const manager = new ButtonManager(managerOptions);
     const config: Config = {
       ...defaults,
       paymentRequest: {
@@ -140,7 +146,7 @@ describe('Callbacks', () => {
   });
 
   it('does not override callbacks when already set', async () => {
-    const manager = new ButtonManager('google-pay-button');
+    const manager = new ButtonManager(managerOptions);
     const config: Config = {
       ...defaults,
       paymentRequest: {
@@ -164,7 +170,7 @@ describe('Callbacks', () => {
   });
 
   it('populates callbacks when onPaymentDataChanged is set', async () => {
-    const manager = new ButtonManager('google-pay-button');
+    const manager = new ButtonManager(managerOptions);
     const config: Config = {
       ...defaults,
       onPaymentDataChanged: () => ({}),
@@ -181,7 +187,7 @@ describe('Callbacks', () => {
   });
 
   it('populates callbacks when onPaymentDataChanged and shippingAddressRequired is set', async () => {
-    const manager = new ButtonManager('google-pay-button');
+    const manager = new ButtonManager(managerOptions);
     const config: Config = {
       ...defaults,
       paymentRequest: {
@@ -202,7 +208,7 @@ describe('Callbacks', () => {
   });
 
   it('populates callbacks when onPaymentDataChanged and shippingOptionRequired is set', async () => {
-    const manager = new ButtonManager('google-pay-button');
+    const manager = new ButtonManager(managerOptions);
     const config: Config = {
       ...defaults,
       paymentRequest: {
@@ -223,7 +229,7 @@ describe('Callbacks', () => {
   });
 
   it('populates callbacks when onPaymentAuthorized is set', async () => {
-    const manager = new ButtonManager('google-pay-button');
+    const manager = new ButtonManager(managerOptions);
     const config: Config = {
       ...defaults,
       onPaymentAuthorized: () => ({ transactionState: 'SUCCESS' }),
@@ -242,7 +248,7 @@ describe('Callbacks', () => {
 
 describe('Google Pay client invalidation', () => {
   it('invalidates client when environment changes', async () => {
-    const manager = new ButtonManager('google-pay-button');
+    const manager = new ButtonManager(managerOptions);
     const config1: Config = {
       ...defaults,
       environment: 'TEST',
@@ -258,7 +264,7 @@ describe('Google Pay client invalidation', () => {
   });
 
   it('invalidates client when existingPaymentMethodRequired changes', async () => {
-    const manager = new ButtonManager('google-pay-button');
+    const manager = new ButtonManager(managerOptions);
     const config1: Config = {
       ...defaults,
       existingPaymentMethodRequired: false,
@@ -274,7 +280,7 @@ describe('Google Pay client invalidation', () => {
   });
 
   it('invalidates client when onPaymentDataChanged added', async () => {
-    const manager = new ButtonManager('google-pay-button');
+    const manager = new ButtonManager(managerOptions);
     const config1: Config = {
       ...defaults,
     };
@@ -289,7 +295,7 @@ describe('Google Pay client invalidation', () => {
   });
 
   it('invalidates client when onPaymentDataChanged removed', async () => {
-    const manager = new ButtonManager('google-pay-button');
+    const manager = new ButtonManager(managerOptions);
     const config1: Config = {
       ...defaults,
       onPaymentDataChanged: () => ({}),
@@ -304,7 +310,7 @@ describe('Google Pay client invalidation', () => {
   });
 
   it('invalidates client when onPaymentAuthorized added', async () => {
-    const manager = new ButtonManager('google-pay-button');
+    const manager = new ButtonManager(managerOptions);
     const config1: Config = {
       ...defaults,
     };
@@ -319,7 +325,7 @@ describe('Google Pay client invalidation', () => {
   });
 
   it('invalidates client when onPaymentAuthorized removed', async () => {
-    const manager = new ButtonManager('google-pay-button');
+    const manager = new ButtonManager(managerOptions);
     const config1: Config = {
       ...defaults,
       onPaymentAuthorized: () => ({ transactionState: 'SUCCESS' }),
@@ -334,7 +340,7 @@ describe('Google Pay client invalidation', () => {
   });
 
   it('does not invalidate client when onPaymentAuthorized modified', async () => {
-    const manager = new ButtonManager('google-pay-button');
+    const manager = new ButtonManager(managerOptions);
     const config1: Config = {
       ...defaults,
       onPaymentAuthorized: () => ({ transactionState: 'SUCCESS' }),
@@ -350,7 +356,7 @@ describe('Google Pay client invalidation', () => {
   });
 
   it('does not invalidate client transactionInfoChannges', async () => {
-    const manager = new ButtonManager('google-pay-button');
+    const manager = new ButtonManager(managerOptions);
     const config1: Config = {
       ...defaults,
     };
@@ -371,7 +377,7 @@ describe('Google Pay client invalidation', () => {
   });
 
   it('invalidates client when buttonType changes', async () => {
-    const manager = new ButtonManager('google-pay-button');
+    const manager = new ButtonManager(managerOptions);
     const config1: Config = {
       ...defaults,
       buttonType: 'long',
@@ -387,7 +393,7 @@ describe('Google Pay client invalidation', () => {
   });
 
   it('invalidates client when buttonColor changes', async () => {
-    const manager = new ButtonManager('google-pay-button');
+    const manager = new ButtonManager(managerOptions);
     const config1: Config = {
       ...defaults,
       buttonColor: 'default',
@@ -400,5 +406,37 @@ describe('Google Pay client invalidation', () => {
     const invalidated = manager.isClientInvalidated(config1, config2);
 
     expect(invalidated).toBe(true);
+  });
+});
+
+describe('Software info', () => {
+  it('sets softwareInfo when softwareInfo has not been set', async () => {
+    const manager = new ButtonManager(managerOptions);
+    const request = manager.createLoadPaymentDataRequest({
+      ...defaults,
+    });
+
+    expect(request.merchantInfo.softwareInfo?.id).toBe('test');
+    expect(request.merchantInfo.softwareInfo?.version).toBe('1.0.0');
+  });
+
+  it('sets softwareInfo when softwareInfo has not been set', async () => {
+    const manager = new ButtonManager(managerOptions);
+    const request = manager.createLoadPaymentDataRequest({
+      ...defaults,
+      paymentRequest: {
+        ...defaults.paymentRequest,
+        merchantInfo: {
+          ...defaults.paymentRequest.merchantInfo,
+          softwareInfo: {
+            id: 'updated test',
+            version: '2.0.0',
+          },
+        },
+      },
+    });
+
+    expect(request.merchantInfo.softwareInfo?.id).toBe('updated test');
+    expect(request.merchantInfo.softwareInfo?.version).toBe('2.0.0');
   });
 });

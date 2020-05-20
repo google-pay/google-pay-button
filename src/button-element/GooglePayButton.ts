@@ -16,6 +16,7 @@
 
 import { Alias, Notify, NotifyAttribute, NotifyBooleanAttribute } from '../lib/property-decorators';
 import { ButtonManager, Config } from '../lib/button-manager';
+import { name as softwareId, version as softwareVersion } from './package.json';
 import { debounce } from '../lib/debounce';
 
 /**
@@ -105,9 +106,17 @@ class GooglePayButton extends HTMLElement {
       this.attachShadow({
         mode: 'open',
       });
-      this.manager = new ButtonManager(':host');
+      this.manager = new ButtonManager({
+        cssSelector: ':host',
+        softwareInfoId: softwareId,
+        softwareInfoVersion: softwareVersion,
+      });
     } else {
-      this.manager = new ButtonManager('google-pay-button');
+      this.manager = new ButtonManager({
+        cssSelector: 'google-pay-button',
+        softwareInfoId: softwareId,
+        softwareInfoVersion: softwareVersion,
+      });
     }
   }
 

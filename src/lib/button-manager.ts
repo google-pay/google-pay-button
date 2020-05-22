@@ -378,7 +378,8 @@ export class ButtonManager {
       !!oldConfig.onPaymentDataChanged !== !!newConfig.onPaymentDataChanged ||
       !!oldConfig.onPaymentAuthorized !== !!newConfig.onPaymentAuthorized ||
       oldConfig.buttonColor !== newConfig.buttonColor ||
-      oldConfig.buttonType !== newConfig.buttonType
+      oldConfig.buttonType !== newConfig.buttonType ||
+      oldConfig.paymentRequest !== newConfig.paymentRequest
     );
   }
 }

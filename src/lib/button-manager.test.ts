@@ -355,27 +355,6 @@ describe('Google Pay client invalidation', () => {
     expect(invalidated).toBe(false);
   });
 
-  it('does not invalidate client transactionInfoChannges', async () => {
-    const manager = new ButtonManager(managerOptions);
-    const config1: Config = {
-      ...defaults,
-    };
-    const config2: Config = {
-      ...defaults,
-      paymentRequest: {
-        ...defaults.paymentRequest,
-        transactionInfo: {
-          ...defaults.paymentRequest.transactionInfo,
-          totalPrice: '200.00',
-        },
-      },
-    };
-
-    const invalidated = manager.isClientInvalidated(config1, config2);
-
-    expect(invalidated).toBe(false);
-  });
-
   it('invalidates client when buttonType changes', async () => {
     const manager = new ButtonManager(managerOptions);
     const config1: Config = {
@@ -401,6 +380,23 @@ describe('Google Pay client invalidation', () => {
     const config2: Config = {
       ...defaults,
       buttonColor: 'white',
+    };
+
+    const invalidated = manager.isClientInvalidated(config1, config2);
+
+    expect(invalidated).toBe(true);
+  });
+
+  it('invalidates client when paymentRequest changes', async () => {
+    const manager = new ButtonManager(managerOptions);
+    const config1: Config = {
+      ...defaults,
+    };
+    const config2: Config = {
+      ...defaults,
+      paymentRequest: {
+        ...defaults.paymentRequest,
+      },
     };
 
     const invalidated = manager.isClientInvalidated(config1, config2);

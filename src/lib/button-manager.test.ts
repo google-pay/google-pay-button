@@ -16,6 +16,7 @@
 
 import './__mocks__';
 import { ButtonManager, Config } from './button-manager';
+import { MockWrapper, mock } from './__util__/test-util';
 import defaults from './__setup__/defaults';
 
 const managerOptions = {
@@ -434,5 +435,105 @@ describe('Software info', () => {
 
     expect(request.merchantInfo.softwareInfo?.id).toBe('updated test');
     expect(request.merchantInfo.softwareInfo?.version).toBe('2.0.0');
+  });
+});
+
+describe('Configuration', () => {
+  let updateElementMock: MockWrapper<() => {}>;
+  let updateElementSpy = jest.fn();
+
+  beforeEach(() => {
+    updateElementSpy = jest.fn();
+    updateElementSpy.mockResolvedValue(undefined);
+    updateElementMock = mock(ButtonManager.prototype, 'updateElement', updateElementSpy);
+  });
+
+  afterEach(() => {
+    updateElementSpy.mockReset();
+    updateElementMock.restore();
+  });
+
+  it('calls updateElement on first configure', async () => {
+    const manager = new ButtonManager(managerOptions);
+
+    manager.configure({
+      ...defaults,
+    });
+
+    expect(updateElementSpy).toBeCalledTimes(1);
+  });
+
+  it('calls updateElement once on with two calls to configure with same configuration', async () => {
+    const manager = new ButtonManager(managerOptions);
+    const config1: Config = {
+      ...defaults,
+    };
+    const config2: Config = {
+      ...defaults,
+    };
+
+    manager.configure(config1);
+    manager.configure(config2);
+
+    expect(updateElementSpy).toBeCalledTimes(1);
+  });
+
+  it('calls updateElement twice with different environments', async () => {
+    const manager = new ButtonManager(managerOptions);
+    const config1: Config = {
+      ...defaults,
+      environment: 'TEST',
+    };
+    const config2: Config = {
+      ...defaults,
+      environment: 'PRODUCTION',
+    };
+
+    manager.configure(config1);
+    manager.configure(config2);
+
+    expect(updateElementSpy).toBeCalledTimes(2);
+  });
+
+  it('calls updateElement twice with different paymentRequest', async () => {
+    const manager = new ButtonManager(managerOptions);
+    const config1: Config = {
+      ...defaults,
+      paymentRequest: {
+        ...defaults.paymentRequest,
+      },
+    };
+    const config2: Config = {
+      ...defaults,
+      paymentRequest: {
+        ...defaults.paymentRequest,
+      },
+    };
+
+    manager.configure(config1);
+    manager.configure(config2);
+
+    expect(updateElementSpy).toBeCalledTimes(2);
+  });
+
+  it('calls updateElement once when mutating transactionInfo', async () => {
+    const manager = new ButtonManager(managerOptions);
+    const config: Config = {
+      ...defaults,
+      paymentRequest: {
+        ...defaults.paymentRequest,
+      },
+    };
+
+    manager.configure(config);
+
+    config.paymentRequest.transactionInfo = {
+      ...config.paymentRequest.transactionInfo,
+      totalPrice: '123',
+    };
+
+    manager.configure(config);
+
+    expect(updateElementSpy).toBeCalledTimes(1);
   });
 });

@@ -225,24 +225,6 @@ describe('Callbacks', () => {
     const request = manager.createLoadPaymentDataRequest(config);
 
     expect(options.paymentDataCallbacks?.onPaymentDataChanged).toBeTruthy();
-    expect(request.callbackIntents).not.toContain('PAYMENT_METHOD');
-    expect(request.callbackIntents).not.toContain('SHIPPING_OPTION');
-    expect(request.callbackIntents).not.toContain('SHIPPING_ADDRESS');
-    expect(request.callbackIntents).not.toContain('PAYMENT_AUTHORIZATION');
-  });
-
-  it('populates callbacks when onPaymentDataChanged is set', async () => {
-    const manager = new ButtonManager(managerOptions);
-    const config: Config = {
-      ...defaults,
-      onPaymentDataChanged: () => ({}),
-    };
-
-    const options = manager.createClientOptions(config);
-    const request = manager.createLoadPaymentDataRequest(config);
-
-    expect(options.paymentDataCallbacks?.onPaymentDataChanged).toBeTruthy();
-    expect(request.callbackIntents).toContain('PAYMENT_METHOD');
     expect(request.callbackIntents).not.toContain('SHIPPING_OPTION');
     expect(request.callbackIntents).not.toContain('SHIPPING_ADDRESS');
     expect(request.callbackIntents).not.toContain('PAYMENT_AUTHORIZATION');
@@ -263,7 +245,6 @@ describe('Callbacks', () => {
     const request = manager.createLoadPaymentDataRequest(config);
 
     expect(options.paymentDataCallbacks?.onPaymentDataChanged).toBeTruthy();
-    expect(request.callbackIntents).toContain('PAYMENT_METHOD');
     expect(request.callbackIntents).toContain('SHIPPING_ADDRESS');
     expect(request.callbackIntents).not.toContain('SHIPPING_OPTION');
     expect(request.callbackIntents).not.toContain('PAYMENT_AUTHORIZATION');
@@ -284,7 +265,6 @@ describe('Callbacks', () => {
     const request = manager.createLoadPaymentDataRequest(config);
 
     expect(options.paymentDataCallbacks?.onPaymentDataChanged).toBeTruthy();
-    expect(request.callbackIntents).toContain('PAYMENT_METHOD');
     expect(request.callbackIntents).not.toContain('SHIPPING_ADDRESS');
     expect(request.callbackIntents).toContain('SHIPPING_OPTION');
     expect(request.callbackIntents).not.toContain('PAYMENT_AUTHORIZATION');
@@ -301,7 +281,6 @@ describe('Callbacks', () => {
     const request = manager.createLoadPaymentDataRequest(config);
 
     expect(options.paymentDataCallbacks?.onPaymentAuthorized).toBeTruthy();
-    expect(request.callbackIntents).not.toContain('PAYMENT_METHOD');
     expect(request.callbackIntents).not.toContain('SHIPPING_OPTION');
     expect(request.callbackIntents).not.toContain('SHIPPING_ADDRESS');
     expect(request.callbackIntents).toContain('PAYMENT_AUTHORIZATION');

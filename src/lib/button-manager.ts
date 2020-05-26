@@ -170,8 +170,6 @@ export class ButtonManager {
     if (!request.callbackIntents) {
       const intents: google.payments.api.CallbackIntent[] = [];
       if (config.onPaymentDataChanged) {
-        intents.push('PAYMENT_METHOD');
-
         if (request.shippingAddressRequired) {
           intents.push('SHIPPING_ADDRESS');
         }

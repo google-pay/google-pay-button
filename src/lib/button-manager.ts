@@ -160,6 +160,10 @@ export class ButtonManager {
     // infer shippingOptionRequired
     if (request.shippingOptionParameters && request.shippingOptionRequired === undefined) {
       request.shippingOptionRequired = true;
+
+      if (request.shippingAddressRequired === undefined) {
+        request.shippingAddressRequired = true;
+      }
     }
 
     // infer callback intents if not set

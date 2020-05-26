@@ -38,6 +38,67 @@ describe('Apply default configuration', () => {
     expect(request.allowedPaymentMethods[0].parameters.billingAddressRequired).toBe(undefined);
   });
 
+  it('sets shippingAddressRequired to true when shippingAddressParameters is specified', async () => {
+    const manager = new ButtonManager(managerOptions);
+
+    const request = manager.createLoadPaymentDataRequest({
+      ...defaults,
+      paymentRequest: {
+        ...defaults.paymentRequest,
+        shippingAddressParameters: {
+          phoneNumberRequired: false,
+          allowedCountryCodes: [],
+        },
+      },
+    });
+
+    expect(request.shippingAddressRequired).toBe(true);
+    expect(request.shippingOptionRequired).toBe(undefined);
+  });
+
+  it('sets shippingAddressRequired and shippingOptionRequired to true when shippingOptionParameters is specified', async () => {
+    const manager = new ButtonManager(managerOptions);
+
+    const request = manager.createLoadPaymentDataRequest({
+      ...defaults,
+      paymentRequest: {
+        ...defaults.paymentRequest,
+        shippingOptionParameters: {
+          shippingOptions: [],
+        },
+      },
+    });
+
+    expect(request.shippingAddressRequired).toBe(true);
+    expect(request.shippingOptionRequired).toBe(true);
+  });
+
+  it('sets billingAddressRequired to true when billingAddressParameters is specified', async () => {
+    const manager = new ButtonManager(managerOptions);
+
+    const request = manager.createLoadPaymentDataRequest({
+      ...defaults,
+      paymentRequest: {
+        ...defaults.paymentRequest,
+        allowedPaymentMethods: [
+          {
+            ...defaults.paymentRequest.allowedPaymentMethods[0],
+            parameters: {
+              ...defaults.paymentRequest.allowedPaymentMethods[0].parameters,
+              billingAddressParameters: {
+                format: 'MIN',
+              },
+            },
+          },
+        ],
+      },
+    });
+
+    expect(request.shippingAddressRequired).toBe(undefined);
+    expect(request.shippingOptionRequired).toBe(undefined);
+    expect(request.allowedPaymentMethods[0].parameters.billingAddressRequired).toBe(true);
+  });
+
   it('sets default required parameters when options are supplied', async () => {
     const manager = new ButtonManager(managerOptions);
 

@@ -167,7 +167,7 @@ export class ButtonManager {
     }
 
     // infer callback intents if not set
-    if (!request.callbackIntents) {
+    if (!request.callbackIntents && (config.onPaymentDataChanged || config.onPaymentAuthorized)) {
       const intents: google.payments.api.CallbackIntent[] = [];
       if (config.onPaymentDataChanged) {
         if (request.shippingAddressRequired) {
@@ -183,9 +183,7 @@ export class ButtonManager {
         intents.push('PAYMENT_AUTHORIZATION');
       }
 
-      if (intents.length) {
-        request.callbackIntents = intents;
-      }
+      request.callbackIntents = intents;
     }
 
     // infer billingAddressRequired
@@ -296,9 +294,11 @@ export class ButtonManager {
       if (err.statusCode === 'CANCELED') {
         if (config.onCancel) {
           config.onCancel(err);
-        } else if (config.onError) {
-          config.onError(err);
         }
+      } else if (config.onError) {
+        config.onError(err);
+      } else {
+        console.error(err);
       }
     }
   };

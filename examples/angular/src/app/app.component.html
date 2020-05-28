@@ -68,7 +68,8 @@
               countryCode: 'US'
             }
           }"
-          [loadPaymentDataCallback]="onLoadPaymentData"
+          (loadpaymentdata)="onLoadPaymentData($event)"
+          (error)="onError($event)"
         ></google-pay-button>
       </div>
     </div>
@@ -92,7 +93,8 @@
               countryCode: 'US'
             }
           }"
-          [loadPaymentDataCallback]="onLoadPaymentData"
+          (loadpaymentdata)="onLoadPaymentData($event)"
+          (error)="onError($event)"
           [paymentAuthorizedCallback]="onPaymentDataAuthorized"
         ></google-pay-button>
       </div>
@@ -131,7 +133,8 @@
               countryCode: 'US'
             }
           }"
-          [loadPaymentDataCallback]="onLoadPaymentData"
+          (loadpaymentdata)="onLoadPaymentData($event)"
+          (error)="onError($event)"
           [paymentAuthorizedCallback]="onPaymentDataAuthorized"
         ></google-pay-button>
       </div>
@@ -157,7 +160,8 @@
             },
             shippingAddressRequired: true
           }"
-          [loadPaymentDataCallback]="onLoadPaymentData"
+          (loadpaymentdata)="onLoadPaymentData($event)"
+          (error)="onError($event)"
           [paymentAuthorizedCallback]="onPaymentDataAuthorized"
         ></google-pay-button>
       </div>

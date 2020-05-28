@@ -54,8 +54,12 @@ export class AppComponent {
     },
   };
 
-  onLoadPaymentData = (paymentData: google.payments.api.PaymentData): void => {
-    console.log('load payment data', paymentData);
+  onLoadPaymentData = (event: CustomEvent<google.payments.api.PaymentData>): void => {
+    console.log('load payment data', event.detail);
+  };
+
+  onError = (event: ErrorEvent): void => {
+    console.error('error', event.error);
   };
 
   onPaymentDataAuthorized: google.payments.api.PaymentAuthorizedHandler = paymentData => {

@@ -96,6 +96,7 @@ export class ButtonManager {
   createClientOptions(config: Config): google.payments.api.PaymentOptions {
     const clientConfig: google.payments.api.PaymentOptions = {
       environment: config.environment,
+      merchantInfo: this.createMerchantInfo(config),
     };
 
     if (config.onPaymentDataChanged || config.onPaymentAuthorized) {
@@ -150,6 +151,7 @@ export class ButtonManager {
   createLoadPaymentDataRequest(config: Config): google.payments.api.PaymentDataRequest {
     const request = {
       ...config.paymentRequest,
+      merchantInfo: this.createMerchantInfo(config),
     };
 
     // infer shippingAddressRequired
@@ -205,15 +207,23 @@ export class ButtonManager {
       return paymentMethod;
     });
 
+    return request;
+  }
+
+  private createMerchantInfo(config: Config): google.payments.api.MerchantInfo {
+    const merchantInfo: google.payments.api.MerchantInfo = {
+      ...config.paymentRequest.merchantInfo,
+    };
+
     // apply softwareInfo if not set
-    if (!request.merchantInfo.softwareInfo) {
-      request.merchantInfo.softwareInfo = {
+    if (!merchantInfo.softwareInfo) {
+      merchantInfo.softwareInfo = {
         id: this.options.softwareInfoId,
         version: this.options.softwareInfoVersion,
       };
     }
 
-    return request;
+    return merchantInfo;
   }
 
   private isMounted(): boolean {

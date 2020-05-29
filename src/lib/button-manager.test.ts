@@ -169,6 +169,19 @@ describe('Apply default configuration', () => {
   });
 });
 
+describe('PaymentsClient options', () => {
+  it('populates merchantInfo creating PaymentsClient options', async () => {
+    const manager = new ButtonManager(managerOptions);
+    const config: Config = {
+      ...defaults,
+    };
+
+    const options = manager.createClientOptions(config);
+
+    expect(options.merchantInfo).not.toBe(undefined);
+  });
+});
+
 describe('Callbacks', () => {
   it('maintains default callback values', async () => {
     const manager = new ButtonManager(managerOptions);

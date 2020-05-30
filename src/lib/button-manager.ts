@@ -47,7 +47,7 @@ interface ButtonManagerOptions {
 export class ButtonManager {
   private client?: google.payments.api.PaymentsClient;
   private config?: Config;
-  private element?: Node;
+  private element?: Element;
   private options: ButtonManagerOptions;
 
   isReadyToPay?: boolean;
@@ -60,7 +60,7 @@ export class ButtonManager {
     return this.element;
   }
 
-  async mount(element: Node): Promise<void> {
+  async mount(element: Element): Promise<void> {
     await loadScript('https://pay.google.com/gp/p/js/pay.js');
 
     this.element = element;
@@ -248,10 +248,21 @@ export class ButtonManager {
       throw Error('google-pay-button: Missing configuration');
     }
 
-    // remove button
+    // remove existing button
     this.removeButton();
 
     this.client = new google.payments.api.PaymentsClient(this.createClientOptions(this.config));
+
+    // pre-create button
+    const button = this.client.createButton({
+      buttonType: this.config.buttonType,
+      buttonColor: this.config.buttonColor,
+      onClick: this.handleClick,
+    });
+
+    this.copyGPayStyles();
+    element.className = [element.className, 'not-ready'].filter(className => className).join(' ');
+    element.appendChild(button);
 
     let isReadyToPay = false;
 
@@ -268,14 +279,11 @@ export class ButtonManager {
     if (!this.isMounted()) return;
 
     if (isReadyToPay) {
-      const button = this.client.createButton({
-        buttonType: this.config.buttonType,
-        buttonColor: this.config.buttonColor,
-        onClick: this.handleClick,
-      });
-
-      this.copyGPayStyles();
-      element.appendChild(button);
+      // remove hidden className
+      element.className = (element.className || '')
+        .split(' ')
+        .filter(className => className && className !== 'not-ready')
+        .join(' ');
     }
 
     if (this.isReadyToPay !== isReadyToPay) {
@@ -328,6 +336,11 @@ export class ButtonManager {
         style.innerHTML = `
           ${this.options.cssSelector} {
             display: inline-block;
+          }
+          ${this.options.cssSelector}.not-ready {
+            width: 0;
+            height: 0;
+            overflow: hidden;
           }
           ${this.options.cssSelector}.fill > div,
           ${this.options.cssSelector}.fill > div > .gpay-button {

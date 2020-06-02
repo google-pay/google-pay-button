@@ -55,13 +55,13 @@ const defaultPaymentRequest = {
         parameters: {
           'gateway': 'stripe',
           'stripe:version': '2018-10-31',
-          'stripe:publishableKey': 'pk_test_MNKMwKAvgdo2yKOhIeCOE6MZ00yS3mWShu',
+          'stripe:publishableKey': 'pk_test_xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx',
         },
       },
     },
   ],
   merchantInfo: {
-    merchantId: '17613812255336763067',
+    merchantId: '12345678901234567890',
     merchantName: 'Demo Merchant',
   },
   transactionInfo: {
@@ -249,13 +249,13 @@ staticButton.paymentRequest = {
         parameters: {
           'gateway': 'stripe',
           'stripe:version': '2018-10-31',
-          'stripe:publishableKey': 'pk_test_MNKMwKAvgdo2yKOhIeCOE6MZ00yS3mWShu',
+          'stripe:publishableKey': 'pk_test_xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx',
         },
       },
     },
   ],
   merchantInfo: {
-    merchantId: '17613812255336763067',
+    merchantId: '12345678901234567890',
     merchantName: 'Demo Merchant',
   },
   transactionInfo: {

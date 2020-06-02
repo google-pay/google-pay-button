@@ -42,7 +42,7 @@ npm install @google-pay/button-element
       },
     ],
     merchantInfo: {
-      merchantId: '17613812255336763067',
+      merchantId: '12345678901234567890',
       merchantName: 'Demo Merchant',
     },
     transactionInfo: {
@@ -88,7 +88,7 @@ More HTML examples can be found in the [examples folder](../../examples/html) of
       }
     ],
     merchantInfo: {
-      merchantId: '17613812255336763067',
+      merchantId: '12345678901234567890',
       merchantName: 'Demo Merchant'
     },
     transactionInfo: {

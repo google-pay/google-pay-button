@@ -301,6 +301,30 @@ describe('Callbacks', () => {
 });
 
 describe('Google Pay client invalidation', () => {
+  let updateElementMock: MockWrapper<() => {}>;
+  let updateElementSpy = jest.fn();
+
+  beforeEach(() => {
+    updateElementSpy = jest.fn();
+    updateElementSpy.mockResolvedValue(undefined);
+    updateElementMock = mock(ButtonManager.prototype, 'updateElement', updateElementSpy);
+  });
+
+  afterEach(() => {
+    updateElementSpy.mockReset();
+    updateElementMock.restore();
+  });
+
+  it('calls updateElement on first configure', async () => {
+    const manager = new ButtonManager(managerOptions);
+
+    manager.configure({
+      ...defaults,
+    });
+
+    expect(updateElementSpy).toBeCalledTimes(1);
+  });
+
   it('invalidates client when environment changes', async () => {
     const manager = new ButtonManager(managerOptions);
     const config1: Config = {
@@ -312,9 +336,10 @@ describe('Google Pay client invalidation', () => {
       environment: 'PRODUCTION',
     };
 
-    const invalidated = manager.isClientInvalidated(config1, config2);
+    manager.configure(config1);
+    manager.configure(config2);
 
-    expect(invalidated).toBe(true);
+    expect(updateElementSpy).toBeCalledTimes(2);
   });
 
   it('invalidates client when existingPaymentMethodRequired changes', async () => {
@@ -328,9 +353,10 @@ describe('Google Pay client invalidation', () => {
       existingPaymentMethodRequired: true,
     };
 
-    const invalidated = manager.isClientInvalidated(config1, config2);
+    manager.configure(config1);
+    manager.configure(config2);
 
-    expect(invalidated).toBe(true);
+    expect(updateElementSpy).toBeCalledTimes(2);
   });
 
   it('invalidates client when onPaymentDataChanged added', async () => {
@@ -343,9 +369,10 @@ describe('Google Pay client invalidation', () => {
       onPaymentDataChanged: () => ({}),
     };
 
-    const invalidated = manager.isClientInvalidated(config1, config2);
+    manager.configure(config1);
+    manager.configure(config2);
 
-    expect(invalidated).toBe(true);
+    expect(updateElementSpy).toBeCalledTimes(2);
   });
 
   it('invalidates client when onPaymentDataChanged removed', async () => {
@@ -358,9 +385,10 @@ describe('Google Pay client invalidation', () => {
       ...defaults,
     };
 
-    const invalidated = manager.isClientInvalidated(config1, config2);
+    manager.configure(config1);
+    manager.configure(config2);
 
-    expect(invalidated).toBe(true);
+    expect(updateElementSpy).toBeCalledTimes(2);
   });
 
   it('invalidates client when onPaymentAuthorized added', async () => {
@@ -373,9 +401,10 @@ describe('Google Pay client invalidation', () => {
       onPaymentAuthorized: () => ({ transactionState: 'SUCCESS' }),
     };
 
-    const invalidated = manager.isClientInvalidated(config1, config2);
+    manager.configure(config1);
+    manager.configure(config2);
 
-    expect(invalidated).toBe(true);
+    expect(updateElementSpy).toBeCalledTimes(2);
   });
 
   it('invalidates client when onPaymentAuthorized removed', async () => {
@@ -388,9 +417,10 @@ describe('Google Pay client invalidation', () => {
       ...defaults,
     };
 
-    const invalidated = manager.isClientInvalidated(config1, config2);
+    manager.configure(config1);
+    manager.configure(config2);
 
-    expect(invalidated).toBe(true);
+    expect(updateElementSpy).toBeCalledTimes(2);
   });
 
   it('does not invalidate client when onPaymentAuthorized modified', async () => {
@@ -404,9 +434,10 @@ describe('Google Pay client invalidation', () => {
       onPaymentAuthorized: () => ({ transactionState: 'ERROR' }),
     };
 
-    const invalidated = manager.isClientInvalidated(config1, config2);
+    manager.configure(config1);
+    manager.configure(config2);
 
-    expect(invalidated).toBe(false);
+    expect(updateElementSpy).toBeCalledTimes(1);
   });
 
   it('invalidates client when buttonType changes', async () => {
@@ -420,9 +451,10 @@ describe('Google Pay client invalidation', () => {
       buttonType: 'short',
     };
 
-    const invalidated = manager.isClientInvalidated(config1, config2);
+    manager.configure(config1);
+    manager.configure(config2);
 
-    expect(invalidated).toBe(true);
+    expect(updateElementSpy).toBeCalledTimes(2);
   });
 
   it('invalidates client when buttonColor changes', async () => {
@@ -436,9 +468,10 @@ describe('Google Pay client invalidation', () => {
       buttonColor: 'white',
     };
 
-    const invalidated = manager.isClientInvalidated(config1, config2);
+    manager.configure(config1);
+    manager.configure(config2);
 
-    expect(invalidated).toBe(true);
+    expect(updateElementSpy).toBeCalledTimes(2);
   });
 
   it('invalidates client when paymentRequest changes', async () => {
@@ -453,9 +486,106 @@ describe('Google Pay client invalidation', () => {
       },
     };
 
-    const invalidated = manager.isClientInvalidated(config1, config2);
+    manager.configure(config1);
+    manager.configure(config2);
 
-    expect(invalidated).toBe(true);
+    expect(updateElementSpy).toBeCalledTimes(2);
+  });
+
+  it('does not invalidate client with the same configuration (shallow copy)', async () => {
+    const manager = new ButtonManager(managerOptions);
+    const config1: Config = {
+      ...defaults,
+    };
+    const config2: Config = {
+      ...defaults,
+    };
+
+    manager.configure(config1);
+    manager.configure(config2);
+
+    expect(updateElementSpy).toBeCalledTimes(1);
+  });
+
+  it('invalidates client with different paymentRequest', async () => {
+    const manager = new ButtonManager(managerOptions);
+    const config1: Config = {
+      ...defaults,
+      paymentRequest: {
+        ...defaults.paymentRequest,
+      },
+    };
+    const config2: Config = {
+      ...defaults,
+      paymentRequest: {
+        ...defaults.paymentRequest,
+      },
+    };
+
+    manager.configure(config1);
+    manager.configure(config2);
+
+    expect(updateElementSpy).toBeCalledTimes(2);
+  });
+
+  it('does not invalidate client when mutating transactionInfo', async () => {
+    const manager = new ButtonManager(managerOptions);
+    const config: Config = {
+      ...defaults,
+      paymentRequest: {
+        ...defaults.paymentRequest,
+      },
+    };
+
+    manager.configure(config);
+
+    config.paymentRequest.transactionInfo = {
+      ...config.paymentRequest.transactionInfo,
+      totalPrice: '123',
+    };
+
+    manager.configure(config);
+
+    expect(updateElementSpy).toBeCalledTimes(1);
+  });
+
+  it('invalidates client when mutating merchantInfo', async () => {
+    const manager = new ButtonManager(managerOptions);
+    const config: Config = {
+      ...defaults,
+      paymentRequest: {
+        ...defaults.paymentRequest,
+      },
+    };
+
+    manager.configure(config);
+
+    config.paymentRequest.merchantInfo = {
+      merchantId: '12345678901234567890',
+      merchantName: 'Demo Merchant',
+    };
+
+    manager.configure(config);
+
+    expect(updateElementSpy).toBeCalledTimes(2);
+  });
+
+  it('invalidates client when mutating merchantId', async () => {
+    const manager = new ButtonManager(managerOptions);
+    const config: Config = {
+      ...defaults,
+      paymentRequest: {
+        ...defaults.paymentRequest,
+      },
+    };
+
+    manager.configure(config);
+
+    config.paymentRequest.merchantInfo.merchantId = '01234567890123456789';
+
+    manager.configure(config);
+
+    expect(updateElementSpy).toBeCalledTimes(2);
   });
 });
 
@@ -488,105 +618,5 @@ describe('Software info', () => {
 
     expect(request.merchantInfo.softwareInfo?.id).toBe('updated test');
     expect(request.merchantInfo.softwareInfo?.version).toBe('2.0.0');
-  });
-});
-
-describe('Configuration', () => {
-  let updateElementMock: MockWrapper<() => {}>;
-  let updateElementSpy = jest.fn();
-
-  beforeEach(() => {
-    updateElementSpy = jest.fn();
-    updateElementSpy.mockResolvedValue(undefined);
-    updateElementMock = mock(ButtonManager.prototype, 'updateElement', updateElementSpy);
-  });
-
-  afterEach(() => {
-    updateElementSpy.mockReset();
-    updateElementMock.restore();
-  });
-
-  it('calls updateElement on first configure', async () => {
-    const manager = new ButtonManager(managerOptions);
-
-    manager.configure({
-      ...defaults,
-    });
-
-    expect(updateElementSpy).toBeCalledTimes(1);
-  });
-
-  it('calls updateElement once on with two calls to configure with same configuration', async () => {
-    const manager = new ButtonManager(managerOptions);
-    const config1: Config = {
-      ...defaults,
-    };
-    const config2: Config = {
-      ...defaults,
-    };
-
-    manager.configure(config1);
-    manager.configure(config2);
-
-    expect(updateElementSpy).toBeCalledTimes(1);
-  });
-
-  it('calls updateElement twice with different environments', async () => {
-    const manager = new ButtonManager(managerOptions);
-    const config1: Config = {
-      ...defaults,
-      environment: 'TEST',
-    };
-    const config2: Config = {
-      ...defaults,
-      environment: 'PRODUCTION',
-    };
-
-    manager.configure(config1);
-    manager.configure(config2);
-
-    expect(updateElementSpy).toBeCalledTimes(2);
-  });
-
-  it('calls updateElement twice with different paymentRequest', async () => {
-    const manager = new ButtonManager(managerOptions);
-    const config1: Config = {
-      ...defaults,
-      paymentRequest: {
-        ...defaults.paymentRequest,
-      },
-    };
-    const config2: Config = {
-      ...defaults,
-      paymentRequest: {
-        ...defaults.paymentRequest,
-      },
-    };
-
-    manager.configure(config1);
-    manager.configure(config2);
-
-    expect(updateElementSpy).toBeCalledTimes(2);
-  });
-
-  it('calls updateElement once when mutating transactionInfo', async () => {
-    const manager = new ButtonManager(managerOptions);
-    const config: Config = {
-      ...defaults,
-      paymentRequest: {
-        ...defaults.paymentRequest,
-      },
-    };
-
-    manager.configure(config);
-
-    config.paymentRequest.transactionInfo = {
-      ...config.paymentRequest.transactionInfo,
-      totalPrice: '123',
-    };
-
-    manager.configure(config);
-
-    expect(updateElementSpy).toBeCalledTimes(1);
   });
 });

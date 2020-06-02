@@ -49,6 +49,7 @@ export class ButtonManager {
   private config?: Config;
   private element?: Element;
   private options: ButtonManagerOptions;
+  private oldInvalidationValues?: any[];
 
   isReadyToPay?: boolean;
 
@@ -77,11 +78,11 @@ export class ButtonManager {
   }
 
   configure(newConfig: Config): void {
-    const oldConfig = this.config;
     this.config = newConfig;
-    if (!oldConfig || this.isClientInvalidated(oldConfig, newConfig)) {
+    if (!this.oldInvalidationValues || this.isClientInvalidated(newConfig)) {
       this.updateElement();
     }
+    this.oldInvalidationValues = this.getInvalidationValues(newConfig);
   }
 
   /**
@@ -360,7 +361,6 @@ export class ButtonManager {
 
   /**
    * workaround to get css styles into component
-   * @param node Node to append styles to
    */
   private copyGPayStyles(): void {
     const node = this.element?.getRootNode();
@@ -387,24 +387,27 @@ export class ButtonManager {
     }
   }
 
-  /**
-   * Determines whether or not the `PaymentsClient` should be invalidated and
-   * re-instantiated based on changes in button configuration.
-   *
-   * This method would normally be private but has been made public for
-   * testing purposes.
-   *
-   * @private
-   */
-  isClientInvalidated(oldConfig: Config, newConfig: Config): boolean {
-    return (
-      oldConfig.environment !== newConfig.environment ||
-      oldConfig.existingPaymentMethodRequired !== newConfig.existingPaymentMethodRequired ||
-      !!oldConfig.onPaymentDataChanged !== !!newConfig.onPaymentDataChanged ||
-      !!oldConfig.onPaymentAuthorized !== !!newConfig.onPaymentAuthorized ||
-      oldConfig.buttonColor !== newConfig.buttonColor ||
-      oldConfig.buttonType !== newConfig.buttonType ||
-      oldConfig.paymentRequest !== newConfig.paymentRequest
-    );
+  private isClientInvalidated(newConfig: Config): boolean {
+    if (!this.oldInvalidationValues) return true;
+
+    const newValues = this.getInvalidationValues(newConfig);
+    return newValues.some((value, index) => value !== this.oldInvalidationValues![index]);
+  }
+
+  private getInvalidationValues(config: Config): any[] {
+    return [
+      config.environment,
+      config.existingPaymentMethodRequired,
+      !!config.onPaymentDataChanged,
+      !!config.onPaymentAuthorized,
+      config.buttonColor,
+      config.buttonType,
+      config.paymentRequest,
+      config.paymentRequest.merchantInfo,
+      config.paymentRequest.merchantInfo.merchantId,
+      config.paymentRequest.merchantInfo.merchantName,
+      config.paymentRequest.merchantInfo.softwareInfo?.id,
+      config.paymentRequest.merchantInfo.softwareInfo?.version,
+    ];
   }
 }

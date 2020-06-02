@@ -43,7 +43,7 @@ export default (props: any) => {
             },
           ],
           merchantInfo: {
-            merchantId: '17613812255336763067',
+            merchantId: '12345678901234567890',
             merchantName: 'Demo Merchant',
           },
           transactionInfo: {

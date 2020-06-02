@@ -36,9 +36,8 @@ export default (props: any) => {
               tokenizationSpecification: {
                 type: 'PAYMENT_GATEWAY',
                 parameters: {
-                  'gateway': 'stripe',
-                  'stripe:version': '2018-10-31',
-                  'stripe:publishableKey': 'pk_test_xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx',
+                  'gateway': 'example',
+                  'gatewayMerchantId': 'exampleGatewayMerchantId',
                 },
               },
             },

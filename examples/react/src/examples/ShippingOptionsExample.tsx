@@ -37,7 +37,6 @@ export default (props: any) => {
   return (
     <Example title="Shipping Options">
       <GooglePayButton
-        environment={props.environment}
         paymentRequest={{
           apiVersion: 2,
           apiVersionMinor: 0,

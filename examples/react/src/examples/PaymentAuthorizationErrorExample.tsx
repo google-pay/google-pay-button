@@ -22,7 +22,6 @@ export default (props: any) => {
   return (
     <Example title="Payment Authorization (insufficient funds)">
       <GooglePayButton
-        environment={props.environment}
         paymentRequest={{
           apiVersion: 2,
           apiVersionMinor: 0,

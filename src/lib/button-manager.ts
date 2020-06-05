@@ -173,6 +173,12 @@ export class ButtonManager {
     if (!request.callbackIntents && (config.onPaymentDataChanged || config.onPaymentAuthorized)) {
       const intents: google.payments.api.CallbackIntent[] = [];
       if (config.onPaymentDataChanged) {
+        if (!request.shippingAddressRequired && !request.shippingOptionRequired) {
+          throw new Error(
+            'onPaymentDataChanged must be used with either shippingAddressRequired or shippingOptionRequired',
+          );
+        }
+
         if (request.shippingAddressRequired) {
           intents.push('SHIPPING_ADDRESS');
         }

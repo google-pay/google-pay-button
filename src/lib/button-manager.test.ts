@@ -283,6 +283,38 @@ describe('Callbacks', () => {
     expect(request.callbackIntents).not.toContain('PAYMENT_AUTHORIZATION');
   });
 
+  it('throws when onPaymentDataChanged is set shippingAddressRequired and shippingOptionRequired not explicitly set', async () => {
+    const manager = new ButtonManager(managerOptions);
+    const config: Config = {
+      ...defaults,
+      paymentRequest: {
+        ...defaults.paymentRequest,
+      },
+      onPaymentDataChanged: () => ({}),
+    };
+
+    expect(() => {
+      manager.createLoadPaymentDataRequest(config);
+    }).toThrowError('onPaymentDataChanged must be used with either shippingAddressRequired or shippingOptionRequired');
+  });
+
+  it('throws when onPaymentDataChanged is set shippingAddressRequired and shippingOptionRequired are explicitly set to false', async () => {
+    const manager = new ButtonManager(managerOptions);
+    const config: Config = {
+      ...defaults,
+      paymentRequest: {
+        ...defaults.paymentRequest,
+        shippingAddressRequired: false,
+        shippingOptionRequired: false,
+      },
+      onPaymentDataChanged: () => ({}),
+    };
+
+    expect(() => {
+      manager.createLoadPaymentDataRequest(config);
+    }).toThrowError('onPaymentDataChanged must be used with either shippingAddressRequired or shippingOptionRequired');
+  });
+
   it('populates callbacks when onPaymentAuthorized is set', async () => {
     const manager = new ButtonManager(managerOptions);
     const config: Config = {

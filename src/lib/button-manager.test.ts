@@ -26,7 +26,7 @@ const managerOptions = {
 };
 
 describe('Apply default configuration', () => {
-  it('maintains default request parameters', async () => {
+  it('maintains default request parameters', () => {
     const manager = new ButtonManager(managerOptions);
 
     const request = manager.createLoadPaymentDataRequest({
@@ -38,7 +38,7 @@ describe('Apply default configuration', () => {
     expect(request.allowedPaymentMethods[0].parameters.billingAddressRequired).toBe(undefined);
   });
 
-  it('sets shippingAddressRequired to true when shippingAddressParameters is specified', async () => {
+  it('sets shippingAddressRequired to true when shippingAddressParameters is specified', () => {
     const manager = new ButtonManager(managerOptions);
 
     const request = manager.createLoadPaymentDataRequest({
@@ -56,7 +56,7 @@ describe('Apply default configuration', () => {
     expect(request.shippingOptionRequired).toBe(undefined);
   });
 
-  it('sets shippingAddressRequired and shippingOptionRequired to true when shippingOptionParameters is specified', async () => {
+  it('sets shippingAddressRequired and shippingOptionRequired to true when shippingOptionParameters is specified', () => {
     const manager = new ButtonManager(managerOptions);
 
     const request = manager.createLoadPaymentDataRequest({
@@ -73,7 +73,7 @@ describe('Apply default configuration', () => {
     expect(request.shippingOptionRequired).toBe(true);
   });
 
-  it('sets billingAddressRequired to true when billingAddressParameters is specified', async () => {
+  it('sets billingAddressRequired to true when billingAddressParameters is specified', () => {
     const manager = new ButtonManager(managerOptions);
 
     const request = manager.createLoadPaymentDataRequest({
@@ -99,7 +99,7 @@ describe('Apply default configuration', () => {
     expect(request.allowedPaymentMethods[0].parameters.billingAddressRequired).toBe(true);
   });
 
-  it('sets default required parameters when options are supplied', async () => {
+  it('sets default required parameters when options are supplied', () => {
     const manager = new ButtonManager(managerOptions);
 
     const request = manager.createLoadPaymentDataRequest({
@@ -132,7 +132,7 @@ describe('Apply default configuration', () => {
     expect(request.allowedPaymentMethods[0].parameters.billingAddressRequired).toBe(true);
   });
 
-  it('does not override required parameters when options are supplied', async () => {
+  it('does not override required parameters when options are supplied', () => {
     const manager = new ButtonManager(managerOptions);
 
     const request = manager.createLoadPaymentDataRequest({
@@ -170,7 +170,7 @@ describe('Apply default configuration', () => {
 });
 
 describe('PaymentsClient options', () => {
-  it('populates merchantInfo creating PaymentsClient options', async () => {
+  it('populates merchantInfo creating PaymentsClient options', () => {
     const manager = new ButtonManager(managerOptions);
     const config: Config = {
       ...defaults,
@@ -183,7 +183,7 @@ describe('PaymentsClient options', () => {
 });
 
 describe('Callbacks', () => {
-  it('maintains default callback values', async () => {
+  it('maintains default callback values', () => {
     const manager = new ButtonManager(managerOptions);
     const config: Config = {
       ...defaults,
@@ -220,7 +220,7 @@ describe('Callbacks', () => {
     expect(request.callbackIntents).toBe(undefined);
   });
 
-  it('does not override callbacks when already set', async () => {
+  it('does not override callbacks when already set', () => {
     const manager = new ButtonManager(managerOptions);
     const config: Config = {
       ...defaults,
@@ -243,7 +243,7 @@ describe('Callbacks', () => {
     expect(request.callbackIntents).not.toContain('PAYMENT_AUTHORIZATION');
   });
 
-  it('populates callbacks when onPaymentDataChanged and shippingAddressRequired is set', async () => {
+  it('populates callbacks when onPaymentDataChanged and shippingAddressRequired is set', () => {
     const manager = new ButtonManager(managerOptions);
     const config: Config = {
       ...defaults,
@@ -263,7 +263,7 @@ describe('Callbacks', () => {
     expect(request.callbackIntents).not.toContain('PAYMENT_AUTHORIZATION');
   });
 
-  it('populates callbacks when onPaymentDataChanged and shippingOptionRequired is set', async () => {
+  it('populates callbacks when onPaymentDataChanged and shippingOptionRequired is set', () => {
     const manager = new ButtonManager(managerOptions);
     const config: Config = {
       ...defaults,
@@ -283,7 +283,7 @@ describe('Callbacks', () => {
     expect(request.callbackIntents).not.toContain('PAYMENT_AUTHORIZATION');
   });
 
-  it('throws when onPaymentDataChanged is set shippingAddressRequired and shippingOptionRequired not explicitly set', async () => {
+  it('throws when onPaymentDataChanged is set shippingAddressRequired and shippingOptionRequired not explicitly set', () => {
     const manager = new ButtonManager(managerOptions);
     const config: Config = {
       ...defaults,
@@ -298,7 +298,7 @@ describe('Callbacks', () => {
     }).toThrowError('onPaymentDataChanged must be used with either shippingAddressRequired or shippingOptionRequired');
   });
 
-  it('throws when onPaymentDataChanged is set shippingAddressRequired and shippingOptionRequired are explicitly set to false', async () => {
+  it('throws when onPaymentDataChanged is set shippingAddressRequired and shippingOptionRequired are explicitly set to false', () => {
     const manager = new ButtonManager(managerOptions);
     const config: Config = {
       ...defaults,
@@ -315,7 +315,7 @@ describe('Callbacks', () => {
     }).toThrowError('onPaymentDataChanged must be used with either shippingAddressRequired or shippingOptionRequired');
   });
 
-  it('populates callbacks when onPaymentAuthorized is set', async () => {
+  it('populates callbacks when onPaymentAuthorized is set', () => {
     const manager = new ButtonManager(managerOptions);
     const config: Config = {
       ...defaults,
@@ -347,7 +347,7 @@ describe('Google Pay client invalidation', () => {
     updateElementMock.restore();
   });
 
-  it('calls updateElement on first configure', async () => {
+  it('calls updateElement on first configure', () => {
     const manager = new ButtonManager(managerOptions);
 
     manager.configure({
@@ -357,7 +357,7 @@ describe('Google Pay client invalidation', () => {
     expect(updateElementSpy).toBeCalledTimes(1);
   });
 
-  it('invalidates client when environment changes', async () => {
+  it('invalidates client when environment changes', () => {
     const manager = new ButtonManager(managerOptions);
     const config1: Config = {
       ...defaults,
@@ -374,7 +374,7 @@ describe('Google Pay client invalidation', () => {
     expect(updateElementSpy).toBeCalledTimes(2);
   });
 
-  it('invalidates client when existingPaymentMethodRequired changes', async () => {
+  it('invalidates client when existingPaymentMethodRequired changes', () => {
     const manager = new ButtonManager(managerOptions);
     const config1: Config = {
       ...defaults,
@@ -391,7 +391,7 @@ describe('Google Pay client invalidation', () => {
     expect(updateElementSpy).toBeCalledTimes(2);
   });
 
-  it('invalidates client when onPaymentDataChanged added', async () => {
+  it('invalidates client when onPaymentDataChanged added', () => {
     const manager = new ButtonManager(managerOptions);
     const config1: Config = {
       ...defaults,
@@ -407,7 +407,7 @@ describe('Google Pay client invalidation', () => {
     expect(updateElementSpy).toBeCalledTimes(2);
   });
 
-  it('invalidates client when onPaymentDataChanged removed', async () => {
+  it('invalidates client when onPaymentDataChanged removed', () => {
     const manager = new ButtonManager(managerOptions);
     const config1: Config = {
       ...defaults,
@@ -423,7 +423,7 @@ describe('Google Pay client invalidation', () => {
     expect(updateElementSpy).toBeCalledTimes(2);
   });
 
-  it('invalidates client when onPaymentAuthorized added', async () => {
+  it('invalidates client when onPaymentAuthorized added', () => {
     const manager = new ButtonManager(managerOptions);
     const config1: Config = {
       ...defaults,
@@ -439,7 +439,7 @@ describe('Google Pay client invalidation', () => {
     expect(updateElementSpy).toBeCalledTimes(2);
   });
 
-  it('invalidates client when onPaymentAuthorized removed', async () => {
+  it('invalidates client when onPaymentAuthorized removed', () => {
     const manager = new ButtonManager(managerOptions);
     const config1: Config = {
       ...defaults,
@@ -455,7 +455,7 @@ describe('Google Pay client invalidation', () => {
     expect(updateElementSpy).toBeCalledTimes(2);
   });
 
-  it('does not invalidate client when onPaymentAuthorized modified', async () => {
+  it('does not invalidate client when onPaymentAuthorized modified', () => {
     const manager = new ButtonManager(managerOptions);
     const config1: Config = {
       ...defaults,
@@ -472,7 +472,7 @@ describe('Google Pay client invalidation', () => {
     expect(updateElementSpy).toBeCalledTimes(1);
   });
 
-  it('invalidates client when buttonType changes', async () => {
+  it('invalidates client when buttonType changes', () => {
     const manager = new ButtonManager(managerOptions);
     const config1: Config = {
       ...defaults,
@@ -489,7 +489,7 @@ describe('Google Pay client invalidation', () => {
     expect(updateElementSpy).toBeCalledTimes(2);
   });
 
-  it('invalidates client when buttonColor changes', async () => {
+  it('invalidates client when buttonColor changes', () => {
     const manager = new ButtonManager(managerOptions);
     const config1: Config = {
       ...defaults,
@@ -506,7 +506,7 @@ describe('Google Pay client invalidation', () => {
     expect(updateElementSpy).toBeCalledTimes(2);
   });
 
-  it('invalidates client when paymentRequest changes', async () => {
+  it('invalidates client when paymentRequest changes', () => {
     const manager = new ButtonManager(managerOptions);
     const config1: Config = {
       ...defaults,
@@ -524,7 +524,7 @@ describe('Google Pay client invalidation', () => {
     expect(updateElementSpy).toBeCalledTimes(2);
   });
 
-  it('does not invalidate client with the same configuration (shallow copy)', async () => {
+  it('does not invalidate client with the same configuration (shallow copy)', () => {
     const manager = new ButtonManager(managerOptions);
     const config1: Config = {
       ...defaults,
@@ -539,7 +539,7 @@ describe('Google Pay client invalidation', () => {
     expect(updateElementSpy).toBeCalledTimes(1);
   });
 
-  it('invalidates client with different paymentRequest', async () => {
+  it('invalidates client with different paymentRequest', () => {
     const manager = new ButtonManager(managerOptions);
     const config1: Config = {
       ...defaults,
@@ -560,7 +560,7 @@ describe('Google Pay client invalidation', () => {
     expect(updateElementSpy).toBeCalledTimes(2);
   });
 
-  it('does not invalidate client when mutating transactionInfo', async () => {
+  it('does not invalidate client when mutating transactionInfo', () => {
     const manager = new ButtonManager(managerOptions);
     const config: Config = {
       ...defaults,
@@ -581,7 +581,7 @@ describe('Google Pay client invalidation', () => {
     expect(updateElementSpy).toBeCalledTimes(1);
   });
 
-  it('invalidates client when mutating merchantInfo', async () => {
+  it('invalidates client when mutating merchantInfo', () => {
     const manager = new ButtonManager(managerOptions);
     const config: Config = {
       ...defaults,
@@ -602,7 +602,7 @@ describe('Google Pay client invalidation', () => {
     expect(updateElementSpy).toBeCalledTimes(2);
   });
 
-  it('invalidates client when mutating merchantId', async () => {
+  it('invalidates client when mutating merchantId', () => {
     const manager = new ButtonManager(managerOptions);
     const config: Config = {
       ...defaults,
@@ -622,7 +622,7 @@ describe('Google Pay client invalidation', () => {
 });
 
 describe('Software info', () => {
-  it('sets softwareInfo when softwareInfo has not been set', async () => {
+  it('sets softwareInfo when softwareInfo has not been set', () => {
     const manager = new ButtonManager(managerOptions);
     const request = manager.createLoadPaymentDataRequest({
       ...defaults,
@@ -632,7 +632,7 @@ describe('Software info', () => {
     expect(request.merchantInfo.softwareInfo?.version).toBe('1.0.0');
   });
 
-  it('sets softwareInfo when softwareInfo has not been set', async () => {
+  it('sets softwareInfo when softwareInfo has not been set', () => {
     const manager = new ButtonManager(managerOptions);
     const request = manager.createLoadPaymentDataRequest({
       ...defaults,

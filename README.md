@@ -2,7 +2,11 @@
 
 The [Google Pay API][google-pay] enables fast, simple checkout on your website. This provides convenient access to hundreds of millions of cards that are saved to Google Accounts worldwide.
 
-This repository Google Pay button implementations for compatible with popular website frameworks even easier.
+See Google Pay in action:
+
+[![Buy with Google Pay](docs/images/google-pay-button.svg)][live-demo]
+
+This repository contains Google Pay button implementations for compatible with popular website frameworks even easier.
 
 ## Web componenent
 
@@ -33,3 +37,4 @@ The intention is for the web component to support other web frameworks. Support 
 [google-pay]: https://developers.google.com/pay/api/web/overview
 [button-element]: src/button-element
 [button-react]: src/button-react
+[live-demo]: https://developers.google.com/pay/api/web/guides/resources/demos

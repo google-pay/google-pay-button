@@ -61,8 +61,15 @@ export class ButtonManager {
     return this.element;
   }
 
+  private isGooglePayLoaded(): boolean {
+    return 'google' in (window || global) && !!google?.payments?.api?.PaymentsClient;
+  }
+
   async mount(element: Element): Promise<void> {
-    await loadScript('https://pay.google.com/gp/p/js/pay.js');
+    if (!this.isGooglePayLoaded()) {
+      await loadScript('https://pay.google.com/gp/p/js/pay.js');
+      console.log('loaded');
+    }
 
     this.element = element;
     if (element) {

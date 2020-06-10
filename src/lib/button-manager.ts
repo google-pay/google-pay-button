@@ -275,7 +275,8 @@ export class ButtonManager {
     });
 
     this.copyGPayStyles();
-    element.className = [element.className, 'not-ready'].filter(className => className).join(' ');
+
+    this.setClassName(element, [element.className, 'not-ready']);
     element.appendChild(button);
 
     let isReadyToPay = false;
@@ -294,10 +295,10 @@ export class ButtonManager {
 
     if (isReadyToPay) {
       // remove hidden className
-      element.className = (element.className || '')
-        .split(' ')
-        .filter(className => className && className !== 'not-ready')
-        .join(' ');
+      this.setClassName(
+        element,
+        (element.className || '').split(' ').filter(className => className && className !== 'not-ready'),
+      );
     }
 
     if (this.isReadyToPay !== isReadyToPay) {
@@ -334,6 +335,15 @@ export class ButtonManager {
       }
     }
   };
+
+  private setClassName(element: Element, classNames: string[]): void {
+    const className = classNames.filter(name => name).join(' ');
+    if (className) {
+      element.className = className;
+    } else {
+      element.removeAttribute('class');
+    }
+  }
 
   private appendStyles(): void {
     if (typeof document === 'undefined') return;

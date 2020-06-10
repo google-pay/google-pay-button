@@ -66,9 +66,8 @@ More HTML examples can be found in the [examples folder](../../examples/html) of
 
 ```html
 <google-pay-button
-  [buttonType]="long"
-  [buttonColor]="black"
-  [existingPaymentMethodRequired]="true"
+  button-type="long"
+  button-color="black"
   [paymentRequest]="{
     apiVersion: 2,
     apiVersionMinor: 0,
@@ -99,11 +98,50 @@ More HTML examples can be found in the [examples folder](../../examples/html) of
       countryCode: 'US'
     }
   }"
-  [loadpaymentdataCallback]="onLoadPaymentData"
+  (loadpaymentdata)="onLoadPaymentData($event)"
 ></google-pay-button>
 ```
 
 More Angular examples can be found in the [examples folder](../../examples/angular/src/app) of this repository.
+
+## Example usage: Vue website
+
+```html
+<google-pay-button
+  button-type="long"
+  button-color="black"
+  v-bind:paymentRequest.prop="{
+    apiVersion: 2,
+    apiVersionMinor: 0,
+    allowedPaymentMethods: [
+      {
+        type: 'CARD',
+        parameters: {
+          allowedAuthMethods: ['PAN_ONLY', 'CRYPTOGRAM_3DS'],
+          allowedCardNetworks: ['AMEX', 'VISA', 'MASTERCARD']
+        },
+        tokenizationSpecification: {
+          type: 'PAYMENT_GATEWAY',
+          parameters: {
+            'gateway': 'stripe'
+          }
+        }
+      }
+    ],
+    transactionInfo: {
+      totalPriceStatus: 'FINAL',
+      totalPriceLabel: 'Total',
+      totalPrice: '100.00',
+      currencyCode: 'USD',
+      countryCode: 'US'
+    }
+  }"
+  v-on:loadpaymentdata="onLoadPaymentData"
+  v-on:error="onError"
+></google-pay-button>
+```
+
+More Vue examples can be found in the [examples folder](../../examples/vue/src/components) of this repository.
 
 ## Documentation
 

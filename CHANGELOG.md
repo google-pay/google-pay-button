@@ -1,5 +1,12 @@
 # Changelog
 
+### [0.5.5](https://www.github.com/google-pay/google-pay-button/compare/v0.5.4...v0.5.5) (2020-06-10)
+
+
+### Bug Fixes
+
+* don't set className if className is empty ([b288b5e](https://www.github.com/google-pay/google-pay-button/commit/b288b5e420040969f8511ae05aa39ec0041a8a72))
+
 ### [0.5.4](https://www.github.com/google-pay/google-pay-button/compare/v0.5.3...v0.5.4) (2020-06-08)
 
 

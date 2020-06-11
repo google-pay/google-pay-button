@@ -68,7 +68,6 @@ export class ButtonManager {
   async mount(element: Element): Promise<void> {
     if (!this.isGooglePayLoaded()) {
       await loadScript('https://pay.google.com/gp/p/js/pay.js');
-      console.log('loaded');
     }
 
     this.element = element;

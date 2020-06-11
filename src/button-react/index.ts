@@ -15,5 +15,6 @@
  */
 
 import GooglePayButton from './GooglePayButton';
+export { ReadyToPayChangeResponse } from '../lib/button-manager';
 
 export default GooglePayButton;

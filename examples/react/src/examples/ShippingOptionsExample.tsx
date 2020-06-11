@@ -80,6 +80,9 @@ export default (props: any) => {
         onLoadPaymentData={paymentRequest => {
           console.log('Success', paymentRequest);
         }}
+        onReadyToPayChange={result => {
+          console.log('ready to pay change', result);
+        }}
         existingPaymentMethodRequired={props.existingPaymentMethodRequired}
         buttonColor={props.buttonColor}
         buttonType={props.buttonType}

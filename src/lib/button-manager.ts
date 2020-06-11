@@ -18,6 +18,12 @@
 
 import { loadScript } from '../lib/load-script';
 
+export interface ReadyToPayChangeResponse {
+  isButtonVisible: boolean;
+  isReadyToPay: boolean;
+  paymentMethodPresent?: boolean;
+}
+
 export interface Config {
   environment?: google.payments.api.Environment;
   existingPaymentMethodRequired?: boolean;
@@ -27,7 +33,7 @@ export interface Config {
   onLoadPaymentData?: (paymentData: google.payments.api.PaymentData) => void;
   onCancel?: (reason: google.payments.api.PaymentsError) => void;
   onError?: (error: Error) => void;
-  onReadyToPayChange?: (isReadyToPay: boolean) => void;
+  onReadyToPayChange?: (result: ReadyToPayChangeResponse) => void;
   buttonColor?: google.payments.api.ButtonColor;
   buttonType?: google.payments.api.ButtonType;
 }
@@ -52,6 +58,7 @@ export class ButtonManager {
   private oldInvalidationValues?: any[];
 
   isReadyToPay?: boolean;
+  paymentMethodPresent?: boolean;
 
   constructor(options: ButtonManagerOptions) {
     this.options = options;
@@ -278,11 +285,12 @@ export class ButtonManager {
     this.setClassName(element, [element.className, 'not-ready']);
     element.appendChild(button);
 
-    let isReadyToPay = false;
+    let showButton = false;
+    let readyToPay: google.payments.api.IsReadyToPayResponse | undefined;
 
     try {
-      const readyToPay = await this.client.isReadyToPay(this.createIsReadyToPayRequest(this.config));
-      isReadyToPay =
+      readyToPay = await this.client.isReadyToPay(this.createIsReadyToPayRequest(this.config));
+      showButton =
         (readyToPay.result && !this.config.existingPaymentMethodRequired) ||
         (readyToPay.result && readyToPay.paymentMethodPresent && this.config.existingPaymentMethodRequired) ||
         false;
@@ -292,7 +300,7 @@ export class ButtonManager {
 
     if (!this.isMounted()) return;
 
-    if (isReadyToPay) {
+    if (showButton) {
       // remove hidden className
       this.setClassName(
         element,
@@ -300,10 +308,21 @@ export class ButtonManager {
       );
     }
 
-    if (this.isReadyToPay !== isReadyToPay) {
-      this.isReadyToPay = isReadyToPay;
+    if (this.isReadyToPay !== readyToPay?.result || this.paymentMethodPresent !== readyToPay?.paymentMethodPresent) {
+      this.isReadyToPay = !!readyToPay?.result;
+      this.paymentMethodPresent = readyToPay?.paymentMethodPresent;
+
       if (this.config.onReadyToPayChange) {
-        this.config.onReadyToPayChange(isReadyToPay);
+        const readyToPayResponse: ReadyToPayChangeResponse = {
+          isButtonVisible: showButton,
+          isReadyToPay: this.isReadyToPay,
+        };
+
+        if (this.paymentMethodPresent) {
+          readyToPayResponse.paymentMethodPresent = this.paymentMethodPresent;
+        }
+
+        this.config.onReadyToPayChange(readyToPayResponse);
       }
     }
   }

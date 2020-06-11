@@ -161,6 +161,7 @@
             }"
             v-on:loadpaymentdata="onLoadPaymentData"
             v-on:error="onError"
+            v-on:readytopaychange="onReadyToPayChange"
             v-bind:onPaymentAuthorized.prop="onPaymentDataAuthorized"
           ></google-pay-button>
         </div>
@@ -219,6 +220,9 @@ export default {
       return {
         transactionState: 'SUCCESS',
       };
+    },
+    onReadyToPayChange: (event) => {
+      console.log('ready to pay change', event.detail);
     }
   }
 }

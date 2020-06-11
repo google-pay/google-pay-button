@@ -58,8 +58,9 @@ export default (props: any) => {
         onLoadPaymentData={paymentRequest => {
           console.log('Success', paymentRequest);
         }}
-        onReadyToPayChange={isReady => {
-          setIsReadyToPay(isReady);
+        onReadyToPayChange={result => {
+          console.log('ready to pay change', result);
+          setIsReadyToPay(result.isReadyToPay);
         }}
         existingPaymentMethodRequired={props.existingPaymentMethodRequired}
         style={{

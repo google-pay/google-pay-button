@@ -15,7 +15,7 @@
  */
 
 import { Alias, Notify, NotifyAttribute, NotifyBooleanAttribute } from '../lib/property-decorators';
-import { ButtonManager, Config } from '../lib/button-manager';
+import { ButtonManager, Config, ReadyToPayChangeResponse } from '../lib/button-manager';
 import { name as softwareId, version as softwareVersion } from './package.json';
 import { debounce } from '../lib/debounce';
 
@@ -55,7 +55,7 @@ class GooglePayButton extends HTMLElement {
   onPaymentAuthorized?: google.payments.api.PaymentAuthorizedHandler;
 
   @Alias('readyToPayChangeCallback')
-  onReadyToPayChange?: (isReadyToPay: boolean) => void;
+  onReadyToPayChange?: (result: ReadyToPayChangeResponse) => void;
 
   @Alias('loadPaymentDataCallback')
   onLoadPaymentData?: (paymentData: google.payments.api.PaymentData) => void;
@@ -126,11 +126,11 @@ class GooglePayButton extends HTMLElement {
       onPaymentAuthorized: this.onPaymentAuthorized,
       buttonColor: this.buttonColor,
       buttonType: this.buttonType,
-      onReadyToPayChange: isReadyToPay => {
+      onReadyToPayChange: result => {
         if (this.onReadyToPayChange) {
-          this.onReadyToPayChange(isReadyToPay);
+          this.onReadyToPayChange(result);
         }
-        this.dispatch('readytopaychange', isReadyToPay);
+        this.dispatch('readytopaychange', result);
       },
       onCancel: reason => {
         if (this.onCancel) {

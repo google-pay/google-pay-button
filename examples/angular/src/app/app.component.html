@@ -163,6 +163,7 @@
           }"
           (loadpaymentdata)="onLoadPaymentData($event)"
           (error)="onError($event)"
+          (readytopaychange)="onReadyToPayChange($event)"
           [paymentAuthorizedCallback]="onPaymentDataAuthorized"
         ></google-pay-button>
       </div>

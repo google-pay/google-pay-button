@@ -15,6 +15,8 @@
  */
 
 import '@google-pay/button-element';
+
+import { ReadyToPayChangeResponse } from '@google-pay/button-element';
 import { Component } from '@angular/core';
 
 @Component({
@@ -67,5 +69,9 @@ export class AppComponent {
     return {
       transactionState: 'SUCCESS',
     };
+  };
+
+  onReadyToPayChange = (event: CustomEvent<ReadyToPayChangeResponse>): void => {
+    console.log('ready to pay change', event.detail);
   };
 }

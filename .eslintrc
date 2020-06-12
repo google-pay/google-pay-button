@@ -7,8 +7,7 @@
       "jsx": true
     }
   },
-  "extends": [
-  ],
+  "extends": [],
   "rules": {
     "comma-dangle": ["error", "only-multiline"],
     "quote-props": ["error", "consistent"],
@@ -26,10 +25,7 @@
         }
       },
       "files": ["*.ts", "*.tsx"],
-      "extends": [
-        "plugin:react/recommended",
-        "plugin:@typescript-eslint/recommended"
-      ],
+      "extends": ["plugin:react/recommended", "plugin:@typescript-eslint/recommended"],
       "rules": {
         "@typescript-eslint/no-empty-function": "off",
         "@typescript-eslint/no-explicit-any": "off",
@@ -38,19 +34,14 @@
     },
     {
       "files": ["src/**/*.ts", "src/**/*.tsx"],
-      "extends": [
-        "prettier/@typescript-eslint",
-        "plugin:prettier/recommended"
-      ],
+      "extends": ["prettier/@typescript-eslint", "plugin:prettier/recommended"],
       "rules": {
         "sort-imports": "error"
       }
     },
     {
       "files": ["*.js"],
-      "extends": [
-        "eslint:recommended"
-      ],
+      "extends": ["eslint:recommended"],
       "globals": {
         "jasmine": true
       }

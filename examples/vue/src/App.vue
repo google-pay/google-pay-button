@@ -21,14 +21,14 @@
 </template>
 
 <script>
-import Examples from './components/Examples.vue'
+import Examples from './components/Examples.vue';
 
 export default {
   name: 'App',
   components: {
-    Examples
-  }
-}
+    Examples,
+  },
+};
 </script>
 
 <style>

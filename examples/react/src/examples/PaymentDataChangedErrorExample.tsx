@@ -35,8 +35,8 @@ export default (props: any) => {
               tokenizationSpecification: {
                 type: 'PAYMENT_GATEWAY',
                 parameters: {
-                  'gateway': 'example',
-                  'gatewayMerchantId': 'exampleGatewayMerchantId',
+                  gateway: 'example',
+                  gatewayMerchantId: 'exampleGatewayMerchantId',
                 },
               },
             },
@@ -63,8 +63,8 @@ export default (props: any) => {
               error: {
                 reason: 'SHIPPING_ADDRESS_UNSERVICEABLE',
                 message: 'Cannot ship to the United States of America',
-                intent: 'SHIPPING_ADDRESS'
-              }
+                intent: 'SHIPPING_ADDRESS',
+              },
             };
           }
           return {};
@@ -75,4 +75,4 @@ export default (props: any) => {
       />
     </Example>
   );
-}
+};

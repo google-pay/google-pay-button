@@ -35,8 +35,8 @@ export default (props: any) => {
               tokenizationSpecification: {
                 type: 'PAYMENT_GATEWAY',
                 parameters: {
-                  'gateway': 'example',
-                  'gatewayMerchantId': 'exampleGatewayMerchantId',
+                  gateway: 'example',
+                  gatewayMerchantId: 'exampleGatewayMerchantId',
                 },
               },
             },
@@ -61,7 +61,7 @@ export default (props: any) => {
           error: {
             reason: 'PAYMENT_DATA_INVALID',
             message: 'Insufficient funds',
-            intent: 'PAYMENT_AUTHORIZATION'
+            intent: 'PAYMENT_AUTHORIZATION',
           },
         })}
         existingPaymentMethodRequired={props.existingPaymentMethodRequired}
@@ -70,4 +70,4 @@ export default (props: any) => {
       />
     </Example>
   );
-}
+};

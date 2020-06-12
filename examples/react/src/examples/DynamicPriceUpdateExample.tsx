@@ -46,8 +46,8 @@ const paymentRequest: google.payments.api.PaymentDataRequest = {
       tokenizationSpecification: {
         type: 'PAYMENT_GATEWAY',
         parameters: {
-          'gateway': 'example',
-          'gatewayMerchantId': 'exampleGatewayMerchantId',
+          gateway: 'example',
+          gatewayMerchantId: 'exampleGatewayMerchantId',
         },
       },
     },
@@ -78,7 +78,7 @@ const paymentRequest: google.payments.api.PaymentDataRequest = {
         type: 'LINE_ITEM',
         price: '0',
         status: 'PENDING',
-      }
+      },
     ],
   },
   shippingAddressRequired: true,
@@ -108,7 +108,7 @@ export default (props: any) => {
             if (shippingItem && shippingOption) {
               shippingItem.price = shippingOption.price;
               shippingItem.status = 'FINAL';
-      
+
               console.log('display items', displayItems);
               return {
                 newTransactionInfo: {
@@ -127,4 +127,4 @@ export default (props: any) => {
       />
     </Example>
   );
-}
+};

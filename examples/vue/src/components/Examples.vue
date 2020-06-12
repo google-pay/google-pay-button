@@ -63,8 +63,8 @@
                 totalPriceLabel: 'Total',
                 totalPrice: amount,
                 currencyCode: 'USD',
-                countryCode: 'US'
-              }
+                countryCode: 'US',
+              },
             }"
             v-on:loadpaymentdata="onLoadPaymentData"
             v-on:error="onError"
@@ -88,8 +88,8 @@
                 totalPriceLabel: 'Total',
                 totalPrice: amount,
                 currencyCode: 'USD',
-                countryCode: 'US'
-              }
+                countryCode: 'US',
+              },
             }"
             v-on:loadpaymentdata="onLoadPaymentData"
             v-on:error="onError"
@@ -112,16 +112,16 @@
                   type: 'CARD',
                   parameters: {
                     allowedAuthMethods: ['CRYPTOGRAM_3DS'],
-                    allowedCardNetworks: ['AMEX', 'VISA', 'MASTERCARD']
+                    allowedCardNetworks: ['AMEX', 'VISA', 'MASTERCARD'],
                   },
                   tokenizationSpecification: {
                     type: 'PAYMENT_GATEWAY',
                     parameters: {
                       gateway: 'example',
-                      gatewayMerchantId: 'exampleGatewayMerchantId'
-                    }
-                  }
-                }
+                      gatewayMerchantId: 'exampleGatewayMerchantId',
+                    },
+                  },
+                },
               ],
               merchantInfo: paymentRequest.merchantInfo,
               transactionInfo: {
@@ -129,8 +129,8 @@
                 totalPriceLabel: 'Total',
                 totalPrice: amount,
                 currencyCode: 'USD',
-                countryCode: 'US'
-              }
+                countryCode: 'US',
+              },
             }"
             v-on:loadpaymentdata="onLoadPaymentData"
             v-on:error="onError"
@@ -155,9 +155,9 @@
                 totalPriceLabel: 'Total',
                 totalPrice: amount,
                 currencyCode: 'USD',
-                countryCode: 'US'
+                countryCode: 'US',
               },
-              shippingAddressRequired: true
+              shippingAddressRequired: true,
             }"
             v-on:loadpaymentdata="onLoadPaymentData"
             v-on:error="onError"
@@ -165,7 +165,7 @@
             v-bind:onPaymentAuthorized.prop="onPaymentDataAuthorized"
           ></google-pay-button>
         </div>
-      </div>      
+      </div>
     </div>
   </div>
 </template>
@@ -175,8 +175,7 @@ import '@google-pay/button-element';
 
 export default {
   name: 'Examples',
-  props: {
-  },
+  props: {},
   data: () => ({
     amount: '100.00',
     existingPaymentMethodRequired: false,
@@ -190,42 +189,42 @@ export default {
           type: 'CARD',
           parameters: {
             allowedAuthMethods: ['PAN_ONLY', 'CRYPTOGRAM_3DS'],
-            allowedCardNetworks: ['MASTERCARD', 'VISA']
+            allowedCardNetworks: ['MASTERCARD', 'VISA'],
           },
           tokenizationSpecification: {
             type: 'PAYMENT_GATEWAY',
             parameters: {
-              'gateway': 'example',
-              'gatewayMerchantId': 'exampleGatewayMerchantId'
+              gateway: 'example',
+              gatewayMerchantId: 'exampleGatewayMerchantId',
             },
           },
         },
       ],
       merchantInfo: {
         merchantId: '12345678901234567890',
-        merchantName: 'Demo Merchant'
-      }
-    }
+        merchantName: 'Demo Merchant',
+      },
+    },
   }),
   methods: {
-    onLoadPaymentData: (event) => {
+    onLoadPaymentData: event => {
       console.log('load payment data', event.detail);
     },
-    onError: (event) => {
+    onError: event => {
       console.error('error', event.error);
     },
-    onPaymentDataAuthorized: (paymentData) => {
+    onPaymentDataAuthorized: paymentData => {
       console.log('payment authorized', paymentData);
 
       return {
         transactionState: 'SUCCESS',
       };
     },
-    onReadyToPayChange: (event) => {
+    onReadyToPayChange: event => {
       console.log('ready to pay change', event.detail);
-    }
-  }
-}
+    },
+  },
+};
 </script>
 
 <!-- Add "scoped" attribute to limit CSS to this component only -->
@@ -242,7 +241,6 @@ export default {
   flex-direction: row;
   flex-wrap: wrap;
   box-sizing: border-box;
-
 }
 
 .params > label {
@@ -263,7 +261,8 @@ export default {
   white-space: nowrap;
 }
 
-.params > label > input, .params > label > select {
+.params > label > input,
+.params > label > select {
   -webkit-appearance: none;
   -moz-appearance: none;
   appearance: none;

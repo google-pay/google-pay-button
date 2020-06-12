@@ -1,6 +1,7 @@
 # Google Pay web component button
 
-This is the web component for the Google Pay button. This component can be used in standard HTML websites as well as Angular websites.
+This is the web component for the Google Pay button. This component can be used in standard HTML websites as well as
+Angular websites.
 
 ## Installation
 
@@ -12,15 +13,11 @@ npm install @google-pay/button-element
 
 ```html
 <div id="buttons">
-  <google-pay-button
-    environment="TEST"
-    button-type="short"
-    button-color="black">
-  </google-pay-button>
+  <google-pay-button environment="TEST" button-type="short" button-color="black"> </google-pay-button>
 </div>
 <script type="module">
   import './node_modules/@google-pay/button-element/dist/index.js';
-  
+
   const button = document.querySelector('google-pay-button');
   button.paymentRequest = {
     apiVersion: 2,
@@ -36,7 +33,7 @@ npm install @google-pay/button-element
         tokenizationSpecification: {
           type: 'PAYMENT_GATEWAY',
           parameters: {
-            'gateway': 'stripe',
+            gateway: 'stripe',
           },
         },
       },
@@ -145,7 +142,8 @@ More Vue examples can be found in the [examples folder](../../examples/vue/src/c
 
 ## Documentation
 
-Visit the [Google Pay developer site](https://developers.google.com/pay/api/web/overview) for more information about integrating Google Pay into your website.
+Visit the [Google Pay developer site](https://developers.google.com/pay/api/web/overview) for more information about
+integrating Google Pay into your website.
 
 ### Properties
 

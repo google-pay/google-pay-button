@@ -1,14 +1,8 @@
 {
   "hosting": {
-    "predeploy": [
-      "npm run build"
-    ],
+    "predeploy": ["npm run build"],
     "public": "build",
-    "ignore": [
-      "firebase.json",
-      "**/.*",
-      "**/node_modules/**"
-    ],
+    "ignore": ["firebase.json", "**/.*", "**/node_modules/**"],
     "rewrites": [
       {
         "source": "**",

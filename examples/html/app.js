@@ -53,8 +53,8 @@ const defaultPaymentRequest = {
       tokenizationSpecification: {
         type: 'PAYMENT_GATEWAY',
         parameters: {
-          'gateway': 'example',
-          'gatewayMerchantId': 'exampleGatewayMerchantId',
+          gateway: 'example',
+          gatewayMerchantId: 'exampleGatewayMerchantId',
         },
       },
     },
@@ -120,8 +120,8 @@ const googlePayButtons = [
               tokenizationSpecification: {
                 type: 'PAYMENT_GATEWAY',
                 parameters: {
-                  'gateway': 'example',
-                  'gatewayMerchantId': 'exampleGatewayMerchantId',
+                  gateway: 'example',
+                  gatewayMerchantId: 'exampleGatewayMerchantId',
                 },
               },
             },
@@ -247,8 +247,8 @@ staticButton.paymentRequest = {
       tokenizationSpecification: {
         type: 'PAYMENT_GATEWAY',
         parameters: {
-          'gateway': 'example',
-          'gatewayMerchantId': 'exampleGatewayMerchantId',
+          gateway: 'example',
+          gatewayMerchantId: 'exampleGatewayMerchantId',
         },
       },
     },

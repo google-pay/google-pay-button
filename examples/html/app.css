@@ -26,7 +26,6 @@
   flex-direction: row;
   flex-wrap: wrap;
   box-sizing: border-box;
-
 }
 
 .params > label {
@@ -47,7 +46,8 @@
   white-space: nowrap;
 }
 
-.params > label > input, .params > label > select {
+.params > label > input,
+.params > label > select {
   -webkit-appearance: none;
   -moz-appearance: none;
   appearance: none;

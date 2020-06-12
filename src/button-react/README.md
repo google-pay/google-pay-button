@@ -53,7 +53,8 @@ More React examples can be found in the [examples folder](../../examples/react/s
 
 ## Documentation
 
-Visit the [Google Pay developer site](https://developers.google.com/pay/api/web/overview) for more information about integrating Google Pay into your website.
+Visit the [Google Pay developer site](https://developers.google.com/pay/api/web/overview) for more information about
+integrating Google Pay into your website.
 
 ### Properties
 

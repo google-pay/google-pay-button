@@ -14,7 +14,7 @@
  * limitations under the License.
  */
 
-import dts from "rollup-plugin-dts";
+import dts from 'rollup-plugin-dts';
 import typescript from 'rollup-plugin-typescript2';
 import rollupJson from '@rollup/plugin-json';
 
@@ -23,25 +23,18 @@ export default [
     input: 'src/button-react/index.ts',
     output: {
       file: 'src/button-react/dist/index.js',
-      format: 'cjs'
+      format: 'cjs',
     },
-    external: [
-      'react'
-    ],
-    plugins: [
-      rollupJson(),
-      typescript()
-    ],
+    external: ['react'],
+    plugins: [rollupJson(), typescript()],
   },
   {
     input: 'src/button-react/index.ts',
     output: {
       file: 'src/button-react/dist/index.d.ts',
-      format: 'cjs'
+      format: 'cjs',
     },
-    plugins: [
-      dts()
-    ],
+    plugins: [dts()],
   },
 
   {
@@ -49,21 +42,16 @@ export default [
     output: {
       file: 'src/button-element/dist/index.js',
       format: 'es',
-      name: 'google-pay-button'
+      name: 'google-pay-button',
     },
-    plugins: [
-      rollupJson(),
-      typescript()
-    ],
+    plugins: [rollupJson(), typescript()],
   },
   {
     input: 'src/button-element/index.ts',
     output: {
       file: 'src/button-element/dist/index.d.ts',
-      format: 'es'
+      format: 'es',
     },
-    plugins: [
-      dts()
-    ],
+    plugins: [dts()],
   },
 ];

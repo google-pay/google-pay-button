@@ -51,7 +51,8 @@
   display: block;
 }
 
-.params > label > input, .params > label > select {
+.params > label > input,
+.params > label > select {
   -webkit-appearance: none;
   -moz-appearance: none;
   appearance: none;

@@ -35,8 +35,8 @@ export default (props: any) => {
               tokenizationSpecification: {
                 type: 'DIRECT',
                 parameters: {
-                  'protocolVersion': 'ECv2',
-                  'publicKey': 'BMzk6xvwPgU8vjB6O/HnFFkMQL/w17yIoKy/6KuRYjOrh0eV12xM6guaYPHdgMHyUzTm9/Vi7KRu4tuRmhm6nv8=',
+                  protocolVersion: 'ECv2',
+                  publicKey: 'BMzk6xvwPgU8vjB6O/HnFFkMQL/w17yIoKy/6KuRYjOrh0eV12xM6guaYPHdgMHyUzTm9/Vi7KRu4tuRmhm6nv8=',
                 },
               },
             },
@@ -62,4 +62,4 @@ export default (props: any) => {
       />
     </Example>
   );
-}
+};

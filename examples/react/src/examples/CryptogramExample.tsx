@@ -19,7 +19,7 @@ import Example from './Example';
 import GooglePayButton from '@google-pay/button-react';
 
 export default (props: any) => {
-  const [ isReadyToPay, setIsReadyToPay ] = useState(false);
+  const [isReadyToPay, setIsReadyToPay] = useState(false);
 
   return (
     <Example title="Cryptogram 3ds">
@@ -37,8 +37,8 @@ export default (props: any) => {
               tokenizationSpecification: {
                 type: 'PAYMENT_GATEWAY',
                 parameters: {
-                  'gateway': 'example',
-                  'gatewayMerchantId': 'exampleGatewayMerchantId',
+                  gateway: 'example',
+                  gatewayMerchantId: 'exampleGatewayMerchantId',
                 },
               },
             },
@@ -72,7 +72,10 @@ export default (props: any) => {
       <div
         style={{
           display: isReadyToPay ? 'none' : 'block',
-        }}>No payment methods available</div>
+        }}
+      >
+        No payment methods available
+      </div>
     </Example>
   );
-}
+};

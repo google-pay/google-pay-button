@@ -58,14 +58,14 @@ const App: React.FC = () => {
     existingPaymentMethodRequired,
     buttonColor: buttonColor,
     buttonType: buttonType,
-  }
+  };
 
   return (
     <div className="App">
       <div className="params">
         <label>
           <span>Default amount:</span>
-          <input type='text' defaultValue={amount} onBlur={handleAmountChange} />
+          <input type="text" defaultValue={amount} onBlur={handleAmountChange} />
         </label>
         <label>
           <span>Payment method required:</span>
@@ -106,6 +106,6 @@ const App: React.FC = () => {
       <DynamicPriceUpdateExample {...props} />
     </div>
   );
-}
+};
 
 export default App;

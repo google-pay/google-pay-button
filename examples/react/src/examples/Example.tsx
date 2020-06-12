@@ -18,9 +18,9 @@ import React from 'react';
 import './Example.css';
 
 type Props = {
-  title: string,
-  children: React.ReactNode | React.ReactNode[],
-}
+  title: string;
+  children: React.ReactNode | React.ReactNode[];
+};
 
 export default (props: Props) => {
   return (
@@ -29,4 +29,4 @@ export default (props: Props) => {
       <div className="demo">{props.children}</div>
     </div>
   );
-}
+};

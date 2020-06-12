@@ -43,8 +43,8 @@ export class AppComponent {
         tokenizationSpecification: {
           type: 'PAYMENT_GATEWAY',
           parameters: {
-            'gateway': 'example',
-            'gatewayMerchantId': 'exampleGatewayMerchantId',
+            gateway: 'example',
+            gatewayMerchantId: 'exampleGatewayMerchantId',
           },
         },
       },

@@ -35,8 +35,8 @@ export default (props: any) => {
               tokenizationSpecification: {
                 type: 'PAYMENT_GATEWAY',
                 parameters: {
-                  'gateway': 'example',
-                  'gatewayMerchantId': 'exampleGatewayMerchantId',
+                  gateway: 'example',
+                  gatewayMerchantId: 'exampleGatewayMerchantId',
                 },
               },
             },
@@ -65,4 +65,4 @@ export default (props: any) => {
       />
     </Example>
   );
-}
+};

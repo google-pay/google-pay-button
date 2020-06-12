@@ -10,7 +10,7 @@ This repository contains Google Pay button implementations for compatible with p
 
 ## Web componenent
 
-The [Google Pay web component button][button-element] makes it easy to integrate Google Pay into your website using standards based custom elements. Web components can be used directly in a standard HTML web application as is, and is also compatible with Angular.
+The [Google Pay web component button][button-element] makes it easy to integrate Google Pay into your website using standards based custom elements. Web components can be used directly in a standard HTML web application as is, and is also [compatible with many popular web frameworks][custom-elements-compatible].
 
 ```sh
 npm install @google-pay/button-element
@@ -38,3 +38,4 @@ The intention is for the web component to support other web frameworks. Support 
 [button-element]: src/button-element
 [button-react]: src/button-react
 [live-demo]: https://developers.google.com/pay/api/web/guides/resources/demos
+[custom-elements-compatible]: https://custom-elements-everywhere.com/

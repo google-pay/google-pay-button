@@ -5,7 +5,9 @@
   "main": "dist/index.js",
   "types": "dist/index.d.ts",
   "repository": {
-    "url": "https://github.com/google-pay/google-pay-button"
+    "type": "git",
+    "url": "https://github.com/google-pay/google-pay-button",
+    "directory": "src/button-react"
   },
   "homepage": "https://github.com/google-pay/google-pay-button/tree/master/src/button-react",
   "engines": {
@@ -21,5 +23,6 @@
     "@types/react-dom": ">=16.0.0",
     "react": ">=16.3.0",
     "react-dom": ">=16.3.0"
-  }
+  },
+  "files": ["dist/*", "package.json", "README.md"]
 }

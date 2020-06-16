@@ -266,7 +266,7 @@ export class ButtonManager {
     const element = this.element!;
 
     if (!this.config) {
-      throw Error('google-pay-button: Missing configuration');
+      throw new Error('google-pay-button: Missing configuration');
     }
 
     // remove existing button

@@ -31,6 +31,19 @@ export default [
   {
     input: 'src/button-react/index.ts',
     output: {
+      file: 'src/button-react/dist/index.umd.js',
+      format: 'umd',
+      name: 'GooglePayButton',
+      globals: {
+        react: 'React',
+      },
+    },
+    external: ['react'],
+    plugins: [rollupJson(), typescript()],
+  },
+  {
+    input: 'src/button-react/index.ts',
+    output: {
       file: 'src/button-react/dist/index.d.ts',
       format: 'es',
     },
@@ -42,7 +55,16 @@ export default [
     output: {
       file: 'src/button-element/dist/index.js',
       format: 'es',
-      name: 'google-pay-button',
+      name: 'GooglePayButton',
+    },
+    plugins: [rollupJson(), typescript()],
+  },
+  {
+    input: 'src/button-element/index.ts',
+    output: {
+      file: 'src/button-element/dist/index.umd.js',
+      format: 'umd',
+      name: 'GooglePayButton',
     },
     plugins: [rollupJson(), typescript()],
   },

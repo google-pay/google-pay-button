@@ -16,16 +16,19 @@
 
 <template>
   <div id="app">
+    <StaticExample />
     <Examples />
   </div>
 </template>
 
 <script>
+import StaticExample from './components/StaticExample.vue';
 import Examples from './components/Examples.vue';
 
 export default {
   name: 'App',
   components: {
+    StaticExample,
     Examples,
   },
 };

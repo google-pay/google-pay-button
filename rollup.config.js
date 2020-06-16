@@ -23,7 +23,7 @@ export default [
     input: 'src/button-react/index.ts',
     output: {
       file: 'src/button-react/dist/index.js',
-      format: 'cjs',
+      format: 'es',
     },
     external: ['react'],
     plugins: [rollupJson(), typescript()],
@@ -32,7 +32,7 @@ export default [
     input: 'src/button-react/index.ts',
     output: {
       file: 'src/button-react/dist/index.d.ts',
-      format: 'cjs',
+      format: 'es',
     },
     plugins: [dts()],
   },

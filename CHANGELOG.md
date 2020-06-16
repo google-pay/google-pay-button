@@ -1,5 +1,12 @@
 # Changelog
 
+### [0.7.1](https://www.github.com/google-pay/google-pay-button/compare/v0.7.0...v0.7.1) (2020-06-16)
+
+
+### Bug Fixes
+
+* add keywords to npm package ([eb7e1cb](https://www.github.com/google-pay/google-pay-button/commit/eb7e1cbf7600e05c0e777721a5430fcae9d9e02f))
+
 ## [0.7.0](https://www.github.com/google-pay/google-pay-button/compare/v0.6.0...v0.7.0) (2020-06-16)
 
 

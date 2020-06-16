@@ -4,13 +4,13 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "start": "http-server .",
+    "start": "serve .",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "author": "",
   "license": "ISC",
   "devDependencies": {
-    "http-server": "^0.12.3"
+    "serve": "^11.3.2"
   },
   "dependencies": {
     "@google-pay/button-element": "file:../../src/button-element"

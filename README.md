@@ -9,7 +9,7 @@ See Google Pay in action:
 
 This repository contains Google Pay button implementations for compatible with popular website frameworks even easier.
 
-## Web componenent
+## Web component
 
 The [Google Pay web component button][button-element] makes it easy to integrate Google Pay into your website using
 standards based custom elements. Web components can be used directly in a standard HTML web application as is, and is

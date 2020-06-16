@@ -13,7 +13,7 @@ npm install @google-pay/button-element
 
 ```html
 <div id="buttons">
-  <google-pay-button environment="TEST" button-type="short" button-color="black"> </google-pay-button>
+  <google-pay-button environment="TEST" button-type="short" button-color="black"></google-pay-button>
 </div>
 <script type="module">
   import './node_modules/@google-pay/button-element/dist/index.js';
@@ -58,6 +58,8 @@ npm install @google-pay/button-element
 ```
 
 More HTML examples can be found in the [examples folder](../../examples/html) of this repository.
+
+Try it out on [JSFiddle](https://jsfiddle.net/md6oLnsw/).
 
 ## Example usage: Angular website
 
@@ -139,6 +141,8 @@ More Angular examples can be found in the [examples folder](../../examples/angul
 ```
 
 More Vue examples can be found in the [examples folder](../../examples/vue/src/components) of this repository.
+
+Try it out on [JSFiddle](https://jsfiddle.net/q28uL7em/).
 
 ## Documentation
 

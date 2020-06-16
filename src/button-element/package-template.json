@@ -18,5 +18,6 @@
   "dependencies": {
     "@types/googlepay": "^0.4.0"
   },
-  "files": ["dist/*", "package.json", "README.md"]
+  "files": ["dist/*", "package.json", "README.md"],
+  "keywords": ["googlepay", "google-pay", "button", "custom-element", "web-component"]
 }

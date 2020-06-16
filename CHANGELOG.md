@@ -1,5 +1,12 @@
 # Changelog
 
+## [0.7.0](https://www.github.com/google-pay/google-pay-button/compare/v0.6.0...v0.7.0) (2020-06-16)
+
+
+### Features
+
+* initial public release ([5fc265a](https://www.github.com/google-pay/google-pay-button/commit/5fc265a8034208eb2e03997c571959243bc4ce56))
+
 ## [0.6.0](https://www.github.com/google-pay/google-pay-button/compare/v0.5.4...v0.6.0) (2020-06-11)
 
 

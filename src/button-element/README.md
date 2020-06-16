@@ -233,6 +233,7 @@ integrating Google Pay into your website.
     <td>
       <p>Invoked when a user chooses a payment method. This callback should be used to validate whether or not the payment method can be used to complete a payment.</p>
       <p>This would be typically used to perform pre-authorization to ensure that the card is valid and has sufficient funds.</p>
+      <p>Note that in order to use this callback <code>paymentRequest.callbackIntents</code> must include <code>PAYMENT_AUTHORIZATION</code>.</p>
       <p>See <a href="https://developers.google.com/pay/api/web/reference/client#onPaymentAuthorized">payment authorization reference</a> for more information.</p>
     </td>
   </tr>
@@ -242,6 +243,7 @@ integrating Google Pay into your website.
     </td>
     <td>
       <p>Invoked when payment the user changes payment data options including payment method, shipping details, and contact details. This callback can be used to dynamically update <code>transactionInfo</code> when payment details, shipping address, or shipping options change.</p>
+      <p>Note that in order to use this callback <code>paymentRequest.callbackIntents</code> must include either <code>SHIPPING_ADDRESS</code> or <code>SHIPPING_OPTION</code>.</p>
       <p>See <a href="https://developers.google.com/pay/api/web/reference/client#onPaymentDataChanged">payment data changed reference</a> for more information.</p>
     </td>
   </tr>

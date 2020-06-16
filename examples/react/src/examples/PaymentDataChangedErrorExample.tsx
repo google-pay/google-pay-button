@@ -53,6 +53,7 @@ export default (props: any) => {
             countryCode: 'US',
           },
           shippingAddressRequired: true,
+          callbackIntents: ['SHIPPING_ADDRESS'],
         }}
         onLoadPaymentData={paymentRequest => {
           console.log('Success', paymentRequest);

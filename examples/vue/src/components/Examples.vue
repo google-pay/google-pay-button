@@ -131,6 +131,7 @@
                 currencyCode: 'USD',
                 countryCode: 'US',
               },
+              callbackIntents: ['PAYMENT_AUTHORIZATION'],
             }"
             v-on:loadpaymentdata="onLoadPaymentData"
             v-on:error="onError"
@@ -158,6 +159,7 @@
                 countryCode: 'US',
               },
               shippingAddressRequired: true,
+              callbackIntents: ['PAYMENT_AUTHORIZATION'],
             }"
             v-on:loadpaymentdata="onLoadPaymentData"
             v-on:error="onError"

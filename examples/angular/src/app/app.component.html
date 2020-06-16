@@ -90,7 +90,8 @@
               totalPrice: amount,
               currencyCode: 'USD',
               countryCode: 'US'
-            }
+            },
+            callbackIntents: ['PAYMENT_AUTHORIZATION']
           }"
           (loadpaymentdata)="onLoadPaymentData($event)"
           (error)="onError($event)"
@@ -131,7 +132,8 @@
               totalPrice: amount,
               currencyCode: 'USD',
               countryCode: 'US'
-            }
+            },
+            callbackIntents: ['PAYMENT_AUTHORIZATION']
           }"
           (loadpaymentdata)="onLoadPaymentData($event)"
           (error)="onError($event)"
@@ -158,7 +160,8 @@
               currencyCode: 'USD',
               countryCode: 'US'
             },
-            shippingAddressRequired: true
+            shippingAddressRequired: true,
+            callbackIntents: ['PAYMENT_AUTHORIZATION']
           }"
           (loadpaymentdata)="onLoadPaymentData($event)"
           (error)="onError($event)"

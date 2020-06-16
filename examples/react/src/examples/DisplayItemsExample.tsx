@@ -70,6 +70,7 @@ export default (props: any) => {
               },
             ],
           },
+          callbackIntents: ['PAYMENT_AUTHORIZATION'],
         }}
         onLoadPaymentData={paymentRequest => {
           console.log('Success', paymentRequest);

@@ -90,6 +90,7 @@ const paymentRequest: google.payments.api.PaymentDataRequest = {
       description: o.description,
     })),
   },
+  callbackIntents: ['SHIPPING_ADDRESS', 'SHIPPING_OPTION'],
 };
 
 export default (props: any) => {

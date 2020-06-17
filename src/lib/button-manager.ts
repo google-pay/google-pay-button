@@ -169,66 +169,6 @@ export class ButtonManager {
     };
 
     // TODO: #13 re-enable inferrence if/when we agree as a team
-    // // infer shippingAddressRequired
-    // if (request.shippingAddressParameters && request.shippingAddressRequired === undefined) {
-    //   request.shippingAddressRequired = true;
-    // }
-
-    // // infer shippingOptionRequired
-    // if (request.shippingOptionParameters && request.shippingOptionRequired === undefined) {
-    //   request.shippingOptionRequired = true;
-
-    //   if (request.shippingAddressRequired === undefined) {
-    //     request.shippingAddressRequired = true;
-    //   }
-    // }
-
-    // TODO: #13 re-enable inferrence if/when we agree as a team
-    // // infer callback intents if not set
-    // if (!request.callbackIntents && (config.onPaymentDataChanged || config.onPaymentAuthorized)) {
-    //   const intents: google.payments.api.CallbackIntent[] = [];
-    //   if (config.onPaymentDataChanged) {
-    //     if (!request.shippingAddressRequired && !request.shippingOptionRequired) {
-    //       throw new Error(
-    //         'onPaymentDataChanged must be used with either shippingAddressRequired or shippingOptionRequired',
-    //       );
-    //     }
-
-    //     if (request.shippingAddressRequired) {
-    //       intents.push('SHIPPING_ADDRESS');
-    //     }
-
-    //     if (request.shippingOptionRequired) {
-    //       intents.push('SHIPPING_OPTION');
-    //     }
-    //   }
-
-    //   if (config.onPaymentAuthorized) {
-    //     intents.push('PAYMENT_AUTHORIZATION');
-    //   }
-
-    //   request.callbackIntents = intents;
-    // }
-
-    // TODO: #13 re-enable inferrence if/when we agree as a team
-    // // infer billingAddressRequired
-    // request.allowedPaymentMethods = request.allowedPaymentMethods.map(pm => {
-    //   const paymentMethod = {
-    //     ...pm,
-    //     parameters: {
-    //       ...pm.parameters,
-    //     },
-    //   };
-
-    //   if (
-    //     paymentMethod.parameters.billingAddressParameters &&
-    //     paymentMethod.parameters.billingAddressRequired === undefined
-    //   ) {
-    //     paymentMethod.parameters.billingAddressRequired = true;
-    //   }
-
-    //   return paymentMethod;
-    // });
 
     return request;
   }

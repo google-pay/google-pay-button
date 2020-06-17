@@ -90,7 +90,6 @@ const paymentRequest: google.payments.api.PaymentDataRequest = {
       description: o.description,
     })),
   },
-  shippingOptionRequired: true,
   callbackIntents: ['SHIPPING_ADDRESS', 'SHIPPING_OPTION'],
 };
 

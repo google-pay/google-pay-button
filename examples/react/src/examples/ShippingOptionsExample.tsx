@@ -76,7 +76,6 @@ export default (props: any) => {
               description: o.description,
             })),
           },
-          shippingOptionRequired: true,
         }}
         onLoadPaymentData={paymentRequest => {
           console.log('Success', paymentRequest);

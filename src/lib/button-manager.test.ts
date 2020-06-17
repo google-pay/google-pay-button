@@ -25,7 +25,8 @@ const managerOptions = {
   softwareInfoVersion: '1.0.0',
 };
 
-describe('Apply default configuration', () => {
+// TODO: #13 re-enable inferrence if/when we agree as a team
+describe.skip('Apply default configuration', () => {
   it('maintains default request parameters', () => {
     const manager = new ButtonManager(managerOptions);
 

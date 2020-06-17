@@ -11,6 +11,22 @@
 
 * remove logic to infer paymentRequest properties ([3261957](https://www.github.com/google-pay/google-pay-button/commit/326195714c623855ef97e485d96c8e0b9313026c)), closes [#13](https://www.github.com/google-pay/google-pay-button/issues/13)
 
+
+### Bug Fixes
+
+* restore primaryBranch configuration ([b2fce29](https://www.github.com/google-pay/google-pay-button/commit/b2fce29349b6edbdb06334a82a653e12993a4834))
+
+## [0.9.0](https://www.github.com/google-pay/google-pay-button/compare/v0.8.0...v0.9.0) (2020-06-17)
+
+
+### ⚠ BREAKING CHANGES
+
+* remove logic to infer paymentRequest properties
+
+### Features
+
+* remove logic to infer paymentRequest properties ([3261957](https://www.github.com/google-pay/google-pay-button/commit/326195714c623855ef97e485d96c8e0b9313026c)), closes [#13](https://www.github.com/google-pay/google-pay-button/issues/13)
+
 ## [0.8.0](https://www.github.com/google-pay/google-pay-button/compare/v0.7.0...v0.8.0) (2020-06-16)
 
 

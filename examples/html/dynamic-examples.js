@@ -132,7 +132,6 @@ const googlePayButtons = [
           },
         },
         existingPaymentRequired: controls.existingPaymentRequired.value === 'true',
-        callbackIntents: ['PAYMENT_AUTHORIZATION'],
         onLoadPaymentData,
         onPaymentAuthorized,
       };
@@ -152,7 +151,6 @@ const googlePayButtons = [
           },
         },
         existingPaymentRequired: controls.existingPaymentRequired.value === 'true',
-        callbackIntents: ['PAYMENT_AUTHORIZATION'],
         onLoadPaymentData,
         onPaymentAuthorized,
       };
@@ -173,7 +171,6 @@ const googlePayButtons = [
         },
         existingPaymentRequired: controls.existingPaymentRequired.value === 'true',
         shippingAddressRequired: true,
-        callbackIntents: ['PAYMENT_AUTHORIZATION'],
         onLoadPaymentData,
         onPaymentAuthorized,
       };

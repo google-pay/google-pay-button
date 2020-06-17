@@ -182,32 +182,31 @@ export class ButtonManager {
       }
     }
 
-    // TODO: #13 re-enable inferrence if/when we agree as a team
-    // // infer callback intents if not set
-    // if (!request.callbackIntents && (config.onPaymentDataChanged || config.onPaymentAuthorized)) {
-    //   const intents: google.payments.api.CallbackIntent[] = [];
-    //   if (config.onPaymentDataChanged) {
-    //     if (!request.shippingAddressRequired && !request.shippingOptionRequired) {
-    //       throw new Error(
-    //         'onPaymentDataChanged must be used with either shippingAddressRequired or shippingOptionRequired',
-    //       );
-    //     }
+    // infer callback intents if not set
+    if (!request.callbackIntents && (config.onPaymentDataChanged || config.onPaymentAuthorized)) {
+      const intents: google.payments.api.CallbackIntent[] = [];
+      if (config.onPaymentDataChanged) {
+        if (!request.shippingAddressRequired && !request.shippingOptionRequired) {
+          throw new Error(
+            'onPaymentDataChanged must be used with either shippingAddressRequired or shippingOptionRequired',
+          );
+        }
 
-    //     if (request.shippingAddressRequired) {
-    //       intents.push('SHIPPING_ADDRESS');
-    //     }
+        if (request.shippingAddressRequired) {
+          intents.push('SHIPPING_ADDRESS');
+        }
 
-    //     if (request.shippingOptionRequired) {
-    //       intents.push('SHIPPING_OPTION');
-    //     }
-    //   }
+        if (request.shippingOptionRequired) {
+          intents.push('SHIPPING_OPTION');
+        }
+      }
 
-    //   if (config.onPaymentAuthorized) {
-    //     intents.push('PAYMENT_AUTHORIZATION');
-    //   }
+      if (config.onPaymentAuthorized) {
+        intents.push('PAYMENT_AUTHORIZATION');
+      }
 
-    //   request.callbackIntents = intents;
-    // }
+      request.callbackIntents = intents;
+    }
 
     // infer billingAddressRequired
     request.allowedPaymentMethods = request.allowedPaymentMethods.map(pm => {

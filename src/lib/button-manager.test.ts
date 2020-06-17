@@ -182,8 +182,7 @@ describe('PaymentsClient options', () => {
   });
 });
 
-// TODO: #13 re-enable inferrence if/when we agree as a team
-describe.skip('Callbacks', () => {
+describe('Callbacks', () => {
   it('maintains default callback values', () => {
     const manager = new ButtonManager(managerOptions);
     const config: Config = {

@@ -25,6 +25,7 @@ source $script_folder/folders.sh
 for folder in "${folders[@]}"
 do
   sed "s/\"version\": \"0.0.0\"/\"version\": \"$root_version\"/g" $folder/package-template.json > $folder/package.json
+  cp $script_folder/../LICENSE $folder/LICENSE
 done
 
 # publish

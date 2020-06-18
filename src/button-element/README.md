@@ -273,6 +273,6 @@ integrating Google Pay into your website.
 
 ## About this package
 
-Note that this folder does not contain a `package.json` file. The `package.json` file is generated during the publish
+Note that this folder does not contain a `package.json` file. The `package.json` file is generated during the build
 process using the `package-template.json` where the version number is read from the [`package.json`](../../package.json)
 file defined in the root of this repository.

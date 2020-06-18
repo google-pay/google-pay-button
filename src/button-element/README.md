@@ -59,7 +59,7 @@ npm install @google-pay/button-element
 
 More HTML examples can be found in the [examples folder](../../examples/html) of this repository.
 
-Try it out on [JSFiddle](https://jsfiddle.net/xamLod7u/).
+Try it out on [JSFiddle](https://jsfiddle.net/f70e8nx4/).
 
 ## Example usage: Angular website
 

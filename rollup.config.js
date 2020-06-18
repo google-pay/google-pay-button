@@ -21,23 +21,20 @@ import rollupJson from '@rollup/plugin-json';
 export default [
   {
     input: 'src/button-react/index.ts',
-    output: {
-      file: 'src/button-react/dist/index.js',
-      format: 'es',
-    },
-    external: ['react'],
-    plugins: [rollupJson(), typescript()],
-  },
-  {
-    input: 'src/button-react/index.ts',
-    output: {
-      file: 'src/button-react/dist/index.umd.js',
-      format: 'umd',
-      name: 'GooglePayButton',
-      globals: {
-        react: 'React',
+    output: [
+      {
+        file: 'src/button-react/dist/index.js',
+        format: 'es',
       },
-    },
+      {
+        file: 'src/button-react/dist/index.umd.js',
+        format: 'umd',
+        name: 'GooglePayButton',
+        globals: {
+          react: 'React',
+        },
+      },
+    ],
     external: ['react'],
     plugins: [rollupJson(), typescript()],
   },
@@ -52,20 +49,18 @@ export default [
 
   {
     input: 'src/button-element/index.ts',
-    output: {
-      file: 'src/button-element/dist/index.js',
-      format: 'es',
-      name: 'GooglePayButton',
-    },
-    plugins: [rollupJson(), typescript()],
-  },
-  {
-    input: 'src/button-element/index.ts',
-    output: {
-      file: 'src/button-element/dist/index.umd.js',
-      format: 'umd',
-      name: 'GooglePayButton',
-    },
+    output: [
+      {
+        file: 'src/button-element/dist/index.js',
+        format: 'es',
+        name: 'GooglePayButton',
+      },
+      {
+        file: 'src/button-element/dist/index.umd.js',
+        format: 'umd',
+        name: 'GooglePayButton',
+      },
+    ],
     plugins: [rollupJson(), typescript()],
   },
   {

@@ -3,3 +3,6 @@ dist/
 build/
 
 CHANGELOG.md
+
+src/button-element/package.json
+src/button-react/package.json

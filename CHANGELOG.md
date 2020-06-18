@@ -1,5 +1,12 @@
 # Changelog
 
+## [0.10.0](https://www.github.com/google-pay/google-pay-button/compare/v0.9.1...v0.10.0) (2020-06-18)
+
+
+### Features
+
+* generate minified resources ([f1a9165](https://www.github.com/google-pay/google-pay-button/commit/f1a916542273626b60fcf91f452725aa6a28c943))
+
 ### [0.9.1](https://www.github.com/google-pay/google-pay-button/compare/v0.9.0...v0.9.1) (2020-06-18)
 
 

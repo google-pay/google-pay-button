@@ -17,6 +17,7 @@
 import dts from 'rollup-plugin-dts';
 import typescript from 'rollup-plugin-typescript2';
 import rollupJson from '@rollup/plugin-json';
+import { terser } from 'rollup-plugin-terser';
 
 export default [
   {
@@ -27,12 +28,26 @@ export default [
         format: 'es',
       },
       {
+        file: 'src/button-react/dist/index.min.js',
+        format: 'es',
+        plugins: [terser()],
+      },
+      {
         file: 'src/button-react/dist/index.umd.js',
         format: 'umd',
         name: 'GooglePayButton',
         globals: {
           react: 'React',
         },
+      },
+      {
+        file: 'src/button-react/dist/index.umd.min.js',
+        format: 'umd',
+        name: 'GooglePayButton',
+        globals: {
+          react: 'React',
+        },
+        plugins: [terser()],
       },
     ],
     external: ['react'],
@@ -56,9 +71,21 @@ export default [
         name: 'GooglePayButton',
       },
       {
+        file: 'src/button-element/dist/index.min.js',
+        format: 'es',
+        name: 'GooglePayButton',
+        plugins: [terser()],
+      },
+      {
         file: 'src/button-element/dist/index.umd.js',
         format: 'umd',
         name: 'GooglePayButton',
+      },
+      {
+        file: 'src/button-element/dist/index.umd.min.js',
+        format: 'umd',
+        name: 'GooglePayButton',
+        plugins: [terser()],
       },
     ],
     plugins: [rollupJson(), typescript()],

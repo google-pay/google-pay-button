@@ -14,6 +14,9 @@
  * limitations under the License.
  */
 
+/**
+ * Keeps track scripts that have been requested by loadScript.
+ */
 let cachedScripts: Record<string, Promise<any>> = {};
 
 /**

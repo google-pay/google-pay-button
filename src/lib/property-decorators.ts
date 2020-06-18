@@ -15,7 +15,7 @@
  */
 
 /**
- * Describes notification target for the `Notify` decorators
+ * Describes notification target for the `Notify` decorators.
  */
 interface NotifyTarget {
   notifyPropertyChanged: (name: string) => void;
@@ -23,6 +23,9 @@ interface NotifyTarget {
   [key: string]: any;
 }
 
+/**
+ * Converts a camelCase property name to a kebab-case attribute name.
+ */
 function getAttributeName(propertyName: string): string {
   return propertyName
     .replace(/[A-Z]+/g, sub => `-${sub}`)

@@ -25,7 +25,7 @@
   "engines": {
     "node": ">=8.0.0"
   },
-  "author": "socsieng@gmail.com",
+  "author": "socsieng@google.com",
   "license": "Apache-2.0",
   "dependencies": {
     "@types/googlepay": "^0.4.1"

@@ -8,7 +8,8 @@
   "scripts": {
     "lint": "eslint .",
     "pretty": "prettier . --write --loglevel warn",
-    "build": "npm run lint && scripts/build.sh",
+    "pretty:check": "prettier . --check",
+    "build": "npm run lint && npm run pretty:check && scripts/build.sh",
     "build:all": "npm run build && npm run build:examples",
     "build:examples": "concurrently --kill-others-on-fail --names \"a,r,v\" \"npm run build:example:angular\" \"npm run build:example:react\" \"npm run build:example:vue\"",
     "build:example:angular": "cd examples/angular && npm install && npm run build",

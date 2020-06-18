@@ -1,5 +1,12 @@
 # Changelog
 
+### [0.9.1](https://www.github.com/google-pay/google-pay-button/compare/v0.9.0...v0.9.1) (2020-06-18)
+
+
+### Bug Fixes
+
+* include LICENSE file to npm packages ([f180377](https://www.github.com/google-pay/google-pay-button/commit/f1803770967b56f58c6879f8b0bf8a8241b09f92))
+
 ## [0.9.0](https://www.github.com/google-pay/google-pay-button/compare/v0.8.0...v0.9.0) (2020-06-17)
 
 

@@ -11,6 +11,8 @@ This repository contains Google Pay button implementations for compatible with p
 
 ## Web component
 
+[![npm version](https://badge.fury.io/js/%40google-pay%2Fbutton-element.svg)][npm-element]
+
 The [Google Pay web component button][button-element] makes it easy to integrate Google Pay into your website using
 standards based custom elements. Web components can be used directly in a standard HTML web application as is, and is
 also [compatible with many popular web frameworks][custom-elements-compatible].
@@ -22,6 +24,8 @@ npm install @google-pay/button-element
 Find out more about the [Google Pay web component button][button-element].
 
 ## React
+
+[![npm version](https://badge.fury.io/js/%40google-pay%2Fbutton-react.svg)][npm-react]
 
 Web components are more difficult to consume in a React application due to the extra work involved in binding to web
 component properties with React.
@@ -45,3 +49,5 @@ libraries will be considered based on demand.
 [button-react]: src/button-react
 [live-demo]: https://developers.google.com/pay/api/web/guides/resources/demos
 [custom-elements-compatible]: https://custom-elements-everywhere.com/
+[npm-element]: https://www.npmjs.com/package/@google-pay/button-element
+[npm-react]: https://www.npmjs.com/package/@google-pay/button-react

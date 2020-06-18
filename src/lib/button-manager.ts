@@ -343,6 +343,7 @@ export class ButtonManager {
     }
   }
 
+  // TODO(socsieng): #19 remove shadow DOM workaround when fixed in pay.js
   /**
    * workaround to get css styles into component
    */

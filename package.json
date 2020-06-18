@@ -16,7 +16,6 @@
     "build:example:vue": "cd examples/vue && npm install && npm run build",
     "test": "jest",
     "prepublishOnly": "npm run test && npm run build",
-    "tag": "git tag -f \"v$(node scripts/version.js)\"",
     "publish:all": "scripts/publish.sh"
   },
   "repository": {

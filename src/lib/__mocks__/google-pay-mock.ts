@@ -45,9 +45,7 @@ class PaymentsClient {
     return document.createElement('div');
   }
 
-  prefetchPaymentData(request: google.payments.api.PaymentDataRequest): void {
-    throw new Error('Not implemented');
-  }
+  prefetchPaymentData(request: google.payments.api.PaymentDataRequest): void {}
 }
 
 window.google = {

@@ -1,5 +1,12 @@
 # Changelog
 
+### [0.10.1](https://www.github.com/google-pay/google-pay-button/compare/v0.10.0...v0.10.1) (2020-06-19)
+
+
+### Bug Fixes
+
+* update homepage property of package.json from master to main ([0ab5994](https://www.github.com/google-pay/google-pay-button/commit/0ab5994359ad841edbe93065fbe0ab64aaac7f6d))
+
 ## [0.10.0](https://www.github.com/google-pay/google-pay-button/compare/v0.9.1...v0.10.0) (2020-06-18)
 
 

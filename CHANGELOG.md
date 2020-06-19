@@ -1,5 +1,12 @@
 # Changelog
 
+## [0.11.0](https://www.github.com/google-pay/google-pay-button/compare/v0.10.1...v0.11.0) (2020-06-19)
+
+
+### Features
+
+* add prefetchPaymentData integration ([7b0e4dd](https://www.github.com/google-pay/google-pay-button/commit/7b0e4dd30e499a7561f1aabefed83ef7e0ad665f))
+
 ### [0.10.1](https://www.github.com/google-pay/google-pay-button/compare/v0.10.0...v0.10.1) (2020-06-19)
 
 

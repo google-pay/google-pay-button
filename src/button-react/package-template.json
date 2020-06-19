@@ -9,7 +9,7 @@
     "url": "https://github.com/google-pay/google-pay-button",
     "directory": "src/button-react"
   },
-  "homepage": "https://github.com/google-pay/google-pay-button/tree/master/src/button-react",
+  "homepage": "https://github.com/google-pay/google-pay-button/tree/main/src/button-react#readme",
   "engines": {
     "node": ">=8.0.0"
   },

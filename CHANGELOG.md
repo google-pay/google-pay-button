@@ -1,5 +1,12 @@
 # Changelog
 
+## [1.0.0](https://www.github.com/google-pay/google-pay-button/compare/v0.11.0...v1.0.0) (2020-06-21)
+
+
+### Features
+
+* promote to stable public release 1.0 ([#22](https://www.github.com/google-pay/google-pay-button/issues/22)) ([a532e15](https://www.github.com/google-pay/google-pay-button/commit/a532e1506ea49f82b14e858b640446171ad46f5b))
+
 ## [0.11.0](https://www.github.com/google-pay/google-pay-button/compare/v0.10.1...v0.11.0) (2020-06-19)
 
 

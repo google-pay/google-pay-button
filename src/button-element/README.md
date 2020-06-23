@@ -171,7 +171,7 @@ integrating Google Pay into your website.
     <td><p><code>"long" | "short"</code></p></td>
     <td>
       <p>Optional.</p>
-      <p><code>"long"</code> buttons are presented with the <em>But with</em> prefix (localized based on the user's browser settings) in front of the Google Pay logo, while <code>"short"</code> buttons only displays the Google Pay logo.</p>
+      <p><code>"long"</code> buttons are presented with the <em>Buy with</em> prefix (localized based on the user's browser settings) in front of the Google Pay logo, while <code>"short"</code> buttons only displays the Google Pay logo.</p>
       <p>Default value <code>"long"</code>.</p>
     </td>
   </tr>

@@ -330,7 +330,7 @@ export class ButtonManager {
             overflow: hidden;
           }
           ${this.options.cssSelector}.fill > div,
-          ${this.options.cssSelector}.fill > div > .gpay-button {
+          ${this.options.cssSelector}.fill > div > button {
             width: 100%;
             height: inherit;
           }
@@ -354,7 +354,7 @@ export class ButtonManager {
 
     if (node && node instanceof ShadowRoot) {
       const styles = document.querySelectorAll('head > style');
-      const gPayStyles = Array.from(styles).filter(s => s.innerHTML.indexOf('.gpay-button') !== -1);
+      const gPayStyles = Array.from(styles).filter(s => s.innerHTML.indexOf('.gpay-') !== -1);
       const existingStyles = new Set(
         Array.from(node.childNodes)
           .filter(n => n instanceof HTMLElement && n.nodeName === 'STYLE' && n.id)

@@ -1,5 +1,12 @@
 # Changelog
 
+### [1.0.1](https://www.github.com/google-pay/google-pay-button/compare/v1.0.0...v1.0.1) (2020-06-23)
+
+
+### Bug Fixes
+
+* add support for when dynamic button is rendered ([3264778](https://www.github.com/google-pay/google-pay-button/commit/3264778d39d39fe0723a29f66f5cc0ecd68586b3))
+
 ## [1.0.0](https://www.github.com/google-pay/google-pay-button/compare/v0.11.0...v1.0.0) (2020-06-21)
 
 

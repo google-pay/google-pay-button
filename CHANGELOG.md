@@ -1,5 +1,13 @@
 # Changelog
 
+### [1.0.2](https://www.github.com/google-pay/google-pay-button/compare/v1.0.1...v1.0.2) (2020-06-24)
+
+
+### Bug Fixes
+
+* add try/catch around prefetchPaymentData ([be06a76](https://www.github.com/google-pay/google-pay-button/commit/be06a766e35caafa492a0987460bc6529b78ff5b))
+* update fill button styling ([27a1d82](https://www.github.com/google-pay/google-pay-button/commit/27a1d824409122f10513e10971e7db1292dffa30))
+
 ### [1.0.1](https://www.github.com/google-pay/google-pay-button/compare/v1.0.0...v1.0.1) (2020-06-23)
 
 

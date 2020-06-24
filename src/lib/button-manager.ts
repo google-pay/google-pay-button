@@ -244,7 +244,11 @@ export class ButtonManager {
     if (!this.isMounted()) return;
 
     if (showButton) {
-      this.client.prefetchPaymentData(this.createLoadPaymentDataRequest(this.config));
+      try {
+        this.client.prefetchPaymentData(this.createLoadPaymentDataRequest(this.config));
+      } catch (err) {
+        console.log('Error with prefetch', err);
+      }
 
       // remove hidden className
       this.setClassName(

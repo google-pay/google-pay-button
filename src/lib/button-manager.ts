@@ -330,7 +330,7 @@ export class ButtonManager {
             overflow: hidden;
           }
           ${this.options.cssSelector}.fill > div,
-          ${this.options.cssSelector}.fill > div > button {
+          ${this.options.cssSelector}.fill > div > button, ${this.options.cssSelector}.fill > div > button.long, ${this.options.cssSelector}.fill > div > button.short {
             width: 100%;
             height: inherit;
           }

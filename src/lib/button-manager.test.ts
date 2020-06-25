@@ -508,7 +508,7 @@ describe('Google Pay client invalidation', () => {
     expect(updateElementSpy).toBeCalledTimes(2);
   });
 
-  it('invalidates client when paymentRequest changes', () => {
+  it('does not invalidate client when paymentRequest changes and is equivalent', () => {
     const manager = new ButtonManager(managerOptions);
     const config1: Config = {
       ...defaults,
@@ -523,7 +523,7 @@ describe('Google Pay client invalidation', () => {
     manager.configure(config1);
     manager.configure(config2);
 
-    expect(updateElementSpy).toBeCalledTimes(2);
+    expect(updateElementSpy).toBeCalledTimes(1);
   });
 
   it('does not invalidate client with the same configuration (shallow copy)', () => {
@@ -541,7 +541,7 @@ describe('Google Pay client invalidation', () => {
     expect(updateElementSpy).toBeCalledTimes(1);
   });
 
-  it('invalidates client with different paymentRequest', () => {
+  it('does not invalidate client when paymentRequest is equivalent', () => {
     const manager = new ButtonManager(managerOptions);
     const config1: Config = {
       ...defaults,
@@ -559,7 +559,7 @@ describe('Google Pay client invalidation', () => {
     manager.configure(config1);
     manager.configure(config2);
 
-    expect(updateElementSpy).toBeCalledTimes(2);
+    expect(updateElementSpy).toBeCalledTimes(1);
   });
 
   it('does not invalidate client when mutating transactionInfo', () => {
@@ -583,7 +583,7 @@ describe('Google Pay client invalidation', () => {
     expect(updateElementSpy).toBeCalledTimes(1);
   });
 
-  it('invalidates client when mutating merchantInfo', () => {
+  it('does not invalidate client when merchantInfo is equivalent', () => {
     const manager = new ButtonManager(managerOptions);
     const config: Config = {
       ...defaults,
@@ -601,7 +601,7 @@ describe('Google Pay client invalidation', () => {
 
     manager.configure(config);
 
-    expect(updateElementSpy).toBeCalledTimes(2);
+    expect(updateElementSpy).toBeCalledTimes(1);
   });
 
   it('invalidates client when mutating merchantId', () => {

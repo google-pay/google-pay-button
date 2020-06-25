@@ -393,8 +393,6 @@ export class ButtonManager {
       !!config.onPaymentAuthorized,
       config.buttonColor,
       config.buttonType,
-      config.paymentRequest,
-      config.paymentRequest.merchantInfo,
       config.paymentRequest.merchantInfo.merchantId,
       config.paymentRequest.merchantInfo.merchantName,
       config.paymentRequest.merchantInfo.softwareInfo?.id,

@@ -52,6 +52,7 @@ export default (props: any) => {
             currencyCode: 'USD',
             countryCode: 'US',
           },
+          callbackIntents: ['PAYMENT_AUTHORIZATION'],
         }}
         onLoadPaymentData={paymentRequest => {
           console.log('Success', paymentRequest);

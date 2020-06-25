@@ -1,5 +1,12 @@
 # Changelog
 
+### [1.0.3](https://www.github.com/google-pay/google-pay-button/compare/v1.0.2...v1.0.3) (2020-06-25)
+
+
+### Bug Fixes
+
+* remove paymentRequest and merchantInfo from invalidation properties ([ecafb34](https://www.github.com/google-pay/google-pay-button/commit/ecafb340b1a169d71a038bd9989d3f6c60772a9d))
+
 ### [1.0.2](https://www.github.com/google-pay/google-pay-button/compare/v1.0.1...v1.0.2) (2020-06-24)
 
 

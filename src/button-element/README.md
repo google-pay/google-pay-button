@@ -144,6 +144,12 @@ More Vue examples can be found in the [examples folder](../../examples/vue/src/c
 
 Try it out on [JSFiddle](https://jsfiddle.net/781fLekp/).
 
+## Other examples
+
+Additional examples included:
+
+- [Svelte](../../examples/svelte/src)
+
 ## Documentation
 
 Visit the [Google Pay developer site](https://developers.google.com/pay/api/web/overview) for more information about

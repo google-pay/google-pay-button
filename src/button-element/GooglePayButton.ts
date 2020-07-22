@@ -32,38 +32,54 @@ class GooglePayButton extends HTMLElement {
   private static _observedAttributes: string[] = [];
 
   @Notify()
+  @Alias('paymentrequest')
   paymentRequest?: google.payments.api.PaymentDataRequest;
 
   @NotifyAttribute()
   environment?: google.payments.api.Environment;
 
   @NotifyBooleanAttribute()
+  @Alias('existingpaymentmethodrequired')
   existingPaymentMethodRequired!: boolean;
 
   @NotifyAttribute()
+  @Alias('buttoncolor')
   buttonColor?: google.payments.api.ButtonColor;
 
   @NotifyAttribute()
+  @Alias('buttontype')
   buttonType?: google.payments.api.ButtonType;
 
   @Notify()
   @Alias('paymentDataChangedCallback')
+  @Alias('paymentdatachangedcallback')
+  @Alias('onpaymentdatachanged')
   onPaymentDataChanged?: google.payments.api.PaymentDataChangedHandler;
 
   @Notify()
   @Alias('paymentAuthorizedCallback')
+  @Alias('paymentauthorizedcallback')
+  @Alias('onpaymentauthorized')
   onPaymentAuthorized?: google.payments.api.PaymentAuthorizedHandler;
 
   @Alias('readyToPayChangeCallback')
+  @Alias('readytopaychangecallback')
+  @Alias('onreadytopaychange')
   onReadyToPayChange?: (result: ReadyToPayChangeResponse) => void;
 
   @Alias('loadPaymentDataCallback')
+  @Alias('loadpaymentdatacallback')
+  @Alias('onloadpaymentdata')
   onLoadPaymentData?: (paymentData: google.payments.api.PaymentData) => void;
 
   @Alias('cancelCallback')
+  @Alias('cancelcallback')
+  @Alias('oncancel')
   onCancel?: (reason: google.payments.api.PaymentsError) => void;
 
   @Alias('errorCallback')
+  @Alias('errorcallback')
+  @Alias('onerror')
   onError?: (error: Error) => void;
 
   get isReadyToPay(): boolean | undefined {

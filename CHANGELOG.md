@@ -1,5 +1,12 @@
 # Changelog
 
+### [1.0.4](https://www.github.com/google-pay/google-pay-button/compare/v1.0.3...v1.0.4) (2020-07-22)
+
+
+### Bug Fixes
+
+* add lowercase property aliases for button-element ([7b1f623](https://www.github.com/google-pay/google-pay-button/commit/7b1f623511e874f381a0787f93c08c38ad5cc8fd))
+
 ### [1.0.3](https://www.github.com/google-pay/google-pay-button/compare/v1.0.2...v1.0.3) (2020-06-25)
 
 

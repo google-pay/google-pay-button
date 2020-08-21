@@ -28,7 +28,7 @@
   "author": "socsieng@google.com",
   "license": "Apache-2.0",
   "dependencies": {
-    "@types/googlepay": "^0.4.1"
+    "@types/googlepay": "^0.4.2"
   },
   "peerDependencies": {
     "@types/react": ">=16.0.0",

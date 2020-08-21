@@ -1,5 +1,12 @@
 # Changelog
 
+## [1.1.0](https://www.github.com/google-pay/google-pay-button/compare/v1.0.4...v1.1.0) (2020-08-21)
+
+
+### Features
+
+* add support for donate button ([193c781](https://www.github.com/google-pay/google-pay-button/commit/193c781dfeffb72591110b1dafc7252aad33aebb)), closes [#34](https://www.github.com/google-pay/google-pay-button/issues/34)
+
 ### [1.0.4](https://www.github.com/google-pay/google-pay-button/compare/v1.0.3...v1.0.4) (2020-07-22)
 
 

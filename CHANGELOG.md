@@ -1,5 +1,12 @@
 # Changelog
 
+### [1.1.1](https://www.github.com/google-pay/google-pay-button/compare/v1.1.0...v1.1.1) (2020-08-22)
+
+
+### Bug Fixes
+
+* **docs:** update button types from long/short to buy/plain ([b28c48e](https://www.github.com/google-pay/google-pay-button/commit/b28c48ed165f4c0b9f40a00c84bed3f72e256166))
+
 ## [1.1.0](https://www.github.com/google-pay/google-pay-button/compare/v1.0.4...v1.1.0) (2020-08-21)
 
 

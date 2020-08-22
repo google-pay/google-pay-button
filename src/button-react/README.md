@@ -51,7 +51,7 @@ npm install @google-pay/button-react
 
 More React examples can be found in the [examples folder](../../examples/react/src/examples) of this repository.
 
-Try it out on [JSFiddle](https://jsfiddle.net/1Lwndx7b/), or see it in action with a
+Try it out on [JSFiddle](https://jsfiddle.net/0qm5nbwh/), or see it in action with a
 [React sample store](https://payments-react-store.web.app/)
 ([source code](https://github.com/google-pay/react-store/tree/google-pay)).
 

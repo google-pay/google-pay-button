@@ -35,7 +35,7 @@ const App: React.FC = () => {
   const [amount, setAmount] = useState('100.00');
   const [existingPaymentMethodRequired, setExistingPaymentMethodRequired] = useState(false);
   const [buttonColor, setButtonColor] = useState('default');
-  const [buttonType, setButtonType] = useState('long');
+  const [buttonType, setButtonType] = useState('buy');
 
   function handleAmountChange(event: any) {
     setAmount(event.target.value);
@@ -85,6 +85,9 @@ const App: React.FC = () => {
         <label>
           <span>Button type:</span>
           <select onChange={handleTypeChange} value={buttonType}>
+            <option value="buy">buy</option>
+            <option value="plain">plain</option>
+            <option value="donate">donate</option>
             <option value="long">long</option>
             <option value="short">short</option>
           </select>

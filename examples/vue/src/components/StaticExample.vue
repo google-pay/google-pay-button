@@ -21,7 +21,7 @@
         <div class="title">Static Example</div>
         <div class="demo">
           <google-pay-button
-            button-type="short"
+            button-type="plain"
             button-color="black"
             v-bind:paymentRequest.prop="{
               apiVersion: 2,

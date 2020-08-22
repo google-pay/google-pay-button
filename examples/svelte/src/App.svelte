@@ -4,7 +4,7 @@
   let amount = '100.00';
   let existingPaymentMethodRequired = false;
   let buttonColor = 'default';
-  let buttonType = 'long';
+  let buttonType = 'buy';
 
   function buildPaymentRequest(): google.payments.api.PaymentDataRequest {
     return {
@@ -193,6 +193,9 @@
     <label>
       <span>Button type:</span>
       <select id="button-type" bind:value={buttonType}>
+        <option value="buy">buy</option>
+        <option value="plain">plain</option>
+        <option value="donate">donate</option>
         <option value="long">long</option>
         <option value="short">short</option>
       </select>

@@ -26,7 +26,7 @@ import { Component } from '@angular/core';
 })
 export class AppComponent {
   amount = '100.00';
-  buttonType = 'long';
+  buttonType = 'buy';
   buttonColor = 'default';
   existingPaymentMethodRequired = false;
 

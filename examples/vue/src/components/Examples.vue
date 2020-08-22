@@ -39,6 +39,9 @@
       <label>
         <span>Button type:</span>
         <select v-model="buttonType">
+          <option value="buy">buy</option>
+          <option value="plain">plain</option>
+          <option value="donate">donate</option>
           <option value="long">long</option>
           <option value="short">short</option>
         </select>
@@ -182,7 +185,7 @@ export default {
     amount: '100.00',
     existingPaymentMethodRequired: false,
     buttonColor: 'default',
-    buttonType: 'long',
+    buttonType: 'buy',
     paymentRequest: {
       apiVersion: 2,
       apiVersionMinor: 0,

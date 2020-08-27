@@ -57,7 +57,8 @@ npm install @google-pay/button-element
 </script>
 ```
 
-More HTML examples can be found in the [examples folder](../../examples/html) of this repository.
+More HTML examples can be found in the
+[examples folder](https://github.com/google-pay/google-pay-button/tree/main/examples/html) of this repository.
 
 Try it out on [JSFiddle](https://jsfiddle.net/wupkceL4/).
 
@@ -101,7 +102,9 @@ Try it out on [JSFiddle](https://jsfiddle.net/wupkceL4/).
 ></google-pay-button>
 ```
 
-More Angular examples can be found in the [examples folder](../../examples/angular/src/app) of this repository.
+More Angular examples can be found in the
+[examples folder](https://github.com/google-pay/google-pay-button/tree/main/examples/angular/src/app) of this
+repository.
 
 ## Example usage: Vue website
 
@@ -140,7 +143,9 @@ More Angular examples can be found in the [examples folder](../../examples/angul
 ></google-pay-button>
 ```
 
-More Vue examples can be found in the [examples folder](../../examples/vue/src/components) of this repository.
+More Vue examples can be found in the
+[examples folder](https://github.com/google-pay/google-pay-button/tree/main/examples/vue/src/components) of this
+repository.
 
 Try it out on [JSFiddle](https://jsfiddle.net/0bkrtw41/).
 
@@ -148,7 +153,7 @@ Try it out on [JSFiddle](https://jsfiddle.net/0bkrtw41/).
 
 Additional examples included:
 
-- [Svelte](../../examples/svelte/src)
+- [Svelte](https://github.com/google-pay/google-pay-button/tree/main/examples/svelte/src)
 
 ## Documentation
 

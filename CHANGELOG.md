@@ -1,5 +1,12 @@
 # Changelog
 
+### [1.1.2](https://www.github.com/google-pay/google-pay-button/compare/v1.1.1...v1.1.2) (2020-08-27)
+
+
+### Bug Fixes
+
+* **docs:** use absolute example urls to to ensure links work on npm ([d9bbec0](https://www.github.com/google-pay/google-pay-button/commit/d9bbec00942c9d90c9298c6b86e5d46a12eaee97))
+
 ### [1.1.1](https://www.github.com/google-pay/google-pay-button/compare/v1.1.0...v1.1.1) (2020-08-22)
 
 

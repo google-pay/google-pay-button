@@ -1,5 +1,12 @@
 # Changelog
 
+### [1.1.3](https://www.github.com/google-pay/google-pay-button/compare/v1.1.2...v1.1.3) (2020-08-28)
+
+
+### Bug Fixes
+
+* **docs:** add webcomponent.org demo snippet ([68a6dbc](https://www.github.com/google-pay/google-pay-button/commit/68a6dbc2430d01c5fea0a52be776327f582a65a5))
+
 ### [1.1.2](https://www.github.com/google-pay/google-pay-button/compare/v1.1.1...v1.1.2) (2020-08-27)
 
 

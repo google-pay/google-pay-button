@@ -1,5 +1,12 @@
 # Changelog
 
+### [1.1.4](https://www.github.com/google-pay/google-pay-button/compare/v1.1.3...v1.1.4) (2020-08-28)
+
+
+### Bug Fixes
+
+* **docs:** remove webcomponent.org demo as it doesn't work in their iframe ([168f217](https://www.github.com/google-pay/google-pay-button/commit/168f21752c4d1bb1675df3d644cb4d10e6d5a35d))
+
 ### [1.1.3](https://www.github.com/google-pay/google-pay-button/compare/v1.1.2...v1.1.3) (2020-08-28)
 
 

@@ -11,17 +11,6 @@ npm install @google-pay/button-element
 
 ## Example usage: HTML website
 
-<!--
-```
-<custom-element-demo>
-  <template>
-    <script src="https://unpkg.com/@google-pay/button-element@1.x/dist/index.umd.js"></script>
-    <next-code-block></next-code-block>
-  </template>
-</custom-element-demo>
-```
--->
-
 ```html
 <div id="buttons">
   <google-pay-button environment="TEST" button-type="short" button-color="black"></google-pay-button>

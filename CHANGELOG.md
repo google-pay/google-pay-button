@@ -1,5 +1,12 @@
 # Changelog
 
+### [1.1.5](https://www.github.com/google-pay/google-pay-button/compare/v1.1.4...v1.1.5) (2020-09-04)
+
+
+### Features
+
+* **build:** setup publish workflow for bit.dev ([9ad66aa](https://www.github.com/google-pay/google-pay-button/commit/9ad66aa04b5f1212eee3ef5c510f130c202aba75))
+
 ### [1.1.4](https://www.github.com/google-pay/google-pay-button/compare/v1.1.3...v1.1.4) (2020-08-28)
 
 

@@ -1,5 +1,12 @@
 # Changelog
 
+### [1.1.7](https://www.github.com/google-pay/google-pay-button/compare/v1.1.6...v1.1.7) (2020-09-04)
+
+
+### Bug Fixes
+
+* **build:** update build pipeline to fix broken publish (attempt 2) ([08c7482](https://www.github.com/google-pay/google-pay-button/commit/08c74827809d68d357c51945a4443e5470a6e62b))
+
 ### [1.1.6](https://www.github.com/google-pay/google-pay-button/compare/v1.1.5...v1.1.6) (2020-09-04)
 
 

@@ -66,7 +66,7 @@ jobs:
           bit tag --all `node ../../scripts/version.js`
           bit export google-pay.button-react
       - name: publish button-element to bit.dev
-        run: >
+        run: |
           cd src/button-element
           bit init
           bit add --id google-pay-button dist/index.js

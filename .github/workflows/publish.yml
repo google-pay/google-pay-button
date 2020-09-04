@@ -59,20 +59,16 @@ jobs:
           bit config set anonymous_reporting false
           bit config set user.token $BIT_TOKEN
       - name: publish button-react to bit.dev
-        run: >
-          (
-            cd src/button-react
-            && bit init
-            && bit add --id google-pay-button dist/index.js
-            && bit tag --all `node ../../scripts/version.js`
-            && bit export google-pay.button-react
-          )
+        run: |
+          cd src/button-react
+          bit init
+          bit add --id google-pay-button dist/index.js
+          bit tag --all `node ../../scripts/version.js`
+          bit export google-pay.button-react
       - name: publish button-element to bit.dev
         run: >
-          (
-            cd src/button-element
-            && bit init
-            && bit add --id google-pay-button dist/index.js
-            && bit tag --all `node ../../scripts/version.js`
-            && bit export google-pay.button-element
-          )
+          cd src/button-element
+          bit init
+          bit add --id google-pay-button dist/index.js
+          bit tag --all `node ../../scripts/version.js`
+          bit export google-pay.button-element

@@ -33,10 +33,10 @@ class GooglePayButton extends HTMLElement {
 
   @Notify()
   @Alias('paymentrequest')
-  paymentRequest?: google.payments.api.PaymentDataRequest;
+  paymentRequest!: google.payments.api.PaymentDataRequest;
 
   @NotifyAttribute()
-  environment?: google.payments.api.Environment;
+  environment!: google.payments.api.Environment;
 
   @NotifyBooleanAttribute()
   @Alias('existingpaymentmethodrequired')
@@ -138,8 +138,12 @@ class GooglePayButton extends HTMLElement {
       return;
     }
 
+    if (!this.assertRequiredProperty('environment')) {
+      return;
+    }
+
     const config: Config = {
-      paymentRequest: this.paymentRequest!,
+      paymentRequest: this.paymentRequest,
       environment: this.environment,
       existingPaymentMethodRequired: this.existingPaymentMethodRequired,
       onPaymentDataChanged: this.onPaymentDataChanged,

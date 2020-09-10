@@ -219,6 +219,7 @@ function updateGooglePayButtons() {
     if (!button) {
       button = new GooglePayButton();
       button.id = id;
+      button.environment = 'TEST';
 
       const container = document.getElementById('examples');
       container.appendChild(createExample(gpay.title, button));

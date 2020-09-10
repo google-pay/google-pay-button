@@ -22,6 +22,7 @@ export default (props: any) => {
   return (
     <Example title="Mastercard and VISA">
       <GooglePayButton
+        environment="TEST"
         paymentRequest={{
           apiVersion: 2,
           apiVersionMinor: 0,

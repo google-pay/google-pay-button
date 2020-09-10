@@ -25,7 +25,7 @@ export interface ReadyToPayChangeResponse {
 }
 
 export interface Config {
-  environment?: google.payments.api.Environment;
+  environment: google.payments.api.Environment;
   existingPaymentMethodRequired?: boolean;
   paymentRequest: google.payments.api.PaymentDataRequest;
   onPaymentDataChanged?: google.payments.api.PaymentDataChangedHandler;

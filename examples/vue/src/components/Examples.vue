@@ -53,6 +53,7 @@
         <div class="title">Basic Example</div>
         <div class="demo">
           <google-pay-button
+            environment="TEST"
             v-bind:button-type="buttonType"
             v-bind:button-color="buttonColor"
             v-bind:existing-payment-method-required="existingPaymentMethodRequired"
@@ -78,6 +79,7 @@
         <div class="title">Payment Authorization</div>
         <div class="demo">
           <google-pay-button
+            environment="TEST"
             v-bind:button-type="buttonType"
             v-bind:button-color="buttonColor"
             v-bind:existing-payment-method-required="existingPaymentMethodRequired"
@@ -104,6 +106,7 @@
         <div class="title">Cryptogram 3ds</div>
         <div class="demo">
           <google-pay-button
+            environment="TEST"
             v-bind:button-type="buttonType"
             v-bind:button-color="buttonColor"
             v-bind:existing-payment-method-required="existingPaymentMethodRequired"
@@ -146,6 +149,7 @@
         <div class="title">Require Shipping</div>
         <div class="demo">
           <google-pay-button
+            environment="TEST"
             v-bind:button-type="buttonType"
             v-bind:button-color="buttonColor"
             v-bind:existing-payment-method-required="existingPaymentMethodRequired"

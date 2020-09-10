@@ -207,6 +207,7 @@
       <div class="title">Basic Example</div>
       <div class="demo">
         <google-pay-button
+          environment="TEST"
           button-type={buttonType}
           button-color={buttonColor}
           {existingPaymentMethodRequired}
@@ -219,6 +220,7 @@
       <div class="title">Payment Authorization</div>
       <div class="demo">
         <google-pay-button
+          environment="TEST"
           button-type={buttonType}
           button-color={buttonColor}
           {existingPaymentMethodRequired}
@@ -232,6 +234,7 @@
       <div class="title">Cryptogram 3ds</div>
       <div class="demo">
         <google-pay-button
+          environment="TEST"
           button-type={buttonType}
           button-color={buttonColor}
           {existingPaymentMethodRequired}
@@ -245,6 +248,7 @@
       <div class="title">Require Shipping</div>
       <div class="demo">
         <google-pay-button
+          environment="TEST"
           button-type={buttonType}
           button-color={buttonColor}
           {existingPaymentMethodRequired}

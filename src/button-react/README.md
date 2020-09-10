@@ -111,10 +111,9 @@ integrating Google Pay into your website.
     <td><p>environment</p></td>
     <td><p><code>"TEST" | "PRODUCTION"</code></p></td>
     <td>
-      <p>Optional.</p>
+      <p>Required.</p>
       <p>The Google Pay environment to target.</p>
       <p>Note: in the <code>"TEST"</code> environment, fake payment credentials are returned. In order to use the <code>"PRODUCTION"</code> environment, your website must be registered with Google Pay. This can be done through the <a href="https://pay.google.com/business/console/">Google Pay Business Console</a>.</p>
-      <p>Default value <code>"TEST"</code>.</p>
     </td>
   </tr>
   <tr>

@@ -24,6 +24,7 @@ export default (props: any) => {
   return (
     <Example title="Cryptogram 3ds">
       <GooglePayButton
+        environment="TEST"
         paymentRequest={{
           apiVersion: 2,
           apiVersionMinor: 0,

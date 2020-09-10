@@ -37,6 +37,7 @@ export default (props: any) => {
   return (
     <Example title="Shipping Options">
       <GooglePayButton
+        environment="TEST"
         paymentRequest={{
           apiVersion: 2,
           apiVersionMinor: 0,

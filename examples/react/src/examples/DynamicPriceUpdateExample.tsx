@@ -98,6 +98,7 @@ export default (props: any) => {
   return (
     <Example title="Dynamic Price Updates">
       <GooglePayButton
+        environment="TEST"
         paymentRequest={paymentRequest}
         onLoadPaymentData={paymentRequest => {
           console.log('Success', paymentRequest);

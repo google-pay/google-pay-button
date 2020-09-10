@@ -22,6 +22,7 @@ export default (props: any) => {
   return (
     <Example title="Payment Data Changed Error (no US address)">
       <GooglePayButton
+        environment="TEST"
         paymentRequest={{
           apiVersion: 2,
           apiVersionMinor: 0,

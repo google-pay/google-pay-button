@@ -491,6 +491,22 @@ describe('Google Pay client invalidation', () => {
     expect(updateElementSpy).toBeCalledTimes(2);
   });
 
+  it('invalidates client when buttonSizeMode changes', () => {
+    const manager = new ButtonManager(managerOptions);
+    const config1: Config = {
+      ...defaults,
+    };
+    const config2: Config = {
+      ...defaults,
+      buttonSizeMode: 'static',
+    };
+
+    manager.configure(config1);
+    manager.configure(config2);
+
+    expect(updateElementSpy).toBeCalledTimes(2);
+  });
+
   it('invalidates client when buttonColor changes', () => {
     const manager = new ButtonManager(managerOptions);
     const config1: Config = {

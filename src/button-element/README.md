@@ -60,7 +60,7 @@ npm install @google-pay/button-element
 More HTML examples can be found in the
 [examples folder](https://github.com/google-pay/google-pay-button/tree/main/examples/html) of this repository.
 
-Try it out on [JSFiddle](https://jsfiddle.net/wupkceL4/).
+Try it out on [JSFiddle](https://jsfiddle.net/yutskn2j/).
 
 ## Example usage: Angular website
 
@@ -149,7 +149,7 @@ More Vue examples can be found in the
 [examples folder](https://github.com/google-pay/google-pay-button/tree/main/examples/vue/src/components) of this
 repository.
 
-Try it out on [JSFiddle](https://jsfiddle.net/0bkrtw41/).
+Try it out on [JSFiddle](https://jsfiddle.net/jmoezg5f/).
 
 ## Other examples
 

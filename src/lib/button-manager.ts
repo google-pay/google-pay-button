@@ -36,6 +36,7 @@ export interface Config {
   onReadyToPayChange?: (result: ReadyToPayChangeResponse) => void;
   buttonColor?: google.payments.api.ButtonColor;
   buttonType?: google.payments.api.ButtonType;
+  buttonSizeMode?: google.payments.api.ButtonSizeMode;
 }
 
 interface ButtonManagerOptions {
@@ -220,6 +221,7 @@ export class ButtonManager {
     const button = this.client.createButton({
       buttonType: this.config.buttonType,
       buttonColor: this.config.buttonColor,
+      buttonSizeMode: this.config.buttonSizeMode,
       onClick: this.handleClick,
     });
 
@@ -333,11 +335,6 @@ export class ButtonManager {
             height: 0;
             overflow: hidden;
           }
-          ${this.options.cssSelector}.fill > div,
-          ${this.options.cssSelector}.fill > div > button, ${this.options.cssSelector}.fill > div > button.long, ${this.options.cssSelector}.fill > div > button.short {
-            width: 100%;
-            height: inherit;
-          }
         `;
 
         if (rootNode instanceof Document && rootNode.head) {
@@ -393,6 +390,7 @@ export class ButtonManager {
       !!config.onPaymentAuthorized,
       config.buttonColor,
       config.buttonType,
+      config.buttonSizeMode,
       config.paymentRequest.merchantInfo.merchantId,
       config.paymentRequest.merchantInfo.merchantName,
       config.paymentRequest.merchantInfo.softwareInfo?.id,

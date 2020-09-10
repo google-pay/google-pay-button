@@ -30,6 +30,7 @@ import OnCancelExample from './examples/OnCancelExample';
 import DisplayItemsExample from './examples/DisplayItemsExample';
 import DynamicPriceUpdateExample from './examples/DynamicPriceUpdateExample';
 import DirectIntegrationExample from './examples/DirectIntegrationExample';
+import ButtonSizeExample from './examples/ButtonSizeExample';
 
 const App: React.FC = () => {
   const [amount, setAmount] = useState('100.00');
@@ -107,6 +108,7 @@ const App: React.FC = () => {
       <OnCancelExample {...props} />
       <DisplayItemsExample {...props} />
       <DynamicPriceUpdateExample {...props} />
+      <ButtonSizeExample {...props} />
     </div>
   );
 };

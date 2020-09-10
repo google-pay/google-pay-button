@@ -50,6 +50,10 @@ class GooglePayButton extends HTMLElement {
   @Alias('buttontype')
   buttonType?: google.payments.api.ButtonType;
 
+  @NotifyAttribute()
+  @Alias('buttonsizemode')
+  buttonSizeMode?: google.payments.api.ButtonSizeMode;
+
   @Notify()
   @Alias('paymentDataChangedCallback')
   @Alias('paymentdatachangedcallback')
@@ -142,6 +146,7 @@ class GooglePayButton extends HTMLElement {
       onPaymentAuthorized: this.onPaymentAuthorized,
       buttonColor: this.buttonColor,
       buttonType: this.buttonType,
+      buttonSizeMode: this.buttonSizeMode,
       onReadyToPayChange: result => {
         if (this.onReadyToPayChange) {
           this.onReadyToPayChange(result);

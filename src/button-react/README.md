@@ -80,6 +80,16 @@ integrating Google Pay into your website.
     </td>
   </tr>
   <tr>
+    <td><p>buttonSizeMode</p></td>
+    <td><p><code>"static" | "fill"</code></p></td>
+    <td>
+      <p>Optional.</p>
+      <p><code>"static"</code> buttons will be sized according to the translated <code>buttonType</code>.</p>
+      <p><code>"fill"</code> buttons will be styled according the the element's size. Use this mode when resizing the button with CSS <code>width</code> and <code>height</code> properties.</p>
+      <p>Default value <code>"static"</code>.</p>
+    </td>
+  </tr>
+  <tr>
     <td><p>buttonType</p></td>
     <td><p><code>"buy" | "plain" | "donate" | "long" | "short"</code></p></td>
     <td>

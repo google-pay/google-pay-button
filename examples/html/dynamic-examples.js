@@ -179,6 +179,25 @@ const googlePayButtons = [
       };
     },
   },
+  {
+    title: 'Button Size',
+    get props() {
+      return {
+        buttonColor: controls.buttonColor.value,
+        buttonType: controls.buttonType.value,
+        buttonSizeMode: 'fill',
+        paymentRequest: {
+          ...defaultPaymentRequest,
+          transactionInfo: {
+            ...defaultPaymentRequest.transactionInfo,
+            totalPrice: controls.amount.value,
+          },
+        },
+        existingPaymentRequired: controls.existingPaymentRequired.value === 'true',
+        onLoadPaymentData,
+      };
+    },
+  },
 ];
 
 window.controls = controls;

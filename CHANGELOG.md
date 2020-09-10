@@ -1,5 +1,12 @@
 # Changelog
 
+### [2.0.1](https://www.github.com/google-pay/google-pay-button/compare/v2.0.0...v2.0.1) (2020-09-10)
+
+
+### Bug Fixes
+
+* update @types/googlepay package dependency ([eddc588](https://www.github.com/google-pay/google-pay-button/commit/eddc58816a99121b6885627eaaaf209648319340))
+
 ## [2.0.0](https://www.github.com/google-pay/google-pay-button/compare/v1.1.7...v2.0.0) (2020-09-10)
 
 

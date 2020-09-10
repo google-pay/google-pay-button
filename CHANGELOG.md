@@ -1,5 +1,17 @@
 # Changelog
 
+## [2.0.0](https://www.github.com/google-pay/google-pay-button/compare/v1.1.7...v2.0.0) (2020-09-10)
+
+
+### ⚠ BREAKING CHANGES
+
+* make environment a required property
+
+### Features
+
+* add support for buttonSizeMode ([0e85f04](https://www.github.com/google-pay/google-pay-button/commit/0e85f0488a7dd41bd6e4ae302df6719844bef50d))
+* make environment a required property ([94e51c0](https://www.github.com/google-pay/google-pay-button/commit/94e51c09b412addc665d06079fb0f7c3c66cfbba)), closes [#45](https://www.github.com/google-pay/google-pay-button/issues/45)
+
 ### [1.1.7](https://www.github.com/google-pay/google-pay-button/compare/v1.1.6...v1.1.7) (2020-09-04)
 
 

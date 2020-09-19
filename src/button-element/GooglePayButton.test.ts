@@ -58,4 +58,15 @@ describe('Render', () => {
 
     expect(throwError).toHaveBeenCalledWith(new Error('Required property not set: paymentRequest'));
   });
+
+  it('crashes when required property environment is not set', async () => {
+    const button = new GooglePayButton();
+    button.paymentRequest = {
+      ...defaults.paymentRequest,
+    };
+
+    await button.connectedCallback();
+
+    expect(throwError).toHaveBeenCalledWith(new Error('Required property not set: environment'));
+  });
 });

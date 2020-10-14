@@ -16,7 +16,14 @@
     "jsx": "react",
     "declaration": false,
     "outDir": "build",
+    "baseUrl": "./",
     "sourceMap": true
+  },
+  "angularCompilerOptions": {
+    "skipTemplateCodegen": true,
+    "strictMetadataEmit": true,
+    "enableResourceInlining": true,
+    "enableIvy": false
   },
   "include": ["src"],
   "exclude": ["*.config.js", "src/**/*.test.(ts|tsx)"]

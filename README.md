@@ -39,6 +39,20 @@ npm install @google-pay/button-react
 
 Find out more about the [Google Pay React button][button-react].
 
+## Angular
+
+[![npm version](https://badge.fury.io/js/%40google-pay%2Fbutton-angular.svg)][npm-angular]
+
+An Angular version of the [Google Pay button][button-angular] as been created to make it just as easier to integrate
+Google Pay into your Angular website. The advantage of using the Angular version of the Google Pay button over the web
+component is that it eliminates the need to register `CUSTOM_ELEMENTS_SCHEMA`.
+
+```sh
+npm install @google-pay/button-angular
+```
+
+Find out more about the [Google Pay Angular button][button-angular].
+
 ## Other frameworks
 
 The intention is for the web component to support other web frameworks. Support for additional framework specific
@@ -47,7 +61,9 @@ libraries will be considered based on demand.
 [google-pay]: https://developers.google.com/pay/api/web/overview
 [button-element]: src/button-element
 [button-react]: src/button-react
+[button-angular]: src/button-angular
 [live-demo]: https://developers.google.com/pay/api/web/guides/resources/demos
 [custom-elements-compatible]: https://custom-elements-everywhere.com/
 [npm-element]: https://www.npmjs.com/package/@google-pay/button-element
 [npm-react]: https://www.npmjs.com/package/@google-pay/button-react
+[npm-angular]: https://www.npmjs.com/package/@google-pay/button-angular

@@ -1,0 +1,28 @@
+{
+  "$schema": "./node_modules/@angular/cli/lib/config/schema.json",
+  "version": 1,
+  "newProjectRoot": "src",
+  "projects": {
+    "google-pay-button": {
+      "projectType": "library",
+      "root": "src/button-angular",
+      "sourceRoot": "src/button-angular",
+      "prefix": "lib",
+      "architect": {
+        "build": {
+          "builder": "@angular-devkit/build-ng-packagr:build",
+          "options": {
+            "tsConfig": "src/button-angular/tsconfig.lib.json",
+            "project": "src/button-angular/ng-package.json"
+          },
+          "configurations": {
+            "production": {
+              "tsConfig": "src/button-angular/tsconfig.lib.prod.json"
+            }
+          }
+        }
+      }
+    }
+  },
+  "defaultProject": "google-pay-button"
+}

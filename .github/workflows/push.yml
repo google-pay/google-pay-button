@@ -23,6 +23,12 @@ jobs:
         uses: actions/setup-node@v1
         with:
           node-version: ${{ matrix.node-version }}
+      - name: prebuild
+        run: scripts/prebuild.sh
       - run: npm install
+      - name: npm install (button-angular)
+        run: |
+          cd src/button-angular
+          npm install
       - run: npm run build:all
       - run: npm test

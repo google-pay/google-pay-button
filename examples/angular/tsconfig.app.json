@@ -2,8 +2,9 @@
   "extends": "./tsconfig.json",
   "compilerOptions": {
     "outDir": "./out-tsc/app",
-    "types": ["googlepay"]
+    "types": ["googlepay", "node"]
   },
   "files": ["src/main.ts", "src/polyfills.ts"],
-  "include": ["src/**/*.d.ts"]
+  "include": ["src/**/*.d.ts", "../../src/lib"],
+  "exclude": ["../../src/**/*.test.ts", "../../src/**/__*__"]
 }

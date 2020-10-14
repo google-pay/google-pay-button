@@ -14,17 +14,4 @@
  * limitations under the License.
  */
 
-import { BrowserModule } from '@angular/platform-browser';
-import { NgModule } from '@angular/core';
-import { FormsModule } from '@angular/forms';
-
-import { AppComponent } from './app.component';
-import { GooglePayButtonModule } from '@google-pay/button-angular';
-
-@NgModule({
-  declarations: [AppComponent],
-  imports: [BrowserModule, FormsModule, GooglePayButtonModule],
-  providers: [],
-  bootstrap: [AppComponent],
-})
-export class AppModule {}
+export { ButtonManager, ReadyToPayChangeResponse } from './button-manager';

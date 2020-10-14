@@ -14,10 +14,8 @@
  * limitations under the License.
  */
 
-import '@google-pay/button-element';
-
-import { ReadyToPayChangeResponse } from '@google-pay/button-element';
 import { Component } from '@angular/core';
+import { ReadyToPayChangeResponse } from '@google-pay/button-angular';
 
 @Component({
   selector: 'app-root',

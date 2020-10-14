@@ -21,32 +21,8 @@ root_version=`node $script_folder/version.js`
 
 source $script_folder/folders.sh
 
-# generate package.json
 for folder in "${folders[@]}"
 do
   sed "s/\"version\": \"0.0.0\"/\"version\": \"$root_version\"/g" $folder/package-template.json > $folder/package.json
-  cp $script_folder/../LICENSE $folder/LICENSE
-done
-
-# publish
-for folder in "${folders[@]}"
-do
-  cd $cwd/$folder
-  if current_version=`npm view . version` ; then
-    echo "existing package version $current_version"
-  fi
-
-  version=`node $script_folder/version.js package.json` 
-  if [ "$current_version" != "$version" ]
-  then
-    echo "publishing $version"
-
-    if [ "$folder" == "src/button-angular" ]
-    then
-      cd $cwd/$folder/dist
-      npm publish
-    else
-      npm publish
-    fi
-  fi
+  rm -rf $folder/dist
 done

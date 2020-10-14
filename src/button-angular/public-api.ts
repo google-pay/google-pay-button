@@ -14,17 +14,15 @@
  * limitations under the License.
  */
 
-import { BrowserModule } from '@angular/platform-browser';
-import { NgModule } from '@angular/core';
-import { FormsModule } from '@angular/forms';
+/*
+ * Public API Surface of google-pay-button
+ */
 
-import { AppComponent } from './app.component';
-import { GooglePayButtonModule } from '@google-pay/button-angular';
+export * from './lib/google-pay-button.component';
+export * from './lib/google-pay-button.module';
 
-@NgModule({
-  declarations: [AppComponent],
-  imports: [BrowserModule, FormsModule, GooglePayButtonModule],
-  providers: [],
-  bootstrap: [AppComponent],
-})
-export class AppModule {}
+export interface ReadyToPayChangeResponse {
+  isButtonVisible: boolean;
+  isReadyToPay: boolean;
+  paymentMethodPresent?: boolean;
+}

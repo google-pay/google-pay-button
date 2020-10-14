@@ -121,7 +121,7 @@ export class ButtonManager {
         // eslint-disable-next-line @typescript-eslint/explicit-function-return-type
         clientConfig.paymentDataCallbacks.onPaymentDataChanged = paymentData => {
           const result = config.onPaymentDataChanged!(paymentData);
-          return result || {};
+          return result || ({} as google.payments.api.PaymentDataRequestUpdate);
         };
       }
 
@@ -129,7 +129,7 @@ export class ButtonManager {
         // eslint-disable-next-line @typescript-eslint/explicit-function-return-type
         clientConfig.paymentDataCallbacks.onPaymentAuthorized = paymentData => {
           const result = config.onPaymentAuthorized!(paymentData);
-          return result || {};
+          return result || ({} as google.payments.api.PaymentAuthorizationResult);
         };
       }
     }

@@ -1,78 +1,21 @@
-# Google Pay web component button
+# Google Pay Angular button
 
-This is the web component for the Google Pay button. This component can be used in standard HTML websites as well as
-websites built with many popular JavaScript frameworks.
-
-Note that React and Angular developers should use the @google-pay/button-react and @google-pay/button-angular versions
-of this component.
+This is the Angular component for the Google Pay button.
 
 ## Installation
 
 ```sh
-npm install @google-pay/button-element
+npm install @google-pay/button-angular
 ```
 
-## Example usage: HTML website
-
-```html
-<div id="buttons">
-  <google-pay-button environment="TEST" button-type="short" button-color="black"></google-pay-button>
-</div>
-<script type="module">
-  import './node_modules/@google-pay/button-element/dist/index.js';
-
-  const button = document.querySelector('google-pay-button');
-  button.paymentRequest = {
-    apiVersion: 2,
-    apiVersionMinor: 0,
-    allowedPaymentMethods: [
-      {
-        type: 'CARD',
-        parameters: {
-          allowedAuthMethods: ['PAN_ONLY', 'CRYPTOGRAM_3DS'],
-          allowedCardNetworks: ['MASTERCARD', 'VISA'],
-          billingAddressRequired: true,
-        },
-        tokenizationSpecification: {
-          type: 'PAYMENT_GATEWAY',
-          parameters: {
-            gateway: 'stripe',
-          },
-        },
-      },
-    ],
-    merchantInfo: {
-      merchantId: '12345678901234567890',
-      merchantName: 'Demo Merchant',
-    },
-    transactionInfo: {
-      totalPriceStatus: 'FINAL',
-      totalPriceLabel: 'Total',
-      totalPrice: '100.00',
-      currencyCode: 'USD',
-      countryCode: 'US',
-    },
-    shippingAddressParameters: {},
-  };
-  button.addEventListener('loadpaymentdata', event => {
-    console.log('load payment data', event.detail);
-  });
-</script>
-```
-
-More HTML examples can be found in the
-[examples folder](https://github.com/google-pay/google-pay-button/tree/main/examples/html) of this repository.
-
-Try it out on [JSFiddle](https://jsfiddle.net/yutskn2j/).
-
-## Example usage: Vue website
+## Example usage: Angular website
 
 ```html
 <google-pay-button
   environment="TEST"
   button-type="buy"
   button-color="black"
-  v-bind:paymentRequest.prop="{
+  [paymentRequest]="{
     apiVersion: 2,
     apiVersionMinor: 0,
     allowedPaymentMethods: [
@@ -90,6 +33,10 @@ Try it out on [JSFiddle](https://jsfiddle.net/yutskn2j/).
         }
       }
     ],
+    merchantInfo: {
+      merchantId: '12345678901234567890',
+      merchantName: 'Demo Merchant'
+    },
     transactionInfo: {
       totalPriceStatus: 'FINAL',
       totalPriceLabel: 'Total',
@@ -98,22 +45,13 @@ Try it out on [JSFiddle](https://jsfiddle.net/yutskn2j/).
       countryCode: 'US'
     }
   }"
-  v-on:loadpaymentdata="onLoadPaymentData"
-  v-on:error="onError"
+  (loadpaymentdata)="onLoadPaymentData($event)"
 ></google-pay-button>
 ```
 
-More Vue examples can be found in the
-[examples folder](https://github.com/google-pay/google-pay-button/tree/main/examples/vue/src/components) of this
+More Angular examples can be found in the
+[examples folder](https://github.com/google-pay/google-pay-button/tree/main/examples/angular/src/app) of this
 repository.
-
-Try it out on [JSFiddle](https://jsfiddle.net/jmoezg5f/).
-
-## Other examples
-
-Additional examples included:
-
-- [Svelte](https://github.com/google-pay/google-pay-button/tree/main/examples/svelte/src)
 
 ## Documentation
 
@@ -195,7 +133,7 @@ integrating Google Pay into your website.
   </tr>
   <tr>
     <td>
-      <p>onCancel<br /><em>cancelCallback</em></p>
+      <p>cancelCallback</p>
     </td>
     <td>
       <p>Invoked when a user cancels or closes the Google Pay payment sheet.</p>
@@ -204,7 +142,7 @@ integrating Google Pay into your website.
   </tr>
   <tr>
     <td>
-      <p>onError<br /><em>errorCallback</em></p>
+      <p>errorCallback</p>
     </td>
     <td>
       <p>Invoked an error is encountered in the process of presenting and collecting payment options from the Google Pay payment sheet.</p>
@@ -213,7 +151,7 @@ integrating Google Pay into your website.
   </tr>
   <tr>
     <td>
-      <p>onPaymentAuthorized<br /><em>paymentAuthorizedCallback</em></p>
+      <p>paymentAuthorizedCallback</p>
     </td>
     <td>
       <p>Invoked when a user chooses a payment method. This callback should be used to validate whether or not the payment method can be used to complete a payment.</p>
@@ -224,7 +162,7 @@ integrating Google Pay into your website.
   </tr>
   <tr>
     <td>
-      <p>onPaymentDataChanged<br /><em>paymentDataChangedCallback</em></p>
+      <p>paymentDataChangedCallback</p>
     </td>
     <td>
       <p>Invoked when payment the user changes payment data options including payment method, shipping details, and contact details. This callback can be used to dynamically update <code>transactionInfo</code> when payment details, shipping address, or shipping options change.</p>
@@ -234,7 +172,7 @@ integrating Google Pay into your website.
   </tr>
   <tr>
     <td>
-      <p>onReadyToPayChange<br /><em>readyToPayChangeCallback</em></p>
+      <p>readyToPayChangeCallback</p>
     </td>
     <td>
       <p>Invoked when the user's <code>isReadyToPay</code> state changes. This callback can be used to change the application's behaviour based on whether or not the user is ready to pay.</p>
@@ -243,7 +181,7 @@ integrating Google Pay into your website.
   </tr>
   <tr>
     <td>
-      <p>onLoadPaymentData<br /><em>loadPaymentDataCallback</em></p>
+      <p>loadPaymentDataCallback</p>
     </td>
     <td>
       <p>Invoked when a user has successfully nominated payment details. This callback receives the <a href="https://developers.google.com/pay/api/web/reference/response-objects#PaymentData"><code>PaymentData</code> response</a> which includes the <a href="https://developers.google.com/pay/api/web/reference/response-objects#PaymentMethodData"><code>PaymentMethodData</code></a> that can be sent to <a href="https://developers.google.com/pay/api#participating-processors">supported payment processors</a>.</p>

@@ -4,6 +4,7 @@ build/
 
 CHANGELOG.md
 
+src/button-angular/package.json
 src/button-element/package.json
 src/button-react/package.json
 

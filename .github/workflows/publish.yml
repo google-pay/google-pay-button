@@ -16,7 +16,13 @@ jobs:
           node-version: '12.x'
           registry-url: https://npm.pkg.github.com/
           scope: '@google-pay'
+      - name: prebuild
+        run: scripts/prebuild.sh
       - run: npm install
+      - name: npm install (button-angular)
+        run: |
+          cd src/button-angular
+          npm install
       - run: npm run build
       - name: publish all to github package repository
         run: npm run publish:all

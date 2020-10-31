@@ -217,15 +217,20 @@ export class ButtonManager {
 
     this.client = new google.payments.api.PaymentsClient(this.createClientOptions(this.config));
 
-    // pre-create button
-    const button = this.client.createButton({
+    const buttonOptions: google.payments.api.ButtonOptions = {
       buttonType: this.config.buttonType,
       buttonColor: this.config.buttonColor,
       buttonSizeMode: this.config.buttonSizeMode,
       onClick: this.handleClick,
-    });
+    };
 
-    this.copyGPayStyles();
+    const rootNode = this.element?.getRootNode();
+    if (rootNode instanceof ShadowRoot) {
+      buttonOptions.buttonRootNode = rootNode;
+    }
+
+    // pre-create button
+    const button = this.client.createButton(buttonOptions);
 
     this.setClassName(element, [element.className, 'not-ready']);
     element.appendChild(button);
@@ -341,35 +346,6 @@ export class ButtonManager {
           rootNode.head.appendChild(style);
         } else {
           rootNode.appendChild(style);
-        }
-      }
-    }
-  }
-
-  // TODO(socsieng): #19 remove shadow DOM workaround when fixed in pay.js
-  /**
-   * workaround to get css styles into component
-   */
-  private copyGPayStyles(): void {
-    const node = this.element?.getRootNode();
-
-    if (node && node instanceof ShadowRoot) {
-      const styles = document.querySelectorAll('head > style');
-      const gPayStyles = Array.from(styles).filter(s => s.innerHTML.indexOf('.gpay-') !== -1);
-      const existingStyles = new Set(
-        Array.from(node.childNodes)
-          .filter(n => n instanceof HTMLElement && n.nodeName === 'STYLE' && n.id)
-          .map(n => (n as HTMLElement).id),
-      );
-
-      let index = 0;
-      for (const style of gPayStyles) {
-        index++;
-        const id = `google-pay-button-style-${index}`;
-        if (!existingStyles.has(id)) {
-          const styleElement = document.createElement('style');
-          styleElement.innerHTML = style.innerHTML;
-          node.appendChild(styleElement);
         }
       }
     }

@@ -77,3 +77,8 @@
 .example > .demo > * {
   margin: 1px;
 }
+
+#button4 {
+  width: 400px;
+  height: 60px;
+}

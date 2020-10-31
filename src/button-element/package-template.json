@@ -16,7 +16,7 @@
   "author": "socsieng@google.com",
   "license": "Apache-2.0",
   "dependencies": {
-    "@types/googlepay": "^0.5.0"
+    "@types/googlepay": "^0.5.1"
   },
   "files": ["dist/*", "package.json", "README.md", "LICENSE"],
   "keywords": ["googlepay", "google-pay", "button", "custom-element", "web-component"]

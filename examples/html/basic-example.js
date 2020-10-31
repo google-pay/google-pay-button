@@ -16,6 +16,10 @@
 
 import './node_modules/@google-pay/button-element/dist/index.js';
 
+function onLoadPaymentData(paymentData) {
+  console.log('load payment data', paymentData);
+}
+
 const staticButton = document.getElementById('static');
 
 staticButton.paymentRequest = {

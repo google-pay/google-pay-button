@@ -38,37 +38,3 @@ jobs:
         run: cd src/button-element && npm publish --access=public
         env:
           NODE_AUTH_TOKEN: ${{secrets.TOKEN_BUTTON_ELEMENT}}
-
-  publish-bit:
-    name: publish to bit.dev
-    runs-on: ubuntu-latest
-    env:
-      BIT_TOKEN: ${{secrets.BIT_TOKEN}}
-    steps:
-      - uses: actions/checkout@v2
-      - name: configure github package repository
-        uses: actions/setup-node@v1
-        with:
-          node-version: '12.x'
-      - run: npm install
-      - run: npm run build
-      - run: npm install --global bit-bin
-      - name: bit.dev configuration
-        run: |
-          bit config set analytics_reporting false
-          bit config set anonymous_reporting false
-          bit config set user.token $BIT_TOKEN
-      - name: publish button-react to bit.dev
-        run: |
-          cd src/button-react
-          bit init
-          bit add --id google-pay-button dist/index.js
-          bit tag --all `node ../../scripts/version.js`
-          bit export google-pay.button-react
-      - name: publish button-element to bit.dev
-        run: |
-          cd src/button-element
-          bit init
-          bit add --id google-pay-button dist/index.js
-          bit tag --all `node ../../scripts/version.js`
-          bit export google-pay.button-element

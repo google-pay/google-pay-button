@@ -22,8 +22,7 @@
   "angularCompilerOptions": {
     "skipTemplateCodegen": true,
     "strictMetadataEmit": true,
-    "enableResourceInlining": true,
-    "enableIvy": false
+    "enableResourceInlining": true
   },
   "include": ["src"],
   "exclude": ["*.config.js", "src/**/*.test.(ts|tsx)"]

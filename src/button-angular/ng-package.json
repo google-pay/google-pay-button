@@ -2,11 +2,7 @@
   "$schema": "../../node_modules/ng-packagr/ng-package.schema.json",
   "dest": "./dist",
   "lib": {
-    "entryFile": "public-api.ts",
-    "umdModuleIds": {
-      "@google-pay/lib/button-manager": "ButtonManager",
-      "@google-pay/lib/debounce": "debounce"
-    }
+    "entryFile": "../angular-public-api.ts"
   },
-  "whitelistedNonPeerDependencies": ["tslib", "@google-pay/lib"]
+  "whitelistedNonPeerDependencies": ["tslib"]
 }

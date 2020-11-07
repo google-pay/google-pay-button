@@ -18,11 +18,7 @@
  * Public API Surface of google-pay-button
  */
 
-export * from './lib/google-pay-button.component';
-export * from './lib/google-pay-button.module';
+export * from './button-angular/lib/google-pay-button.component';
+export * from './button-angular/lib/google-pay-button.module';
 
-export interface ReadyToPayChangeResponse {
-  isButtonVisible: boolean;
-  isReadyToPay: boolean;
-  paymentMethodPresent?: boolean;
-}
+export { ReadyToPayChangeResponse } from './lib/button-manager';

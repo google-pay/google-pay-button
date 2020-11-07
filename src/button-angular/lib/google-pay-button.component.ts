@@ -14,10 +14,10 @@
  * limitations under the License.
  */
 
-import { ButtonManager, Config } from '@google-pay/lib/button-manager';
+import { ButtonManager, Config } from '../../lib/button-manager';
 import { Directive, ElementRef, Input, OnChanges, OnInit } from '@angular/core';
 import { name as softwareId, version as softwareVersion } from '../package.json';
-import { debounce } from '@google-pay/lib/debounce';
+import { debounce } from '../../lib/debounce';
 
 @Directive({
   selector: 'google-pay-button',

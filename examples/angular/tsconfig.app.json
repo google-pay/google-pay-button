@@ -5,6 +5,5 @@
     "types": ["googlepay", "node"]
   },
   "files": ["src/main.ts", "src/polyfills.ts"],
-  "include": ["src/**/*.d.ts", "../../src/lib"],
-  "exclude": ["../../src/**/*.test.ts", "../../src/**/__*__"]
+  "include": ["src/**/*.d.ts"]
 }

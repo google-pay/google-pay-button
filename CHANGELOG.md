@@ -1,5 +1,18 @@
 # Changelog
 
+## [2.1.0](https://www.github.com/google-pay/google-pay-button/compare/v2.0.1...v2.1.0) (2020-11-11)
+
+
+### Features
+
+* implement Angular specific package ([12d021a](https://www.github.com/google-pay/google-pay-button/commit/12d021a77f325c4c7e5c1063d38e7acc909db965))
+
+
+### Bug Fixes
+
+* enable ivy for Angular ([a12b02a](https://www.github.com/google-pay/google-pay-button/commit/a12b02a11fd4285004383c1ca7cba68a3bb84ac4))
+* remove shadow DOM workaround ([4a7a710](https://www.github.com/google-pay/google-pay-button/commit/4a7a710688f868adc1dcdfd3ef12e62ae74e3d9e)), closes [#19](https://www.github.com/google-pay/google-pay-button/issues/19)
+
 ### [2.0.1](https://www.github.com/google-pay/google-pay-button/compare/v2.0.0...v2.0.1) (2020-09-10)
 
 

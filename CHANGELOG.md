@@ -1,5 +1,12 @@
 # Changelog
 
+### [2.1.3](https://www.github.com/google-pay/google-pay-button/compare/v2.1.2...v2.1.3) (2020-11-11)
+
+
+### Bug Fixes
+
+* include pissing files from package.json ([57b0cdc](https://www.github.com/google-pay/google-pay-button/commit/57b0cdc540bdd4e38cfd7e7bbd7b0439d15766e9))
+
 ### [2.1.2](https://www.github.com/google-pay/google-pay-button/compare/v2.1.1...v2.1.2) (2020-11-11)
 
 

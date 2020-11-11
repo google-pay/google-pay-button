@@ -1,5 +1,12 @@
 # Changelog
 
+### [2.1.2](https://www.github.com/google-pay/google-pay-button/compare/v2.1.1...v2.1.2) (2020-11-11)
+
+
+### Bug Fixes
+
+* **build:** publish angular dist folder instead of root ([2b8413b](https://www.github.com/google-pay/google-pay-button/commit/2b8413b5f890695244eb34faee22dda38691e408))
+
 ### [2.1.1](https://www.github.com/google-pay/google-pay-button/compare/v2.1.0...v2.1.1) (2020-11-11)
 
 

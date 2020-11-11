@@ -47,4 +47,4 @@ jobs:
       - name: publish @google-pay/button-angular to npm (via wombat dressing)
         run: cd src/button-angular && npm publish --access=public
         env:
-          NODE_AUTH_TOKEN: ${{secrets.TOKEN_BUTTON_ELEMENT}}
+          NODE_AUTH_TOKEN: ${{secrets.TOKEN_BUTTON_ANGULAR}}

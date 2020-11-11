@@ -5,7 +5,7 @@ This is the Angular component for the Google Pay button.
 ## Installation
 
 ```sh
-npm install @google-pay/button-angular
+npm install @google-pay/button-angular @types/googlepay
 ```
 
 ## Example usage: Angular website
@@ -28,7 +28,8 @@ npm install @google-pay/button-angular
         tokenizationSpecification: {
           type: 'PAYMENT_GATEWAY',
           parameters: {
-            'gateway': 'stripe'
+            gateway: 'example',
+            gatewayMerchantId: 'exampleGatewayMerchantId'
           }
         }
       }

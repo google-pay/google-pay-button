@@ -1,5 +1,12 @@
 # Changelog
 
+### [2.1.1](https://www.github.com/google-pay/google-pay-button/compare/v2.1.0...v2.1.1) (2020-11-11)
+
+
+### Bug Fixes
+
+* **build:** publish @google-pay/button-angular using angular token ([25195f7](https://www.github.com/google-pay/google-pay-button/commit/25195f78135b598409a4fff075c8dc34b357a3fb))
+
 ## [2.1.0](https://www.github.com/google-pay/google-pay-button/compare/v2.0.1...v2.1.0) (2020-11-11)
 
 

@@ -10,7 +10,7 @@
   },
   "dependencies": {
     "@google-pay/button-element": "file:../../src/button-element",
-    "core-js": "^3.6.5",
+    "core-js": "^3.7.0",
     "vue": "^2.6.12"
   },
   "devDependencies": {

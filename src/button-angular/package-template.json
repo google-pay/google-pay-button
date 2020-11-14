@@ -17,7 +17,9 @@
   "scripts": {
     "build": "ng build --prod"
   },
-  "dependencies": {},
+  "dependencies": {
+    "@types/googlepay": "^0.5.1"
+  },
   "peerDependencies": {
     "@angular/core": ">=8.0.0",
     "@types/googlepay": "^0.5.1"
@@ -38,7 +40,6 @@
   "devDependencies": {
     "@angular-devkit/build-ng-packagr": "^0.1002.0",
     "@angular/core": "^10.2.2",
-    "@types/googlepay": "^0.5.1",
     "ng-packagr": "^10.1.2"
   }
 }

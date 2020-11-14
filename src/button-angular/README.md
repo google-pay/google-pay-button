@@ -5,7 +5,7 @@ This is the Angular component for the Google Pay button.
 ## Installation
 
 ```sh
-npm install @google-pay/button-angular @types/googlepay
+npm install @google-pay/button-angular
 ```
 
 ## Example usage: Angular website

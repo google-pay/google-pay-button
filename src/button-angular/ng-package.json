@@ -4,5 +4,5 @@
   "lib": {
     "entryFile": "../angular-public-api.ts"
   },
-  "whitelistedNonPeerDependencies": ["tslib"]
+  "whitelistedNonPeerDependencies": ["@types/googlepay", "tslib"]
 }

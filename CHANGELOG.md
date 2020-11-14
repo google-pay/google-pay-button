@@ -1,5 +1,12 @@
 # Changelog
 
+### [2.1.4](https://www.github.com/google-pay/google-pay-button/compare/v2.1.3...v2.1.4) (2020-11-14)
+
+
+### Bug Fixes
+
+* add @types/googlepay as a direct dependenct for @google-pay/button-angular ([d796162](https://www.github.com/google-pay/google-pay-button/commit/d796162997e4246b6040bf8594be9ac158702492))
+
 ### [2.1.3](https://www.github.com/google-pay/google-pay-button/compare/v2.1.2...v2.1.3) (2020-11-11)
 
 

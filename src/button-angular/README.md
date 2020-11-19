@@ -13,8 +13,8 @@ npm install @google-pay/button-angular
 ```html
 <google-pay-button
   environment="TEST"
-  button-type="buy"
-  button-color="black"
+  buttonType="buy"
+  buttonColor="black"
   [paymentRequest]="{
     apiVersion: 2,
     apiVersionMinor: 0,

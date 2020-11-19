@@ -1,5 +1,12 @@
 # Changelog
 
+### [2.1.5](https://www.github.com/google-pay/google-pay-button/compare/v2.1.4...v2.1.5) (2020-11-19)
+
+
+### Bug Fixes
+
+* **docs:** update Angular component readme file ([faeee50](https://www.github.com/google-pay/google-pay-button/commit/faeee5026bb26c9622cc623bd05edea119d10838))
+
 ### [2.1.4](https://www.github.com/google-pay/google-pay-button/compare/v2.1.3...v2.1.4) (2020-11-14)
 
 

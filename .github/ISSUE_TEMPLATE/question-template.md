@@ -12,3 +12,4 @@ This question is related to:
 
 - [ ] React component (`@google-pay/button-react`)
 - [ ] Custom element (`@google-pay/button-element`)
+- [ ] Angular component (`@google-pay/button-angular`)

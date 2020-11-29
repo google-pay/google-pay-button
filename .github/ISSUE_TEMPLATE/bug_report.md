@@ -24,7 +24,8 @@ assignees: ''
 - Component
   - [ ] React component (`@google-pay/button-react`)
   - [ ] Custom element (`@google-pay/button-element`)
-- Component version (e.g. 0.5.0):
+  - [ ] Angular component (`@google-pay/button-angular`)
+- Component version (e.g. 1.0.0):
 
 **Environment:**
 

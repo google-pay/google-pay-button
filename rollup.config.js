@@ -55,6 +55,31 @@ export default [
   },
   {
     input: 'src/button-react/index.ts',
+    output: [
+      {
+        file: 'src/button-react/dist/index.es5.min.js',
+        format: 'umd',
+        name: 'GooglePayButton',
+        globals: {
+          react: 'React',
+        },
+        plugins: [terser()],
+      },
+    ],
+    external: ['react'],
+    plugins: [
+      rollupJson(),
+      typescript({
+        tsconfigOverride: {
+          compilerOptions: {
+            target: 'es5',
+          },
+        },
+      }),
+    ],
+  },
+  {
+    input: 'src/button-react/index.ts',
     output: {
       file: 'src/button-react/dist/index.d.ts',
       format: 'es',
@@ -89,6 +114,27 @@ export default [
       },
     ],
     plugins: [rollupJson(), typescript()],
+  },
+  {
+    input: 'src/button-element/index.ts',
+    output: [
+      {
+        file: 'src/button-element/dist/index.es5.min.js',
+        format: 'umd',
+        name: 'GooglePayButton',
+        plugins: [terser()],
+      },
+    ],
+    plugins: [
+      rollupJson(),
+      typescript({
+        tsconfigOverride: {
+          compilerOptions: {
+            target: 'es5',
+          },
+        },
+      }),
+    ],
   },
   {
     input: 'src/button-element/index.ts',

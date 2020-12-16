@@ -52,8 +52,8 @@ npm install @google-pay/button-element
       currencyCode: 'USD',
       countryCode: 'US',
     },
-    shippingAddressParameters: {},
   };
+
   button.addEventListener('loadpaymentdata', event => {
     console.log('load payment data', event.detail);
   });
@@ -63,7 +63,7 @@ npm install @google-pay/button-element
 More HTML examples can be found in the
 [examples folder](https://github.com/google-pay/google-pay-button/tree/main/examples/html) of this repository.
 
-Try it out on [JSFiddle](https://jsfiddle.net/yutskn2j/).
+Try it out on [StackBlitz](https://stackblitz.com/edit/google-pay-custom-element).
 
 ## Example usage: Vue website
 
@@ -107,7 +107,7 @@ More Vue examples can be found in the
 [examples folder](https://github.com/google-pay/google-pay-button/tree/main/examples/vue/src/components) of this
 repository.
 
-Try it out on [JSFiddle](https://jsfiddle.net/jmoezg5f/).
+Try it out on [StackBlitz](https://stackblitz.com/edit/google-pay-vue).
 
 ## Other examples
 

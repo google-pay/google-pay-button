@@ -54,6 +54,8 @@ More Angular examples can be found in the
 [examples folder](https://github.com/google-pay/google-pay-button/tree/main/examples/angular/src/app) of this
 repository.
 
+Try it out on [StackBlitz](https://stackblitz.com/edit/google-pay-angular).
+
 ## Documentation
 
 Visit the [Google Pay developer site](https://developers.google.com/pay/api/web/overview) for more information about

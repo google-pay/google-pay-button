@@ -44,7 +44,7 @@ npm install @google-pay/button-react
     },
   }}
   onLoadPaymentData={paymentRequest => {
-    console.log('Success', paymentRequest);
+    console.log('load payment data', paymentRequest);
   }}
 />
 ```
@@ -53,7 +53,7 @@ More React examples can be found in the
 [examples folder](https://github.com/google-pay/google-pay-button/tree/main/examples/react/src/examples) of this
 repository.
 
-Try it out on [JSFiddle](https://jsfiddle.net/780n3c6f/), or see it in action with a
+Try it out on [StackBlitz](https://stackblitz.com/edit/google-pay-react), or see it in action with a
 [React sample store](https://payments-react-store.web.app/)
 ([source code](https://github.com/google-pay/react-store/tree/google-pay)).
 

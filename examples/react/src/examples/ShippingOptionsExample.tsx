@@ -33,7 +33,7 @@ const shippingOptions = [
   },
 ];
 
-export default (props: any) => {
+export default function ShippingOptionsExample(props: any): React.ReactElement {
   return (
     <Example title="Shipping Options">
       <GooglePayButton
@@ -91,4 +91,4 @@ export default (props: any) => {
       />
     </Example>
   );
-};
+}

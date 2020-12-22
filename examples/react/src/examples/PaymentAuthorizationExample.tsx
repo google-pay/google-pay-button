@@ -18,7 +18,7 @@ import React from 'react';
 import Example from './Example';
 import GooglePayButton from '@google-pay/button-react';
 
-export default (props: any) => {
+export default function PaymentAuthorizationExample(props: any): React.ReactElement {
   return (
     <Example title="Payment Authorization">
       <GooglePayButton
@@ -66,4 +66,4 @@ export default (props: any) => {
       />
     </Example>
   );
-};
+}

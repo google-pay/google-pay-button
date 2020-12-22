@@ -94,7 +94,7 @@ const paymentRequest: google.payments.api.PaymentDataRequest = {
   callbackIntents: ['SHIPPING_ADDRESS', 'SHIPPING_OPTION'],
 };
 
-export default (props: any) => {
+export default function DynamicPriceUpdateExample(props: any): React.ReactElement {
   return (
     <Example title="Dynamic Price Updates">
       <GooglePayButton
@@ -130,4 +130,4 @@ export default (props: any) => {
       />
     </Example>
   );
-};
+}

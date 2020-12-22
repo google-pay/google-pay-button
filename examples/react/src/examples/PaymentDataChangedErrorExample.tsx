@@ -18,7 +18,7 @@ import React from 'react';
 import Example from './Example';
 import GooglePayButton from '@google-pay/button-react';
 
-export default (props: any) => {
+export default function PaymentDataChangedErrorExample(props: any): React.ReactElement {
   return (
     <Example title="Payment Data Changed Error (no US address)">
       <GooglePayButton
@@ -77,4 +77,4 @@ export default (props: any) => {
       />
     </Example>
   );
-};
+}

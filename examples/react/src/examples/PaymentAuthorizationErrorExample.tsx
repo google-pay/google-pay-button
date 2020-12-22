@@ -18,7 +18,7 @@ import React from 'react';
 import Example from './Example';
 import GooglePayButton from '@google-pay/button-react';
 
-export default (props: any) => {
+export default function PaymentAuthorizationErrorExample(props: any): React.ReactElement {
   return (
     <Example title="Payment Authorization (insufficient funds)">
       <GooglePayButton
@@ -72,4 +72,4 @@ export default (props: any) => {
       />
     </Example>
   );
-};
+}

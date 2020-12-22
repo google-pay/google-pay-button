@@ -17,16 +17,11 @@
 import React from 'react';
 import './Example.css';
 
-type Props = {
-  title: string;
-  children: React.ReactNode | React.ReactNode[];
-};
-
-export default (props: Props) => {
+export default function Example(props: any): React.ReactElement {
   return (
     <div className="example">
       <div className="title">{props.title}</div>
       <div className="demo">{props.children}</div>
     </div>
   );
-};
+}

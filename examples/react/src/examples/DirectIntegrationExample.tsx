@@ -18,7 +18,7 @@ import React from 'react';
 import Example from './Example';
 import GooglePayButton from '@google-pay/button-react';
 
-export default (props: any) => {
+export default function DirectIntegrationExample(props: any): React.ReactElement {
   return (
     <Example title="Direct Integration">
       <GooglePayButton
@@ -63,4 +63,4 @@ export default (props: any) => {
       />
     </Example>
   );
-};
+}

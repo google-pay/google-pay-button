@@ -18,7 +18,7 @@ import React, { useState } from 'react';
 import Example from './Example';
 import GooglePayButton from '@google-pay/button-react';
 
-export default (props: any) => {
+export default function CryptogramExample(props: any): React.ReactElement {
   const [isReadyToPay, setIsReadyToPay] = useState(false);
 
   return (
@@ -79,4 +79,4 @@ export default (props: any) => {
       </div>
     </Example>
   );
-};
+}

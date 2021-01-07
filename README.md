@@ -58,6 +58,11 @@ Find out more about the [Google Pay Angular button][button-angular].
 The intention is for the web component to support other web frameworks. Support for additional framework specific
 libraries will be considered based on demand.
 
+## Have any questions?
+
+Ask it on the [discussions](https://github.com/google-pay/google-pay-button/discussions) section of the Google Pay
+button project.
+
 [google-pay]: https://developers.google.com/pay/api/web/overview
 [button-element]: src/button-element
 [button-react]: src/button-react

@@ -26,7 +26,7 @@ npm install @google-pay/button-react
         tokenizationSpecification: {
           type: 'PAYMENT_GATEWAY',
           parameters: {
-            gateway: 'gateway name',
+            gateway: 'example',
           },
         },
       },

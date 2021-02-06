@@ -2,7 +2,9 @@
   "name": "@google-pay/button-react",
   "version": "0.0.0",
   "description": "React component for Google Pay button",
-  "main": "dist/index.js",
+  "main": "dist/index.es5.min.js",
+  "browser": "dist/index.umd.min.js",
+  "module": "dist/index.js",
   "types": "dist/index.d.ts",
   "repository": {
     "type": "git",

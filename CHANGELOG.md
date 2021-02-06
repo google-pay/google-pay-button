@@ -1,5 +1,13 @@
 # Changelog
 
+## [2.2.0](https://www.github.com/google-pay/google-pay-button/compare/v2.1.5...v2.2.0) (2021-02-06)
+
+
+### Features
+
+* add es5 build output ([5eb243b](https://www.github.com/google-pay/google-pay-button/commit/5eb243b9ab9fee71e60dbecc0a4fefafdef7ad4f)), closes [#60](https://www.github.com/google-pay/google-pay-button/issues/60)
+* add support for main, browser, and module entry points ([8d72f50](https://www.github.com/google-pay/google-pay-button/commit/8d72f504e33d4fc85831650e27d5b434e5ce2842)), closes [#60](https://www.github.com/google-pay/google-pay-button/issues/60) [#71](https://www.github.com/google-pay/google-pay-button/issues/71)
+
 ### [2.1.5](https://www.github.com/google-pay/google-pay-button/compare/v2.1.4...v2.1.5) (2020-11-19)
 
 

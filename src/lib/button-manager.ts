@@ -246,7 +246,7 @@ export class ButtonManager {
         || false;
     } catch (err) {
       if (this.config.onError) {
-        this.config.onError(err)
+        this.config.onError(err);
       } else {
         console.error(err);
       }

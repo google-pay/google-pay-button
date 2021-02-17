@@ -245,7 +245,11 @@ export class ButtonManager {
         || (readyToPay.result && readyToPay.paymentMethodPresent && this.config.existingPaymentMethodRequired)
         || false;
     } catch (err) {
-      console.error(err);
+      if (this.config.onError) {
+        this.config.onError(err);
+      } else {
+        console.error(err);
+      }
     }
 
     if (!this.isMounted()) return;

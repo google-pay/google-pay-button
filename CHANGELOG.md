@@ -1,5 +1,12 @@
 # Changelog
 
+### [2.2.1](https://www.github.com/google-pay/google-pay-button/compare/v2.2.0...v2.2.1) (2021-02-17)
+
+
+### Bug Fixes
+
+* call config.onError if present if isReadyToPay throws ([#73](https://www.github.com/google-pay/google-pay-button/issues/73)) ([63fee4f](https://www.github.com/google-pay/google-pay-button/commit/63fee4ff428bd388d9e798e6db512e16026a4625))
+
 ## [2.2.0](https://www.github.com/google-pay/google-pay-button/compare/v2.1.5...v2.2.0) (2021-02-06)
 
 

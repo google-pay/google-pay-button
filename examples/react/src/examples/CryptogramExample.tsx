@@ -69,6 +69,7 @@ export default function CryptogramExample(props: any): React.ReactElement {
         }}
         buttonColor={props.buttonColor}
         buttonType={props.buttonType}
+        buttonLocale={props.buttonLocale}
       />
       <div
         style={{

@@ -670,3 +670,60 @@ describe('Software info', () => {
     expect(request.merchantInfo.softwareInfo?.version).toBe('2.0.0');
   });
 });
+
+describe('createButton', () => {
+  let manager: ButtonManager;
+  let paymentsClientMock: MockWrapper<() => {}>;
+  let createButtonSpy = jest.fn();
+  let buttonManagerMock: MockWrapper<() => {}>;
+
+  beforeEach(() => {
+    manager = new ButtonManager(managerOptions);
+    createButtonSpy = jest.fn();
+    createButtonSpy.mockReturnValue(document.createElement('div'));
+    paymentsClientMock = mock(google.payments.api.PaymentsClient.prototype, 'createButton', createButtonSpy);
+    buttonManagerMock = mock(manager, 'isMounted', () => true);
+  });
+
+  afterEach(() => {
+    createButtonSpy.mockReset();
+    paymentsClientMock.restore();
+    buttonManagerMock.restore();
+  });
+
+  it('calls createButton with default options', async () => {
+    await manager.mount(document.createElement('div'));
+    const config: Config = {
+      ...defaults,
+    };
+    await manager.configure(config);
+
+    expect(createButtonSpy).toBeCalledWith(
+      expect.objectContaining<google.payments.api.ButtonOptions>({
+        onClick: expect.any(Function),
+      }),
+    );
+  });
+
+  it('calls createButton with button options', async () => {
+    await manager.mount(document.createElement('div'));
+    const config: Config = {
+      ...defaults,
+      buttonType: 'donate',
+      buttonColor: 'white',
+      buttonLocale: 'fr',
+      buttonSizeMode: 'fill',
+    };
+    await manager.configure(config);
+
+    expect(createButtonSpy).toBeCalledWith(
+      expect.objectContaining<google.payments.api.ButtonOptions>({
+        buttonType: 'donate',
+        buttonColor: 'white',
+        buttonLocale: 'fr',
+        buttonSizeMode: 'fill',
+        onClick: expect.any(Function),
+      }),
+    );
+  });
+});

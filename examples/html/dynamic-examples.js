@@ -35,6 +35,7 @@ const controls = {
   existingPaymentRequired: new ControlAccessor('existing-payment-method-required'),
   buttonColor: new ControlAccessor('button-color'),
   buttonType: new ControlAccessor('button-type'),
+  buttonLocale: new ControlAccessor('button-locale'),
 };
 
 const defaultPaymentRequest = {
@@ -90,6 +91,7 @@ const googlePayButtons = [
       return {
         buttonColor: controls.buttonColor.value,
         buttonType: controls.buttonType.value,
+        buttonLocale: controls.buttonLocale.value,
         paymentRequest: {
           ...defaultPaymentRequest,
           transactionInfo: {
@@ -108,6 +110,7 @@ const googlePayButtons = [
       return {
         buttonColor: controls.buttonColor.value,
         buttonType: controls.buttonType.value,
+        buttonLocale: controls.buttonLocale.value,
         paymentRequest: {
           ...defaultPaymentRequest,
           allowedPaymentMethods: [
@@ -144,6 +147,7 @@ const googlePayButtons = [
       return {
         buttonColor: controls.buttonColor.value,
         buttonType: controls.buttonType.value,
+        buttonLocale: controls.buttonLocale.value,
         paymentRequest: {
           ...defaultPaymentRequest,
           transactionInfo: {
@@ -164,6 +168,7 @@ const googlePayButtons = [
       return {
         buttonColor: controls.buttonColor.value,
         buttonType: controls.buttonType.value,
+        buttonLocale: controls.buttonLocale.value,
         paymentRequest: {
           ...defaultPaymentRequest,
           transactionInfo: {
@@ -185,6 +190,7 @@ const googlePayButtons = [
       return {
         buttonColor: controls.buttonColor.value,
         buttonType: controls.buttonType.value,
+        buttonLocale: controls.buttonLocale.value,
         buttonSizeMode: 'fill',
         paymentRequest: {
           ...defaultPaymentRequest,

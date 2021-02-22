@@ -35,6 +35,7 @@ export class GooglePayButtonComponent implements OnInit, OnChanges {
   @Input() buttonColor?: google.payments.api.ButtonColor;
   @Input() buttonType?: google.payments.api.ButtonType;
   @Input() buttonSizeMode?: google.payments.api.ButtonSizeMode;
+  @Input() buttonLocale?: string;
   @Input() paymentDataChangedCallback?: google.payments.api.PaymentDataChangedHandler;
   @Input() paymentAuthorizedCallback?: google.payments.api.PaymentAuthorizedHandler;
   @Input() readyToPayChangeCallback?: (result: any) => void;
@@ -74,6 +75,7 @@ export class GooglePayButtonComponent implements OnInit, OnChanges {
       buttonColor: this.buttonColor,
       buttonType: this.buttonType,
       buttonSizeMode: this.buttonSizeMode,
+      buttonLocale: this.buttonLocale,
       onReadyToPayChange: result => {
         if (this.readyToPayChangeCallback) {
           this.readyToPayChangeCallback(result);

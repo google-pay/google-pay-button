@@ -47,6 +47,43 @@
         <option value="short">short</option>
       </select>
     </label>
+    <label>
+      <span>Button locale:</span>
+      <select [(ngModel)]="buttonLocale">
+        <option value="" selected>-</option>
+        <option value="ar">Arabic</option>
+        <option value="bg">Bulgarian</option>
+        <option value="ca">Catalan</option>
+        <option value="zh">Chinese</option>
+        <option value="hr">Croatian</option>
+        <option value="cs">Czech</option>
+        <option value="da">Danish</option>
+        <option value="nl">Dutch</option>
+        <option value="en">English</option>
+        <option value="et">Estonian</option>
+        <option value="fi">Finnish</option>
+        <option value="fr">French</option>
+        <option value="de">German</option>
+        <option value="el">Greek</option>
+        <option value="id">Indonesian</option>
+        <option value="it">Italian</option>
+        <option value="ja">Japanese</option>
+        <option value="ko">Korean</option>
+        <option value="ms">Malay</option>
+        <option value="no">Norwegian</option>
+        <option value="pl">Polish</option>
+        <option value="pt">Portuguese</option>
+        <option value="ru">Russian</option>
+        <option value="sr">Serbian</option>
+        <option value="sk">Slovak</option>
+        <option value="sl">Slovenian</option>
+        <option value="es">Spanish</option>
+        <option value="sv">Swedish</option>
+        <option value="th">Thai</option>
+        <option value="tr">Turkish</option>
+        <option value="uk">Ukrainian</option>
+      </select>
+    </label>
   </div>
 
   <div class="examples">
@@ -57,6 +94,7 @@
           environment="TEST"
           [buttonType]="buttonType"
           [buttonColor]="buttonColor"
+          [buttonLocale]="buttonLocale"
           [existingPaymentMethodRequired]="existingPaymentMethodRequired"
           [paymentRequest]="{
             apiVersion: paymentRequest.apiVersion,
@@ -83,6 +121,7 @@
           environment="TEST"
           [buttonType]="buttonType"
           [buttonColor]="buttonColor"
+          [buttonLocale]="buttonLocale"
           [existingPaymentMethodRequired]="existingPaymentMethodRequired"
           [paymentRequest]="{
             apiVersion: paymentRequest.apiVersion,
@@ -111,6 +150,7 @@
           environment="TEST"
           [buttonType]="buttonType"
           [buttonColor]="buttonColor"
+          [buttonLocale]="buttonLocale"
           [existingPaymentMethodRequired]="existingPaymentMethodRequired"
           [paymentRequest]="{
             apiVersion: paymentRequest.apiVersion,
@@ -154,6 +194,7 @@
           environment="TEST"
           [buttonType]="buttonType"
           [buttonColor]="buttonColor"
+          [buttonLocale]="buttonLocale"
           [existingPaymentMethodRequired]="existingPaymentMethodRequired"
           [paymentRequest]="{
             apiVersion: paymentRequest.apiVersion,

@@ -79,6 +79,21 @@ integrating Google Pay into your website.
     </td>
   </tr>
   <tr>
+    <td><p>buttonLocale</p></td>
+    <td><p><code>string</code></p></td>
+    <td>
+      <p>Optional.</p>
+      <p>This <a href="https://en.wikipedia.org/wiki/List_of_ISO_639-1_codes">ISO 639-1</a> code represents the desired button language.</p>
+      <p>Supported locales include <code>en</code>, <code>ar</code>, <code>bg</code>, <code>ca</code>, <code>cs</code>, <code>da</code>,
+        <code>de</code>, <code>el</code>, <code>es</code>, <code>et</code>, <code>fi</code>, <code>fr</code>, <code>hr</code>, <code>id</code>,
+        <code>it</code>, <code>ja</code>, <code>ko</code>, <code>ms</code>, <code>nl</code>, <code>no</code>, <code>pl</code>, <code>pt</code>,
+        <code>ru</code>, <code>sk</code>, <code>sl</code>, <code>sr</code>, <code>sv</code>, <code>th</code>, <code>tr</code>, <code>uk</code>,
+        and <code>zh</code>.
+      </p>
+      <p>Default value is determined by the browser/operating system locale.</p>
+    </td>
+  </tr>
+  <tr>
     <td><p>buttonSizeMode</p></td>
     <td><p><code>"static" | "fill"</code></p></td>
     <td>

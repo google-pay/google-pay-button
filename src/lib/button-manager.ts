@@ -37,6 +37,7 @@ export interface Config {
   buttonColor?: google.payments.api.ButtonColor;
   buttonType?: google.payments.api.ButtonType;
   buttonSizeMode?: google.payments.api.ButtonSizeMode;
+  buttonLocale?: string;
 }
 
 interface ButtonManagerOptions {
@@ -91,12 +92,15 @@ export class ButtonManager {
     this.element = undefined;
   }
 
-  configure(newConfig: Config): void {
+  configure(newConfig: Config): Promise<void> {
+    let promise: Promise<void> | undefined = undefined;
     this.config = newConfig;
     if (!this.oldInvalidationValues || this.isClientInvalidated(newConfig)) {
-      this.updateElement();
+      promise = this.updateElement();
     }
     this.oldInvalidationValues = this.getInvalidationValues(newConfig);
+
+    return promise ?? Promise.resolve();
   }
 
   /**
@@ -221,6 +225,7 @@ export class ButtonManager {
       buttonType: this.config.buttonType,
       buttonColor: this.config.buttonColor,
       buttonSizeMode: this.config.buttonSizeMode,
+      buttonLocale: this.config.buttonLocale,
       onClick: this.handleClick,
     };
 
@@ -327,7 +332,9 @@ export class ButtonManager {
     if (typeof document === 'undefined') return;
 
     const rootNode = this.element?.getRootNode() as Document | ShadowRoot | undefined;
-    const styleId = `default-google-style-${this.options.cssSelector.replace(/[^\w-]+/g, '')}`;
+    const styleId = `default-google-style-${this.options.cssSelector.replace(/[^\w-]+/g, '')}-${
+      this.config?.buttonLocale
+    }`;
 
     // initialize styles if rendering on the client:
     if (rootNode) {
@@ -370,6 +377,7 @@ export class ButtonManager {
       !!config.onPaymentAuthorized,
       config.buttonColor,
       config.buttonType,
+      config.buttonLocale,
       config.buttonSizeMode,
       config.paymentRequest.merchantInfo.merchantId,
       config.paymentRequest.merchantInfo.merchantName,

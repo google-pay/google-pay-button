@@ -69,6 +69,7 @@ export default function PaymentAuthorizationErrorExample(props: any): React.Reac
         existingPaymentMethodRequired={props.existingPaymentMethodRequired}
         buttonColor={props.buttonColor}
         buttonType={props.buttonType}
+        buttonLocale={props.buttonLocale}
       />
     </Example>
   );

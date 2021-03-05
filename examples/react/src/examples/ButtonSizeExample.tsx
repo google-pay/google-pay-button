@@ -60,6 +60,7 @@ export default function ButtonSizeExample(props: any): React.ReactElement {
         existingPaymentMethodRequired={props.existingPaymentMethodRequired}
         buttonColor={props.buttonColor}
         buttonType={props.buttonType}
+        buttonLocale={props.buttonLocale}
         style={{ width: 400, height: 60 }}
         buttonSizeMode="fill"
       />

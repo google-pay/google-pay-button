@@ -88,6 +88,7 @@ export default function ShippingOptionsExample(props: any): React.ReactElement {
         existingPaymentMethodRequired={props.existingPaymentMethodRequired}
         buttonColor={props.buttonColor}
         buttonType={props.buttonType}
+        buttonLocale={props.buttonLocale}
       />
     </Example>
   );

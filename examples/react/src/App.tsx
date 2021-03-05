@@ -37,28 +37,14 @@ const App: React.FC = () => {
   const [existingPaymentMethodRequired, setExistingPaymentMethodRequired] = useState(false);
   const [buttonColor, setButtonColor] = useState('default');
   const [buttonType, setButtonType] = useState('buy');
-
-  function handleAmountChange(event: any) {
-    setAmount(event.target.value);
-  }
-
-  function handleExistingPaymentMethodRequired(event: any) {
-    setExistingPaymentMethodRequired(event.target.value === 'yes');
-  }
-
-  function handleColorChange(event: any) {
-    setButtonColor(event.target.value);
-  }
-
-  function handleTypeChange(event: any) {
-    setButtonType(event.target.value);
-  }
+  const [buttonLocale, setButtonLocale] = useState('');
 
   const props = {
     amount,
     existingPaymentMethodRequired,
-    buttonColor: buttonColor,
-    buttonType: buttonType,
+    buttonColor,
+    buttonType,
+    buttonLocale,
   };
 
   return (
@@ -66,18 +52,21 @@ const App: React.FC = () => {
       <div className="params">
         <label>
           <span>Default amount:</span>
-          <input type="text" defaultValue={amount} onBlur={handleAmountChange} />
+          <input type="text" defaultValue={amount} onBlur={event => setAmount(event.target.value)} />
         </label>
         <label>
           <span>Payment method required:</span>
-          <select onChange={handleExistingPaymentMethodRequired} value={existingPaymentMethodRequired ? 'yes' : 'no'}>
+          <select
+            onChange={event => setExistingPaymentMethodRequired(event.target.value === 'yes')}
+            value={existingPaymentMethodRequired ? 'yes' : 'no'}
+          >
             <option value="no">No</option>
             <option value="yes">Yes</option>
           </select>
         </label>
         <label>
           <span>Button color:</span>
-          <select onChange={handleColorChange} value={buttonColor}>
+          <select onChange={event => setButtonColor(event.target.value)} value={buttonColor}>
             <option value="default">default</option>
             <option value="black">black</option>
             <option value="white">white</option>
@@ -85,12 +74,49 @@ const App: React.FC = () => {
         </label>
         <label>
           <span>Button type:</span>
-          <select onChange={handleTypeChange} value={buttonType}>
+          <select onChange={event => setButtonType(event.target.value)} value={buttonType}>
             <option value="buy">buy</option>
             <option value="plain">plain</option>
             <option value="donate">donate</option>
             <option value="long">long</option>
             <option value="short">short</option>
+          </select>
+        </label>
+        <label>
+          <span>Button locale:</span>
+          <select onChange={event => setButtonLocale(event.target.value)} value={buttonLocale}>
+            <option value="">-</option>
+            <option value="ar">Arabic</option>
+            <option value="bg">Bulgarian</option>
+            <option value="ca">Catalan</option>
+            <option value="zh">Chinese</option>
+            <option value="hr">Croatian</option>
+            <option value="cs">Czech</option>
+            <option value="da">Danish</option>
+            <option value="nl">Dutch</option>
+            <option value="en">English</option>
+            <option value="et">Estonian</option>
+            <option value="fi">Finnish</option>
+            <option value="fr">French</option>
+            <option value="de">German</option>
+            <option value="el">Greek</option>
+            <option value="id">Indonesian</option>
+            <option value="it">Italian</option>
+            <option value="ja">Japanese</option>
+            <option value="ko">Korean</option>
+            <option value="ms">Malay</option>
+            <option value="no">Norwegian</option>
+            <option value="pl">Polish</option>
+            <option value="pt">Portuguese</option>
+            <option value="ru">Russian</option>
+            <option value="sr">Serbian</option>
+            <option value="sk">Slovak</option>
+            <option value="sl">Slovenian</option>
+            <option value="es">Spanish</option>
+            <option value="sv">Swedish</option>
+            <option value="th">Thai</option>
+            <option value="tr">Turkish</option>
+            <option value="uk">Ukrainian</option>
           </select>
         </label>
       </div>

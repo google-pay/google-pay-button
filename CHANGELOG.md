@@ -1,5 +1,12 @@
 # Changelog
 
+## [2.3.0](https://www.github.com/google-pay/google-pay-button/compare/v2.2.1...v2.3.0) (2021-03-05)
+
+
+### Features
+
+* add support for setting buttonLocale ([00af174](https://www.github.com/google-pay/google-pay-button/commit/00af174981b83afd515be4af5f4d6063afc98369))
+
 ### [2.2.1](https://www.github.com/google-pay/google-pay-button/compare/v2.2.0...v2.2.1) (2021-02-17)
 
 

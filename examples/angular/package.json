@@ -19,7 +19,7 @@
     "@angular/platform-browser": "^11.1.2",
     "@angular/platform-browser-dynamic": "^11.1.2",
     "@angular/router": "^11.1.2",
-    "@google-pay/button-angular": "file:../../src/button-angular/dist",
+    "@google-pay/button-angular": "^2.3.0",
     "@types/googlepay": "^0.5.1",
     "rxjs": "~6.6.3",
     "tslib": "^2.1.0",

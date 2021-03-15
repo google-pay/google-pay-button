@@ -1,7 +1,7 @@
 {
   "private": true,
   "name": "save-to-google-pay-button",
-  "version": "0.0.1",
+  "version": "2.4.0",
   "description": "Save to Google Pay button component",
   "scripts": {
     "lint": "eslint .",

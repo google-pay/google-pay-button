@@ -22,5 +22,5 @@ $script_folder/prebuild.sh
 
 $script_folder/../node_modules/.bin/rollup -c
 
-cd $cwd/src/button-angular
+cd $cwd/src/save-button-angular
 npm run build

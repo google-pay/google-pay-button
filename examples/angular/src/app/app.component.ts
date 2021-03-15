@@ -15,7 +15,6 @@
  */
 
 import { Component } from '@angular/core';
-import { ReadyToPayChangeResponse } from '@google-pay/button-angular';
 
 @Component({
   selector: 'app-root',
@@ -23,54 +22,23 @@ import { ReadyToPayChangeResponse } from '@google-pay/button-angular';
   styleUrls: ['./app.component.scss'],
 })
 export class AppComponent {
-  amount = '100.00';
-  buttonType = 'buy';
-  buttonColor = 'default';
-  buttonLocale = '';
-  existingPaymentMethodRequired = false;
+  jwt =
+    'eyJhbGciOiJSUzI1NiIsInR5cCI6IkpXVCJ9.eyJhdWQiOiJnb29nbGUiLCJvcmlnaW5zIjpbImh0dHA6Ly9sb2NhbGhvc3QiLCJodHRwOi8vbG9jYWxob3N0OjMwMDAiLCJodHRwOi8vbG9jYWxob3N0OjUwMDAiLCJodHRwOi8vbG9jYWxob3N0OjgwODAiLCJodHRwOi8vbG9jYWxob3N0OjQyMDAiLCJodHRwOi8vbG9jYWxob3N0OjEzMzciLCJodHRwczovL3NhdmUtdG8tZ29vZ2xlLXBheS5zdGFja2JsaXR6LmlvIiwiaHR0cHM6Ly9ncGF5LWxpdmUtZGVtby1zdGFnaW5nLndlYi5hcHAiXSwiaXNzIjoic29jLWxveWFsdHlhcGktZGVtb0BhcHBzcG90LmdzZXJ2aWNlYWNjb3VudC5jb20iLCJ0eXAiOiJzYXZldG93YWxsZXQiLCJwYXlsb2FkIjp7ImxveWFsdHlPYmplY3RzIjpbeyJpZCI6IjMzODgwMDAwMDAwMTAwNDg2NjguYWxleF9hdF9leGFtcGxlLmNvbS1ncGF5LXJld2FyZHMifV19LCJpYXQiOjE2MTU1OTQ2NTF9.ZbEvdvkRh5nCuBq85bBEjR6216L7j6W10nyVWpPSAZlaSe8O6hJ_Ig-TrrvFtn7aHucMZr4cTmttONrlaFU-gFKMYHMEJFiZ-qv58sE9dNUdgUwTJWWzH8aukltM0pCBLHcpvLXTCpGk4PoXWM4q5H6WIjP1Jem8v1_YGdV6J_UBNyAGqJUE5XJnDgHl2qGFilTmF0el6EBFQLnF2PuIvyZcWXgbXgJLZfx-opepVAgODW5BQjQ7li8QoDl3ffdESO2-7qWVm-VoxLb8eDh3z3gRktPb8APh_VsaAb8mjvNCLk_SOPrQhpuph4b0Rg4xnt59u5c87_eD2kT3_IuHxw';
+  height = 'small';
+  size = '';
+  textsize = '';
+  theme = 'dark';
 
-  paymentRequest = {
-    apiVersion: 2,
-    apiVersionMinor: 0,
-    allowedPaymentMethods: [
-      {
-        type: 'CARD',
-        parameters: {
-          allowedAuthMethods: ['PAN_ONLY', 'CRYPTOGRAM_3DS'],
-          allowedCardNetworks: ['MASTERCARD', 'VISA'],
-        },
-        tokenizationSpecification: {
-          type: 'PAYMENT_GATEWAY',
-          parameters: {
-            gateway: 'example',
-            gatewayMerchantId: 'exampleGatewayMerchantId',
-          },
-        },
-      },
-    ],
-    merchantInfo: {
-      merchantId: '12345678901234567890',
-      merchantName: 'Demo Merchant',
-    },
+  onSuccess = (event: CustomEvent): void => {
+    console.log('success');
   };
 
-  onLoadPaymentData = (event: CustomEvent<google.payments.api.PaymentData>): void => {
-    console.log('load payment data', event.detail);
+  onFailure = (event: CustomEvent<Error>): void => {
+    console.error('failure', event.detail);
   };
 
-  onError = (event: ErrorEvent): void => {
-    console.error('error', event.error);
-  };
-
-  onPaymentDataAuthorized: google.payments.api.PaymentAuthorizedHandler = paymentData => {
-    console.log('payment authorized', paymentData);
-
-    return {
-      transactionState: 'SUCCESS',
-    };
-  };
-
-  onReadyToPayChange = (event: CustomEvent<ReadyToPayChangeResponse>): void => {
-    console.log('ready to pay change', event.detail);
+  onProvideJwt = () => {
+    console.log('provide jwt');
+    return this.jwt;
   };
 }

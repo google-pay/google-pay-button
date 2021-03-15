@@ -21,29 +21,29 @@ import { terser } from 'rollup-plugin-terser';
 
 export default [
   {
-    input: 'src/button-react/index.ts',
+    input: 'src/save-button-react/index.ts',
     output: [
       {
-        file: 'src/button-react/dist/index.js',
+        file: 'src/save-button-react/dist/index.js',
         format: 'es',
       },
       {
-        file: 'src/button-react/dist/index.min.js',
+        file: 'src/save-button-react/dist/index.min.js',
         format: 'es',
         plugins: [terser()],
       },
       {
-        file: 'src/button-react/dist/index.umd.js',
+        file: 'src/save-button-react/dist/index.umd.js',
         format: 'umd',
-        name: 'GooglePayButton',
+        name: 'SaveToGooglePayButton',
         globals: {
           react: 'React',
         },
       },
       {
-        file: 'src/button-react/dist/index.umd.min.js',
+        file: 'src/save-button-react/dist/index.umd.min.js',
         format: 'umd',
-        name: 'GooglePayButton',
+        name: 'SaveToGooglePayButton',
         globals: {
           react: 'React',
         },
@@ -54,12 +54,12 @@ export default [
     plugins: [rollupJson(), typescript()],
   },
   {
-    input: 'src/button-react/index.ts',
+    input: 'src/save-button-react/index.ts',
     output: [
       {
-        file: 'src/button-react/dist/index.es5.min.js',
+        file: 'src/save-button-react/dist/index.es5.min.js',
         format: 'umd',
-        name: 'GooglePayButton',
+        name: 'SaveToGooglePayButton',
         globals: {
           react: 'React',
         },
@@ -79,49 +79,49 @@ export default [
     ],
   },
   {
-    input: 'src/button-react/index.ts',
+    input: 'src/save-button-react/index.ts',
     output: {
-      file: 'src/button-react/dist/index.d.ts',
+      file: 'src/save-button-react/dist/index.d.ts',
       format: 'es',
     },
     plugins: [dts()],
   },
 
   {
-    input: 'src/button-element/index.ts',
+    input: 'src/save-button-element/index.ts',
     output: [
       {
-        file: 'src/button-element/dist/index.js',
+        file: 'src/save-button-element/dist/index.js',
         format: 'es',
-        name: 'GooglePayButton',
+        name: 'SaveToGooglePayButton',
       },
       {
-        file: 'src/button-element/dist/index.min.js',
+        file: 'src/save-button-element/dist/index.min.js',
         format: 'es',
-        name: 'GooglePayButton',
+        name: 'SaveToGooglePayButton',
         plugins: [terser()],
       },
       {
-        file: 'src/button-element/dist/index.umd.js',
+        file: 'src/save-button-element/dist/index.umd.js',
         format: 'umd',
-        name: 'GooglePayButton',
+        name: 'SaveToGooglePayButton',
       },
       {
-        file: 'src/button-element/dist/index.umd.min.js',
+        file: 'src/save-button-element/dist/index.umd.min.js',
         format: 'umd',
-        name: 'GooglePayButton',
+        name: 'SaveToGooglePayButton',
         plugins: [terser()],
       },
     ],
     plugins: [rollupJson(), typescript()],
   },
   {
-    input: 'src/button-element/index.ts',
+    input: 'src/save-button-element/index.ts',
     output: [
       {
-        file: 'src/button-element/dist/index.es5.min.js',
+        file: 'src/save-button-element/dist/index.es5.min.js',
         format: 'umd',
-        name: 'GooglePayButton',
+        name: 'SaveToGooglePayButton',
         plugins: [terser()],
       },
     ],
@@ -137,9 +137,9 @@ export default [
     ],
   },
   {
-    input: 'src/button-element/index.ts',
+    input: 'src/save-button-element/index.ts',
     output: {
-      file: 'src/button-element/dist/index.d.ts',
+      file: 'src/save-button-element/dist/index.d.ts',
       format: 'es',
     },
     plugins: [dts()],

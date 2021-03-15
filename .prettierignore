@@ -4,8 +4,8 @@ build/
 
 CHANGELOG.md
 
-src/button-angular/package.json
-src/button-element/package.json
-src/button-react/package.json
+src/save-button-angular/package.json
+src/save-button-element/package.json
+src/save-button-react/package.json
 
 .bit/

@@ -1,63 +1,88 @@
-.params {
-  padding: 5px;
-  background-color: #fff;
-  position: fixed;
-  width: 100%;
-  bottom: 0;
-  left: 0;
-  box-shadow: 0 0 5px rgba(0, 0, 0, 0.2);
-  display: flex;
-  flex-direction: row;
-  flex-wrap: wrap;
-  box-sizing: border-box;
-
-  & > label {
-    margin: 5px 10px;
-    font-size: 12px;
-    display: flex;
-    flex-direction: column;
-    width: 150px;
-
-    & > * {
-      display: block;
-    }
-
-    & > span {
-      margin-bottom: 2px;
-      text-overflow: ellipsis;
-      white-space: nowrap;
-    }
-
-    & > input,
-    & > select {
-      -webkit-appearance: none;
-      -moz-appearance: none;
-      appearance: none;
-      padding: 4px;
-      border: 1px solid #999;
-      background-color: #fff;
-      border-radius: 0;
-      color: #000;
-    }
-  }
+body,
+html {
+  font: 400 16px/24px Roboto, Noto Sans, Noto Sans JP, Noto Sans KR, Noto Naskh Arabic, Noto Sans Thai, Noto Sans Hebrew,
+    Noto Sans Bengali, sans-serif;
 }
 
-.example {
-  margin: 5px;
-  display: flex;
-  flex-direction: row;
+form {
+  display: inline-block;
+}
 
-  & > .title {
-    width: 250px;
-    align-items: center;
-    display: inherit;
-  }
+form.top-bottom {
+  margin: -4px -5px;
+}
 
-  & > .demo {
-    flex: 1 0 0;
+form.top-bottom label {
+  margin-top: 10px;
+}
 
-    & > * {
-      margin: 1px;
-    }
-  }
+form label {
+  display: block;
+}
+
+form label.control {
+  display: inline-block;
+  width: 200px;
+  margin: 4px 5px;
+}
+
+form label > span {
+  display: inline-block;
+  margin-right: 5px;
+}
+
+form label.control > span {
+  display: block;
+}
+
+form label .value {
+  font-size: 80%;
+  color: #666;
+}
+
+form select {
+  -moz-appearance: none;
+  -webkit-appearance: none;
+  border: 1px solid #dadce0;
+  border-radius: 4px;
+  box-shadow: none;
+  color: #202124;
+  cursor: pointer;
+  display: inline-block;
+  font: 500 14px/36px Google Sans, Noto Sans, Noto Sans JP, Noto Sans KR, Noto Naskh Arabic, Noto Sans Thai,
+    Noto Sans Hebrew, Noto Sans Bengali, sans-serif;
+  height: 36px;
+  line-height: 34px;
+  outline: 0;
+  padding: 0 27px 0 15px;
+  text-align: left;
+  text-indent: 0.01px;
+  text-overflow: ellipsis;
+  transition: background-color 0.2s;
+  vertical-align: middle;
+  white-space: nowrap;
+  background: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="20" height="4" viewBox="0 0 20 4"><path d="M0,0l4,4l4-4H0z" fill="%23212121"/></svg>')
+    #fff no-repeat 100%;
+}
+
+form.top-bottom select {
+  width: 100%;
+}
+
+form option {
+  font-weight: normal;
+  display: block;
+  white-space: pre;
+  min-height: 1.2em;
+  padding: 0 2px 1px;
+}
+
+form input[type='range'] {
+  width: 100%;
+}
+
+.demo {
+  margin-top: 20px;
+  margin-bottom: 30px;
+  min-height: 40px;
 }

@@ -1,0 +1,49 @@
+{
+  "name": "@google-pay/save-button-angular",
+  "version": "0.0.0",
+  "description": "Angular component for the Save to Google Pay button",
+  "main": "dist/index.js",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/google-pay/save-to-google-pay-button",
+    "directory": "src/save-button-angular"
+  },
+  "homepage": "https://github.com/google-pay/save-to-google-pay-button/tree/main/src/save-button-angular#readme",
+  "engines": {
+    "node": ">=8.0.0"
+  },
+  "author": "socsieng@google.com",
+  "license": "Apache-2.0",
+  "scripts": {
+    "build": "ng build --prod"
+  },
+  "dependencies": {},
+  "peerDependencies": {
+    "@angular/core": ">=8.0.0"
+  },
+  "files": [
+    "dist/*",
+    "bundles/*",
+    "ems2015/*",
+    "fesm2015/*",
+    "lib/*",
+    "types/*",
+    "save-button-angular/*",
+    "save-to-google-pay-button-angular.*",
+    "*.d.ts",
+    "*.json",
+    "README.md"
+  ],
+  "keywords": [
+    "googlepay",
+    "google-pay",
+    "google-pay-button",
+    "button",
+    "angular"
+  ],
+  "devDependencies": {
+    "@angular-devkit/build-ng-packagr": "^0.1002.0",
+    "@angular/core": "^10.2.2",
+    "ng-packagr": "^10.1.2"
+  }
+}

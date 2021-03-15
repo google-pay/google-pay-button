@@ -1,6 +1,6 @@
 ---
 name: Question template
-about: Ask a question about the React component or custom element
+about: Ask a question about the React, Angular, or custom element
 title: ''
 labels: question
 assignees: ''
@@ -10,6 +10,6 @@ assignees: ''
 
 This question is related to:
 
-- [ ] React component (`@google-pay/button-react`)
-- [ ] Custom element (`@google-pay/button-element`)
-- [ ] Angular component (`@google-pay/button-angular`)
+- [ ] React component (`@google-pay/save-button-react`)
+- [ ] Custom element (`@google-pay/save-button-element`)
+- [ ] Angular component (`@google-pay/save-button-angular`)

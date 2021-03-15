@@ -14,9 +14,6 @@
  * limitations under the License.
  */
 
-/*
- * Public API Surface of save-to-google-pay-button
- */
+import SaveToGooglePayButton from './SaveToGooglePayButton';
 
-export * from './save-button-angular/lib/save-to-google-pay-button.component';
-export * from './save-button-angular/lib/save-to-google-pay-button.module';
+export default SaveToGooglePayButton;

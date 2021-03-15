@@ -16,101 +16,54 @@
 -->
 
 <html lang="en">
-  <head>
-    <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <title>Google Pay Example</title>
-    <link rel="stylesheet" type="text/css" href="app.css" />
-  </head>
 
-  <body>
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Save to Google Pay Example</title>
+  <link rel="stylesheet" type="text/css" href="app.css" />
+  <script type="module" src="example.js"></script>
+</head>
+
+<body>
+  <form class="top-bottom">
     <div class="params">
-      <label>
-        <span>Default amount:</span>
-        <input type="text" id="amount" value="100.00" />
-      </label>
-      <label>
-        <span>Payment method required:</span>
-        <select id="existing-payment-method-required">
-          <option value="false" selected>No</option>
-          <option value="true">Yes</option>
+      <label class="control">
+        <span>Button height:</span>
+        <select name="height">
+          <option value="small">small</option>
+          <option value="standard">standard</option>
         </select>
       </label>
-      <label>
-        <span>Button color:</span>
-        <select id="button-color">
-          <option value="default" selected>default</option>
-          <option value="black">black</option>
-          <option value="white">white</option>
+      <label class="control">
+        <span>Button size:</span>
+        <select name="size">
+          <option value="">-</option>
+          <option value="matchparent">matchparent</option>
         </select>
       </label>
-      <label>
-        <span>Button type:</span>
-        <select id="button-type">
-          <option value="buy" selected>buy</option>
-          <option value="plain">plain</option>
-          <option value="donate">donate</option>
-          <option value="long">long</option>
-          <option value="short">short</option>
+      <label class="control">
+        <span>Button text size:</span>
+        <select name="textsize">
+          <option value="">-</option>
+          <option value="large">large</option>
         </select>
       </label>
-      <label>
-        <span>Button locale:</span>
-        <select id="button-locale">
-          <option value="" selected>-</option>
-          <option value="ar">Arabic</option>
-          <option value="bg">Bulgarian</option>
-          <option value="ca">Catalan</option>
-          <option value="zh">Chinese</option>
-          <option value="hr">Croatian</option>
-          <option value="cs">Czech</option>
-          <option value="da">Danish</option>
-          <option value="nl">Dutch</option>
-          <option value="en">English</option>
-          <option value="et">Estonian</option>
-          <option value="fi">Finnish</option>
-          <option value="fr">French</option>
-          <option value="de">German</option>
-          <option value="el">Greek</option>
-          <option value="id">Indonesian</option>
-          <option value="it">Italian</option>
-          <option value="ja">Japanese</option>
-          <option value="ko">Korean</option>
-          <option value="ms">Malay</option>
-          <option value="no">Norwegian</option>
-          <option value="pl">Polish</option>
-          <option value="pt">Portuguese</option>
-          <option value="ru">Russian</option>
-          <option value="sr">Serbian</option>
-          <option value="sk">Slovak</option>
-          <option value="sl">Slovenian</option>
-          <option value="es">Spanish</option>
-          <option value="sv">Swedish</option>
-          <option value="th">Thai</option>
-          <option value="tr">Turkish</option>
-          <option value="uk">Ukrainian</option>
+      <label class="control">
+        <span>Button theme:</span>
+        <select name="theme">
+          <option value="dark">dark</option>
+          <option value="light">light</option>
         </select>
       </label>
     </div>
+  </form>
 
-    <div id="examples" class="examples">
-      <div class="example">
-        <div class="title">Static Example</div>
-        <div class="demo">
-          <google-pay-button id="static" environment="TEST" button-type="plain" button-color="black" button-locale="fr">
-          </google-pay-button>
-        </div>
-      </div>
-      <div class="example">
-        <div class="title">WebComponent Example</div>
-        <div class="demo">
-          <my-web-component></my-web-component>
-          <my-web-component></my-web-component>
-        </div>
-      </div>
-    </div>
-  </body>
-  <script type="module" src="basic-example.js"></script>
-  <script type="module" src="web-component-example.js"></script>
-  <script type="module" src="dynamic-examples.js"></script>
+  <div class="demo">
+    <save-to-google-pay-button
+      jwt="eyJhbGciOiJSUzI1NiIsInR5cCI6IkpXVCJ9.eyJhdWQiOiJnb29nbGUiLCJvcmlnaW5zIjpbImh0dHA6Ly9sb2NhbGhvc3QiLCJodHRwOi8vbG9jYWxob3N0OjMwMDAiLCJodHRwOi8vbG9jYWxob3N0OjUwMDAiLCJodHRwOi8vbG9jYWxob3N0OjgwODAiLCJodHRwOi8vbG9jYWxob3N0OjQyMDAiLCJodHRwOi8vbG9jYWxob3N0OjEzMzciLCJodHRwczovL3NhdmUtdG8tZ29vZ2xlLXBheS5zdGFja2JsaXR6LmlvIiwiaHR0cHM6Ly9ncGF5LWxpdmUtZGVtby1zdGFnaW5nLndlYi5hcHAiXSwiaXNzIjoic29jLWxveWFsdHlhcGktZGVtb0BhcHBzcG90LmdzZXJ2aWNlYWNjb3VudC5jb20iLCJ0eXAiOiJzYXZldG93YWxsZXQiLCJwYXlsb2FkIjp7ImxveWFsdHlPYmplY3RzIjpbeyJpZCI6IjMzODgwMDAwMDAwMTAwNDg2NjguYWxleF9hdF9leGFtcGxlLmNvbS1ncGF5LXJld2FyZHMifV19LCJpYXQiOjE2MTU1OTQ2NTF9.ZbEvdvkRh5nCuBq85bBEjR6216L7j6W10nyVWpPSAZlaSe8O6hJ_Ig-TrrvFtn7aHucMZr4cTmttONrlaFU-gFKMYHMEJFiZ-qv58sE9dNUdgUwTJWWzH8aukltM0pCBLHcpvLXTCpGk4PoXWM4q5H6WIjP1Jem8v1_YGdV6J_UBNyAGqJUE5XJnDgHl2qGFilTmF0el6EBFQLnF2PuIvyZcWXgbXgJLZfx-opepVAgODW5BQjQ7li8QoDl3ffdESO2-7qWVm-VoxLb8eDh3z3gRktPb8APh_VsaAb8mjvNCLk_SOPrQhpuph4b0Rg4xnt59u5c87_eD2kT3_IuHxw">
+    </save-to-google-pay-button>
+  </div>
+</body>
+
 </html>

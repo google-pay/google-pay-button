@@ -25,5 +25,5 @@
     "enableResourceInlining": true
   },
   "include": ["src"],
-  "exclude": ["*.config.js", "src/**/*.test.(ts|tsx)"]
+  "exclude": ["*.config.js", "src/**/*.test.(ts|tsx)", "src/**/dist/**"]
 }

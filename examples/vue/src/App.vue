@@ -16,20 +16,17 @@
 
 <template>
   <div id="app">
-    <StaticExample />
-    <Examples />
+    <Example />
   </div>
 </template>
 
 <script>
-import StaticExample from './components/StaticExample.vue';
-import Examples from './components/Examples.vue';
+import Example from './components/Example.vue';
 
 export default {
   name: 'App',
   components: {
-    StaticExample,
-    Examples,
+    Example,
   },
 };
 </script>

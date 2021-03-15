@@ -5,24 +5,24 @@
   "projects": {
     "google-pay-button": {
       "projectType": "library",
-      "root": "src/button-angular",
-      "sourceRoot": "src/button-angular",
+      "root": "src/save-button-angular",
+      "sourceRoot": "src/save-button-angular",
       "prefix": "lib",
       "architect": {
         "build": {
           "builder": "@angular-devkit/build-angular:ng-packagr",
           "options": {
-            "tsConfig": "src/button-angular/tsconfig.lib.json",
-            "project": "src/button-angular/ng-package.json"
+            "tsConfig": "src/save-button-angular/tsconfig.lib.json",
+            "project": "src/save-button-angular/ng-package.json"
           },
           "configurations": {
             "production": {
-              "tsConfig": "src/button-angular/tsconfig.lib.prod.json"
+              "tsConfig": "src/save-button-angular/tsconfig.lib.prod.json"
             }
           }
         }
       }
     }
   },
-  "defaultProject": "google-pay-button"
+  "defaultProject": "save-to-google-pay-button"
 }

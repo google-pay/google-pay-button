@@ -1,0 +1,39 @@
+{
+  "name": "@google-pay/save-button-react",
+  "version": "0.0.0",
+  "description": "React component for Google Pay button",
+  "main": "dist/index.es5.min.js",
+  "browser": "dist/index.umd.min.js",
+  "module": "dist/index.js",
+  "types": "dist/index.d.ts",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/google-pay/save-to-google-pay-button",
+    "directory": "src/save-button-react"
+  },
+  "homepage": "https://github.com/google-pay/save-to-google-pay-button/tree/main/src/save-button-react#readme",
+  "engines": {
+    "node": ">=8.0.0"
+  },
+  "author": "socsieng@google.com",
+  "license": "Apache-2.0",
+  "dependencies": {},
+  "peerDependencies": {
+    "@types/react": ">=16.0.0",
+    "@types/react-dom": ">=16.0.0",
+    "react": ">=16.3.0",
+    "react-dom": ">=16.3.0"
+  },
+  "files": [
+    "dist/*",
+    "package.json",
+    "README.md",
+    "LICENSE"
+  ],
+  "keywords": [
+    "googlepay",
+    "google-pay",
+    "button",
+    "react"
+  ]
+}

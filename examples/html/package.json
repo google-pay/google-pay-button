@@ -13,6 +13,6 @@
     "serve": "^11.3.2"
   },
   "dependencies": {
-    "@google-pay/button-element": "file:../../src/button-element"
+    "@google-pay/save-button-element": "file:../../src/save-button-element"
   }
 }

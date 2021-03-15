@@ -1,10 +1,8 @@
 {
   "private": true,
-  "name": "google-pay-button",
-  "version": "2.3.0",
-  "description": "Google Pay button component",
-  "main": "dist/GooglePayButton.js",
-  "types": "dist/GooglePayButton.d.ts",
+  "name": "save-to-google-pay-button",
+  "version": "0.0.1",
+  "description": "Save to Google Pay button component",
   "scripts": {
     "lint": "eslint .",
     "pretty": "node_modules/prettier/bin-prettier.js . --write --loglevel warn",
@@ -21,16 +19,13 @@
     "publish:all": "scripts/publish.sh"
   },
   "repository": {
-    "url": "https://github.com/google-pay/google-pay-button"
+    "url": "https://github.com/google-pay/save-to-google-pay-button"
   },
   "engines": {
     "node": ">=8.0.0"
   },
   "author": "socsieng@google.com",
   "license": "Apache-2.0",
-  "dependencies": {
-    "@types/googlepay": "^0.5.2"
-  },
   "devDependencies": {
     "@angular-devkit/build-angular": "^0.1101.2",
     "@angular/cli": "^11.1.2",

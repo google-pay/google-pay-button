@@ -14,127 +14,62 @@
  * limitations under the License.
  */
 
+import SaveToGooglePayButton from '@google-pay/save-button-react';
 import React, { useState } from 'react';
 import './App.css';
-import BasicExample from './examples/BasicExample';
-import EmailRequiredExample from './examples/EmailRequiredExample';
-import AmexExample from './examples/AmexExample';
-import CryptogramExample from './examples/CryptogramExample';
-import RequireShippingExample from './examples/RequireShippingExample';
-import ShippingOptionsExample from './examples/ShippingOptionsExample';
-import PaymentAuthorizationExample from './examples/PaymentAuthorizationExample';
-import PaymentAuthorizationErrorExample from './examples/PaymentAuthorizationErrorExample';
-import PaymentDataChangedExample from './examples/PaymentDataChangedExample';
-import PaymentDataChangedErrorExample from './examples/PaymentDataChangedErrorExample';
-import OnCancelExample from './examples/OnCancelExample';
-import DisplayItemsExample from './examples/DisplayItemsExample';
-import DynamicPriceUpdateExample from './examples/DynamicPriceUpdateExample';
-import DirectIntegrationExample from './examples/DirectIntegrationExample';
-import ButtonSizeExample from './examples/ButtonSizeExample';
 
 const App: React.FC = () => {
-  const [amount, setAmount] = useState('100.00');
-  const [existingPaymentMethodRequired, setExistingPaymentMethodRequired] = useState(false);
-  const [buttonColor, setButtonColor] = useState('default');
-  const [buttonType, setButtonType] = useState('buy');
-  const [buttonLocale, setButtonLocale] = useState('');
+  const [buttonHeight, setHeight] = useState('small');
+  const [buttonSize, setButtonSize] = useState('');
+  const [buttonTextSize, setButtonTextSize] = useState('');
+  const [buttonTheme, setButtonTheme] = useState('dark');
 
-  const props = {
-    amount,
-    existingPaymentMethodRequired,
-    buttonColor,
-    buttonType,
-    buttonLocale,
+  const props: any = {
+    jwt:
+      'eyJhbGciOiJSUzI1NiIsInR5cCI6IkpXVCJ9.eyJhdWQiOiJnb29nbGUiLCJvcmlnaW5zIjpbImh0dHA6Ly9sb2NhbGhvc3QiLCJodHRwOi8vbG9jYWxob3N0OjMwMDAiLCJodHRwOi8vbG9jYWxob3N0OjUwMDAiLCJodHRwOi8vbG9jYWxob3N0OjgwODAiLCJodHRwOi8vbG9jYWxob3N0OjQyMDAiLCJodHRwOi8vbG9jYWxob3N0OjEzMzciLCJodHRwczovL3NhdmUtdG8tZ29vZ2xlLXBheS5zdGFja2JsaXR6LmlvIiwiaHR0cHM6Ly9ncGF5LWxpdmUtZGVtby1zdGFnaW5nLndlYi5hcHAiXSwiaXNzIjoic29jLWxveWFsdHlhcGktZGVtb0BhcHBzcG90LmdzZXJ2aWNlYWNjb3VudC5jb20iLCJ0eXAiOiJzYXZldG93YWxsZXQiLCJwYXlsb2FkIjp7ImxveWFsdHlPYmplY3RzIjpbeyJpZCI6IjMzODgwMDAwMDAwMTAwNDg2NjguYWxleF9hdF9leGFtcGxlLmNvbS1ncGF5LXJld2FyZHMifV19LCJpYXQiOjE2MTU1OTQ2NTF9.ZbEvdvkRh5nCuBq85bBEjR6216L7j6W10nyVWpPSAZlaSe8O6hJ_Ig-TrrvFtn7aHucMZr4cTmttONrlaFU-gFKMYHMEJFiZ-qv58sE9dNUdgUwTJWWzH8aukltM0pCBLHcpvLXTCpGk4PoXWM4q5H6WIjP1Jem8v1_YGdV6J_UBNyAGqJUE5XJnDgHl2qGFilTmF0el6EBFQLnF2PuIvyZcWXgbXgJLZfx-opepVAgODW5BQjQ7li8QoDl3ffdESO2-7qWVm-VoxLb8eDh3z3gRktPb8APh_VsaAb8mjvNCLk_SOPrQhpuph4b0Rg4xnt59u5c87_eD2kT3_IuHxw',
+    height: buttonHeight,
+    size: buttonSize,
+    textsize: buttonTextSize,
+    theme: buttonTheme,
   };
 
   return (
-    <div className="App">
-      <div className="params">
-        <label>
-          <span>Default amount:</span>
-          <input type="text" defaultValue={amount} onBlur={event => setAmount(event.target.value)} />
-        </label>
-        <label>
-          <span>Payment method required:</span>
-          <select
-            onChange={event => setExistingPaymentMethodRequired(event.target.value === 'yes')}
-            value={existingPaymentMethodRequired ? 'yes' : 'no'}
-          >
-            <option value="no">No</option>
-            <option value="yes">Yes</option>
-          </select>
-        </label>
-        <label>
-          <span>Button color:</span>
-          <select onChange={event => setButtonColor(event.target.value)} value={buttonColor}>
-            <option value="default">default</option>
-            <option value="black">black</option>
-            <option value="white">white</option>
-          </select>
-        </label>
-        <label>
-          <span>Button type:</span>
-          <select onChange={event => setButtonType(event.target.value)} value={buttonType}>
-            <option value="buy">buy</option>
-            <option value="plain">plain</option>
-            <option value="donate">donate</option>
-            <option value="long">long</option>
-            <option value="short">short</option>
-          </select>
-        </label>
-        <label>
-          <span>Button locale:</span>
-          <select onChange={event => setButtonLocale(event.target.value)} value={buttonLocale}>
-            <option value="">-</option>
-            <option value="ar">Arabic</option>
-            <option value="bg">Bulgarian</option>
-            <option value="ca">Catalan</option>
-            <option value="zh">Chinese</option>
-            <option value="hr">Croatian</option>
-            <option value="cs">Czech</option>
-            <option value="da">Danish</option>
-            <option value="nl">Dutch</option>
-            <option value="en">English</option>
-            <option value="et">Estonian</option>
-            <option value="fi">Finnish</option>
-            <option value="fr">French</option>
-            <option value="de">German</option>
-            <option value="el">Greek</option>
-            <option value="id">Indonesian</option>
-            <option value="it">Italian</option>
-            <option value="ja">Japanese</option>
-            <option value="ko">Korean</option>
-            <option value="ms">Malay</option>
-            <option value="no">Norwegian</option>
-            <option value="pl">Polish</option>
-            <option value="pt">Portuguese</option>
-            <option value="ru">Russian</option>
-            <option value="sr">Serbian</option>
-            <option value="sk">Slovak</option>
-            <option value="sl">Slovenian</option>
-            <option value="es">Spanish</option>
-            <option value="sv">Swedish</option>
-            <option value="th">Thai</option>
-            <option value="tr">Turkish</option>
-            <option value="uk">Ukrainian</option>
-          </select>
-        </label>
+    <div>
+      <form className="top-bottom">
+        <div className="params">
+          <label className="control">
+            <span>Button height:</span>
+            <select onChange={event => setHeight(event.target.value)} value={buttonHeight}>
+              <option value="small">small</option>
+              <option value="standard">standard</option>
+            </select>
+          </label>
+          <label className="control">
+            <span>Button size:</span>
+            <select onChange={event => setButtonSize(event.target.value)} value={buttonSize}>
+              <option value="">-</option>
+              <option value="matchparent">matchparent</option>
+            </select>
+          </label>
+          <label className="control">
+            <span>Button text size:</span>
+            <select onChange={event => setButtonTextSize(event.target.value)} value={buttonTextSize}>
+              <option value="">-</option>
+              <option value="large">large</option>
+            </select>
+          </label>
+          <label className="control">
+            <span>Button theme:</span>
+            <select onChange={event => setButtonTheme(event.target.value)} value={buttonTheme}>
+              <option value="dark">dark</option>
+              <option value="light">light</option>
+            </select>
+          </label>
+        </div>
+      </form>
+      <div className="demo">
+        <SaveToGooglePayButton {...props} />
       </div>
-      <BasicExample {...props} />
-      <DirectIntegrationExample {...props} />
-      <EmailRequiredExample {...props} />
-      <AmexExample {...props} />
-      <CryptogramExample {...props} />
-      <RequireShippingExample {...props} />
-      <ShippingOptionsExample {...props} />
-      <PaymentAuthorizationExample {...props} />
-      <PaymentAuthorizationErrorExample {...props} />
-      <PaymentDataChangedExample {...props} />
-      <PaymentDataChangedErrorExample {...props} />
-      <OnCancelExample {...props} />
-      <DisplayItemsExample {...props} />
-      <DynamicPriceUpdateExample {...props} />
-      <ButtonSizeExample {...props} />
     </div>
   );
 };

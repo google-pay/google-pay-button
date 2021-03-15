@@ -19,9 +19,9 @@ jobs:
       - name: prebuild
         run: scripts/prebuild.sh
       - run: npm install
-      - name: npm install (button-angular)
+      - name: npm install (save-button-angular)
         run: |
-          cd src/button-angular
+          cd src/save-button-angular
           npm install
       - run: npm run build
       - name: publish all to github package repository
@@ -36,15 +36,15 @@ jobs:
           registry-url: https://wombat-dressing-room.appspot.com
           scope: '@google-pay'
 
-      - name: publish @google-pay/button-react to npm (via wombat dressing)
-        run: cd src/button-react && npm publish --access=public
+      - name: publish @google-pay/save-button-react to npm (via wombat dressing)
+        run: cd src/save-button-react && npm publish --access=public
         env:
           NODE_AUTH_TOKEN: ${{secrets.TOKEN_BUTTON_REACT}}
-      - name: publish @google-pay/button-element to npm (via wombat dressing)
-        run: cd src/button-element && npm publish --access=public
+      - name: publish @google-pay/save-button-element to npm (via wombat dressing)
+        run: cd src/save-button-element && npm publish --access=public
         env:
           NODE_AUTH_TOKEN: ${{secrets.TOKEN_BUTTON_ELEMENT}}
-      - name: publish @google-pay/button-angular to npm (via wombat dressing)
-        run: cd src/button-angular/dist && npm publish --access=public
+      - name: publish @google-pay/save-button-angular to npm (via wombat dressing)
+        run: cd src/save-button-angular/dist && npm publish --access=public
         env:
           NODE_AUTH_TOKEN: ${{secrets.TOKEN_BUTTON_ANGULAR}}

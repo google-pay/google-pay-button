@@ -26,9 +26,9 @@ jobs:
       - name: prebuild
         run: scripts/prebuild.sh
       - run: npm install
-      - name: npm install (button-angular)
+      - name: npm install (save-button-angular)
         run: |
-          cd src/button-angular
+          cd src/save-button-angular
           npm install
       - run: npm run build:all
       - run: npm test

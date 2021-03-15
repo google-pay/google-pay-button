@@ -19,11 +19,11 @@ import { NgModule } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 
 import { AppComponent } from './app.component';
-import { GooglePayButtonModule } from '@google-pay/button-angular';
+import { SaveToGooglePayButtonModule } from '@google-pay/save-button-angular';
 
 @NgModule({
   declarations: [AppComponent],
-  imports: [BrowserModule, FormsModule, GooglePayButtonModule],
+  imports: [BrowserModule, FormsModule, SaveToGooglePayButtonModule],
   providers: [],
   bootstrap: [AppComponent],
 })

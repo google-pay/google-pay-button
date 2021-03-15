@@ -22,9 +22,9 @@ assignees: ''
 **Component information:**
 
 - Component
-  - [ ] React component (`@google-pay/button-react`)
-  - [ ] Custom element (`@google-pay/button-element`)
-  - [ ] Angular component (`@google-pay/button-angular`)
+  - [ ] React component (`@google-pay/save-button-react`)
+  - [ ] Custom element (`@google-pay/save-button-element`)
+  - [ ] Angular component (`@google-pay/save-button-angular`)
 - Component version (e.g. 1.0.0):
 
 **Environment:**

@@ -41,7 +41,7 @@ do
   then
     echo "publishing $version"
 
-    if [ "$folder" == "src/button-angular" ]
+    if [ "$folder" == "src/save-button-angular" ]
     then
       cd $cwd/$folder/dist
       npm publish

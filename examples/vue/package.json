@@ -9,7 +9,7 @@
     "lint": "vue-cli-service lint"
   },
   "dependencies": {
-    "@google-pay/button-element": "file:../../src/button-element",
+    "@google-pay/save-button-element": "file:../../src/save-button-element",
     "core-js": "^3.8.3",
     "vue": "^2.6.12"
   },

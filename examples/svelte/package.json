@@ -23,7 +23,7 @@
     "typescript": "^4.1.3"
   },
   "dependencies": {
-    "@google-pay/button-element": "file:../../src/button-element",
+    "@google-pay/save-button-element": "file:../../src/save-button-element",
     "sirv-cli": "^0.4.4"
   }
 }

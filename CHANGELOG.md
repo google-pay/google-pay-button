@@ -1,5 +1,12 @@
 # Changelog
 
+## [2.4.0](https://www.github.com/google-pay/google-pay-button/compare/v2.3.0...v2.4.0) (2021-06-11)
+
+
+### Features
+
+* add support for offers ([a329162](https://www.github.com/google-pay/google-pay-button/commit/a32916216dd0b262648e2178d94e08012a1deed8))
+
 ## [2.3.0](https://www.github.com/google-pay/google-pay-button/compare/v2.2.1...v2.3.0) (2021-03-05)
 
 

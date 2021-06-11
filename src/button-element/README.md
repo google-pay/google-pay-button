@@ -36,7 +36,8 @@ npm install @google-pay/button-element
         tokenizationSpecification: {
           type: 'PAYMENT_GATEWAY',
           parameters: {
-            gateway: 'stripe',
+            gateway: 'example',
+            gatewayMerchantId: 'exampleGatewayMerchantId',
           },
         },
       },
@@ -85,7 +86,8 @@ Try it out on [StackBlitz](https://stackblitz.com/edit/google-pay-custom-element
         tokenizationSpecification: {
           type: 'PAYMENT_GATEWAY',
           parameters: {
-            'gateway': 'stripe'
+            gateway: 'example',
+            gatewayMerchantId: 'exampleGatewayMerchantId'
           }
         }
       }
@@ -129,7 +131,8 @@ Try it out on [StackBlitz](https://stackblitz.com/edit/google-pay-vue).
         tokenizationSpecification: {
           type: 'PAYMENT_GATEWAY',
           parameters: {
-            gateway: 'stripe',
+            gateway: 'example',
+            gatewayMerchantId: 'exampleGatewayMerchantId',
           },
         },
       },

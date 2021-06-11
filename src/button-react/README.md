@@ -27,6 +27,7 @@ npm install @google-pay/button-react
           type: 'PAYMENT_GATEWAY',
           parameters: {
             gateway: 'example',
+            gatewayMerchantId: 'exampleGatewayMerchantId',
           },
         },
       },

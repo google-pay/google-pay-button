@@ -77,6 +77,10 @@ function onLoadPaymentData(paymentData) {
   console.log('load payment data', paymentData);
 }
 
+function onError(error) {
+  console.log('error', error);
+}
+
 // eslint-disable-next-line no-unused-vars
 function onPaymentAuthorized(paymentData) {
   return {
@@ -133,9 +137,9 @@ const googlePayButtons = [
             ...defaultPaymentRequest.transactionInfo,
             totalPrice: controls.amount.value,
           },
+          callbackIntents: ['PAYMENT_AUTHORIZATION'],
         },
         existingPaymentRequired: controls.existingPaymentRequired.value === 'true',
-        callbackIntents: ['PAYMENT_AUTHORIZATION'],
         onLoadPaymentData,
         onPaymentAuthorized,
       };
@@ -154,9 +158,9 @@ const googlePayButtons = [
             ...defaultPaymentRequest.transactionInfo,
             totalPrice: controls.amount.value,
           },
+          callbackIntents: ['PAYMENT_AUTHORIZATION'],
         },
         existingPaymentRequired: controls.existingPaymentRequired.value === 'true',
-        callbackIntents: ['PAYMENT_AUTHORIZATION'],
         onLoadPaymentData,
         onPaymentAuthorized,
       };
@@ -175,12 +179,64 @@ const googlePayButtons = [
             ...defaultPaymentRequest.transactionInfo,
             totalPrice: controls.amount.value,
           },
+          callbackIntents: ['PAYMENT_AUTHORIZATION'],
         },
         existingPaymentRequired: controls.existingPaymentRequired.value === 'true',
         shippingAddressRequired: true,
-        callbackIntents: ['PAYMENT_AUTHORIZATION'],
         onLoadPaymentData,
         onPaymentAuthorized,
+      };
+    },
+  },
+  {
+    title: 'Offers (code: "good")',
+    get props() {
+      return {
+        buttonColor: controls.buttonColor.value,
+        buttonType: controls.buttonType.value,
+        buttonLocale: controls.buttonLocale.value,
+        paymentRequest: {
+          ...defaultPaymentRequest,
+          transactionInfo: {
+            ...defaultPaymentRequest.transactionInfo,
+            totalPrice: controls.amount.value,
+          },
+          callbackIntents: ['OFFER'],
+        },
+        existingPaymentRequired: controls.existingPaymentRequired.value === 'true',
+        shippingAddressRequired: true,
+        onLoadPaymentData,
+        onError,
+        onPaymentDataChanged: paymentData => {
+          const newPaymentData = {
+            newTransactionInfo: {
+              ...defaultPaymentRequest.transactionInfo,
+              totalPrice: controls.amount.value,
+            },
+          };
+          if (paymentData.callbackTrigger === 'OFFER') {
+            const goodOffers = paymentData.offerData?.redemptionCodes.filter(code => code === 'good');
+            if (goodOffers?.length) {
+              newPaymentData.newOfferInfo = {
+                offers: Array.from(new Set(goodOffers)).map(offer => ({
+                  redemptionCode: offer,
+                  description: 'Save 10%',
+                })),
+              };
+              newPaymentData.newTransactionInfo.totalPrice = (Number(controls.amount.value) * 0.9).toFixed(2);
+            }
+
+            const badOffers = paymentData.offerData?.redemptionCodes.filter(code => code !== 'good');
+            if (badOffers?.length) {
+              newPaymentData.error = {
+                reason: 'OFFER_INVALID',
+                message: 'Unrecognized promotion code.',
+                intent: 'OFFER',
+              };
+            }
+          }
+          return newPaymentData;
+        },
       };
     },
   },
@@ -227,11 +283,14 @@ function updateGooglePayButtons() {
       button.id = id;
       button.environment = 'TEST';
 
+      Object.assign(button, gpay.props);
+
       const container = document.getElementById('examples');
       container.appendChild(createExample(gpay.title, button));
+    } else {
+      Object.assign(button, gpay.props);
     }
 
-    Object.assign(button, gpay.props);
     index++;
   }
 }

@@ -25,6 +25,7 @@ import ShippingOptionsExample from './examples/ShippingOptionsExample';
 import PaymentAuthorizationExample from './examples/PaymentAuthorizationExample';
 import PaymentAuthorizationErrorExample from './examples/PaymentAuthorizationErrorExample';
 import PaymentDataChangedExample from './examples/PaymentDataChangedExample';
+import OffersExample from './examples/OffersExample';
 import PaymentDataChangedErrorExample from './examples/PaymentDataChangedErrorExample';
 import OnCancelExample from './examples/OnCancelExample';
 import DisplayItemsExample from './examples/DisplayItemsExample';
@@ -131,6 +132,7 @@ const App: React.FC = () => {
       <PaymentAuthorizationErrorExample {...props} />
       <PaymentDataChangedExample {...props} />
       <PaymentDataChangedErrorExample {...props} />
+      <OffersExample {...props} />
       <OnCancelExample {...props} />
       <DisplayItemsExample {...props} />
       <DynamicPriceUpdateExample {...props} />

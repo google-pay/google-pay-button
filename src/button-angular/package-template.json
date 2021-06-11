@@ -15,7 +15,7 @@
   "author": "socsieng@google.com",
   "license": "Apache-2.0",
   "scripts": {
-    "build": "ng build --prod"
+    "build": "ng build --configuration production"
   },
   "dependencies": {
     "@types/googlepay": "^0.5.2"

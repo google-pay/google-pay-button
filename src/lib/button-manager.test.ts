@@ -335,7 +335,7 @@ describe.skip('Callbacks', () => {
 });
 
 describe('Google Pay client invalidation', () => {
-  let updateElementMock: MockWrapper<() => {}>;
+  let updateElementMock: MockWrapper<() => any>;
   let updateElementSpy = jest.fn();
 
   beforeEach(() => {
@@ -673,9 +673,9 @@ describe('Software info', () => {
 
 describe('createButton', () => {
   let manager: ButtonManager;
-  let paymentsClientMock: MockWrapper<() => {}>;
+  let paymentsClientMock: MockWrapper<() => any>;
   let createButtonSpy = jest.fn();
-  let buttonManagerMock: MockWrapper<() => {}>;
+  let buttonManagerMock: MockWrapper<() => any>;
 
   beforeEach(() => {
     manager = new ButtonManager(managerOptions);

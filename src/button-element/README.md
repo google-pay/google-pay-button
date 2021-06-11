@@ -109,11 +109,50 @@ repository.
 
 Try it out on [StackBlitz](https://stackblitz.com/edit/google-pay-vue).
 
-## Other examples
+## Example usage: Svelte website
 
-Additional examples included:
+```jsx
+<google-pay-button
+  environment="TEST"
+  button-type="buy"
+  button-color="black"
+  paymentRequest={{
+    apiVersion: 2,
+    apiVersionMinor: 0,
+    allowedPaymentMethods: [
+      {
+        type: 'CARD',
+        parameters: {
+          allowedAuthMethods: ['PAN_ONLY', 'CRYPTOGRAM_3DS'],
+          allowedCardNetworks: ['AMEX', 'VISA', 'MASTERCARD'],
+        },
+        tokenizationSpecification: {
+          type: 'PAYMENT_GATEWAY',
+          parameters: {
+            gateway: 'stripe',
+          },
+        },
+      },
+    ],
+    transactionInfo: {
+      totalPriceStatus: 'FINAL',
+      totalPriceLabel: 'Total',
+      totalPrice: '100.00',
+      currencyCode: 'USD',
+      countryCode: 'US',
+    },
+  }}
+  on:loadpaymentdata={event => {
+    console.log('load payment data', event.detail);
+  }}
+></google-pay-button>
+```
 
-- [Svelte](https://github.com/google-pay/google-pay-button/tree/main/examples/svelte/src)
+More Svelte examples can be found in the
+[examples folder](https://github.com/google-pay/google-pay-button/tree/main/examples/svelte/src) of this repository.
+
+Try it out on [StackBlitz](https://stackblitz.com/edit/google-pay-svelte) (note:
+[limited browser support](https://github.com/stackblitz/webcontainer-core#browser-support)).
 
 ## Documentation
 

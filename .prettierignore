@@ -9,3 +9,6 @@ src/button-element/package.json
 src/button-react/package.json
 
 .bit/
+
+# Temporarily disable while investigating build error
+src/lib/__util__/test-util.ts

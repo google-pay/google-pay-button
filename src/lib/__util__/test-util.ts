@@ -46,7 +46,7 @@ export function mock<T>(
   implementation: (...args: any[]) => any,
 ): MockWrapper<(...args: any[]) => any> {
   const obj: any = target;
-  const original = (obj[functionName] as unknown) as (...args: any[]) => any;
+  const original = obj[functionName] as unknown as (...args: any[]) => any;
   obj[functionName] = implementation as any;
 
   function restore(): void {

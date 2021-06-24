@@ -1,3 +1,6 @@
 build/
 examples/
 dist/
+
+# Temporarily disable while investigating build error
+src/lib/__util__/test-util.ts

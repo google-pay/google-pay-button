@@ -105,10 +105,10 @@ integrating Google Pay into your website.
   </tr>
   <tr>
     <td><p>buttonType</p></td>
-    <td><p><code>"buy" | "plain" | "donate" | "long" | "short"</code></p></td>
+    <td><p><code>"book" | "buy" | "checkout" | "donate" | "order" | "pay" | "plain" | "subscribe" | "long" | "short"</code></p></td>
     <td>
       <p>Optional.</p>
-      <p><code>"buy"</code> and <code>"donate"</code> display their respective prompts (localized based on the user's browser settings) with the Google Pay logo. The <code>"plain"</code> button only displays the Google Pay logo.</p>
+      <p>Displays their respective prompts (localized based on the user's browser settings) with the Google Pay logo. The <code>"plain"</code> button only displays the Google Pay logo.</p>
       <p><code>"long"</code> and <code>"short"</code> button types have been renamed to <code>"buy"</code> and <code>"plain"</code>, but are still valid button types for backwards compatability.</p>
       <p>Default value <code>"buy"</code>.</p>
     </td>

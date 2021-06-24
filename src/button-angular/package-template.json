@@ -18,11 +18,11 @@
     "build": "ng build --configuration production"
   },
   "dependencies": {
-    "@types/googlepay": "^0.6.0"
+    "@types/googlepay": "^0.6.1"
   },
   "peerDependencies": {
     "@angular/core": ">=8.0.0",
-    "@types/googlepay": "^0.6.0"
+    "@types/googlepay": "^0.6.1"
   },
   "files": [
     "dist/*",

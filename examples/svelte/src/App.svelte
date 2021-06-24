@@ -193,12 +193,15 @@
     <label>
       <span>Button type:</span>
       <select id="button-type" bind:value={buttonType}>
-        <option value="buy">buy</option>
-        <option value="plain">plain</option>
+        <option value="book">book</option>
+        <option value="buy" selected>buy</option>
+        <option value="checkout">checkout</option>
         <option value="donate">donate</option>
-        <option value="long">long</option>
-        <option value="short">short</option>
-      </select>
+        <option value="order">order</option>
+        <option value="pay">pay</option>
+        <option value="plain">plain</option>
+        <option value="subscribe">subscribe</option>
+    </select>
     </label>
   </div>
 

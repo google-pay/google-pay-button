@@ -1,5 +1,12 @@
 # Changelog
 
+### [2.4.1](https://www.github.com/google-pay/google-pay-button/compare/v2.4.0...v2.4.1) (2021-06-24)
+
+
+### Features
+
+* update @types/googlepay to support new button types ([e017ab0](https://www.github.com/google-pay/google-pay-button/commit/e017ab090fe0efffbfd0adb9738fb2f4a6111cf3))
+
 ## [2.4.0](https://www.github.com/google-pay/google-pay-button/compare/v2.3.0...v2.4.0) (2021-06-11)
 
 

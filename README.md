@@ -17,8 +17,8 @@ The [Google Pay web component button][button-element] makes it easy to integrate
 standards based custom elements. Web components can be used directly in a standard HTML web application as is, and is
 also [compatible with many popular web frameworks][custom-elements-compatible].
 
-* [Example Vue Google Pay button](./examples/vue)
-* [Example Svelte Google Pay button](./examples/svelte)
+- [Example Vue Google Pay button](./examples/vue)
+- [Example Svelte Google Pay button](./examples/svelte)
 
 ```sh
 npm install @google-pay/button-element
@@ -33,8 +33,8 @@ Find out more about the [Google Pay web component button][button-element].
 Web components are more difficult to consume in a React application due to the extra work involved in binding to web
 component properties with React.
 
-A separate [Google Pay React button][button-react] has been created to make it easy to integrate Google Pay into
-your React website.
+A separate [Google Pay React button][button-react] has been created to make it easy to integrate Google Pay into your
+React website.
 
 ```sh
 npm install @google-pay/button-react
@@ -46,9 +46,9 @@ Find out more about the [Google Pay React button][button-react].
 
 [![npm version](https://badge.fury.io/js/%40google-pay%2Fbutton-angular.svg)][npm-angular]
 
-An Angular version of the [Google Pay button][button-angular] has been created to make it easier to integrate
-Google Pay into your Angular website. The advantage of using the Angular version of the Google Pay button over the web
-component is that it eliminates the need to register `CUSTOM_ELEMENTS_SCHEMA`.
+An Angular version of the [Google Pay button][button-angular] has been created to make it easier to integrate Google Pay
+into your Angular website. The advantage of using the Angular version of the Google Pay button over the web component is
+that it eliminates the need to register `CUSTOM_ELEMENTS_SCHEMA`.
 
 ```sh
 npm install @google-pay/button-angular

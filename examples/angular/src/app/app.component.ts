@@ -73,4 +73,13 @@ export class AppComponent {
   onReadyToPayChange = (event: CustomEvent<ReadyToPayChangeResponse>): void => {
     console.log('ready to pay change', event.detail);
   };
+
+  onClick = (event: Event): void => {
+    console.log('click');
+  };
+
+  onClickPreventDefault = (event: Event): void => {
+    console.log('prevent default');
+    event.preventDefault();
+  };
 }

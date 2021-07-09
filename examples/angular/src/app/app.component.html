@@ -222,5 +222,56 @@
         </google-pay-button>
       </div>
     </div>
+    <div class="example">
+      <div class="title">OnClick</div>
+      <div class="demo">
+        <google-pay-button
+          environment="TEST"
+          [buttonType]="buttonType"
+          [buttonColor]="buttonColor"
+          [buttonLocale]="buttonLocale"
+          [existingPaymentMethodRequired]="existingPaymentMethodRequired"
+          [paymentRequest]="{
+            apiVersion: paymentRequest.apiVersion,
+            apiVersionMinor: paymentRequest.apiVersionMinor,
+            allowedPaymentMethods: paymentRequest.allowedPaymentMethods,
+            merchantInfo: paymentRequest.merchantInfo,
+            transactionInfo: {
+              totalPriceStatus: 'FINAL',
+              totalPriceLabel: 'Total',
+              totalPrice: amount,
+              currencyCode: 'USD',
+              countryCode: 'US'
+            }
+          }"
+          [clickCallback]="onClick"
+          (loadpaymentdata)="onLoadPaymentData($event)"
+          (error)="onError($event)"
+        ></google-pay-button>
+        <google-pay-button
+          environment="TEST"
+          [buttonType]="buttonType"
+          [buttonColor]="buttonColor"
+          [buttonLocale]="buttonLocale"
+          [existingPaymentMethodRequired]="existingPaymentMethodRequired"
+          [paymentRequest]="{
+            apiVersion: paymentRequest.apiVersion,
+            apiVersionMinor: paymentRequest.apiVersionMinor,
+            allowedPaymentMethods: paymentRequest.allowedPaymentMethods,
+            merchantInfo: paymentRequest.merchantInfo,
+            transactionInfo: {
+              totalPriceStatus: 'FINAL',
+              totalPriceLabel: 'Total',
+              totalPrice: amount,
+              currencyCode: 'USD',
+              countryCode: 'US'
+            }
+          }"
+          [clickCallback]="onClickPreventDefault"
+          (loadpaymentdata)="onLoadPaymentData($event)"
+          (error)="onError($event)"
+        ></google-pay-button>
+      </div>
+    </div>
   </div>
 </div>

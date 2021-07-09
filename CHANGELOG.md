@@ -1,5 +1,12 @@
 # Changelog
 
+## [2.5.0](https://www.github.com/google-pay/google-pay-button/compare/v2.4.1...v2.5.0) (2021-07-09)
+
+
+### Features
+
+* add callback to be executed when Google Pay button is clicked ([4720041](https://www.github.com/google-pay/google-pay-button/commit/4720041bd008988bbc5b40a706793c3121266c18)), closes [#92](https://www.github.com/google-pay/google-pay-button/issues/92)
+
 ### [2.4.1](https://www.github.com/google-pay/google-pay-button/compare/v2.4.0...v2.4.1) (2021-06-24)
 
 

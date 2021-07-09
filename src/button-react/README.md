@@ -174,9 +174,22 @@ integrating Google Pay into your website.
     </td>
   </tr>
   <tr>
+    <td><p>onClick</p></td>
+    <td>
+      <p>Invoked when the Google Pay button is clicked, before the payment sheet is displayed.</p>
+      <p>Display of the payment sheet can be prevented by calling <code>event.preventDefault()</code>.</p>
+    </td>
+  </tr>
+  <tr>
     <td><p>onError</p></td>
     <td>
-      <p>Invoked an error is encountered in the process of presenting and collecting payment options from the Google Pay payment sheet.</p>
+      <p>Invoked when an error is encountered in the process of presenting and collecting payment options from the Google Pay payment sheet.</p>
+    </td>
+  </tr>
+  <tr>
+    <td><p>onLoadPaymentData</p></td>
+    <td>
+      <p>Invoked when a user has successfully nominated payment details. This callback receives the <a href="https://developers.google.com/pay/api/web/reference/response-objects#PaymentData"><code>PaymentData</code> response</a> which includes the <a href="https://developers.google.com/pay/api/web/reference/response-objects#PaymentMethodData"><code>PaymentMethodData</code></a> that can be sent to <a href="https://developers.google.com/pay/api#participating-processors">supported payment processors</a>.</p>
     </td>
   </tr>
   <tr>
@@ -200,12 +213,6 @@ integrating Google Pay into your website.
     <td><p>onReadyToPayChange</p></td>
     <td>
       <p>Invoked when the user's <code>isReadyToPay</code> state changes. This callback can be used to change the application's behaviour based on whether or not the user is ready to pay.</p>
-    </td>
-  </tr>
-  <tr>
-    <td><p>onLoadPaymentData</p></td>
-    <td>
-      <p>Invoked when a user has successfully nominated payment details. This callback receives the <a href="https://developers.google.com/pay/api/web/reference/response-objects#PaymentData"><code>PaymentData</code> response</a> which includes the <a href="https://developers.google.com/pay/api/web/reference/response-objects#PaymentMethodData"><code>PaymentMethodData</code></a> that can be sent to <a href="https://developers.google.com/pay/api#participating-processors">supported payment processors</a>.</p>
     </td>
   </tr>
 </table>

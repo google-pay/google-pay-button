@@ -34,6 +34,7 @@ export interface Config {
   onCancel?: (reason: google.payments.api.PaymentsError) => void;
   onError?: (error: Error) => void;
   onReadyToPayChange?: (result: ReadyToPayChangeResponse) => void;
+  onClick?: (event: Event) => void;
   buttonColor?: google.payments.api.ButtonColor;
   buttonType?: google.payments.api.ButtonType;
   buttonSizeMode?: google.payments.api.ButtonSizeMode;
@@ -66,7 +67,7 @@ export class ButtonManager {
     this.options = options;
   }
 
-  getElement(): Node | undefined {
+  getElement(): Element | undefined {
     return this.element;
   }
 
@@ -210,7 +211,7 @@ export class ButtonManager {
 
   private async updateElement(): Promise<void> {
     if (!this.isMounted()) return;
-    const element = this.element!;
+    const element = this.getElement()!;
 
     if (!this.config) {
       throw new Error('google-pay-button: Missing configuration');
@@ -229,7 +230,7 @@ export class ButtonManager {
       onClick: this.handleClick,
     };
 
-    const rootNode = this.element?.getRootNode();
+    const rootNode = element.getRootNode();
     if (rootNode instanceof ShadowRoot) {
       buttonOptions.buttonRootNode = rootNode;
     }
@@ -292,7 +293,15 @@ export class ButtonManager {
     }
   }
 
-  private handleClick = async (): Promise<void> => {
+  /**
+   * Handles the click event of the Google Pay button.
+   *
+   * This method would normally be private but has been made public for
+   * testing purposes.
+   *
+   * @private
+   */
+  handleClick = async (event: Event): Promise<void> => {
     const config = this.config;
     if (!config) {
       throw new Error('google-pay-button: Missing configuration');
@@ -301,6 +310,14 @@ export class ButtonManager {
     const request = this.createLoadPaymentDataRequest(config);
 
     try {
+      if (config.onClick) {
+        config.onClick(event);
+      }
+
+      if (event.defaultPrevented) {
+        return;
+      }
+
       const result = await this.client!.loadPaymentData(request);
 
       if (config.onLoadPaymentData) {

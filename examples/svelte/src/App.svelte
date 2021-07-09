@@ -96,6 +96,15 @@
     console.log('ready to pay change', event.detail);
   }
 
+  function onClick(event) {
+    console.log('click');
+  }
+
+  function onClickPreventDefault(event) {
+    console.log('prevent default');
+    event.preventDefault();
+  }
+
   function handleAmountChange() {
     updatePaymentRequests();
   }
@@ -260,6 +269,29 @@
           on:error={onError}
           on:readytopaychange={onReadyToPayChange}
           onPaymentAuthorized={onPaymentDataAuthorized} />
+      </div>
+    </div>
+    <div class="example">
+      <div class="title">OnClick</div>
+      <div class="demo">
+        <google-pay-button
+          environment="TEST"
+          button-type={buttonType}
+          button-color={buttonColor}
+          {existingPaymentMethodRequired}
+          paymentRequest={paymentRequests.basic}
+          clickCallback={onClick}
+          on:loadpaymentdata={onLoadPaymentData}
+          on:error={onError} />
+        <google-pay-button
+          environment="TEST"
+          button-type={buttonType}
+          button-color={buttonColor}
+          {existingPaymentMethodRequired}
+          paymentRequest={paymentRequests.basic}
+          clickCallback={onClickPreventDefault}
+          on:loadpaymentdata={onLoadPaymentData}
+          on:error={onError} />
       </div>
     </div>
   </div>

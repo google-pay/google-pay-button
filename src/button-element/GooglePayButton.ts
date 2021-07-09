@@ -90,6 +90,11 @@ class GooglePayButton extends HTMLElement {
   @Alias('onerror')
   onError?: (error: Error) => void;
 
+  @Alias('clickCallback')
+  @Alias('clickcallback')
+  @Alias('onclick')
+  onClick?: (event: Event) => void;
+
   get isReadyToPay(): boolean | undefined {
     return this.manager.isReadyToPay;
   }
@@ -179,6 +184,11 @@ class GooglePayButton extends HTMLElement {
           this.onLoadPaymentData(paymentData);
         }
         this.dispatch('loadpaymentdata', paymentData);
+      },
+      onClick: event => {
+        if (this.onClick) {
+          this.onClick?.(event);
+        }
       },
     };
 

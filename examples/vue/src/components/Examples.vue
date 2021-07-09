@@ -178,6 +178,55 @@
           ></google-pay-button>
         </div>
       </div>
+      <div class="example">
+        <div class="title">OnClick</div>
+        <div class="demo">
+          <google-pay-button
+            environment="TEST"
+            v-bind:button-type="buttonType"
+            v-bind:button-color="buttonColor"
+            v-bind:existing-payment-method-required="existingPaymentMethodRequired"
+            v-bind:paymentRequest.prop="{
+              apiVersion: paymentRequest.apiVersion,
+              apiVersionMinor: paymentRequest.apiVersionMinor,
+              allowedPaymentMethods: paymentRequest.allowedPaymentMethods,
+              merchantInfo: paymentRequest.merchantInfo,
+              transactionInfo: {
+                totalPriceStatus: 'FINAL',
+                totalPriceLabel: 'Total',
+                totalPrice: amount,
+                currencyCode: 'USD',
+                countryCode: 'US',
+              },
+            }"
+            v-on:loadpaymentdata="onLoadPaymentData"
+            v-on:error="onError"
+            v-bind:clickCallback.prop="onClick"
+          ></google-pay-button>
+          <google-pay-button
+            environment="TEST"
+            v-bind:button-type="buttonType"
+            v-bind:button-color="buttonColor"
+            v-bind:existing-payment-method-required="existingPaymentMethodRequired"
+            v-bind:paymentRequest.prop="{
+              apiVersion: paymentRequest.apiVersion,
+              apiVersionMinor: paymentRequest.apiVersionMinor,
+              allowedPaymentMethods: paymentRequest.allowedPaymentMethods,
+              merchantInfo: paymentRequest.merchantInfo,
+              transactionInfo: {
+                totalPriceStatus: 'FINAL',
+                totalPriceLabel: 'Total',
+                totalPrice: amount,
+                currencyCode: 'USD',
+                countryCode: 'US',
+              },
+            }"
+            v-on:loadpaymentdata="onLoadPaymentData"
+            v-on:error="onError"
+            v-bind:clickCallback.prop="onClickPreventDefault"
+          ></google-pay-button>
+        </div>
+      </div>
     </div>
   </div>
 </template>
@@ -234,6 +283,13 @@ export default {
     },
     onReadyToPayChange: event => {
       console.log('ready to pay change', event.detail);
+    },
+    onClick: () => {
+      console.log('click');
+    },
+    onClickPreventDefault: event => {
+      console.log('prevent default');
+      event.preventDefault();
     },
   },
 };

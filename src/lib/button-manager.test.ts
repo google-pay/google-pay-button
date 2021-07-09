@@ -727,3 +727,72 @@ describe('createButton', () => {
     );
   });
 });
+
+describe('Events', () => {
+  let manager: ButtonManager;
+  let paymentsClientMock: MockWrapper<() => any>;
+  let createButtonSpy = jest.fn();
+  let isMountedMock: MockWrapper<() => any>;
+  let getElementMock: MockWrapper<() => any>;
+  let clickSpy = jest.fn();
+  let loadPaymentDataSpy = jest.fn();
+
+  beforeEach(() => {
+    manager = new ButtonManager(managerOptions);
+    createButtonSpy = jest.fn();
+    createButtonSpy.mockReturnValue(document.createElement('div'));
+    paymentsClientMock = mock(google.payments.api.PaymentsClient.prototype, 'createButton', createButtonSpy);
+    isMountedMock = mock(manager, 'isMounted', () => true);
+    getElementMock = mock(manager, 'getElement', () => document.createElement('div'));
+    clickSpy = jest.fn();
+    loadPaymentDataSpy = jest.fn();
+  });
+
+  afterEach(() => {
+    createButtonSpy.mockReset();
+    paymentsClientMock.restore();
+    isMountedMock.restore();
+    getElementMock.restore();
+  });
+
+  it('calls onLoadPaymentData when set', async () => {
+    manager.configure({
+      ...defaults,
+      onLoadPaymentData: loadPaymentDataSpy,
+    });
+
+    const event = new Event('click', { cancelable: true });
+    await manager.handleClick(event);
+
+    expect(loadPaymentDataSpy).toBeCalled();
+  });
+
+  it('calls onLoadPaymentData when onClick does not prevent default', async () => {
+    manager.configure({
+      ...defaults,
+      onClick: clickSpy,
+      onLoadPaymentData: loadPaymentDataSpy,
+    });
+
+    const event = new Event('click', { cancelable: true });
+    await manager.handleClick(event);
+
+    expect(clickSpy).toBeCalled();
+    expect(loadPaymentDataSpy).toBeCalled();
+  });
+
+  it('does not call onLoadPaymentData when onClick prevents default', async () => {
+    manager.configure({
+      ...defaults,
+      onClick: event => {
+        event.preventDefault();
+      },
+      onLoadPaymentData: loadPaymentDataSpy,
+    });
+
+    const event = new Event('click', { cancelable: true });
+    await manager.handleClick(event);
+
+    expect(loadPaymentDataSpy).not.toBeCalled();
+  });
+});

@@ -32,6 +32,7 @@ import DisplayItemsExample from './examples/DisplayItemsExample';
 import DynamicPriceUpdateExample from './examples/DynamicPriceUpdateExample';
 import DirectIntegrationExample from './examples/DirectIntegrationExample';
 import ButtonSizeExample from './examples/ButtonSizeExample';
+import OnClickExample from './examples/OnClickExample';
 
 const App: React.FC = () => {
   const [amount, setAmount] = useState('100.00');
@@ -140,6 +141,7 @@ const App: React.FC = () => {
       <DisplayItemsExample {...props} />
       <DynamicPriceUpdateExample {...props} />
       <ButtonSizeExample {...props} />
+      <OnClickExample {...props} />
     </div>
   );
 };

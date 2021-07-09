@@ -42,6 +42,7 @@ export class GooglePayButtonComponent implements OnInit, OnChanges {
   @Input() loadPaymentDataCallback?: (paymentData: google.payments.api.PaymentData) => void;
   @Input() cancelCallback?: (reason: google.payments.api.PaymentsError) => void;
   @Input() errorCallback?: (error: Error) => void;
+  @Input() clickCallback?: (event: Event) => void;
 
   constructor(private elementRef: ElementRef) {}
 
@@ -99,6 +100,11 @@ export class GooglePayButtonComponent implements OnInit, OnChanges {
           this.loadPaymentDataCallback(paymentData);
         }
         this.dispatch('loadpaymentdata', paymentData);
+      },
+      onClick: event => {
+        if (this.clickCallback) {
+          this.clickCallback?.(event);
+        }
       },
     };
 

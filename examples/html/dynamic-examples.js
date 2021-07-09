@@ -260,6 +260,51 @@ const googlePayButtons = [
       };
     },
   },
+  {
+    title: 'OnClick',
+    get props() {
+      return {
+        buttonColor: controls.buttonColor.value,
+        buttonType: controls.buttonType.value,
+        buttonLocale: controls.buttonLocale.value,
+        paymentRequest: {
+          ...defaultPaymentRequest,
+          transactionInfo: {
+            ...defaultPaymentRequest.transactionInfo,
+            totalPrice: controls.amount.value,
+          },
+        },
+        existingPaymentRequired: controls.existingPaymentRequired.value === 'true',
+        onLoadPaymentData,
+        onclick: () => {
+          console.log('click');
+        },
+      };
+    },
+  },
+  {
+    title: 'OnClick (preventDefault)',
+    get props() {
+      return {
+        buttonColor: controls.buttonColor.value,
+        buttonType: controls.buttonType.value,
+        buttonLocale: controls.buttonLocale.value,
+        paymentRequest: {
+          ...defaultPaymentRequest,
+          transactionInfo: {
+            ...defaultPaymentRequest.transactionInfo,
+            totalPrice: controls.amount.value,
+          },
+        },
+        existingPaymentRequired: controls.existingPaymentRequired.value === 'true',
+        onLoadPaymentData,
+        onclick: event => {
+          console.log('prevent default');
+          event.preventDefault();
+        },
+      };
+    },
+  },
 ];
 
 window.controls = controls;

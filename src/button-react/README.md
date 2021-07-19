@@ -165,16 +165,19 @@ integrating Google Pay into your website.
 <table>
   <tr>
     <th align="left">Callback</th>
+    <th align="left">Arguments</th>
     <th align="left">Remarks</th>
   </tr>
   <tr>
     <td><p>onCancel</p></td>
+    <td><p>reason</p></td>
     <td>
       <p>Invoked when a user cancels or closes the Google Pay payment sheet.</p>
     </td>
   </tr>
   <tr>
     <td><p>onClick</p></td>
+    <td><p>event</p></td>
     <td>
       <p>Invoked when the Google Pay button is clicked, before the payment sheet is displayed.</p>
       <p>Display of the payment sheet can be prevented by calling <code>event.preventDefault()</code>.</p>
@@ -182,18 +185,21 @@ integrating Google Pay into your website.
   </tr>
   <tr>
     <td><p>onError</p></td>
+    <td><p>reason</p></td>
     <td>
       <p>Invoked when an error is encountered in the process of presenting and collecting payment options from the Google Pay payment sheet.</p>
     </td>
   </tr>
   <tr>
     <td><p>onLoadPaymentData</p></td>
+    <td><p>paymentData</p></td>
     <td>
       <p>Invoked when a user has successfully nominated payment details. This callback receives the <a href="https://developers.google.com/pay/api/web/reference/response-objects#PaymentData"><code>PaymentData</code> response</a> which includes the <a href="https://developers.google.com/pay/api/web/reference/response-objects#PaymentMethodData"><code>PaymentMethodData</code></a> that can be sent to <a href="https://developers.google.com/pay/api#participating-processors">supported payment processors</a>.</p>
     </td>
   </tr>
   <tr>
     <td><p>onPaymentAuthorized</p></td>
+    <td><p>paymentData</p></td>
     <td>
       <p>Invoked when a user chooses a payment method. This callback should be used to validate whether or not the payment method can be used to complete a payment.</p>
       <p>This would be typically used to perform pre-authorization to ensure that the card is valid and has sufficient funds.</p>
@@ -203,6 +209,7 @@ integrating Google Pay into your website.
   </tr>
   <tr>
     <td><p>onPaymentDataChanged</p></td>
+    <td><p>intermediatePaymentData</p></td>
     <td>
       <p>Invoked when payment the user changes payment data options including payment method, shipping details, and contact details. This callback can be used to dynamically update <code>transactionInfo</code> when payment details, shipping address, or shipping options change.</p>
       <p>Note that in order to use this callback <code>paymentRequest.callbackIntents</code> must include either <code>SHIPPING_ADDRESS</code> or <code>SHIPPING_OPTION</code>.</p>
@@ -211,8 +218,11 @@ integrating Google Pay into your website.
   </tr>
   <tr>
     <td><p>onReadyToPayChange</p></td>
+    <td><p>result</p></td>
     <td>
       <p>Invoked when the user's <code>isReadyToPay</code> state changes. This callback can be used to change the application's behaviour based on whether or not the user is ready to pay.</p>
+      <p>Note that when <code>existingPaymentMethodRequired</code> is <code>true</code>, you will need to inspect both <code>result.isReadyToPay</code> and <code>result.paymentMethodPresent</code> to determine if the user <code>isReadyToPay</code> and has a <code>paymentMethodPresent</code>. Alternatively, <code>result.isButtonVisible</code> can be used to determine whether or Google Pay button will be displayed.</p>
+      <p><code>existingPaymentMethodRequired</code> is taken into account with <code>result.isButtonVisible</code>.</p>
     </td>
   </tr>
 </table>

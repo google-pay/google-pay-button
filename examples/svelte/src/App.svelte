@@ -45,6 +45,44 @@
   function updatePaymentRequests() {
     paymentRequests = {
       basic: buildPaymentRequest(),
+      mastercard: {
+        ...buildPaymentRequest(),
+        allowedPaymentMethods: [
+          {
+            type: 'CARD',
+            parameters: {
+              allowedAuthMethods: ['PAN_ONLY', 'CRYPTOGRAM_3DS'],
+              allowedCardNetworks: ['MASTERCARD'],
+            },
+            tokenizationSpecification: {
+              type: 'PAYMENT_GATEWAY',
+              parameters: {
+                gateway: 'example',
+                gatewayMerchantId: 'exampleGatewayMerchantId',
+              },
+            },
+          },
+        ],
+      },
+      visa: {
+        ...buildPaymentRequest(),
+        allowedPaymentMethods: [
+          {
+            type: 'CARD',
+            parameters: {
+              allowedAuthMethods: ['PAN_ONLY', 'CRYPTOGRAM_3DS'],
+              allowedCardNetworks: ['VISA'],
+            },
+            tokenizationSpecification: {
+              type: 'PAYMENT_GATEWAY',
+              parameters: {
+                gateway: 'example',
+                gatewayMerchantId: 'exampleGatewayMerchantId',
+              },
+            },
+          },
+        ],
+      },
       authorize: {
         ...buildPaymentRequest(),
         callbackIntents: ['PAYMENT_AUTHORIZATION'],
@@ -224,6 +262,32 @@
           button-color={buttonColor}
           {existingPaymentMethodRequired}
           paymentRequest={paymentRequests.basic}
+          on:loadpaymentdata={onLoadPaymentData}
+          on:error={onError} />
+      </div>
+    </div>
+    <div class="example">
+      <div class="title">Mastercard only</div>
+      <div class="demo">
+        <google-pay-button
+          environment="TEST"
+          button-type={buttonType}
+          button-color={buttonColor}
+          {existingPaymentMethodRequired}
+          paymentRequest={paymentRequests.mastercard}
+          on:loadpaymentdata={onLoadPaymentData}
+          on:error={onError} />
+      </div>
+    </div>
+    <div class="example">
+      <div class="title">VISA only</div>
+      <div class="demo">
+        <google-pay-button
+          environment="TEST"
+          button-type={buttonType}
+          button-color={buttonColor}
+          {existingPaymentMethodRequired}
+          paymentRequest={paymentRequests.visa}
           on:loadpaymentdata={onLoadPaymentData}
           on:error={onError} />
       </div>

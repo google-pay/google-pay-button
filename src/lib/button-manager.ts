@@ -228,6 +228,7 @@ export class ButtonManager {
       buttonSizeMode: this.config.buttonSizeMode,
       buttonLocale: this.config.buttonLocale,
       onClick: this.handleClick,
+      allowedPaymentMethods: this.config.paymentRequest.allowedPaymentMethods,
     };
 
     const rootNode = element.getRootNode();
@@ -400,6 +401,7 @@ export class ButtonManager {
       config.paymentRequest.merchantInfo.merchantName,
       config.paymentRequest.merchantInfo.softwareInfo?.id,
       config.paymentRequest.merchantInfo.softwareInfo?.version,
+      config.paymentRequest.allowedPaymentMethods,
     ];
   }
 }

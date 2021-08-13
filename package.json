@@ -1,7 +1,7 @@
 {
   "private": true,
   "name": "google-pay-button",
-  "version": "2.5.0",
+  "version": "2.6.0",
   "description": "Google Pay button component",
   "main": "dist/GooglePayButton.js",
   "types": "dist/GooglePayButton.d.ts",

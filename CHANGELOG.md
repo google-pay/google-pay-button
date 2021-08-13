@@ -1,5 +1,12 @@
 # Changelog
 
+## [2.6.0](https://www.github.com/google-pay/google-pay-button/compare/v2.5.0...v2.6.0) (2021-08-13)
+
+
+### Features
+
+* pass allowedPaymentMethods to the createButton api ([9073f06](https://www.github.com/google-pay/google-pay-button/commit/9073f0663cfe94bd20826d75030ee5f1478f0cfb))
+
 ## [2.5.0](https://www.github.com/google-pay/google-pay-button/compare/v2.4.1...v2.5.0) (2021-07-09)
 
 

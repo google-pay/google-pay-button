@@ -53,6 +53,7 @@ export default function PaymentAuthorizationExample(props: any): React.ReactElem
             currencyCode: 'USD',
             countryCode: 'US',
           },
+          callbackIntents: ['PAYMENT_AUTHORIZATION'],
         }}
         onLoadPaymentData={paymentRequest => {
           console.log('Success', paymentRequest);

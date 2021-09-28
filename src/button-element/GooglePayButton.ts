@@ -88,7 +88,7 @@ class GooglePayButton extends HTMLElement {
   @Alias('errorCallback')
   @Alias('errorcallback')
   @Alias('onerror')
-  onError?: (error: Error) => void;
+  onError?: (error: Error | google.payments.api.PaymentsError) => void;
 
   @Alias('clickCallback')
   @Alias('clickcallback')

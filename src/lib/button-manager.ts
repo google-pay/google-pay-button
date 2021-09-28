@@ -32,7 +32,7 @@ export interface Config {
   onPaymentAuthorized?: google.payments.api.PaymentAuthorizedHandler;
   onLoadPaymentData?: (paymentData: google.payments.api.PaymentData) => void;
   onCancel?: (reason: google.payments.api.PaymentsError) => void;
-  onError?: (error: Error) => void;
+  onError?: (error: Error | google.payments.api.PaymentsError) => void;
   onReadyToPayChange?: (result: ReadyToPayChangeResponse) => void;
   onClick?: (event: Event) => void;
   buttonColor?: google.payments.api.ButtonColor;
@@ -253,7 +253,7 @@ export class ButtonManager {
         || false;
     } catch (err) {
       if (this.config.onError) {
-        this.config.onError(err);
+        this.config.onError(err as Error);
       } else {
         console.error(err);
       }
@@ -325,12 +325,12 @@ export class ButtonManager {
         config.onLoadPaymentData(result);
       }
     } catch (err) {
-      if (err.statusCode === 'CANCELED') {
+      if ((err as google.payments.api.PaymentsError).statusCode === 'CANCELED') {
         if (config.onCancel) {
-          config.onCancel(err);
+          config.onCancel(err as google.payments.api.PaymentsError);
         }
       } else if (config.onError) {
-        config.onError(err);
+        config.onError(err as google.payments.api.PaymentsError);
       } else {
         console.error(err);
       }

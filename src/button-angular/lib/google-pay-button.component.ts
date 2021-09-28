@@ -41,7 +41,7 @@ export class GooglePayButtonComponent implements OnInit, OnChanges {
   @Input() readyToPayChangeCallback?: (result: any) => void;
   @Input() loadPaymentDataCallback?: (paymentData: google.payments.api.PaymentData) => void;
   @Input() cancelCallback?: (reason: google.payments.api.PaymentsError) => void;
-  @Input() errorCallback?: (error: Error) => void;
+  @Input() errorCallback?: (error: Error | google.payments.api.PaymentsError) => void;
   @Input() clickCallback?: (event: Event) => void;
 
   constructor(private elementRef: ElementRef) {}

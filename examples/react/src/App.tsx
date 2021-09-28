@@ -33,6 +33,7 @@ import DynamicPriceUpdateExample from './examples/DynamicPriceUpdateExample';
 import DirectIntegrationExample from './examples/DirectIntegrationExample';
 import ButtonSizeExample from './examples/ButtonSizeExample';
 import OnClickExample from './examples/OnClickExample';
+import OnErrorExample from './examples/OnErrorExample';
 
 const App: React.FC = () => {
   const [amount, setAmount] = useState('100.00');
@@ -137,6 +138,7 @@ const App: React.FC = () => {
       <PaymentDataChangedExample {...props} />
       <PaymentDataChangedErrorExample {...props} />
       <OffersExample {...props} />
+      <OnErrorExample {...props} />
       <OnCancelExample {...props} />
       <DisplayItemsExample {...props} />
       <DynamicPriceUpdateExample {...props} />

@@ -1,5 +1,16 @@
 # Changelog
 
+## [3.0.0](https://www.github.com/google-pay/google-pay-button/compare/v2.6.0...v3.0.0) (2021-10-01)
+
+
+### ⚠ BREAKING CHANGES
+
+* update onError callback signature to match runtime values
+
+### Bug Fixes
+
+* update onError callback signature to match runtime values ([edbbc02](https://www.github.com/google-pay/google-pay-button/commit/edbbc02297649054fd1780a85e864581afec2a10)), closes [#101](https://www.github.com/google-pay/google-pay-button/issues/101)
+
 ## [2.6.0](https://www.github.com/google-pay/google-pay-button/compare/v2.5.0...v2.6.0) (2021-08-13)
 
 

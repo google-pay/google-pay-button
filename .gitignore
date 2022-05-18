@@ -26,6 +26,5 @@ yarn-error.log*
 
 *.orig
 .env
-.history
 .bit/
 .bitmap

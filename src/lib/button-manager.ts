@@ -79,7 +79,7 @@ export class ButtonManager {
     if (!this.isGooglePayLoaded()) {
       try {
         await loadScript('https://pay.google.com/gp/p/js/pay.js');
-      } catch(err) {
+      } catch (err) {
         if (this.config?.onError) {
           this.config.onError(err as Error);
         } else {
@@ -87,8 +87,6 @@ export class ButtonManager {
         }
       }
     }
-
-  
 
     this.element = element;
     if (element) {

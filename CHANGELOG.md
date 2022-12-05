@@ -1,5 +1,14 @@
 # Changelog
 
+## [3.0.1](https://github.com/google-pay/google-pay-button/compare/v3.0.0...v3.0.1) (2022-12-05)
+
+
+### Bug Fixes
+
+* remove history in gitignore and keep the if clause outside of the try block ([77ac315](https://github.com/google-pay/google-pay-button/commit/77ac315205b80c9d2a70c507763ab867a10575b2))
+* remove some blanks ([0670607](https://github.com/google-pay/google-pay-button/commit/0670607a253951b6e702991c3cb79e4985303608))
+* trigger onError callback when loading googlepay js faild ([e06dcf7](https://github.com/google-pay/google-pay-button/commit/e06dcf7668cd6390c9599b8b6ed7c01b52a8f6ae))
+
 ## [3.0.0](https://www.github.com/google-pay/google-pay-button/compare/v2.6.0...v3.0.0) (2021-10-01)
 
 

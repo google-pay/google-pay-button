@@ -10,17 +10,17 @@
   },
   "dependencies": {
     "@google-pay/button-element": "file:../../src/button-element",
-    "core-js": "^3.13.0",
-    "vue": "^2.6.12"
+    "core-js": "^3.26.1",
+    "vue": "^2.7.14"
   },
   "devDependencies": {
-    "@vue/cli-plugin-babel": "^4.5.13",
-    "@vue/cli-plugin-eslint": "^4.5.13",
-    "@vue/cli-service": "^4.5.13",
+    "@vue/cli-plugin-babel": "^4.5.19",
+    "@vue/cli-plugin-eslint": "^4.5.19",
+    "@vue/cli-service": "^4.5.19",
     "babel-eslint": "^10.1.0",
-    "eslint": "^6.7.2",
+    "eslint": "^6.8.0",
     "eslint-plugin-vue": "^6.2.2",
-    "vue-template-compiler": "^2.6.12"
+    "vue-template-compiler": "^2.7.14"
   },
   "eslintConfig": {
     "root": true,

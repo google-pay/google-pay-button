@@ -235,7 +235,7 @@
 import '@google-pay/button-element';
 
 export default {
-  name: 'Examples',
+  name: 'GooglePayExample',
   props: {},
   data: () => ({
     amount: '100.00',

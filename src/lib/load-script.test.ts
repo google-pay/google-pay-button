@@ -74,7 +74,7 @@ it('returns a different promise for the same resource when the first request fai
   try {
     await first;
   } catch (err) {
-    expect(err.message).toBe('Unable to load script https://pay.google.com/gp/p/js/pay.js');
+    expect((err as Error).message).toBe('Unable to load script https://pay.google.com/gp/p/js/pay.js');
   }
 
   const second = loadScript('https://pay.google.com/gp/p/js/pay.js');

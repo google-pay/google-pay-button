@@ -19,6 +19,7 @@ dist/
 .env.test.local
 .env.production.local
 .idea
+.angular/cache
 
 npm-debug.log*
 yarn-debug.log*

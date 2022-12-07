@@ -24,5 +24,8 @@
       }
     }
   },
-  "defaultProject": "google-pay-button"
+  "defaultProject": "google-pay-button",
+  "cli": {
+    "analytics": false
+  }
 }

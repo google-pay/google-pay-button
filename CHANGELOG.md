@@ -1,5 +1,12 @@
 # Changelog
 
+## [3.0.2](https://github.com/google-pay/google-pay-button/compare/v3.0.2...v3.0.2) (2022-12-12)
+
+
+### Bug Fixes
+
+* using angular "compilationMode": "partial" ([5694870](https://github.com/google-pay/google-pay-button/commit/5694870cafc4f4cc5f433aa8c49228fd8c6176c5))
+
 ## [3.0.2](https://github.com/google-pay/google-pay-button/compare/v3.0.1...v3.0.2) (2022-12-12)
 
 

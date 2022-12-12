@@ -42,8 +42,8 @@ export default class GooglePayButton extends React.Component<Props> {
   async componentDidMount(): Promise<void> {
     const element = this.elementRef.current;
     if (element) {
+      await this.manager.configure(this.props);
       await this.manager.mount(element);
-      this.manager.configure(this.props);
     }
   }
 

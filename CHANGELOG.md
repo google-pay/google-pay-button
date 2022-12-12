@@ -1,5 +1,12 @@
 # Changelog
 
+## [3.0.2](https://github.com/google-pay/google-pay-button/compare/v3.0.1...v3.0.2) (2022-12-12)
+
+
+### Bug Fixes
+
+* onError callback not called for @google-pay/button-react - fixes [#170](https://github.com/google-pay/google-pay-button/issues/170) ([73c518c](https://github.com/google-pay/google-pay-button/commit/73c518cc7c64ce96f484e4b1194f9a97dfcf64d1))
+
 ## [3.0.1](https://github.com/google-pay/google-pay-button/compare/v3.0.0...v3.0.1) (2022-12-05)
 
 

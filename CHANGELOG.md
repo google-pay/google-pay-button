@@ -1,5 +1,12 @@
 # Changelog
 
+## [3.0.5](https://github.com/google-pay/google-pay-button/compare/v3.0.4...v3.0.5) (2022-12-13)
+
+
+### Bug Fixes
+
+* angular - remove main entrypoint ([f8de638](https://github.com/google-pay/google-pay-button/commit/f8de6388ca3474b9d18c2904af08564277dde234))
+
 ## [3.0.4](https://github.com/google-pay/google-pay-button/compare/v3.0.3...v3.0.4) (2022-12-13)
 
 

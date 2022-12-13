@@ -1,5 +1,12 @@
 # Changelog
 
+## [3.0.3](https://github.com/google-pay/google-pay-button/compare/v3.0.2...v3.0.3) (2022-12-13)
+
+
+### Bug Fixes
+
+* include all files from dist for angular component publishing ([18954f2](https://github.com/google-pay/google-pay-button/commit/18954f22ddf20657f438eed4df7d64cca12806b9))
+
 ## [3.0.2](https://github.com/google-pay/google-pay-button/compare/v3.0.2...v3.0.2) (2022-12-12)
 
 

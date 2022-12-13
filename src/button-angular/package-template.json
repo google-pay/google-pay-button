@@ -24,18 +24,7 @@
     "@angular/core": ">=8.0.0",
     "@types/googlepay": "^0.6.3"
   },
-  "files": [
-    "dist/*",
-    "bundles/*",
-    "ems2015/*",
-    "fesm2015/*",
-    "lib/*",
-    "button-angular/*",
-    "google-pay-button-angular.*",
-    "*.d.ts",
-    "*.json",
-    "README.md"
-  ],
+  "files": ["dist/**"],
   "keywords": ["googlepay", "google-pay", "google-pay-button", "button", "angular"],
   "devDependencies": {
     "@angular-devkit/build-ng-packagr": "^0.1002.0",

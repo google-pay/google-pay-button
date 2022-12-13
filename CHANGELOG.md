@@ -1,5 +1,12 @@
 # Changelog
 
+## [3.0.4](https://github.com/google-pay/google-pay-button/compare/v3.0.3...v3.0.4) (2022-12-13)
+
+
+### Bug Fixes
+
+* broken angular packaging ([4ca7abe](https://github.com/google-pay/google-pay-button/commit/4ca7abea0b8a43d45c7499fd296f67b0c91935cd))
+
 ## [3.0.3](https://github.com/google-pay/google-pay-button/compare/v3.0.2...v3.0.3) (2022-12-13)
 
 

@@ -61,7 +61,6 @@ export default function OnClickExample(props: any): React.ReactElement {
           console.log('click');
         }}
         existingPaymentMethodRequired={props.existingPaymentMethodRequired}
-        buttonColor={props.buttonColor}
         buttonType={props.buttonType}
         buttonLocale={props.buttonLocale}
       />
@@ -106,7 +105,6 @@ export default function OnClickExample(props: any): React.ReactElement {
           event.preventDefault();
         }}
         existingPaymentMethodRequired={props.existingPaymentMethodRequired}
-        buttonColor={props.buttonColor}
         buttonType={props.buttonType}
         buttonLocale={props.buttonLocale}
       />

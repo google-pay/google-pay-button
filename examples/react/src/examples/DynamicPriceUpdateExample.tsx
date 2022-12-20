@@ -125,7 +125,6 @@ export default function DynamicPriceUpdateExample(props: any): React.ReactElemen
           return {};
         }}
         existingPaymentMethodRequired={props.existingPaymentMethodRequired}
-        buttonColor={props.buttonColor}
         buttonType={props.buttonType}
         buttonLocale={props.buttonLocale}
       />

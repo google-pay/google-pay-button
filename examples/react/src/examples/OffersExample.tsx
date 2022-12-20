@@ -92,7 +92,6 @@ export default function OffersExample(props: any): React.ReactElement {
           return newPaymentData;
         }}
         existingPaymentMethodRequired={props.existingPaymentMethodRequired}
-        buttonColor={props.buttonColor}
         buttonType={props.buttonType}
         buttonLocale={props.buttonLocale}
       />

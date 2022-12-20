@@ -25,7 +25,6 @@ import { ReadyToPayChangeResponse } from '@google-pay/button-angular';
 export class AppComponent {
   amount = '100.00';
   buttonType = 'buy';
-  buttonColor = 'default';
   buttonLocale = '';
   existingPaymentMethodRequired = false;
 

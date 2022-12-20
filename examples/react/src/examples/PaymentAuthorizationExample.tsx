@@ -62,7 +62,6 @@ export default function PaymentAuthorizationExample(props: any): React.ReactElem
           transactionState: 'SUCCESS',
         })}
         existingPaymentMethodRequired={props.existingPaymentMethodRequired}
-        buttonColor={props.buttonColor}
         buttonType={props.buttonType}
         buttonLocale={props.buttonLocale}
       />

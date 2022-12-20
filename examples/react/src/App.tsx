@@ -38,14 +38,12 @@ import OnErrorExample from './examples/OnErrorExample';
 const App: React.FC = () => {
   const [amount, setAmount] = useState('100.00');
   const [existingPaymentMethodRequired, setExistingPaymentMethodRequired] = useState(false);
-  const [buttonColor, setButtonColor] = useState('default');
   const [buttonType, setButtonType] = useState('buy');
   const [buttonLocale, setButtonLocale] = useState('');
 
   const props = {
     amount,
     existingPaymentMethodRequired,
-    buttonColor,
     buttonType,
     buttonLocale,
   };
@@ -65,14 +63,6 @@ const App: React.FC = () => {
           >
             <option value="no">No</option>
             <option value="yes">Yes</option>
-          </select>
-        </label>
-        <label>
-          <span>Button color:</span>
-          <select onChange={event => setButtonColor(event.target.value)} value={buttonColor}>
-            <option value="default">default</option>
-            <option value="black">black</option>
-            <option value="white">white</option>
           </select>
         </label>
         <label>

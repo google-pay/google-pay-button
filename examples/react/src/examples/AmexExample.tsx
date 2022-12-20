@@ -58,7 +58,6 @@ export default function AmexExample(props: any): React.ReactElement {
           console.log('Success', paymentRequest);
         }}
         existingPaymentMethodRequired={props.existingPaymentMethodRequired}
-        buttonColor={props.buttonColor}
         buttonType={props.buttonType}
         buttonLocale={props.buttonLocale}
       />

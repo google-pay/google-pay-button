@@ -33,7 +33,6 @@ class ControlAccessor {
 const controls = {
   amount: new ControlAccessor('amount'),
   existingPaymentRequired: new ControlAccessor('existing-payment-method-required'),
-  buttonColor: new ControlAccessor('button-color'),
   buttonType: new ControlAccessor('button-type'),
   buttonLocale: new ControlAccessor('button-locale'),
 };
@@ -93,7 +92,6 @@ const googlePayButtons = [
     title: 'Basic Example',
     get props() {
       return {
-        buttonColor: controls.buttonColor.value,
         buttonType: controls.buttonType.value,
         buttonLocale: controls.buttonLocale.value,
         paymentRequest: {
@@ -112,7 +110,6 @@ const googlePayButtons = [
     title: 'Cryptogram 3ds',
     get props() {
       return {
-        buttonColor: controls.buttonColor.value,
         buttonType: controls.buttonType.value,
         buttonLocale: controls.buttonLocale.value,
         paymentRequest: {
@@ -149,7 +146,6 @@ const googlePayButtons = [
     title: 'Payment Authorization',
     get props() {
       return {
-        buttonColor: controls.buttonColor.value,
         buttonType: controls.buttonType.value,
         buttonLocale: controls.buttonLocale.value,
         paymentRequest: {
@@ -170,7 +166,6 @@ const googlePayButtons = [
     title: 'Require Shipping',
     get props() {
       return {
-        buttonColor: controls.buttonColor.value,
         buttonType: controls.buttonType.value,
         buttonLocale: controls.buttonLocale.value,
         paymentRequest: {
@@ -192,7 +187,6 @@ const googlePayButtons = [
     title: 'Offers (code: "good")',
     get props() {
       return {
-        buttonColor: controls.buttonColor.value,
         buttonType: controls.buttonType.value,
         buttonLocale: controls.buttonLocale.value,
         paymentRequest: {
@@ -244,7 +238,6 @@ const googlePayButtons = [
     title: 'Button Size',
     get props() {
       return {
-        buttonColor: controls.buttonColor.value,
         buttonType: controls.buttonType.value,
         buttonLocale: controls.buttonLocale.value,
         buttonSizeMode: 'fill',
@@ -264,7 +257,6 @@ const googlePayButtons = [
     title: 'OnClick',
     get props() {
       return {
-        buttonColor: controls.buttonColor.value,
         buttonType: controls.buttonType.value,
         buttonLocale: controls.buttonLocale.value,
         paymentRequest: {
@@ -286,7 +278,6 @@ const googlePayButtons = [
     title: 'OnClick (preventDefault)',
     get props() {
       return {
-        buttonColor: controls.buttonColor.value,
         buttonType: controls.buttonType.value,
         buttonLocale: controls.buttonLocale.value,
         paymentRequest: {

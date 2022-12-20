@@ -66,7 +66,6 @@ export default function OnErrorExample(props: any): React.ReactElement {
           }
         }}
         existingPaymentMethodRequired={props.existingPaymentMethodRequired}
-        buttonColor={props.buttonColor}
         buttonType={props.buttonType}
         buttonLocale={props.buttonLocale}
       />

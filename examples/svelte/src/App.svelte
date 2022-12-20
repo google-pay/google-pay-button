@@ -3,7 +3,6 @@
 
   let amount = '100.00';
   let existingPaymentMethodRequired = false;
-  let buttonColor = 'default';
   let buttonType = 'buy';
 
   function buildPaymentRequest(): google.payments.api.PaymentDataRequest {
@@ -230,14 +229,6 @@
       </select>
     </label>
     <label>
-      <span>Button color:</span>
-      <select id="button-color" bind:value={buttonColor}>
-        <option value="default">default</option>
-        <option value="black">black</option>
-        <option value="white">white</option>
-      </select>
-    </label>
-    <label>
       <span>Button type:</span>
       <select id="button-type" bind:value={buttonType}>
         <option value="book">book</option>
@@ -259,7 +250,6 @@
         <google-pay-button
           environment="TEST"
           button-type={buttonType}
-          button-color={buttonColor}
           {existingPaymentMethodRequired}
           paymentRequest={paymentRequests.basic}
           on:loadpaymentdata={onLoadPaymentData}
@@ -272,7 +262,6 @@
         <google-pay-button
           environment="TEST"
           button-type={buttonType}
-          button-color={buttonColor}
           {existingPaymentMethodRequired}
           paymentRequest={paymentRequests.mastercard}
           on:loadpaymentdata={onLoadPaymentData}
@@ -285,7 +274,6 @@
         <google-pay-button
           environment="TEST"
           button-type={buttonType}
-          button-color={buttonColor}
           {existingPaymentMethodRequired}
           paymentRequest={paymentRequests.visa}
           on:loadpaymentdata={onLoadPaymentData}
@@ -298,7 +286,6 @@
         <google-pay-button
           environment="TEST"
           button-type={buttonType}
-          button-color={buttonColor}
           {existingPaymentMethodRequired}
           paymentRequest={paymentRequests.authorize}
           on:loadpaymentdata={onLoadPaymentData}
@@ -312,7 +299,6 @@
         <google-pay-button
           environment="TEST"
           button-type={buttonType}
-          button-color={buttonColor}
           {existingPaymentMethodRequired}
           paymentRequest={paymentRequests.cryptogram}
           on:loadpaymentdata={onLoadPaymentData}
@@ -326,7 +312,6 @@
         <google-pay-button
           environment="TEST"
           button-type={buttonType}
-          button-color={buttonColor}
           {existingPaymentMethodRequired}
           paymentRequest={paymentRequests.shipping}
           on:loadpaymentdata={onLoadPaymentData}
@@ -341,7 +326,6 @@
         <google-pay-button
           environment="TEST"
           button-type={buttonType}
-          button-color={buttonColor}
           {existingPaymentMethodRequired}
           paymentRequest={paymentRequests.basic}
           clickCallback={onClick}
@@ -350,7 +334,6 @@
         <google-pay-button
           environment="TEST"
           button-type={buttonType}
-          button-color={buttonColor}
           {existingPaymentMethodRequired}
           paymentRequest={paymentRequests.basic}
           clickCallback={onClickPreventDefault}

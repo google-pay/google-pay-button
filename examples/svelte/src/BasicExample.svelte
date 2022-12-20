@@ -41,4 +41,4 @@
 </script>
 
 <!-- 3. add button -->
-<google-pay-button environment="TEST" button-color="white" {paymentRequest} on:loadpaymentdata={onLoadPaymentData} />
+<google-pay-button environment="TEST" {paymentRequest} on:loadpaymentdata={onLoadPaymentData} />

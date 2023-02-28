@@ -1,5 +1,12 @@
 # Changelog
 
+## [3.0.6](https://github.com/google-pay/google-pay-button/compare/v3.0.5...v3.0.6) (2023-02-28)
+
+
+### Bug Fixes
+
+* new release 3.0.6 with @types/googlepay 0.7.0 ([98e9a39](https://github.com/google-pay/google-pay-button/commit/98e9a39ac9ca036167ec60c98aa914caf1774683))
+
 ## [3.0.5](https://github.com/google-pay/google-pay-button/compare/v3.0.4...v3.0.5) (2022-12-13)
 
 

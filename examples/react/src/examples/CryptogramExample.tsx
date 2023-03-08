@@ -67,6 +67,7 @@ export default function CryptogramExample(props: any): React.ReactElement {
         style={{
           display: isReadyToPay ? 'inline-block' : 'none',
         }}
+        buttonColor={props.buttonColor}
         buttonType={props.buttonType}
         buttonLocale={props.buttonLocale}
       />

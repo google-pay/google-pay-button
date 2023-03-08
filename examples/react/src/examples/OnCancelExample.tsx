@@ -59,6 +59,7 @@ export default function OnCancelExample(props: any): React.ReactElement {
         }}
         onCancel={() => alert('Cancelled')}
         existingPaymentMethodRequired={props.existingPaymentMethodRequired}
+        buttonColor={props.buttonColor}
         buttonType={props.buttonType}
         buttonLocale={props.buttonLocale}
       />

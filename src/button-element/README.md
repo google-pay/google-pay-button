@@ -16,7 +16,7 @@ npm install @google-pay/button-element
 
 ```html
 <div id="buttons">
-  <google-pay-button environment="TEST" button-type="short"></google-pay-button>
+  <google-pay-button environment="TEST" button-type="short" button-color="black"></google-pay-button>
 </div>
 <script type="module">
   import './node_modules/@google-pay/button-element/dist/index.js';
@@ -64,7 +64,7 @@ npm install @google-pay/button-element
 More HTML examples can be found in the
 [examples folder](https://github.com/google-pay/google-pay-button/tree/main/examples/html) of this repository.
 
-Try it out on [StackBlitz](https://stackblitz.com/edit/oogle-pay-custom-element-r4hves).
+Try it out on [StackBlitz](https://stackblitz.com/edit/google-pay-custom-element).
 
 ## Example usage: Vue website
 
@@ -72,6 +72,7 @@ Try it out on [StackBlitz](https://stackblitz.com/edit/oogle-pay-custom-element-
 <google-pay-button
   environment="TEST"
   button-type="buy"
+  button-color="black"
   v-bind:paymentRequest.prop="{
     apiVersion: 2,
     apiVersionMinor: 0,
@@ -108,7 +109,7 @@ More Vue examples can be found in the
 [examples folder](https://github.com/google-pay/google-pay-button/tree/main/examples/vue/src/components) of this
 repository.
 
-Try it out on [StackBlitz](https://stackblitz.com/edit/google-pay-vue-bnujqp).
+Try it out on [StackBlitz](https://stackblitz.com/edit/google-pay-vue).
 
 ## Example usage: Svelte website
 
@@ -116,6 +117,7 @@ Try it out on [StackBlitz](https://stackblitz.com/edit/google-pay-vue-bnujqp).
 <google-pay-button
   environment="TEST"
   button-type="buy"
+  button-color="black"
   paymentRequest={{
     apiVersion: 2,
     apiVersionMinor: 0,
@@ -152,7 +154,7 @@ Try it out on [StackBlitz](https://stackblitz.com/edit/google-pay-vue-bnujqp).
 More Svelte examples can be found in the
 [examples folder](https://github.com/google-pay/google-pay-button/tree/main/examples/svelte/src) of this repository.
 
-Try it out on [StackBlitz](https://stackblitz.com/edit/google-pay-svelte-f6ficg) (note:
+Try it out on [StackBlitz](https://stackblitz.com/edit/google-pay-svelte) (note:
 [limited browser support](https://github.com/stackblitz/webcontainer-core#browser-support)).
 
 ## Documentation
@@ -167,6 +169,15 @@ integrating Google Pay into your website.
     <th align="left">Property</th>
     <th align="left">Type</th>
     <th align="left">Remarks</th>
+  </tr>
+  <tr>
+    <td><p>buttonColor</p></td>
+    <td><p><code>"default" | "black" | "white"</code></p></td>
+    <td>
+      <p>Optional.</p>
+      <p><code>"default"</code>/<code>"black"</code> buttons are suitable to be used on light colored backgrounds, with <code>"white"</code> being appropriate for dark colored backgrounds.</p>
+      <p>Default value <code>"default"</code>.</p>
+    </td>
   </tr>
   <tr>
     <td><p>buttonLocale</p></td>

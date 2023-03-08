@@ -80,6 +80,7 @@ export default function DisplayItemsExample(props: any): React.ReactElement {
           transactionState: 'SUCCESS',
         })}
         existingPaymentMethodRequired={props.existingPaymentMethodRequired}
+        buttonColor={props.buttonColor}
         buttonType={props.buttonType}
         buttonLocale={props.buttonLocale}
       />

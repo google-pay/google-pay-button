@@ -14,6 +14,7 @@ npm install @google-pay/button-angular
 <google-pay-button
   environment="TEST"
   buttonType="buy"
+  buttonColor="black"
   [paymentRequest]="{
     apiVersion: 2,
     apiVersionMinor: 0,
@@ -53,7 +54,7 @@ More Angular examples can be found in the
 [examples folder](https://github.com/google-pay/google-pay-button/tree/main/examples/angular/src/app) of this
 repository.
 
-Try it out on [StackBlitz](https://stackblitz.com/edit/google-pay-angular-lgxayi).
+Try it out on [StackBlitz](https://stackblitz.com/edit/google-pay-angular).
 
 ## Documentation
 
@@ -67,6 +68,15 @@ integrating Google Pay into your website.
     <th align="left">Property</th>
     <th align="left">Type</th>
     <th align="left">Remarks</th>
+  </tr>
+  <tr>
+    <td><p>buttonColor</p></td>
+    <td><p><code>"default" | "black" | "white"</code></p></td>
+    <td>
+      <p>Optional.</p>
+      <p><code>"default"</code>/<code>"black"</code> buttons are suitable to be used on light colored backgrounds, with <code>"white"</code> being appropriate for dark colored backgrounds.</p>
+      <p>Default value <code>"default"</code>.</p>
+    </td>
   </tr>
   <tr>
     <td><p>buttonLocale</p></td>

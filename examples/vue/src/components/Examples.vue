@@ -29,6 +29,14 @@
         </select>
       </label>
       <label>
+        <span>Button color:</span>
+        <select v-model="buttonColor">
+          <option value="default">default</option>
+          <option value="black">black</option>
+          <option value="white">white</option>
+        </select>
+      </label>
+      <label>
         <span>Button type:</span>
         <select v-model="buttonType">
           <option value="book">book</option>
@@ -50,6 +58,7 @@
           <google-pay-button
             environment="TEST"
             v-bind:button-type="buttonType"
+            v-bind:button-color="buttonColor"
             v-bind:existing-payment-method-required="existingPaymentMethodRequired"
             v-bind:paymentRequest.prop="{
               apiVersion: paymentRequest.apiVersion,
@@ -75,6 +84,7 @@
           <google-pay-button
             environment="TEST"
             v-bind:button-type="buttonType"
+            v-bind:button-color="buttonColor"
             v-bind:existing-payment-method-required="existingPaymentMethodRequired"
             v-bind:paymentRequest.prop="{
               apiVersion: paymentRequest.apiVersion,
@@ -101,6 +111,7 @@
           <google-pay-button
             environment="TEST"
             v-bind:button-type="buttonType"
+            v-bind:button-color="buttonColor"
             v-bind:existing-payment-method-required="existingPaymentMethodRequired"
             v-bind:paymentRequest.prop="{
               apiVersion: paymentRequest.apiVersion,
@@ -143,6 +154,7 @@
           <google-pay-button
             environment="TEST"
             v-bind:button-type="buttonType"
+            v-bind:button-color="buttonColor"
             v-bind:existing-payment-method-required="existingPaymentMethodRequired"
             v-bind:paymentRequest.prop="{
               apiVersion: paymentRequest.apiVersion,
@@ -172,6 +184,7 @@
           <google-pay-button
             environment="TEST"
             v-bind:button-type="buttonType"
+            v-bind:button-color="buttonColor"
             v-bind:existing-payment-method-required="existingPaymentMethodRequired"
             v-bind:paymentRequest.prop="{
               apiVersion: paymentRequest.apiVersion,
@@ -193,6 +206,7 @@
           <google-pay-button
             environment="TEST"
             v-bind:button-type="buttonType"
+            v-bind:button-color="buttonColor"
             v-bind:existing-payment-method-required="existingPaymentMethodRequired"
             v-bind:paymentRequest.prop="{
               apiVersion: paymentRequest.apiVersion,
@@ -226,6 +240,7 @@ export default {
   data: () => ({
     amount: '100.00',
     existingPaymentMethodRequired: false,
+    buttonColor: 'default',
     buttonType: 'buy',
     paymentRequest: {
       apiVersion: 2,

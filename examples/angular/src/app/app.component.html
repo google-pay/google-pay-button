@@ -30,6 +30,14 @@
       </select>
     </label>
     <label>
+      <span>Button color:</span>
+      <select [(ngModel)]="buttonColor">
+        <option value="default">default</option>
+        <option value="black">black</option>
+        <option value="white">white</option>
+      </select>
+    </label>
+    <label>
       <span>Button type:</span>
       <select [(ngModel)]="buttonType">
         <option value="book">book</option>
@@ -88,6 +96,7 @@
         <google-pay-button
           environment="TEST"
           [buttonType]="buttonType"
+          [buttonColor]="buttonColor"
           [buttonLocale]="buttonLocale"
           [existingPaymentMethodRequired]="existingPaymentMethodRequired"
           [paymentRequest]="{
@@ -114,6 +123,7 @@
         <google-pay-button
           environment="TEST"
           [buttonType]="buttonType"
+          [buttonColor]="buttonColor"
           [buttonLocale]="buttonLocale"
           [existingPaymentMethodRequired]="existingPaymentMethodRequired"
           [paymentRequest]="{
@@ -142,6 +152,7 @@
         <google-pay-button
           environment="TEST"
           [buttonType]="buttonType"
+          [buttonColor]="buttonColor"
           [buttonLocale]="buttonLocale"
           [existingPaymentMethodRequired]="existingPaymentMethodRequired"
           [paymentRequest]="{
@@ -185,6 +196,7 @@
         <google-pay-button
           environment="TEST"
           [buttonType]="buttonType"
+          [buttonColor]="buttonColor"
           [buttonLocale]="buttonLocale"
           [existingPaymentMethodRequired]="existingPaymentMethodRequired"
           [paymentRequest]="{
@@ -216,6 +228,7 @@
         <google-pay-button
           environment="TEST"
           [buttonType]="buttonType"
+          [buttonColor]="buttonColor"
           [buttonLocale]="buttonLocale"
           [existingPaymentMethodRequired]="existingPaymentMethodRequired"
           [paymentRequest]="{
@@ -238,6 +251,7 @@
         <google-pay-button
           environment="TEST"
           [buttonType]="buttonType"
+          [buttonColor]="buttonColor"
           [buttonLocale]="buttonLocale"
           [existingPaymentMethodRequired]="existingPaymentMethodRequired"
           [paymentRequest]="{

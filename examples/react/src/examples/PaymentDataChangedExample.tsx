@@ -63,6 +63,7 @@ export default function PaymentDataChangedExample(props: any): React.ReactElemen
           return {};
         }}
         existingPaymentMethodRequired={props.existingPaymentMethodRequired}
+        buttonColor={props.buttonColor}
         buttonType={props.buttonType}
         buttonLocale={props.buttonLocale}
       />

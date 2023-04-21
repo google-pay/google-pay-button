@@ -86,6 +86,7 @@ export class ButtonManager {
           console.error(err);
         }
       }
+      return;
     }
 
     this.element = element;

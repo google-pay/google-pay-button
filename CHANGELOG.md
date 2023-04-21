@@ -1,5 +1,12 @@
 # Changelog
 
+## [3.0.7](https://github.com/google-pay/google-pay-button/compare/v3.0.6...v3.0.7) (2023-04-21)
+
+
+### Bug Fixes
+
+* do not reference undefined google during component mounting ([8d2fc32](https://github.com/google-pay/google-pay-button/commit/8d2fc32caa4f97c9aa0b8e32533e8fb8702c567e))
+
 ## [3.0.6](https://github.com/google-pay/google-pay-button/compare/v3.0.5...v3.0.6) (2023-02-28)
 
 

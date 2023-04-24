@@ -1,5 +1,12 @@
 # Changelog
 
+## [3.0.8](https://github.com/google-pay/google-pay-button/compare/v3.0.7...v3.0.8) (2023-04-24)
+
+
+### Bug Fixes
+
+* only return from mount() if there was an error ([b730f33](https://github.com/google-pay/google-pay-button/commit/b730f337cf97404c57268c88ea412dce398aa0b0))
+
 ## [3.0.7](https://github.com/google-pay/google-pay-button/compare/v3.0.6...v3.0.7) (2023-04-21)
 
 

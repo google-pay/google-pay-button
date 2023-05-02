@@ -229,7 +229,16 @@ export class ButtonManager {
     // remove existing button
     this.removeButton();
 
-    this.client = new google.payments.api.PaymentsClient(this.createClientOptions(this.config));
+    try {
+      this.client = new google.payments.api.PaymentsClient(this.createClientOptions(this.config));
+    } catch (err) {
+      if (this.config.onError) {
+        this.config.onError(err as Error);
+      } else {
+        console.error(err);
+      }
+      return;
+    }
 
     const buttonOptions: google.payments.api.ButtonOptions = {
       buttonType: this.config.buttonType,

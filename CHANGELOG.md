@@ -1,5 +1,12 @@
 # Changelog
 
+## [3.0.9](https://github.com/google-pay/google-pay-button/compare/v3.0.8...v3.0.9) (2023-05-02)
+
+
+### Bug Fixes
+
+* added error handling if google is not defined ([b03a03e](https://github.com/google-pay/google-pay-button/commit/b03a03e90fcdee93e9c9b200a2664b55c201dfd2))
+
 ## [3.0.8](https://github.com/google-pay/google-pay-button/compare/v3.0.7...v3.0.8) (2023-04-24)
 
 

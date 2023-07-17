@@ -402,7 +402,9 @@ export class ButtonManager {
     if (!this.oldInvalidationValues) return true;
 
     const newValues = this.getInvalidationValues(newConfig);
-    return newValues.some((value, index) => value !== this.oldInvalidationValues![index]);
+    return newValues.some(
+      (value, index) => JSON.stringify(value) !== JSON.stringify(this.oldInvalidationValues![index]),
+    );
   }
 
   private getInvalidationValues(config: Config): any[] {

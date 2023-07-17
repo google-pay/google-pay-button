@@ -1,5 +1,12 @@
 # Changelog
 
+## [3.0.10](https://github.com/google-pay/google-pay-button/compare/v3.0.9...v3.0.10) (2023-07-17)
+
+
+### Bug Fixes
+
+* invalidation values comparison for objects ([3e8b7ac](https://github.com/google-pay/google-pay-button/commit/3e8b7ac3757a8b9d5f14cb68ed09f039c45d5055))
+
 ## [3.0.9](https://github.com/google-pay/google-pay-button/compare/v3.0.8...v3.0.9) (2023-05-02)
 
 

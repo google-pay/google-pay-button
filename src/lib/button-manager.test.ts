@@ -711,6 +711,7 @@ describe('createButton', () => {
       ...defaults,
       buttonType: 'donate',
       buttonColor: 'white',
+      buttonRadius: 4,
       buttonLocale: 'fr',
       buttonSizeMode: 'fill',
     };
@@ -720,6 +721,7 @@ describe('createButton', () => {
       expect.objectContaining<google.payments.api.ButtonOptions>({
         buttonType: 'donate',
         buttonColor: 'white',
+        buttonRadius: 4,
         buttonLocale: 'fr',
         buttonSizeMode: 'fill',
         onClick: expect.any(Function),

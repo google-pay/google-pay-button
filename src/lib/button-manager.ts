@@ -35,8 +35,9 @@ export interface Config {
   onError?: (error: Error | google.payments.api.PaymentsError) => void;
   onReadyToPayChange?: (result: ReadyToPayChangeResponse) => void;
   onClick?: (event: Event) => void;
-  buttonColor?: google.payments.api.ButtonColor;
   buttonType?: google.payments.api.ButtonType;
+  buttonColor?: google.payments.api.ButtonColor;
+  buttonRadius?: number;
   buttonSizeMode?: google.payments.api.ButtonSizeMode;
   buttonLocale?: string;
 }
@@ -243,6 +244,7 @@ export class ButtonManager {
     const buttonOptions: google.payments.api.ButtonOptions = {
       buttonType: this.config.buttonType,
       buttonColor: this.config.buttonColor,
+      buttonRadius: this.config.buttonRadius,
       buttonSizeMode: this.config.buttonSizeMode,
       buttonLocale: this.config.buttonLocale,
       onClick: this.handleClick,
@@ -413,8 +415,9 @@ export class ButtonManager {
       config.existingPaymentMethodRequired,
       !!config.onPaymentDataChanged,
       !!config.onPaymentAuthorized,
-      config.buttonColor,
       config.buttonType,
+      config.buttonColor,
+      config.buttonRadius,
       config.buttonLocale,
       config.buttonSizeMode,
       config.paymentRequest.merchantInfo.merchantId,

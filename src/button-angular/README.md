@@ -112,6 +112,14 @@ integrating Google Pay into your website.
       <p><code>"long"</code> and <code>"short"</code> button types have been renamed to <code>"buy"</code> and <code>"plain"</code>, but are still valid button types for backwards compatability.</p>
       <p>Default value <code>"buy"</code>.</p>
     </td>
+  </tr>  
+  <tr>
+    <td><p>buttonRadius</p></td>
+    <td><p><code>number</code></p></td>
+    <td>
+      <p>Optional.</p>
+      <p>Specifies the button corner radius in pixels. The minimum is 0 and the maximum depends on the height of the button. If the height is 40px (default height) then the maximum value for the <code>buttonRadius</code> is 20.</p>
+    </td>
   </tr>
   <tr>
     <td><p>environment</p></td>

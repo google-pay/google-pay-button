@@ -51,6 +51,10 @@ class GooglePayButton extends HTMLElement {
   buttonType?: google.payments.api.ButtonType;
 
   @NotifyAttribute()
+  @Alias('buttonradius')
+  buttonRadius?: string;
+
+  @NotifyAttribute()
   @Alias('buttonsizemode')
   buttonSizeMode?: google.payments.api.ButtonSizeMode;
 
@@ -159,6 +163,7 @@ class GooglePayButton extends HTMLElement {
       onPaymentAuthorized: this.onPaymentAuthorized,
       buttonColor: this.buttonColor,
       buttonType: this.buttonType,
+      //buttonRadius: this.buttonRadius?.valueOf(),
       buttonSizeMode: this.buttonSizeMode,
       buttonLocale: this.buttonLocale,
       onReadyToPayChange: result => {

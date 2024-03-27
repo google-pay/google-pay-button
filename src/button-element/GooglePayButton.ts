@@ -52,7 +52,7 @@ class GooglePayButton extends HTMLElement {
 
   @NotifyAttribute()
   @Alias('buttonradius')
-  buttonRadius?: string;
+  buttonRadius?: number;
 
   @NotifyAttribute()
   @Alias('buttonsizemode')

@@ -51,6 +51,10 @@
       </select>
     </label>
     <label>
+      <span>Button radius:</span>
+      <input type="text" inputmode="numeric" pattern="[0-9]*" [(ngModel)]="buttonRadius" />
+    </label>
+    <label>
       <span>Button locale:</span>
       <select [(ngModel)]="buttonLocale">
         <option value="" selected>-</option>
@@ -97,6 +101,7 @@
           environment="TEST"
           [buttonType]="buttonType"
           [buttonColor]="buttonColor"
+          [buttonRadius]="buttonRadius"
           [buttonLocale]="buttonLocale"
           [existingPaymentMethodRequired]="existingPaymentMethodRequired"
           [paymentRequest]="{
@@ -124,6 +129,7 @@
           environment="TEST"
           [buttonType]="buttonType"
           [buttonColor]="buttonColor"
+          [buttonRadius]="buttonRadius"
           [buttonLocale]="buttonLocale"
           [existingPaymentMethodRequired]="existingPaymentMethodRequired"
           [paymentRequest]="{
@@ -153,6 +159,7 @@
           environment="TEST"
           [buttonType]="buttonType"
           [buttonColor]="buttonColor"
+          [buttonRadius]="buttonRadius"
           [buttonLocale]="buttonLocale"
           [existingPaymentMethodRequired]="existingPaymentMethodRequired"
           [paymentRequest]="{
@@ -197,6 +204,7 @@
           environment="TEST"
           [buttonType]="buttonType"
           [buttonColor]="buttonColor"
+          [buttonRadius]="buttonRadius"
           [buttonLocale]="buttonLocale"
           [existingPaymentMethodRequired]="existingPaymentMethodRequired"
           [paymentRequest]="{
@@ -229,6 +237,7 @@
           environment="TEST"
           [buttonType]="buttonType"
           [buttonColor]="buttonColor"
+          [buttonRadius]="buttonRadius"
           [buttonLocale]="buttonLocale"
           [existingPaymentMethodRequired]="existingPaymentMethodRequired"
           [paymentRequest]="{
@@ -252,6 +261,7 @@
           environment="TEST"
           [buttonType]="buttonType"
           [buttonColor]="buttonColor"
+          [buttonRadius]="buttonRadius"
           [buttonLocale]="buttonLocale"
           [existingPaymentMethodRequired]="existingPaymentMethodRequired"
           [paymentRequest]="{

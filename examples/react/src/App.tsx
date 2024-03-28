@@ -40,6 +40,7 @@ const App: React.FC = () => {
   const [existingPaymentMethodRequired, setExistingPaymentMethodRequired] = useState(false);
   const [buttonColor, setButtonColor] = useState('default');
   const [buttonType, setButtonType] = useState('buy');
+  const [buttonRadius, setButtonRadius] = useState('4');
   const [buttonLocale, setButtonLocale] = useState('');
 
   const props = {
@@ -47,6 +48,7 @@ const App: React.FC = () => {
     existingPaymentMethodRequired,
     buttonColor,
     buttonType,
+    buttonRadius,
     buttonLocale,
   };
 
@@ -87,6 +89,16 @@ const App: React.FC = () => {
             <option value="plain">plain</option>
             <option value="subscribe">subscribe</option>
           </select>
+        </label>
+        <label>
+          <span>Button radius:</span>
+          <input
+            type="text"
+            inputMode="numeric"
+            pattern="[0-9]*"
+            defaultValue={buttonRadius}
+            onBlur={event => setButtonRadius(event.target.value)}
+          />
         </label>
         <label>
           <span>Button locale:</span>

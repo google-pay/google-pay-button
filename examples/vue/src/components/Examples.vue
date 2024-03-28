@@ -49,6 +49,10 @@
           <option value="subscribe">subscribe</option>
         </select>
       </label>
+      <label>
+        <span>Button radius:</span>
+        <input type="text" inputmode="numeric" pattern="[0-9]*" v-model="buttonRadius" />
+      </label>
     </div>
 
     <div>
@@ -59,6 +63,7 @@
             environment="TEST"
             v-bind:button-type="buttonType"
             v-bind:button-color="buttonColor"
+            v-bind:button-radius="buttonRadius"
             v-bind:existing-payment-method-required="existingPaymentMethodRequired"
             v-bind:paymentRequest.prop="{
               apiVersion: paymentRequest.apiVersion,
@@ -85,6 +90,7 @@
             environment="TEST"
             v-bind:button-type="buttonType"
             v-bind:button-color="buttonColor"
+            v-bind:button-radius="buttonRadius"
             v-bind:existing-payment-method-required="existingPaymentMethodRequired"
             v-bind:paymentRequest.prop="{
               apiVersion: paymentRequest.apiVersion,
@@ -112,6 +118,7 @@
             environment="TEST"
             v-bind:button-type="buttonType"
             v-bind:button-color="buttonColor"
+            v-bind:button-radius="buttonRadius"
             v-bind:existing-payment-method-required="existingPaymentMethodRequired"
             v-bind:paymentRequest.prop="{
               apiVersion: paymentRequest.apiVersion,
@@ -155,6 +162,7 @@
             environment="TEST"
             v-bind:button-type="buttonType"
             v-bind:button-color="buttonColor"
+            v-bind:button-radius="buttonRadius"
             v-bind:existing-payment-method-required="existingPaymentMethodRequired"
             v-bind:paymentRequest.prop="{
               apiVersion: paymentRequest.apiVersion,
@@ -185,6 +193,7 @@
             environment="TEST"
             v-bind:button-type="buttonType"
             v-bind:button-color="buttonColor"
+            v-bind:button-radius="buttonRadius"
             v-bind:existing-payment-method-required="existingPaymentMethodRequired"
             v-bind:paymentRequest.prop="{
               apiVersion: paymentRequest.apiVersion,
@@ -207,6 +216,7 @@
             environment="TEST"
             v-bind:button-type="buttonType"
             v-bind:button-color="buttonColor"
+            v-bind:button-radius="buttonRadius"
             v-bind:existing-payment-method-required="existingPaymentMethodRequired"
             v-bind:paymentRequest.prop="{
               apiVersion: paymentRequest.apiVersion,
@@ -242,6 +252,7 @@ export default {
     existingPaymentMethodRequired: false,
     buttonColor: 'default',
     buttonType: 'buy',
+    buttonRadius: '4',
     paymentRequest: {
       apiVersion: 2,
       apiVersionMinor: 0,

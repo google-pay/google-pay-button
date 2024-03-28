@@ -58,6 +58,10 @@
         </select>
       </label>
       <label>
+        <span>Button radius:</span>
+        <input type="text" inputmode="numeric" pattern="[0-9]*" id="button-radius" value="4" />
+      </label>
+      <label>
         <span>Button locale:</span>
         <select id="button-locale">
           <option value="" selected>-</option>
@@ -98,7 +102,7 @@
 
     <div id="examples" class="examples">
       <div class="example">
-        <div class="title">Static Example</div>
+        <div class="title">Plain Example</div>
         <div class="demo">
           <google-pay-button id="static" environment="TEST" button-type="plain" button-color="black" button-locale="fr">
           </google-pay-button>

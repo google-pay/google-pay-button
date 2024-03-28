@@ -1,5 +1,12 @@
 # Changelog
 
+## [3.1.0](https://github.com/google-pay/google-pay-button/compare/v3.0.10...v3.1.0) (2024-03-28)
+
+
+### Features
+
+* add support for buttonRadius ([89dbbc6](https://github.com/google-pay/google-pay-button/commit/89dbbc61c487b5d12532826923f485c5fba142c9))
+
 ## [3.0.10](https://github.com/google-pay/google-pay-button/compare/v3.0.9...v3.0.10) (2023-07-17)
 
 

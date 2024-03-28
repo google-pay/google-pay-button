@@ -60,6 +60,7 @@ export default function BasicExample(props: any): React.ReactElement {
         existingPaymentMethodRequired={props.existingPaymentMethodRequired}
         buttonColor={props.buttonColor}
         buttonType={props.buttonType}
+        buttonRadius={props.buttonRadius}
         buttonLocale={props.buttonLocale}
       />
       <GooglePayButton
@@ -101,6 +102,7 @@ export default function BasicExample(props: any): React.ReactElement {
         existingPaymentMethodRequired={props.existingPaymentMethodRequired}
         buttonColor={props.buttonColor}
         buttonType={props.buttonType}
+        buttonRadius={props.buttonRadius}
         buttonLocale={props.buttonLocale}
       />
     </Example>

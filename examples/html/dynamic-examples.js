@@ -35,6 +35,7 @@ const controls = {
   existingPaymentRequired: new ControlAccessor('existing-payment-method-required'),
   buttonColor: new ControlAccessor('button-color'),
   buttonType: new ControlAccessor('button-type'),
+  buttonRadius: new ControlAccessor('button-radius'),
   buttonLocale: new ControlAccessor('button-locale'),
 };
 
@@ -95,6 +96,7 @@ const googlePayButtons = [
       return {
         buttonColor: controls.buttonColor.value,
         buttonType: controls.buttonType.value,
+        buttonRadius: controls.buttonRadius.value,
         buttonLocale: controls.buttonLocale.value,
         paymentRequest: {
           ...defaultPaymentRequest,
@@ -114,6 +116,7 @@ const googlePayButtons = [
       return {
         buttonColor: controls.buttonColor.value,
         buttonType: controls.buttonType.value,
+        buttonRadius: controls.buttonRadius.value,
         buttonLocale: controls.buttonLocale.value,
         paymentRequest: {
           ...defaultPaymentRequest,
@@ -151,6 +154,7 @@ const googlePayButtons = [
       return {
         buttonColor: controls.buttonColor.value,
         buttonType: controls.buttonType.value,
+        buttonRadius: controls.buttonRadius.value,
         buttonLocale: controls.buttonLocale.value,
         paymentRequest: {
           ...defaultPaymentRequest,
@@ -172,6 +176,7 @@ const googlePayButtons = [
       return {
         buttonColor: controls.buttonColor.value,
         buttonType: controls.buttonType.value,
+        buttonRadius: controls.buttonRadius.value,
         buttonLocale: controls.buttonLocale.value,
         paymentRequest: {
           ...defaultPaymentRequest,
@@ -194,6 +199,7 @@ const googlePayButtons = [
       return {
         buttonColor: controls.buttonColor.value,
         buttonType: controls.buttonType.value,
+        buttonRadius: controls.buttonRadius.value,
         buttonLocale: controls.buttonLocale.value,
         paymentRequest: {
           ...defaultPaymentRequest,
@@ -246,6 +252,7 @@ const googlePayButtons = [
       return {
         buttonColor: controls.buttonColor.value,
         buttonType: controls.buttonType.value,
+        buttonRadius: controls.buttonRadius.value,
         buttonLocale: controls.buttonLocale.value,
         buttonSizeMode: 'fill',
         paymentRequest: {
@@ -266,6 +273,7 @@ const googlePayButtons = [
       return {
         buttonColor: controls.buttonColor.value,
         buttonType: controls.buttonType.value,
+        buttonRadius: controls.buttonRadius.value,
         buttonLocale: controls.buttonLocale.value,
         paymentRequest: {
           ...defaultPaymentRequest,
@@ -288,6 +296,7 @@ const googlePayButtons = [
       return {
         buttonColor: controls.buttonColor.value,
         buttonType: controls.buttonType.value,
+        buttonRadius: controls.buttonRadius.value,
         buttonLocale: controls.buttonLocale.value,
         paymentRequest: {
           ...defaultPaymentRequest,

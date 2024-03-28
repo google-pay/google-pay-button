@@ -26,6 +26,7 @@ export class AppComponent {
   amount = '100.00';
   buttonType = 'buy';
   buttonColor = 'default';
+  buttonRadius = 4;
   buttonLocale = '';
   existingPaymentMethodRequired = false;
 

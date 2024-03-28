@@ -74,6 +74,7 @@ export default function PaymentDataChangedErrorExample(props: any): React.ReactE
         existingPaymentMethodRequired={props.existingPaymentMethodRequired}
         buttonColor={props.buttonColor}
         buttonType={props.buttonType}
+        buttonRadius={props.buttonRadius}
         buttonLocale={props.buttonLocale}
       />
     </Example>

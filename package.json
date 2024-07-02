@@ -55,6 +55,7 @@
     "eslint-plugin-react": "^7.31.11",
     "husky": "^4.3.8",
     "jest": "^29.7.0",
+    "jest-environment-jsdom": "^29.7.0",
     "ng-packagr": "^15.0.1",
     "prettier": "npm:@btmills/prettier@^2.7.1",
     "react": "^16.14.0",

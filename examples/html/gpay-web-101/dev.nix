@@ -12,15 +12,6 @@
   # Sets environment variables in the workspace
   env = {};
   idx = {
-    workspace = {
-      onCreate = {
-        default.openFiles = [
-          "src/main.js"
-          "src/index.html"
-        ];
-      };
-    };
-    
     previews = {
       enable = true;
       previews = {

@@ -12,6 +12,16 @@
   # Sets environment variables in the workspace
   env = {};
   idx = {
+    workspace = {
+      onCreate = {
+        default.openFiles = [
+          "README.md"
+          "main.js"
+          "index.html"
+        ];
+      };
+    };
+    
     previews = {
       enable = true;
       previews = {

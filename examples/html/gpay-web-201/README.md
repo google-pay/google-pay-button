@@ -1,7 +1,7 @@
 # Google Pay for Web
 
 <!--- Try in IDX button -->
-<a href="https://idx.google.com/new?template=https%3A%2F%2Fgithub.com%2Fgoogle-pay%2Fgoogle-pay-button%2Ftree%2web-codelabs%2Fexamples%2Fhtml%2Fgpay-web-201">
+<a href="https://idx.google.com/new?template=https%3A%2F%2Fgithub.com%2Fgoogle-pay%2Fgoogle-pay-button%2Ftree%2Fweb-codelabs%2Fexamples%2Fhtml%2Fgpay-web-201">
   <picture>
     <source
       media="(prefers-color-scheme: dark)"

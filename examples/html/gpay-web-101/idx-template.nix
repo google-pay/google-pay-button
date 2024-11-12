@@ -19,6 +19,7 @@
     mkdir "$out"
     mkdir -p "$out/.idx/"
     cp -rf ${./dev.nix} "$out/.idx/dev.nix"
+    cp -f ${./README.md} "$out/README.md"
     shopt -s dotglob; cp -r ${./dev}/* "$out"
     chmod -R +w "$out"
   '';

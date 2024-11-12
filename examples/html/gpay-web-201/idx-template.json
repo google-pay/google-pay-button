@@ -1,0 +1,8 @@
+{
+    "name": "Google Pay API for Web complete",
+    "description": "A more complete integration of the Google Pay API on Web.",
+    "categories": ["Web app", "Misc"],
+    "icon": "https://www.gstatic.com/images/branding/productlogos/google_pay_round/v6/192px.svg",
+    "publisher": "Google Pay DevRel",
+    "website": "https://codelabs.developers.google.com/codelabs/gpay-web-201"
+}

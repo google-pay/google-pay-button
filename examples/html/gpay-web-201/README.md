@@ -27,6 +27,10 @@ To learn about the code in this project template, follow to the [Google Pay API 
 is one of the [Google Pay API for Web learning pathway][11] activities. Learning paths help you get the most of your
 integration by taking you through a guided developer journey from start to finish.
 
+## Create a merchant account
+
+While a merchant ID isn't required for testing your integration in a `TEST` enviornment, you will need one when you deploy to a `PRODUCTION` environment. Register with the [Google Pay & Wallet Console][15] to receive your merchant ID. It's quick and easy! Get yours now.
+
 ## Community
 
 - Join the conversation in the [#payments channel on Discord][12]

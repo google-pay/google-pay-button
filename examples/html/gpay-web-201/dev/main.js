@@ -23,6 +23,7 @@ const GPAY_BUTTON_CONTAINER_ID = 'gpay-container';
 
 // Update the `merchantId` and `merchantName` properties with your own values.
 // These fields are optional when the environment is `TEST`.
+// Get your merchant Id at https://goo.gle/3Cmv497
 const merchantInfo = {
   merchantId: '12345678901234567890',
   merchantName: 'Example Merchant',

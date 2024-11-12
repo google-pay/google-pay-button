@@ -29,7 +29,9 @@ integration by taking you through a guided developer journey from start to finis
 
 ## Create a merchant account
 
-While a merchant ID isn't required for testing your integration in a `TEST` enviornment, you will need one when you deploy to a `PRODUCTION` environment. Register with the [Google Pay & Wallet Console][15] to receive your merchant ID. It's quick and easy! Get yours now.
+While a merchant ID isn't required for testing your integration in a `TEST` enviornment, you will need one when you
+deploy to a `PRODUCTION` environment. Register with the [Google Pay & Wallet Console][15] to receive your merchant ID.
+It's quick and easy! Get yours now.
 
 ## Community
 

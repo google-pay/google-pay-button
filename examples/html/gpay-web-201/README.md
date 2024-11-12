@@ -18,22 +18,19 @@
 
 ## About
 
-This project is a more complete integration of Google Pay API for Web using
-HTML and JavaScript. For a more bare bones integration, refer to
-[`gpay-web-101/`][17] project template.
+This project is a more complete integration of Google Pay API for Web using HTML and JavaScript. For a more bare bones
+integration, refer to [`gpay-web-101/`][17] project template.
 
 ## Learning
 
-To learn about the code in this project template, follow to the
-[Google Pay API for Web 201: Advance][10] codelab. Learning paths help you
-get the most of your integration by taking you through a guided developer
-journey from start to finish.
+To learn about the code in this project template, follow to the [Google Pay API for Web 201: Advance][10] codelab.
+Learning paths help you get the most of your integration by taking you through a guided developer journey from start to
+finish.
 
 ## Create a merchant account
 
-While a merchant ID isn't required for testing your integration in a `TEST`
-enviornment, you will need one when you deploy to a `PRODUCTION` environment.
-Register with the [Google Pay & Wallet Console][15] to receive your merchant ID.
+While a merchant ID isn't required for testing your integration in a `TEST` enviornment, you will need one when you
+deploy to a `PRODUCTION` environment. Register with the [Google Pay & Wallet Console][15] to receive your merchant ID.
 It's quick and easy! Get yours now.
 
 ## Community
@@ -44,10 +41,8 @@ It's quick and easy! Get yours now.
 
 ## Support
 
-- Question about this template? Ask in the [discussions][16] section of the
-  Google Pay button repo.
-- For assistance with your implementation, create a support ticket from the
-  [Google Pay & Wallet Console][15].
+- Question about this template? Ask in the [discussions][16] section of the Google Pay button repo.
+- For assistance with your implementation, create a support ticket from the [Google Pay & Wallet Console][15].
 
 [10]: https://codelabs.developers.google.com/codelabs/gpay-web-201
 [12]: https://goo.gle/payments-dev-community

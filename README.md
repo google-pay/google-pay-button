@@ -11,38 +11,30 @@ This repository contains Google Pay button implementations for compatible with p
 
 ## Web
 
-This is a bare bones, plain vanilla JavaScript implementation of the Google Pay button. These examples are designed
-to launch into a Project IDX Workspace, ready to run.
+This is a bare bones, plain vanilla JavaScript implementation of the Google Pay button. These examples are designed to
+launch into a Project IDX Workspace, ready to run.
 
-- [Example code basic](./examples/html/gpay-web-101/) <a href="https://idx.google.com/new?template=https%3A%2F%2Fgithub.com%2Fgoogle-pay%2Fgoogle-pay-button%2Ftree%2Fmain%2Fexamples%2Fhtml%2Fgpay-web-101">
-  <picture>
-    <source
-      media="(prefers-color-scheme: dark)"
-      srcset="https://cdn.idx.dev/btn/open_dark_32.svg">
-    <source
-      media="(prefers-color-scheme: light)"
-      srcset="https://cdn.idx.dev/btn/open_light_32.svg">
-    <img
-      height="24"
-      alt="Open in IDX"
-      src="https://cdn.idx.dev/btn/open_purple_32.svg">
-  </picture>
-</a>
+- [Example code basic](./examples/html/gpay-web-101/)<br>
+  <a href="https://idx.google.com/new?template=https%3A%2F%2Fgithub.com%2Fgoogle-pay%2Fgoogle-pay-button%2Ftree%2Fmain%2Fexamples%2Fhtml%2Fgpay-web-101">
+  <picture> <source
+        media="(prefers-color-scheme: dark)"
+        srcset="https://cdn.idx.dev/btn/open_dark_32.svg"> <source
+        media="(prefers-color-scheme: light)"
+        srcset="https://cdn.idx.dev/btn/open_light_32.svg"> <img
+        height="24"
+        alt="Open in IDX"
+        src="https://cdn.idx.dev/btn/open_purple_32.svg"> </picture> </a>
 
-- [Example code advanced](./examples/html/gpay-web-201/) <a href="https://idx.google.com/new?template=https%3A%2F%2Fgithub.com%2Fgoogle-pay%2Fgoogle-pay-button%2Ftree%2Fmain%2Fexamples%2Fhtml%2Fgpay-web-201">
-  <picture>
-    <source
-      media="(prefers-color-scheme: dark)"
-      srcset="https://cdn.idx.dev/btn/open_dark_32.svg">
-    <source
-      media="(prefers-color-scheme: light)"
-      srcset="https://cdn.idx.dev/btn/open_light_32.svg">
-    <img
-      height="24"
-      alt="Open in IDX"
-      src="https://cdn.idx.dev/btn/open_purple_32.svg">
-  </picture>
-</a>
+- [Example code advanced](./examples/html/gpay-web-201/)<br>
+  <a href="https://idx.google.com/new?template=https%3A%2F%2Fgithub.com%2Fgoogle-pay%2Fgoogle-pay-button%2Ftree%2Fmain%2Fexamples%2Fhtml%2Fgpay-web-201">
+  <picture> <source
+        media="(prefers-color-scheme: dark)"
+        srcset="https://cdn.idx.dev/btn/open_dark_32.svg"> <source
+        media="(prefers-color-scheme: light)"
+        srcset="https://cdn.idx.dev/btn/open_light_32.svg"> <img
+        height="24"
+        alt="Open in IDX"
+        src="https://cdn.idx.dev/btn/open_purple_32.svg"> </picture> </a>
 
 ## Web component
 

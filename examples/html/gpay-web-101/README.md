@@ -1,7 +1,7 @@
 # Google Pay for Web
 
 <!--- Open in IDX button -->
-<a href="https://idx.google.com/new?template=https%3A%2F%2Fgithub.com%2Fgoogle-pay%2Fgoogle-pay-button%2Ftree%2Fmain%2Fexamples%2Fhtml%2Fgpay-web-101">
+<a href="https://goo.gle/4fnRl4N">
   <picture>
     <source
       media="(prefers-color-scheme: dark)"

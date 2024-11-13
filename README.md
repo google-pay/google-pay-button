@@ -15,7 +15,7 @@ This is a bare bones, plain vanilla JavaScript implementation of the Google Pay 
 launch into a Project IDX Workspace, ready to run.
 
 - [Example code basic](./examples/html/gpay-web-101/)<br>
-  <a href="https://idx.google.com/new?template=https%3A%2F%2Fgithub.com%2Fgoogle-pay%2Fgoogle-pay-button%2Ftree%2Fmain%2Fexamples%2Fhtml%2Fgpay-web-101">
+  <a href="https://goo.gle/4fnRl4N">
   <picture> <source
         media="(prefers-color-scheme: dark)"
         srcset="https://cdn.idx.dev/btn/open_dark_32.svg"> <source
@@ -26,7 +26,7 @@ launch into a Project IDX Workspace, ready to run.
         src="https://cdn.idx.dev/btn/open_purple_32.svg"> </picture> </a>
 
 - [Example code advanced](./examples/html/gpay-web-201/)<br>
-  <a href="https://idx.google.com/new?template=https%3A%2F%2Fgithub.com%2Fgoogle-pay%2Fgoogle-pay-button%2Ftree%2Fmain%2Fexamples%2Fhtml%2Fgpay-web-201">
+  <a href="https://goo.gle/3YPHFce">
   <picture> <source
         media="(prefers-color-scheme: dark)"
         srcset="https://cdn.idx.dev/btn/open_dark_32.svg"> <source

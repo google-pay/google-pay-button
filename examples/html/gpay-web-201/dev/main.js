@@ -142,35 +142,6 @@ function renderGooglePayButton() {
   document.getElementById(GPAY_BUTTON_CONTAINER_ID).appendChild(button);
 }
 
-/**
- * Prefetches Google Pay payment data to improve the payment flow performance.
- *
- * This function creates a payment data request object and uses the Google Pay client
- * to prefetch payment data. This can help speed up the payment process when the user
- * actually initiates a transaction. The prefetched data is cached and can be used
- * for subsequent payment requests.
- *
- * @see {@link https://developers.google.com/pay/api/web/reference/request-objects#TransactionInfo}
- * @returns {void}
- */
-function prefetchGooglePaymentData() {
-  // Create a deep copy of the base Google Pay request object.
-  // This ensures that the original request object is not modified.
-  const req = deepCopy(baseGooglePayRequest);
-
-  // Set the transactionInfo property on the request object.
-  // This is required for prefetching, even though the values
-  // are not used for caching.
-  req.transactionInfo = {
-    totalPriceStatus: 'NOT_CURRENTLY_KNOWN',
-    currencyCode: 'USD',
-  };
-
-  // Get an instance of the Google Pay client and use it to
-  // prefetch the payment data.
-  getGooglePaymentsClient().prefetchPaymentData(req);
-}
-
 //=============================================================================
 // Event Handlers
 //=============================================================================
@@ -203,8 +174,6 @@ function onGooglePayLoaded() {
       if (res.result) {
         // Render the Google Pay button to the page.
         renderGooglePayButton();
-        // Prefetch the payment data to improve performance.
-        prefetchGooglePaymentData();
       } else {
         // If the user is not ready to pay with Google Pay, log
         // an error to the console.

@@ -14,9 +14,7 @@ This repository contains Google Pay button implementations for compatible with p
 This is a bare bones, plain vanilla JavaScript implementation of the Google Pay button. These examples are designed to
 launch into a Project IDX Workspace, ready to run.
 
-- [Example code basic](./examples/html/gpay-web-101/)<br>
-  <a href="https://goo.gle/4fnRl4N">
-  <picture> <source
+- [Example code basic](./examples/html/gpay-web-101/)<br> <a href="https://goo.gle/4fnRl4N"> <picture> <source
         media="(prefers-color-scheme: dark)"
         srcset="https://cdn.idx.dev/btn/open_dark_32.svg"> <source
         media="(prefers-color-scheme: light)"
@@ -25,9 +23,7 @@ launch into a Project IDX Workspace, ready to run.
         alt="Open in IDX"
         src="https://cdn.idx.dev/btn/open_purple_32.svg"> </picture> </a>
 
-- [Example code advanced](./examples/html/gpay-web-201/)<br>
-  <a href="https://goo.gle/3YPHFce">
-  <picture> <source
+- [Example code advanced](./examples/html/gpay-web-201/)<br> <a href="https://goo.gle/3YPHFce"> <picture> <source
         media="(prefers-color-scheme: dark)"
         srcset="https://cdn.idx.dev/btn/open_dark_32.svg"> <source
         media="(prefers-color-scheme: light)"

@@ -11,6 +11,8 @@ npm install @google-pay/button-react
 ## Example usage
 
 ```jsx
+import GooglePayButton from '@google-pay/button-react';
+
 <GooglePayButton
   environment="TEST"
   paymentRequest={{
@@ -47,7 +49,7 @@ npm install @google-pay/button-react
   onLoadPaymentData={paymentRequest => {
     console.log('load payment data', paymentRequest);
   }}
-/>
+/>;
 ```
 
 More React examples can be found in the

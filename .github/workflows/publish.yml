@@ -9,9 +9,9 @@ jobs:
     name: publish to npm
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v2
+      - uses: actions/checkout@v4
       - name: configure github package repository
-        uses: actions/setup-node@v1
+        uses: actions/setup-node@v4
         with:
           node-version: '16'
           registry-url: https://npm.pkg.github.com/
@@ -30,7 +30,7 @@ jobs:
           NODE_AUTH_TOKEN: ${{secrets.GITHUB_TOKEN}}
 
       - name: configure wombat dressing repository
-        uses: actions/setup-node@v1
+        uses: actions/setup-node@v4
         with:
           node-version: '16'
           registry-url: https://wombat-dressing-room.appspot.com

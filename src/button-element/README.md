@@ -223,6 +223,16 @@ integrating Google Pay into your website.
     </td>
   </tr>
   <tr>
+    <td><p>buttonBorderType</p></td>
+    <td><p><code>"no_border" | "default_border"</code></p></td>
+    <td>
+      <p>Optional.</p>
+      <p><code>"no_border"</code> No border is displayed around the button.
+      <p><code>"default_border"</code> A thin border is displayed around the button.
+      <p>Default value <code>"default_border"</code>.</p>
+    </td>
+  </tr>
+  <tr>
     <td><p>environment</p></td>
     <td><p><code>"TEST" | "PRODUCTION"</code></p></td>
     <td>

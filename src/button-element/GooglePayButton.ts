@@ -62,6 +62,10 @@ class GooglePayButton extends HTMLElement {
   @Alias('buttonlocale')
   buttonLocale?: string;
 
+  @NotifyAttribute()
+  @Alias('buttonbordertype')
+  buttonBorderType?: google.payments.api.ButtonBorderType;
+
   @Notify()
   @Alias('paymentDataChangedCallback')
   @Alias('paymentdatachangedcallback')
@@ -166,6 +170,7 @@ class GooglePayButton extends HTMLElement {
       buttonRadius: this.buttonRadius,
       buttonSizeMode: this.buttonSizeMode,
       buttonLocale: this.buttonLocale,
+      buttonBorderType: this.buttonBorderType,
       onReadyToPayChange: result => {
         if (this.onReadyToPayChange) {
           this.onReadyToPayChange(result);

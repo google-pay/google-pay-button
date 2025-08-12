@@ -40,6 +40,7 @@ export interface Config {
   buttonRadius?: number;
   buttonSizeMode?: google.payments.api.ButtonSizeMode;
   buttonLocale?: string;
+  buttonBorderType?: google.payments.api.ButtonBorderType;
 }
 
 interface ButtonManagerOptions {
@@ -247,6 +248,7 @@ export class ButtonManager {
       buttonRadius: this.config.buttonRadius,
       buttonSizeMode: this.config.buttonSizeMode,
       buttonLocale: this.config.buttonLocale,
+      buttonBorderType: this.config.buttonBorderType,
       onClick: this.handleClick,
       allowedPaymentMethods: this.config.paymentRequest.allowedPaymentMethods,
     };
@@ -420,6 +422,7 @@ export class ButtonManager {
       config.buttonRadius,
       config.buttonLocale,
       config.buttonSizeMode,
+      config.buttonBorderType,
       config.paymentRequest.merchantInfo.merchantId,
       config.paymentRequest.merchantInfo.merchantName,
       config.paymentRequest.merchantInfo.softwareInfo?.id,

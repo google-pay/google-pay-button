@@ -37,6 +37,7 @@ export class GooglePayButtonComponent implements OnInit, OnChanges {
   @Input() buttonRadius?: number;
   @Input() buttonSizeMode?: google.payments.api.ButtonSizeMode;
   @Input() buttonLocale?: string;
+  @Input() buttonBorderType?: google.payments.api.ButtonBorderType;
   @Input() paymentDataChangedCallback?: google.payments.api.PaymentDataChangedHandler;
   @Input() paymentAuthorizedCallback?: google.payments.api.PaymentAuthorizedHandler;
   @Input() readyToPayChangeCallback?: (result: any) => void;
@@ -79,6 +80,7 @@ export class GooglePayButtonComponent implements OnInit, OnChanges {
       buttonRadius: this.buttonRadius,
       buttonSizeMode: this.buttonSizeMode,
       buttonLocale: this.buttonLocale,
+      buttonBorderType: this.buttonBorderType,
       onReadyToPayChange: result => {
         if (this.readyToPayChangeCallback) {
           this.readyToPayChangeCallback(result);

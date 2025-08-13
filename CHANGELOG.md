@@ -1,5 +1,89 @@
 # Changelog
 
+## [3.0.6](https://github.com/google-pay/google-pay-button/compare/v3.2.0...v3.0.6) (2025-08-13)
+
+
+### ⚠ BREAKING CHANGES
+
+* update onError callback signature to match runtime values
+* make environment a required property
+* remove logic to infer paymentRequest properties
+* remove logic to infer callbackIntents based on callback methods
+* convert button-react to es modules
+* return paymentMethodPresent when ready to pay changes
+
+### Features
+
+* add callback to be executed when Google Pay button is clicked ([4720041](https://github.com/google-pay/google-pay-button/commit/4720041bd008988bbc5b40a706793c3121266c18)), closes [#92](https://github.com/google-pay/google-pay-button/issues/92)
+* add es5 build output ([5eb243b](https://github.com/google-pay/google-pay-button/commit/5eb243b9ab9fee71e60dbecc0a4fefafdef7ad4f)), closes [#60](https://github.com/google-pay/google-pay-button/issues/60)
+* add prefetchPaymentData integration ([7b0e4dd](https://github.com/google-pay/google-pay-button/commit/7b0e4dd30e499a7561f1aabefed83ef7e0ad665f))
+* add support for buttonBorderType ([#346](https://github.com/google-pay/google-pay-button/issues/346)) ([ed6b2a1](https://github.com/google-pay/google-pay-button/commit/ed6b2a1d9cda105beb0cac0278812c42a7027047))
+* add support for buttonRadius ([89dbbc6](https://github.com/google-pay/google-pay-button/commit/89dbbc61c487b5d12532826923f485c5fba142c9))
+* add support for buttonSizeMode ([0e85f04](https://github.com/google-pay/google-pay-button/commit/0e85f0488a7dd41bd6e4ae302df6719844bef50d))
+* add support for donate button ([193c781](https://github.com/google-pay/google-pay-button/commit/193c781dfeffb72591110b1dafc7252aad33aebb)), closes [#34](https://github.com/google-pay/google-pay-button/issues/34)
+* add support for main, browser, and module entry points ([8d72f50](https://github.com/google-pay/google-pay-button/commit/8d72f504e33d4fc85831650e27d5b434e5ce2842)), closes [#60](https://github.com/google-pay/google-pay-button/issues/60) [#71](https://github.com/google-pay/google-pay-button/issues/71)
+* add support for offers ([a329162](https://github.com/google-pay/google-pay-button/commit/a32916216dd0b262648e2178d94e08012a1deed8))
+* add support for setting buttonLocale ([00af174](https://github.com/google-pay/google-pay-button/commit/00af174981b83afd515be4af5f4d6063afc98369))
+* **build:** setup publish workflow for bit.dev ([9ad66aa](https://github.com/google-pay/google-pay-button/commit/9ad66aa04b5f1212eee3ef5c510f130c202aba75))
+* **examples:** replace http-server with serve ([f9e9643](https://github.com/google-pay/google-pay-button/commit/f9e964398eedcbf7042a38fde0fd949ac2b5d32c))
+* generate minified resources ([f1a9165](https://github.com/google-pay/google-pay-button/commit/f1a916542273626b60fcf91f452725aa6a28c943))
+* implement Angular specific package ([12d021a](https://github.com/google-pay/google-pay-button/commit/12d021a77f325c4c7e5c1063d38e7acc909db965))
+* include umd modules in npm packages ([48582dd](https://github.com/google-pay/google-pay-button/commit/48582dd3641a5075a08295ee9f69d9e65baebe2b))
+* initial public release ([5fc265a](https://github.com/google-pay/google-pay-button/commit/5fc265a8034208eb2e03997c571959243bc4ce56))
+* make environment a required property ([94e51c0](https://github.com/google-pay/google-pay-button/commit/94e51c09b412addc665d06079fb0f7c3c66cfbba)), closes [#45](https://github.com/google-pay/google-pay-button/issues/45)
+* pass allowedPaymentMethods to the createButton api ([9073f06](https://github.com/google-pay/google-pay-button/commit/9073f0663cfe94bd20826d75030ee5f1478f0cfb))
+* promote to stable public release 1.0 ([#22](https://github.com/google-pay/google-pay-button/issues/22)) ([a532e15](https://github.com/google-pay/google-pay-button/commit/a532e1506ea49f82b14e858b640446171ad46f5b))
+* remove logic to infer callbackIntents based on callback methods ([49e5ad2](https://github.com/google-pay/google-pay-button/commit/49e5ad295ce1ef1b99145983281aa8115fe25ed9))
+* remove logic to infer paymentRequest properties ([3261957](https://github.com/google-pay/google-pay-button/commit/326195714c623855ef97e485d96c8e0b9313026c))
+* update @types/googlepay to support new button types ([e017ab0](https://github.com/google-pay/google-pay-button/commit/e017ab090fe0efffbfd0adb9738fb2f4a6111cf3))
+
+
+### Bug Fixes
+
+* add @types/googlepay as a direct dependenct for @google-pay/button-angular ([d796162](https://github.com/google-pay/google-pay-button/commit/d796162997e4246b6040bf8594be9ac158702492))
+* add keywords to npm package ([eb7e1cb](https://github.com/google-pay/google-pay-button/commit/eb7e1cbf7600e05c0e777721a5430fcae9d9e02f))
+* add lowercase property aliases for button-element ([7b1f623](https://github.com/google-pay/google-pay-button/commit/7b1f623511e874f381a0787f93c08c38ad5cc8fd))
+* add support for when dynamic button is rendered ([3264778](https://github.com/google-pay/google-pay-button/commit/3264778d39d39fe0723a29f66f5cc0ecd68586b3))
+* add try/catch around prefetchPaymentData ([be06a76](https://github.com/google-pay/google-pay-button/commit/be06a766e35caafa492a0987460bc6529b78ff5b))
+* added error handling if google is not defined ([b03a03e](https://github.com/google-pay/google-pay-button/commit/b03a03e90fcdee93e9c9b200a2664b55c201dfd2))
+* angular - remove main entrypoint ([f8de638](https://github.com/google-pay/google-pay-button/commit/f8de6388ca3474b9d18c2904af08564277dde234))
+* broken angular packaging ([4ca7abe](https://github.com/google-pay/google-pay-button/commit/4ca7abea0b8a43d45c7499fd296f67b0c91935cd))
+* **build:** publish @google-pay/button-angular using angular token ([25195f7](https://github.com/google-pay/google-pay-button/commit/25195f78135b598409a4fff075c8dc34b357a3fb))
+* **build:** publish angular dist folder instead of root ([2b8413b](https://github.com/google-pay/google-pay-button/commit/2b8413b5f890695244eb34faee22dda38691e408))
+* **build:** update build pipeline to fix broken publish ([c7ba3a0](https://github.com/google-pay/google-pay-button/commit/c7ba3a067a617bf6dd9b8ec4a792e123956dfda3))
+* **build:** update build pipeline to fix broken publish (attempt 2) ([08c7482](https://github.com/google-pay/google-pay-button/commit/08c74827809d68d357c51945a4443e5470a6e62b))
+* call config.onError if present if isReadyToPay throws ([#73](https://github.com/google-pay/google-pay-button/issues/73)) ([63fee4f](https://github.com/google-pay/google-pay-button/commit/63fee4ff428bd388d9e798e6db512e16026a4625))
+* convert button-react to es modules ([c6ddb0a](https://github.com/google-pay/google-pay-button/commit/c6ddb0aed04af105207bc16a15dbde0425e213af))
+* do not reference undefined google during component mounting ([8d2fc32](https://github.com/google-pay/google-pay-button/commit/8d2fc32caa4f97c9aa0b8e32533e8fb8702c567e))
+* **docs:** add webcomponent.org demo snippet ([68a6dbc](https://github.com/google-pay/google-pay-button/commit/68a6dbc2430d01c5fea0a52be776327f582a65a5))
+* **docs:** remove webcomponent.org demo as it doesn't work in their iframe ([168f217](https://github.com/google-pay/google-pay-button/commit/168f21752c4d1bb1675df3d644cb4d10e6d5a35d))
+* **docs:** update Angular component readme file ([faeee50](https://github.com/google-pay/google-pay-button/commit/faeee5026bb26c9622cc623bd05edea119d10838))
+* **docs:** update button types from long/short to buy/plain ([b28c48e](https://github.com/google-pay/google-pay-button/commit/b28c48ed165f4c0b9f40a00c84bed3f72e256166))
+* **docs:** use absolute example urls to to ensure links work on npm ([d9bbec0](https://github.com/google-pay/google-pay-button/commit/d9bbec00942c9d90c9298c6b86e5d46a12eaee97))
+* don't load pay.js if already loaded ([1e457b6](https://github.com/google-pay/google-pay-button/commit/1e457b65843fab8a1b6c243f126a951902ff6ef7))
+* don't set className if className is empty ([b288b5e](https://github.com/google-pay/google-pay-button/commit/b288b5e420040969f8511ae05aa39ec0041a8a72))
+* enable ivy for Angular ([a12b02a](https://github.com/google-pay/google-pay-button/commit/a12b02a11fd4285004383c1ca7cba68a3bb84ac4))
+* include all files from dist for angular component publishing ([18954f2](https://github.com/google-pay/google-pay-button/commit/18954f22ddf20657f438eed4df7d64cca12806b9))
+* include LICENSE file to npm packages ([f180377](https://github.com/google-pay/google-pay-button/commit/f1803770967b56f58c6879f8b0bf8a8241b09f92))
+* include pissing files from package.json ([57b0cdc](https://github.com/google-pay/google-pay-button/commit/57b0cdc540bdd4e38cfd7e7bbd7b0439d15766e9))
+* invalidation values comparison for objects ([3e8b7ac](https://github.com/google-pay/google-pay-button/commit/3e8b7ac3757a8b9d5f14cb68ed09f039c45d5055))
+* new release 3.0.6 with @types/googlepay 0.7.0 ([98e9a39](https://github.com/google-pay/google-pay-button/commit/98e9a39ac9ca036167ec60c98aa914caf1774683))
+* onError callback not called for @google-pay/button-react - fixes [#170](https://github.com/google-pay/google-pay-button/issues/170) ([73c518c](https://github.com/google-pay/google-pay-button/commit/73c518cc7c64ce96f484e4b1194f9a97dfcf64d1))
+* only return from mount() if there was an error ([b730f33](https://github.com/google-pay/google-pay-button/commit/b730f337cf97404c57268c88ea412dce398aa0b0))
+* remove history in gitignore and keep the if clause outside of the try block ([77ac315](https://github.com/google-pay/google-pay-button/commit/77ac315205b80c9d2a70c507763ab867a10575b2))
+* remove paymentRequest and merchantInfo from invalidation properties ([ecafb34](https://github.com/google-pay/google-pay-button/commit/ecafb340b1a169d71a038bd9989d3f6c60772a9d))
+* remove shadow DOM workaround ([4a7a710](https://github.com/google-pay/google-pay-button/commit/4a7a710688f868adc1dcdfd3ef12e62ae74e3d9e)), closes [#19](https://github.com/google-pay/google-pay-button/issues/19)
+* remove some blanks ([0670607](https://github.com/google-pay/google-pay-button/commit/0670607a253951b6e702991c3cb79e4985303608))
+* restore primaryBranch configuration ([b2fce29](https://github.com/google-pay/google-pay-button/commit/b2fce29349b6edbdb06334a82a653e12993a4834))
+* return paymentMethodPresent when ready to pay changes ([0219559](https://github.com/google-pay/google-pay-button/commit/021955921b3d21e88b7592e70029f7f3be9f7e2e))
+* trigger onError callback when loading googlepay js faild ([e06dcf7](https://github.com/google-pay/google-pay-button/commit/e06dcf7668cd6390c9599b8b6ed7c01b52a8f6ae))
+* update @types/googlepay package dependency ([eddc588](https://github.com/google-pay/google-pay-button/commit/eddc58816a99121b6885627eaaaf209648319340))
+* update fill button styling ([27a1d82](https://github.com/google-pay/google-pay-button/commit/27a1d824409122f10513e10971e7db1292dffa30))
+* update homepage property of package.json from master to main ([0ab5994](https://github.com/google-pay/google-pay-button/commit/0ab5994359ad841edbe93065fbe0ab64aaac7f6d))
+* update onError callback signature to match runtime values ([edbbc02](https://github.com/google-pay/google-pay-button/commit/edbbc02297649054fd1780a85e864581afec2a10)), closes [#101](https://github.com/google-pay/google-pay-button/issues/101)
+* update package dependency for @types/googlepay to 0.4.1 ([89f48fc](https://github.com/google-pay/google-pay-button/commit/89f48fcf21c3fb50bb88b9b818140a9ec2e9d75b))
+* using angular "compilationMode": "partial" ([5694870](https://github.com/google-pay/google-pay-button/commit/5694870cafc4f4cc5f433aa8c49228fd8c6176c5))
+
 ## [3.2.0](https://github.com/google-pay/google-pay-button/compare/v3.1.0...v3.2.0) (2025-08-13)
 
 

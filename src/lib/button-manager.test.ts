@@ -714,6 +714,7 @@ describe('createButton', () => {
       buttonRadius: 4,
       buttonLocale: 'fr',
       buttonSizeMode: 'fill',
+      buttonBorderType: 'no_border',
     };
     await manager.configure(config);
 
@@ -724,6 +725,7 @@ describe('createButton', () => {
         buttonRadius: 4,
         buttonLocale: 'fr',
         buttonSizeMode: 'fill',
+        buttonBorderType: 'no_border',
         onClick: expect.any(Function),
       }),
     );

@@ -2,13 +2,11 @@
 
 ## [3.2.0](https://github.com/google-pay/google-pay-button/compare/v3.1.0...v3.2.0) (2025-08-13)
 
-
 ### Features
 
 * add support for buttonBorderType ([#346](https://github.com/google-pay/google-pay-button/issues/346)) ([ed6b2a1](https://github.com/google-pay/google-pay-button/commit/ed6b2a1d9cda105beb0cac0278812c42a7027047))
 
 ## [3.1.0](https://github.com/google-pay/google-pay-button/compare/v3.0.10...v3.1.0) (2024-03-28)
-
 
 ### Features
 

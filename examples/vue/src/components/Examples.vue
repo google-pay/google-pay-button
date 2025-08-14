@@ -53,6 +53,13 @@
         <span>Button radius:</span>
         <input type="text" inputmode="numeric" pattern="[0-9]*" v-model="buttonRadius" />
       </label>
+      <label>
+        <span>Button border type:</span>
+        <select v-model="buttonBorderType">
+          <option value="no_border">no_border</option>
+          <option value="default_border" selected>default_border</option>
+        </select>
+      </label>
     </div>
 
     <div>
@@ -64,6 +71,7 @@
             v-bind:button-type="buttonType"
             v-bind:button-color="buttonColor"
             v-bind:button-radius="buttonRadius"
+            v-bind:button-border-type="buttonBorderType"
             v-bind:existing-payment-method-required="existingPaymentMethodRequired"
             v-bind:paymentRequest.prop="{
               apiVersion: paymentRequest.apiVersion,
@@ -91,6 +99,7 @@
             v-bind:button-type="buttonType"
             v-bind:button-color="buttonColor"
             v-bind:button-radius="buttonRadius"
+            v-bind:button-border-type="buttonBorderType"
             v-bind:existing-payment-method-required="existingPaymentMethodRequired"
             v-bind:paymentRequest.prop="{
               apiVersion: paymentRequest.apiVersion,
@@ -119,6 +128,7 @@
             v-bind:button-type="buttonType"
             v-bind:button-color="buttonColor"
             v-bind:button-radius="buttonRadius"
+            v-bind:button-border-type="buttonBorderType"
             v-bind:existing-payment-method-required="existingPaymentMethodRequired"
             v-bind:paymentRequest.prop="{
               apiVersion: paymentRequest.apiVersion,
@@ -163,6 +173,7 @@
             v-bind:button-type="buttonType"
             v-bind:button-color="buttonColor"
             v-bind:button-radius="buttonRadius"
+            v-bind:button-border-type="buttonBorderType"
             v-bind:existing-payment-method-required="existingPaymentMethodRequired"
             v-bind:paymentRequest.prop="{
               apiVersion: paymentRequest.apiVersion,
@@ -194,6 +205,7 @@
             v-bind:button-type="buttonType"
             v-bind:button-color="buttonColor"
             v-bind:button-radius="buttonRadius"
+            v-bind:button-border-type="buttonBorderType"
             v-bind:existing-payment-method-required="existingPaymentMethodRequired"
             v-bind:paymentRequest.prop="{
               apiVersion: paymentRequest.apiVersion,
@@ -217,6 +229,7 @@
             v-bind:button-type="buttonType"
             v-bind:button-color="buttonColor"
             v-bind:button-radius="buttonRadius"
+            v-bind:button-border-type="buttonBorderType"
             v-bind:existing-payment-method-required="existingPaymentMethodRequired"
             v-bind:paymentRequest.prop="{
               apiVersion: paymentRequest.apiVersion,
@@ -253,6 +266,7 @@ export default {
     buttonColor: 'default',
     buttonType: 'buy',
     buttonRadius: '4',
+    buttonBorderType: 'default_border',
     paymentRequest: {
       apiVersion: 2,
       apiVersionMinor: 0,

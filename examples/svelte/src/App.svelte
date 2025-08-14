@@ -6,6 +6,7 @@
   let buttonColor = 'default';
   let buttonType = 'buy';
   let buttonRadius = '4';
+  let buttonBorderType = 'default_border';
 
   function buildPaymentRequest(): google.payments.api.PaymentDataRequest {
     return {
@@ -249,11 +250,18 @@
         <option value="pay">pay</option>
         <option value="plain">plain</option>
         <option value="subscribe">subscribe</option>
-    </select>
+      </select>
     </label>
     <label>
       <span>Button radius:</span>
       <input id="button-radius" type="text" inputmode="numeric" pattern="[0-9]*" bind:value={buttonRadius} />
+    </label>
+    <label>
+      <span>Button border type:</span>
+      <select id="button-border-type" bind:value={buttonBorderType}>
+        <option value="no_border">no_border</option>
+        <option value="default_border" selected>default_border</option>
+      </select>
     </label>
   </div>
 
@@ -266,6 +274,7 @@
           button-type={buttonType}
           button-color={buttonColor}
           button-radius={buttonRadius}
+          button-border-type={buttonBorderType}
           {existingPaymentMethodRequired}
           paymentRequest={paymentRequests.basic}
           on:loadpaymentdata={onLoadPaymentData}
@@ -280,6 +289,7 @@
           button-type={buttonType}
           button-color={buttonColor}
           button-radius={buttonRadius}
+          button-border-type={buttonBorderType}
           {existingPaymentMethodRequired}
           paymentRequest={paymentRequests.mastercard}
           on:loadpaymentdata={onLoadPaymentData}
@@ -294,6 +304,7 @@
           button-type={buttonType}
           button-color={buttonColor}
           button-radius={buttonRadius}
+          button-border-type={buttonBorderType}
           {existingPaymentMethodRequired}
           paymentRequest={paymentRequests.visa}
           on:loadpaymentdata={onLoadPaymentData}
@@ -308,6 +319,7 @@
           button-type={buttonType}
           button-color={buttonColor}
           button-radius={buttonRadius}
+          button-border-type={buttonBorderType}
           {existingPaymentMethodRequired}
           paymentRequest={paymentRequests.authorize}
           on:loadpaymentdata={onLoadPaymentData}
@@ -323,6 +335,7 @@
           button-type={buttonType}
           button-color={buttonColor}
           button-radius={buttonRadius}
+          button-border-type={buttonBorderType}
           {existingPaymentMethodRequired}
           paymentRequest={paymentRequests.cryptogram}
           on:loadpaymentdata={onLoadPaymentData}
@@ -338,6 +351,7 @@
           button-type={buttonType}
           button-color={buttonColor}
           button-radius={buttonRadius}
+          button-border-type={buttonBorderType}
           {existingPaymentMethodRequired}
           paymentRequest={paymentRequests.shipping}
           on:loadpaymentdata={onLoadPaymentData}
@@ -354,6 +368,7 @@
           button-type={buttonType}
           button-color={buttonColor}
           button-radius={buttonRadius}
+          button-border-type={buttonBorderType}
           {existingPaymentMethodRequired}
           paymentRequest={paymentRequests.basic}
           clickCallback={onClick}
@@ -364,6 +379,7 @@
           button-type={buttonType}
           button-color={buttonColor}
           button-radius={buttonRadius}
+          button-border-type={buttonBorderType}
           {existingPaymentMethodRequired}
           paymentRequest={paymentRequests.basic}
           clickCallback={onClickPreventDefault}

@@ -42,6 +42,7 @@ const App: React.FC = () => {
   const [buttonType, setButtonType] = useState('buy');
   const [buttonRadius, setButtonRadius] = useState('4');
   const [buttonLocale, setButtonLocale] = useState('');
+  const [buttonBorderType, setButtonBorderType] = useState('default_border');
 
   const props = {
     amount,
@@ -50,6 +51,7 @@ const App: React.FC = () => {
     buttonType,
     buttonRadius,
     buttonLocale,
+    buttonBorderType,
   };
 
   return (
@@ -135,6 +137,15 @@ const App: React.FC = () => {
             <option value="th">Thai</option>
             <option value="tr">Turkish</option>
             <option value="uk">Ukrainian</option>
+          </select>
+        </label>
+        <label>
+          <span>Button border type:</span>
+          <select onChange={event => setButtonBorderType(event.target.value)} value={buttonBorderType}>
+            <option value="no_border">no_border</option>
+            <option value="default_border" selected>
+              default_border
+            </option>
           </select>
         </label>
       </div>

@@ -28,6 +28,7 @@ export class AppComponent {
   buttonColor = 'default';
   buttonRadius = 4;
   buttonLocale = '';
+  buttonBorderType = 'default_border';
   existingPaymentMethodRequired = false;
 
   paymentRequest = {

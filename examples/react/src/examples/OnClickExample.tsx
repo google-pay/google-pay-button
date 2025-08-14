@@ -65,6 +65,7 @@ export default function OnClickExample(props: any): React.ReactElement {
         buttonType={props.buttonType}
         buttonRadius={props.buttonRadius}
         buttonLocale={props.buttonLocale}
+        buttonBorderType={props.buttonBorderType}
       />
       <GooglePayButton
         environment="TEST"
@@ -111,6 +112,7 @@ export default function OnClickExample(props: any): React.ReactElement {
         buttonType={props.buttonType}
         buttonRadius={props.buttonRadius}
         buttonLocale={props.buttonLocale}
+        buttonBorderType={props.buttonBorderType}
       />
     </Example>
   );

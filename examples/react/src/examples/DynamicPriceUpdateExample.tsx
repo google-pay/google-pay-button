@@ -129,6 +129,7 @@ export default function DynamicPriceUpdateExample(props: any): React.ReactElemen
         buttonType={props.buttonType}
         buttonRadius={props.buttonRadius}
         buttonLocale={props.buttonLocale}
+        buttonBorderType={props.buttonBorderType}
       />
     </Example>
   );

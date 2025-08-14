@@ -91,6 +91,13 @@
         <option value="uk">Ukrainian</option>
       </select>
     </label>
+    <label>
+      <span>Button border type:</span>
+      <select [(ngModel)]="buttonBorderType">
+        <option value="no_border">no_border</option>
+        <option value="default_border" selected>default_border</option>
+      </select>
+    </label>
   </div>
 
   <div class="examples">
@@ -103,6 +110,7 @@
           [buttonColor]="buttonColor"
           [buttonRadius]="buttonRadius"
           [buttonLocale]="buttonLocale"
+          [buttonBorderType]="buttonBorderType"
           [existingPaymentMethodRequired]="existingPaymentMethodRequired"
           [paymentRequest]="{
             apiVersion: paymentRequest.apiVersion,
@@ -131,6 +139,7 @@
           [buttonColor]="buttonColor"
           [buttonRadius]="buttonRadius"
           [buttonLocale]="buttonLocale"
+          [buttonBorderType]="buttonBorderType"
           [existingPaymentMethodRequired]="existingPaymentMethodRequired"
           [paymentRequest]="{
             apiVersion: paymentRequest.apiVersion,
@@ -161,6 +170,7 @@
           [buttonColor]="buttonColor"
           [buttonRadius]="buttonRadius"
           [buttonLocale]="buttonLocale"
+          [buttonBorderType]="buttonBorderType"
           [existingPaymentMethodRequired]="existingPaymentMethodRequired"
           [paymentRequest]="{
             apiVersion: paymentRequest.apiVersion,
@@ -206,6 +216,7 @@
           [buttonColor]="buttonColor"
           [buttonRadius]="buttonRadius"
           [buttonLocale]="buttonLocale"
+          [buttonBorderType]="buttonBorderType"
           [existingPaymentMethodRequired]="existingPaymentMethodRequired"
           [paymentRequest]="{
             apiVersion: paymentRequest.apiVersion,
@@ -239,6 +250,7 @@
           [buttonColor]="buttonColor"
           [buttonRadius]="buttonRadius"
           [buttonLocale]="buttonLocale"
+          [buttonBorderType]="buttonBorderType"
           [existingPaymentMethodRequired]="existingPaymentMethodRequired"
           [paymentRequest]="{
             apiVersion: paymentRequest.apiVersion,
@@ -263,6 +275,7 @@
           [buttonColor]="buttonColor"
           [buttonRadius]="buttonRadius"
           [buttonLocale]="buttonLocale"
+          [buttonBorderType]="buttonBorderType"
           [existingPaymentMethodRequired]="existingPaymentMethodRequired"
           [paymentRequest]="{
             apiVersion: paymentRequest.apiVersion,

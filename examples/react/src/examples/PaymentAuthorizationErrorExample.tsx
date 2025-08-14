@@ -71,6 +71,7 @@ export default function PaymentAuthorizationErrorExample(props: any): React.Reac
         buttonType={props.buttonType}
         buttonRadius={props.buttonRadius}
         buttonLocale={props.buttonLocale}
+        buttonBorderType={props.buttonBorderType}
       />
     </Example>
   );

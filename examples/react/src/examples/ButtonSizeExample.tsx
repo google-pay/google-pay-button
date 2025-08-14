@@ -62,6 +62,7 @@ export default function ButtonSizeExample(props: any): React.ReactElement {
         buttonType={props.buttonType}
         buttonRadius={props.buttonRadius}
         buttonLocale={props.buttonLocale}
+        buttonBorderType={props.buttonBorderType}
         style={{ width: 400, height: 60 }}
         buttonSizeMode="fill"
       />

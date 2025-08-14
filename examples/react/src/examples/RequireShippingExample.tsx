@@ -63,6 +63,7 @@ export default function RequiredShippingExample(props: any): React.ReactElement 
         buttonType={props.buttonType}
         buttonRadius={props.buttonRadius}
         buttonLocale={props.buttonLocale}
+        buttonBorderType={props.buttonBorderType}
       />
     </Example>
   );

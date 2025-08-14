@@ -76,6 +76,7 @@ export default function PaymentDataChangedErrorExample(props: any): React.ReactE
         buttonType={props.buttonType}
         buttonRadius={props.buttonRadius}
         buttonLocale={props.buttonLocale}
+        buttonBorderType={props.buttonBorderType}
       />
     </Example>
   );

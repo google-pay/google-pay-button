@@ -37,6 +37,7 @@ const controls = {
   buttonType: new ControlAccessor('button-type'),
   buttonRadius: new ControlAccessor('button-radius'),
   buttonLocale: new ControlAccessor('button-locale'),
+  buttonBorderType: new ControlAccessor('button-border-type'),
 };
 
 const defaultPaymentRequest = {
@@ -98,6 +99,7 @@ const googlePayButtons = [
         buttonType: controls.buttonType.value,
         buttonRadius: controls.buttonRadius.value,
         buttonLocale: controls.buttonLocale.value,
+        buttonBorderType: controls.buttonBorderType.value,
         paymentRequest: {
           ...defaultPaymentRequest,
           transactionInfo: {
@@ -118,6 +120,7 @@ const googlePayButtons = [
         buttonType: controls.buttonType.value,
         buttonRadius: controls.buttonRadius.value,
         buttonLocale: controls.buttonLocale.value,
+        buttonBorderType: controls.buttonBorderType.value,
         paymentRequest: {
           ...defaultPaymentRequest,
           allowedPaymentMethods: [
@@ -156,6 +159,7 @@ const googlePayButtons = [
         buttonType: controls.buttonType.value,
         buttonRadius: controls.buttonRadius.value,
         buttonLocale: controls.buttonLocale.value,
+        buttonBorderType: controls.buttonBorderType.value,
         paymentRequest: {
           ...defaultPaymentRequest,
           transactionInfo: {
@@ -178,6 +182,7 @@ const googlePayButtons = [
         buttonType: controls.buttonType.value,
         buttonRadius: controls.buttonRadius.value,
         buttonLocale: controls.buttonLocale.value,
+        buttonBorderType: controls.buttonBorderType.value,
         paymentRequest: {
           ...defaultPaymentRequest,
           transactionInfo: {
@@ -201,6 +206,7 @@ const googlePayButtons = [
         buttonType: controls.buttonType.value,
         buttonRadius: controls.buttonRadius.value,
         buttonLocale: controls.buttonLocale.value,
+        buttonBorderType: controls.buttonBorderType.value,
         paymentRequest: {
           ...defaultPaymentRequest,
           transactionInfo: {
@@ -254,6 +260,7 @@ const googlePayButtons = [
         buttonType: controls.buttonType.value,
         buttonRadius: controls.buttonRadius.value,
         buttonLocale: controls.buttonLocale.value,
+        buttonBorderType: controls.buttonBorderType.value,
         buttonSizeMode: 'fill',
         paymentRequest: {
           ...defaultPaymentRequest,
@@ -275,6 +282,7 @@ const googlePayButtons = [
         buttonType: controls.buttonType.value,
         buttonRadius: controls.buttonRadius.value,
         buttonLocale: controls.buttonLocale.value,
+        buttonBorderType: controls.buttonBorderType.value,
         paymentRequest: {
           ...defaultPaymentRequest,
           transactionInfo: {
@@ -298,6 +306,7 @@ const googlePayButtons = [
         buttonType: controls.buttonType.value,
         buttonRadius: controls.buttonRadius.value,
         buttonLocale: controls.buttonLocale.value,
+        buttonBorderType: controls.buttonBorderType.value,
         paymentRequest: {
           ...defaultPaymentRequest,
           transactionInfo: {

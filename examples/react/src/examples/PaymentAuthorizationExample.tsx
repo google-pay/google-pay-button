@@ -66,6 +66,7 @@ export default function PaymentAuthorizationExample(props: any): React.ReactElem
         buttonType={props.buttonType}
         buttonRadius={props.buttonRadius}
         buttonLocale={props.buttonLocale}
+        buttonBorderType={props.buttonBorderType}
       />
     </Example>
   );

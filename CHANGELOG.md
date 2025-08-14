@@ -1,5 +1,12 @@
 # Changelog
 
+## [3.2.1](https://github.com/google-pay/google-pay-button/compare/v3.2.0...v3.2.1) (2025-08-14)
+
+
+### Miscellaneous Chores
+
+* release 3.2.1 ([84bd03d](https://github.com/google-pay/google-pay-button/commit/84bd03d6d6594a0f9bf0337e5ef1894ae938285c))
+
 ## [3.2.0](https://github.com/google-pay/google-pay-button/compare/v3.1.0...v3.2.0) (2025-08-13)
 
 ### Features

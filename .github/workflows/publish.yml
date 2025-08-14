@@ -8,6 +8,8 @@ jobs:
   publish-npm:
     name: publish to npm
     runs-on: ubuntu-latest
+    permissions:
+      packages: write
     steps:
       - uses: actions/checkout@v4
       - name: configure github package repository

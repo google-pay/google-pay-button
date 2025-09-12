@@ -14,14 +14,12 @@ This repository contains Google Pay button implementations for compatible with p
 This is a bare bones, plain vanilla JavaScript implementation of the Google Pay button. These examples are designed to
 launch into a Firebase Studio Workspace, ready to run.
 
-- [Example code basic](./examples/html/gpay-web-101/)<br> <a href="https://goo.gle/4fnRl4N">
-    <img        
+- [Example code basic](./examples/html/gpay-web-101/)<br> <a href="https://goo.gle/4fnRl4N"> <img        
         height="32"
         alt="Open in Firebase Studio"
         src="https://cdn.firebasestudio.dev/btn/open_light_32.svg"> </picture> </a>
 
-- [Example code advanced](./examples/html/gpay-web-201/)<br> <a href="https://goo.gle/3YPHFce">
-    <img      
+- [Example code advanced](./examples/html/gpay-web-201/)<br> <a href="https://goo.gle/3YPHFce"> <img      
         height="32"
         alt="Open in Firebase Studio"
         src="https://cdn.firebasestudio.dev/btn/open_light_32.svg"> </picture> </a>

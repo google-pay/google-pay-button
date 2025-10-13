@@ -30,3 +30,7 @@ yarn-error.log*
 
 .bit/
 .bitmap
+
+
+#Ignore vscode AI rules
+.github\instructions\codacy.instructions.md

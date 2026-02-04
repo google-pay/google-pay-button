@@ -1,6 +1,6 @@
 import GooglePayButton from './GooglePayButton';
 import React from 'react';
-import ReactDOM from 'react-dom';
+import { createRoot } from 'react-dom/client';
 import defaults from '../lib/__setup__/defaults';
 
 describe('React 19 compatibility', () => {
@@ -37,8 +37,9 @@ describe('React 19 compatibility', () => {
 
     // If mounting the component tries to read `element.ref`, the Proxy will throw
     expect(() => {
-      ReactDOM.render(<GooglePayButton {...defaults} />, div);
-      ReactDOM.unmountComponentAtNode(div);
+      const root = createRoot(div);
+      root.render(<GooglePayButton {...defaults} />);
+      root.unmount();
     }).not.toThrow();
 
     // restore

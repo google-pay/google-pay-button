@@ -1,6 +1,19 @@
 import GooglePayButton from './GooglePayButton';
 import React from 'react';
-import { createRoot } from 'react-dom/client';
+import ReactDOM from 'react-dom';
+
+// Dynamically load React 18's createRoot API if available so this test works
+// both with React 16 (CI) and React 18 (local environments).
+// eslint-disable-next-line @typescript-eslint/no-explicit-any
+const createRootModule: any = (() => {
+  try {
+    // eslint-disable-next-line @typescript-eslint/no-var-requires
+    return require('react-dom/client');
+  } catch (e) {
+    return null;
+  }
+})();
+
 import defaults from '../lib/__setup__/defaults';
 
 describe('React 19 compatibility', () => {
@@ -37,9 +50,19 @@ describe('React 19 compatibility', () => {
 
     // If mounting the component tries to read `element.ref`, the Proxy will throw
     expect(() => {
-      const root = createRoot(div);
-      root.render(<GooglePayButton {...defaults} />);
-      root.unmount();
+      const createRootFn = createRootModule && createRootModule.createRoot;
+      if (createRootFn) {
+        const root = createRootFn(div);
+        root.render(<GooglePayButton {...defaults} />);
+        root.unmount();
+      } else {
+        // For older React versions used in CI (e.g., React 16), fall back to
+        // the legacy render/unmount APIs.
+        // eslint-disable-next-line react/no-deprecated
+        ReactDOM.render(<GooglePayButton {...defaults} />, div);
+        // eslint-disable-next-line react/no-deprecated
+        ReactDOM.unmountComponentAtNode(div);
+      }
     }).not.toThrow();
 
     // restore

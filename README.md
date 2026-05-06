@@ -7,7 +7,7 @@ See Google Pay in action:
 
 [![Buy with Google Pay](docs/images/google-pay-button.svg)][live-demo]
 
-This repository contains Google Pay button implementations for compatible with popular website frameworks even easier.
+This repository contains Google Pay button implementations compatible with several popular frameworks.
 
 ## Web
 

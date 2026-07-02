@@ -32,7 +32,7 @@
     "@angular-eslint/eslint-plugin-template": "15.2.1",
     "@angular-eslint/schematics": "15.2.1",
     "@angular-eslint/template-parser": "15.2.1",
-    "@angular/cli": "^15.2.11",
+    "@angular/cli": "^22.0.5",
     "@angular/compiler-cli": "^15.2.10",
     "@types/jasmine": "^3.10.19",
     "@types/jasminewd2": "^2.0.13",

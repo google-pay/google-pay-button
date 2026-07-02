@@ -16,13 +16,29 @@
 
 import GooglePayButton from './GooglePayButton';
 import React from 'react';
-import ReactDOM from 'react-dom';
 import defaults from '../lib/__setup__/defaults';
 
 describe('Render', () => {
   it('renders without crashing', () => {
     const div = document.createElement('div');
-    ReactDOM.render(<GooglePayButton {...defaults} />, div);
-    ReactDOM.unmountComponentAtNode(div);
+
+    let createRootFn: any;
+    try {
+      // eslint-disable-next-line @typescript-eslint/no-var-requires
+      createRootFn = require('react-dom/client').createRoot;
+    } catch (e) {}
+
+    if (createRootFn) {
+      const root = createRootFn(div);
+      root.render(<GooglePayButton {...defaults} />);
+      root.unmount();
+    } else {
+      // eslint-disable-next-line @typescript-eslint/no-var-requires
+      const ReactDOM = require('react-dom');
+      // eslint-disable-next-line react/no-deprecated
+      ReactDOM.render(<GooglePayButton {...defaults} />, div);
+      // eslint-disable-next-line react/no-deprecated
+      ReactDOM.unmountComponentAtNode(div);
+    }
   });
 });

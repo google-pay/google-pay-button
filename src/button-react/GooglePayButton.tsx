@@ -15,7 +15,7 @@
  */
 
 import { ButtonManager, Config } from '../lib/button-manager';
-import React, { CSSProperties } from 'react';
+import React, { CSSProperties, useEffect, useMemo, useRef } from 'react';
 import { name as softwareId, version as softwareVersion } from './package.json';
 
 /**
@@ -31,37 +31,50 @@ const CLASS = 'google-pay-button-container';
 /**
  * React component for the Google Pay button
  */
-export default class GooglePayButton extends React.Component<Props> {
-  private manager = new ButtonManager({
-    cssSelector: `.${CLASS}`,
-    softwareInfoId: softwareId,
-    softwareInfoVersion: softwareVersion,
-  });
-  private elementRef = React.createRef<HTMLDivElement>();
+const GooglePayButton = React.forwardRef<HTMLDivElement, Props>((props, ref) => {
+  const manager = useMemo(
+    () =>
+      new ButtonManager({
+        cssSelector: `.${CLASS}`,
+        softwareInfoId: softwareId,
+        softwareInfoVersion: softwareVersion,
+      }),
+    [],
+  );
 
-  async componentDidMount(): Promise<void> {
-    const element = this.elementRef.current;
+  const elementRef = useRef<HTMLDivElement>(null);
+
+  useEffect(() => {
+    const element = elementRef.current;
     if (element) {
-      await this.manager.configure(this.props);
-      await this.manager.mount(element);
+      manager.configure(props);
+      manager.mount(element);
     }
-  }
+    return () => {
+      manager.unmount();
+    };
+  }, []);
 
-  componentWillUnmount(): void {
-    this.manager.unmount();
-  }
+  useEffect(() => {
+    manager.configure(props);
+  }, [props]);
 
-  componentDidUpdate(): void {
-    this.manager.configure(this.props);
-  }
+  return (
+    <div
+      ref={value => {
+        (elementRef as any).current = value;
+        if (typeof ref === 'function') {
+          ref(value);
+        } else if (ref) {
+          (ref as any).current = value;
+        }
+      }}
+      className={[CLASS, props.className].filter(c => c).join(' ')}
+      style={props.style}
+    />
+  );
+});
 
-  render(): JSX.Element {
-    return (
-      <div
-        ref={this.elementRef}
-        className={[CLASS, this.props.className].filter(c => c).join(' ')}
-        style={this.props.style}
-      />
-    );
-  }
-}
+GooglePayButton.displayName = 'GooglePayButton';
+
+export default GooglePayButton;

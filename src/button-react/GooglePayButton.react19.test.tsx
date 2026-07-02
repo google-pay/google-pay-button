@@ -1,6 +1,5 @@
 import GooglePayButton from './GooglePayButton';
 import React from 'react';
-import ReactDOM from 'react-dom';
 
 // Dynamically load React 18's createRoot API if available so this test works
 // both with React 16 (CI) and React 18 (local environments).
@@ -58,12 +57,44 @@ describe('React 19 compatibility', () => {
       } else {
         // For older React versions used in CI (e.g., React 16), fall back to
         // the legacy render/unmount APIs.
+        // eslint-disable-next-line @typescript-eslint/no-var-requires
+        const ReactDOM = require('react-dom');
         // eslint-disable-next-line react/no-deprecated
         ReactDOM.render(<GooglePayButton {...defaults} />, div);
         // eslint-disable-next-line react/no-deprecated
         ReactDOM.unmountComponentAtNode(div);
       }
     }).not.toThrow();
+
+    // restore
+    // eslint-disable-next-line @typescript-eslint/no-explicit-any
+    React.createElement = originalCreateElement;
+  });
+
+  it('throws if element.ref is accessed (verifies test utility)', () => {
+    // Save original createElement
+    // eslint-disable-next-line @typescript-eslint/no-explicit-any
+    const originalCreateElement: any = React.createElement;
+
+    // eslint-disable-next-line @typescript-eslint/no-explicit-any
+    React.createElement = function patchedCreateElement(...args: any[]) {
+      const el = originalCreateElement(...args);
+      return new Proxy(el, {
+        get(target, prop) {
+          if (prop === 'ref') {
+            const stack = new Error().stack || '';
+            if (!/(?:react(?:-|\/)dom|react(?:-|\/)cjs|react(?:-|\/)umd)/i.test(stack)) {
+              throw new Error('Accessing element.ref is not allowed (simulating React 19)');
+            }
+            return (target as any)[prop];
+          }
+          return (target as any)[prop];
+        },
+      });
+    } as unknown as typeof React.createElement;
+
+    const el = <div ref={React.createRef()} />;
+    expect(() => (el as any).ref).toThrow('Accessing element.ref is not allowed (simulating React 19)');
 
     // restore
     // eslint-disable-next-line @typescript-eslint/no-explicit-any

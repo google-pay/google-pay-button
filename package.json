@@ -32,13 +32,13 @@
     "@types/googlepay": "^0.7.11"
   },
   "devDependencies": {
-    "@angular-devkit/build-angular": "^15.2.11",
+    "@angular-devkit/build-angular": "^21.2.18",
     "@angular-eslint/builder": "15.2.1",
     "@angular-eslint/eslint-plugin": "15.2.1",
     "@angular-eslint/eslint-plugin-template": "15.2.1",
-    "@angular-eslint/schematics": "15.2.1",
+    "@angular-eslint/schematics": "22.0.0",
     "@angular-eslint/template-parser": "15.2.1",
-    "@angular/cli": "^15.2.11",
+    "@angular/cli": "^22.0.5",
     "@angular/compiler": "^15.2.10",
     "@angular/compiler-cli": "^15.2.10",
     "@angular/core": "^15.2.10",

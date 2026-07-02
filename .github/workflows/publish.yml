@@ -15,7 +15,7 @@ jobs:
       - name: configure github package repository
         uses: actions/setup-node@v4
         with:
-          node-version: '16'
+          node-version: '24'
           registry-url: https://npm.pkg.github.com/
           scope: '@google-pay'
       - name: prebuild
@@ -34,7 +34,7 @@ jobs:
       - name: configure wombat dressing repository
         uses: actions/setup-node@v4
         with:
-          node-version: '16'
+          node-version: '24'
           registry-url: https://wombat-dressing-room.appspot.com
           scope: '@google-pay'
 

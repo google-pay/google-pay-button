@@ -1,21 +1,5 @@
 # Google Pay for Web
 
-<!--- Open in IDX button -->
-<a href="https://goo.gle/3YPHFce">
-  <picture>
-    <source
-      media="(prefers-color-scheme: dark)"
-      srcset="https://cdn.idx.dev/btn/open_dark_32.svg">
-    <source
-      media="(prefers-color-scheme: light)"
-      srcset="https://cdn.idx.dev/btn/open_light_32.svg">
-    <img
-      height="32"
-      alt="Open in IDX"
-      src="https://cdn.idx.dev/btn/open_purple_32.svg">
-  </picture>
-</a>
-
 ## About
 
 This project is a more complete integration of Google Pay API for Web using HTML and JavaScript. For a more bare bones

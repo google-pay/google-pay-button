@@ -8,6 +8,13 @@ This is the Angular component for the Google Pay button.
 npm install @google-pay/button-angular
 ```
 
+## Compatibility
+
+| Angular Version | `@google-pay/button-angular` Version |
+| :-------------- | :----------------------------------- |
+| 12 – 20         | v3.x                                 |
+| 21 – 22+        | v4.x                                 |
+
 ## Example usage: Angular website
 
 ```html

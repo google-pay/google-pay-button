@@ -18,6 +18,8 @@
 
 import { loadScript } from '../lib/load-script';
 
+declare const global: typeof globalThis;
+
 export interface ReadyToPayChangeResponse {
   isButtonVisible: boolean;
   isReadyToPay: boolean;

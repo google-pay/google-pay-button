@@ -7,12 +7,17 @@
     "declaration": true,
     "inlineSources": true,
     "lib": ["dom", "es2018"],
-    "rootDirs": ["./", "../../"]
+    "rootDirs": ["./", "../../"],
+    "skipLibCheck": true,
+    "types": ["googlepay"],
+    "moduleResolution": "bundler",
+    "ignoreDeprecations": "6.0"
   },
   "angularCompilerOptions": {
     "skipTemplateCodegen": true,
     "strictMetadataEmit": true,
     "enableResourceInlining": true
   },
+  "include": ["lib/**/*.ts", "../angular-public-api.ts"],
   "exclude": ["src/test.ts", "**/*.spec.ts"]
 }

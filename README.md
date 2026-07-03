@@ -61,6 +61,13 @@ that it eliminates the need to register `CUSTOM_ELEMENTS_SCHEMA`.
 npm install @google-pay/button-angular
 ```
 
+### Compatibility
+
+| Angular Version | `@google-pay/button-angular` Version |
+| :-------------- | :----------------------------------- |
+| 12 – 20         | v3.x                                 |
+| 21 – 22+        | v4.x                                 |
+
 Find out more about the [Google Pay Angular button][button-angular].
 
 ## Other frameworks

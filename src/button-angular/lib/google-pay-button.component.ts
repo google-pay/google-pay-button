@@ -21,6 +21,7 @@ import { debounce } from '../../lib/debounce';
 
 @Directive({
   selector: 'google-pay-button',
+  standalone: false,
 })
 export class GooglePayButtonComponent implements OnInit, OnChanges {
   private manager = new ButtonManager({

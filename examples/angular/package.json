@@ -6,8 +6,7 @@
     "start": "ng serve",
     "build": "ng build",
     "test": "ng test",
-    "lint": "ng lint",
-    "e2e": "ng e2e"
+    "lint": "ng lint"
   },
   "private": true,
   "dependencies": {
@@ -51,7 +50,6 @@
     "karma-coverage-istanbul-reporter": "~3.0.3",
     "karma-jasmine": "~4.0.2",
     "karma-jasmine-html-reporter": "^1.7.0",
-    "protractor": "^7.0.0",
     "ts-node": "~10.9.2",
     "typescript": "~6.0.3"
   }

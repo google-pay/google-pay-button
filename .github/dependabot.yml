@@ -1,0 +1,25 @@
+version: 2
+updates:
+  # Scan the root package.json
+  - package-ecosystem: 'npm'
+    directory: '/'
+    schedule:
+      interval: 'weekly'
+
+  # Scan the Custom Element library
+  - package-ecosystem: 'npm'
+    directory: '/src/button-element'
+    schedule:
+      interval: 'weekly'
+
+  # Scan the React library
+  - package-ecosystem: 'npm'
+    directory: '/src/button-react'
+    schedule:
+      interval: 'weekly'
+
+  # Scan the Angular library
+  - package-ecosystem: 'npm'
+    directory: '/src/button-angular'
+    schedule:
+      interval: 'weekly'

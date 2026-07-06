@@ -23,17 +23,7 @@
     "@angular/core": ">=8.0.0",
     "@types/googlepay": "^0.7.0"
   },
-  "files": [
-    "esm2020/*",
-    "fesm2015/*",
-    "fesm2020/*",
-    "lib/*",
-    "button-angular/*",
-    "google-pay-button-angular.*",
-    "*.d.ts",
-    "*.json",
-    "README.md"
-  ],
+
   "keywords": ["googlepay", "google-pay", "google-pay-button", "button", "angular"],
   "devDependencies": {
     "@angular-devkit/build-angular": "^22.0.5",

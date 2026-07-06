@@ -34,7 +34,7 @@
     },
     {
       "files": ["src/**/*.ts", "src/**/*.tsx"],
-      "extends": ["prettier/@typescript-eslint", "plugin:prettier/recommended"],
+      "extends": ["prettier", "plugin:prettier/recommended"],
       "rules": {
         "sort-imports": "error"
       }

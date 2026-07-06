@@ -242,7 +242,7 @@ function onGooglePaymentButtonClicked() {
       // @note DO NOT save the payment credentials for future transactions,
       // unless they're used for merchant-initiated transactions with user
       // consent in place.
-      paymentToken = res.paymentMethodData.tokenizationData.token;
+      const paymentToken = res.paymentMethodData.tokenizationData.token;
     })
     // If there is an error, log it to the console.
     .catch(console.error);

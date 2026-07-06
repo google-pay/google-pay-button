@@ -1,5 +1,19 @@
 # Changelog
 
+## [4.0.0](https://github.com/google-pay/google-pay-button/compare/v3.2.1...v4.0.0) (2026-07-06)
+
+### ⚠ BREAKING CHANGES
+
+* Bumps peer dependencies to drop support for older versions of Angular.
+
+### Features
+
+* **angular:** upgrade library and example app to Angular 22 (#420) ([c531782](https://github.com/google-pay/google-pay-button/commit/c5317822327251e79bfec2f36d809842ea40b31c))
+
+### Miscellaneous Chores
+
+* release 4.0.0 ([9450d37](https://github.com/google-pay/google-pay-button/commit/9450d37dce2f6385a080ca1f93e24e8f98d64ca1))
+
 ## [3.2.1](https://github.com/google-pay/google-pay-button/compare/v3.2.0...v3.2.1) (2025-08-14)
 
 

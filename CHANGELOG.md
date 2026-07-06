@@ -1,5 +1,12 @@
 # Changelog
 
+## [4.0.1](https://github.com/google-pay/google-pay-button/compare/v4.0.0...v4.0.1) (2026-07-06)
+
+
+### Bug Fixes
+
+* **angular:** remove obsolete files list to fix empty package on npm ([#435](https://github.com/google-pay/google-pay-button/issues/435)) ([9b3a85f](https://github.com/google-pay/google-pay-button/commit/9b3a85f189d525726b8b9e97493dadbb8781ed70))
+
 ## [4.0.0](https://github.com/google-pay/google-pay-button/compare/v3.2.1...v4.0.0) (2026-07-06)
 
 ### ⚠ BREAKING CHANGES

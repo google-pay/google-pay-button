@@ -122,8 +122,8 @@
               totalPriceLabel: 'Total',
               totalPrice: amount,
               currencyCode: 'USD',
-              countryCode: 'US'
-            }
+              countryCode: 'US',
+            },
           }"
           (loadpaymentdata)="onLoadPaymentData($event)"
           (error)="onError($event)"
@@ -151,9 +151,9 @@
               totalPriceLabel: 'Total',
               totalPrice: amount,
               currencyCode: 'USD',
-              countryCode: 'US'
+              countryCode: 'US',
             },
-            callbackIntents: ['PAYMENT_AUTHORIZATION']
+            callbackIntents: ['PAYMENT_AUTHORIZATION'],
           }"
           (loadpaymentdata)="onLoadPaymentData($event)"
           (error)="onError($event)"
@@ -180,16 +180,16 @@
                 type: 'CARD',
                 parameters: {
                   allowedAuthMethods: ['CRYPTOGRAM_3DS'],
-                  allowedCardNetworks: ['AMEX', 'VISA', 'MASTERCARD']
+                  allowedCardNetworks: ['AMEX', 'VISA', 'MASTERCARD'],
                 },
                 tokenizationSpecification: {
                   type: 'PAYMENT_GATEWAY',
                   parameters: {
                     gateway: 'example',
-                    gatewayMerchantId: 'exampleGatewayMerchantId'
-                  }
-                }
-              }
+                    gatewayMerchantId: 'exampleGatewayMerchantId',
+                  },
+                },
+              },
             ],
             merchantInfo: paymentRequest.merchantInfo,
             transactionInfo: {
@@ -197,9 +197,9 @@
               totalPriceLabel: 'Total',
               totalPrice: amount,
               currencyCode: 'USD',
-              countryCode: 'US'
+              countryCode: 'US',
             },
-            callbackIntents: ['PAYMENT_AUTHORIZATION']
+            callbackIntents: ['PAYMENT_AUTHORIZATION'],
           }"
           (loadpaymentdata)="onLoadPaymentData($event)"
           (error)="onError($event)"
@@ -228,10 +228,10 @@
               totalPriceLabel: 'Total',
               totalPrice: amount,
               currencyCode: 'USD',
-              countryCode: 'US'
+              countryCode: 'US',
             },
             shippingAddressRequired: true,
-            callbackIntents: ['PAYMENT_AUTHORIZATION']
+            callbackIntents: ['PAYMENT_AUTHORIZATION'],
           }"
           (loadpaymentdata)="onLoadPaymentData($event)"
           (error)="onError($event)"
@@ -262,8 +262,8 @@
               totalPriceLabel: 'Total',
               totalPrice: amount,
               currencyCode: 'USD',
-              countryCode: 'US'
-            }
+              countryCode: 'US',
+            },
           }"
           [clickCallback]="onClick"
           (loadpaymentdata)="onLoadPaymentData($event)"
@@ -287,8 +287,8 @@
               totalPriceLabel: 'Total',
               totalPrice: amount,
               currencyCode: 'USD',
-              countryCode: 'US'
-            }
+              countryCode: 'US',
+            },
           }"
           [clickCallback]="onClickPreventDefault"
           (loadpaymentdata)="onLoadPaymentData($event)"

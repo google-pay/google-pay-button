@@ -1,8 +1,7 @@
 import js from '@eslint/js';
 import ts from 'typescript-eslint';
 import react from 'eslint-plugin-react';
-import prettierPlugin from 'eslint-plugin-prettier';
-import prettierConfig from 'eslint-config-prettier';
+import prettier from 'eslint-plugin-prettier/recommended';
 import globals from 'globals';
 
 export default ts.config(
@@ -25,15 +24,7 @@ export default ts.config(
   // 2. Base Configs
   js.configs.recommended,
   ...ts.configs.recommended,
-  prettierConfig,
-  {
-    plugins: {
-      prettier: prettierPlugin,
-    },
-    rules: {
-      'prettier/prettier': 'error',
-    },
-  },
+  prettier,
 
   // 3. Language & Global Settings
   {

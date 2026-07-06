@@ -272,9 +272,9 @@ export class ButtonManager {
     try {
       readyToPay = await this.client.isReadyToPay(this.createIsReadyToPayRequest(this.config));
       showButton =
-        (readyToPay.result && !this.config.existingPaymentMethodRequired)
-        || (readyToPay.result && readyToPay.paymentMethodPresent && this.config.existingPaymentMethodRequired)
-        || false;
+        (readyToPay.result && !this.config.existingPaymentMethodRequired) ||
+        (readyToPay.result && readyToPay.paymentMethodPresent && this.config.existingPaymentMethodRequired) ||
+        false;
     } catch (err) {
       if (this.config.onError) {
         this.config.onError(err as Error);

@@ -9,7 +9,7 @@
     "lint": "eslint .",
     "pretty": "prettier . --write --loglevel warn",
     "pretty:check": "prettier . --check",
-    "build": "npm run lint && npm run pretty:check && scripts/build.sh",
+    "build": "npm run lint && npm run pretty:check && scripts/build.sh && scripts/verify-build-outputs.sh",
     "build:only": "scripts/build.sh",
     "build:all": "npm run build && npm run build:examples",
     "build:examples": "concurrently --kill-others-on-fail --names \"a,r,v\" \"npm run build:example:angular\" \"npm run build:example:react\" \"npm run build:example:vue\"",

@@ -54,7 +54,7 @@
     "react": "^16.14.0",
     "react-dom": "^16.14.0",
     "rimraf": "^6.1.3",
-    "rollup": "^3.30.0",
+    "rollup": "^4.62.3",
     "rollup-plugin-dts": "^6.4.1",
     "rollup-plugin-typescript2": "^0.37.0",
     "ts-jest": "^29.4.11",

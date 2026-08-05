@@ -49,7 +49,7 @@ it('rejects when script errors', () => {
   const result = loadScript('https://pay.google.com/gp/p/js/pay.js');
   scriptElement.dispatchEvent(new Event('error'));
 
-  expect(result).rejects.toThrowError('Unable to load script https://pay.google.com/gp/p/js/pay.js');
+  expect(result).rejects.toThrow('Unable to load script https://pay.google.com/gp/p/js/pay.js');
 });
 
 it('returns the same promise when same resource is re-requested', () => {

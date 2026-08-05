@@ -12,6 +12,10 @@ updates:
         patterns:
           - 'react*'
           - '@types/react*'
+      typescript:
+        patterns:
+          - 'typescript*'
+          - '@typescript-eslint/*'
 
   # Scan the Custom Element library
   - package-ecosystem: 'npm'

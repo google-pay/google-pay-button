@@ -5,21 +5,34 @@ updates:
     directory: '/'
     schedule:
       interval: 'weekly'
+    cooldown:
+      default-days: 7
+    groups:
+      react:
+        patterns:
+          - 'react*'
+          - '@types/react*'
 
   # Scan the Custom Element library
   - package-ecosystem: 'npm'
     directory: '/src/button-element'
     schedule:
       interval: 'weekly'
+    cooldown:
+      default-days: 7
 
   # Scan the React library
   - package-ecosystem: 'npm'
     directory: '/src/button-react'
     schedule:
       interval: 'weekly'
+    cooldown:
+      default-days: 7
 
   # Scan the Angular library
   - package-ecosystem: 'npm'
     directory: '/src/button-angular'
     schedule:
       interval: 'weekly'
+    cooldown:
+      default-days: 7

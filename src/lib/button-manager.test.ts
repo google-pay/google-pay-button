@@ -297,7 +297,7 @@ describe.skip('Callbacks', () => {
 
     expect(() => {
       manager.createLoadPaymentDataRequest(config);
-    }).toThrowError('onPaymentDataChanged must be used with either shippingAddressRequired or shippingOptionRequired');
+    }).toThrow('onPaymentDataChanged must be used with either shippingAddressRequired or shippingOptionRequired');
   });
 
   it('throws when onPaymentDataChanged is set shippingAddressRequired and shippingOptionRequired are explicitly set to false', () => {
@@ -314,7 +314,7 @@ describe.skip('Callbacks', () => {
 
     expect(() => {
       manager.createLoadPaymentDataRequest(config);
-    }).toThrowError('onPaymentDataChanged must be used with either shippingAddressRequired or shippingOptionRequired');
+    }).toThrow('onPaymentDataChanged must be used with either shippingAddressRequired or shippingOptionRequired');
   });
 
   it('populates callbacks when onPaymentAuthorized is set', () => {
@@ -356,7 +356,7 @@ describe('Google Pay client invalidation', () => {
       ...defaults,
     });
 
-    expect(updateElementSpy).toBeCalledTimes(1);
+    expect(updateElementSpy).toHaveBeenCalledTimes(1);
   });
 
   it('invalidates client when environment changes', () => {
@@ -373,7 +373,7 @@ describe('Google Pay client invalidation', () => {
     manager.configure(config1);
     manager.configure(config2);
 
-    expect(updateElementSpy).toBeCalledTimes(2);
+    expect(updateElementSpy).toHaveBeenCalledTimes(2);
   });
 
   it('invalidates client when existingPaymentMethodRequired changes', () => {
@@ -390,7 +390,7 @@ describe('Google Pay client invalidation', () => {
     manager.configure(config1);
     manager.configure(config2);
 
-    expect(updateElementSpy).toBeCalledTimes(2);
+    expect(updateElementSpy).toHaveBeenCalledTimes(2);
   });
 
   it('invalidates client when onPaymentDataChanged added', () => {
@@ -406,7 +406,7 @@ describe('Google Pay client invalidation', () => {
     manager.configure(config1);
     manager.configure(config2);
 
-    expect(updateElementSpy).toBeCalledTimes(2);
+    expect(updateElementSpy).toHaveBeenCalledTimes(2);
   });
 
   it('invalidates client when onPaymentDataChanged removed', () => {
@@ -422,7 +422,7 @@ describe('Google Pay client invalidation', () => {
     manager.configure(config1);
     manager.configure(config2);
 
-    expect(updateElementSpy).toBeCalledTimes(2);
+    expect(updateElementSpy).toHaveBeenCalledTimes(2);
   });
 
   it('invalidates client when onPaymentAuthorized added', () => {
@@ -438,7 +438,7 @@ describe('Google Pay client invalidation', () => {
     manager.configure(config1);
     manager.configure(config2);
 
-    expect(updateElementSpy).toBeCalledTimes(2);
+    expect(updateElementSpy).toHaveBeenCalledTimes(2);
   });
 
   it('invalidates client when onPaymentAuthorized removed', () => {
@@ -454,7 +454,7 @@ describe('Google Pay client invalidation', () => {
     manager.configure(config1);
     manager.configure(config2);
 
-    expect(updateElementSpy).toBeCalledTimes(2);
+    expect(updateElementSpy).toHaveBeenCalledTimes(2);
   });
 
   it('does not invalidate client when onPaymentAuthorized modified', () => {
@@ -471,7 +471,7 @@ describe('Google Pay client invalidation', () => {
     manager.configure(config1);
     manager.configure(config2);
 
-    expect(updateElementSpy).toBeCalledTimes(1);
+    expect(updateElementSpy).toHaveBeenCalledTimes(1);
   });
 
   it('invalidates client when buttonType changes', () => {
@@ -488,7 +488,7 @@ describe('Google Pay client invalidation', () => {
     manager.configure(config1);
     manager.configure(config2);
 
-    expect(updateElementSpy).toBeCalledTimes(2);
+    expect(updateElementSpy).toHaveBeenCalledTimes(2);
   });
 
   it('invalidates client when buttonSizeMode changes', () => {
@@ -504,7 +504,7 @@ describe('Google Pay client invalidation', () => {
     manager.configure(config1);
     manager.configure(config2);
 
-    expect(updateElementSpy).toBeCalledTimes(2);
+    expect(updateElementSpy).toHaveBeenCalledTimes(2);
   });
 
   it('invalidates client when buttonColor changes', () => {
@@ -521,7 +521,7 @@ describe('Google Pay client invalidation', () => {
     manager.configure(config1);
     manager.configure(config2);
 
-    expect(updateElementSpy).toBeCalledTimes(2);
+    expect(updateElementSpy).toHaveBeenCalledTimes(2);
   });
 
   it('does not invalidate client when paymentRequest changes and is equivalent', () => {
@@ -539,7 +539,7 @@ describe('Google Pay client invalidation', () => {
     manager.configure(config1);
     manager.configure(config2);
 
-    expect(updateElementSpy).toBeCalledTimes(1);
+    expect(updateElementSpy).toHaveBeenCalledTimes(1);
   });
 
   it('does not invalidate client with the same configuration (shallow copy)', () => {
@@ -554,7 +554,7 @@ describe('Google Pay client invalidation', () => {
     manager.configure(config1);
     manager.configure(config2);
 
-    expect(updateElementSpy).toBeCalledTimes(1);
+    expect(updateElementSpy).toHaveBeenCalledTimes(1);
   });
 
   it('does not invalidate client when paymentRequest is equivalent', () => {
@@ -575,7 +575,7 @@ describe('Google Pay client invalidation', () => {
     manager.configure(config1);
     manager.configure(config2);
 
-    expect(updateElementSpy).toBeCalledTimes(1);
+    expect(updateElementSpy).toHaveBeenCalledTimes(1);
   });
 
   it('does not invalidate client when mutating transactionInfo', () => {
@@ -596,7 +596,7 @@ describe('Google Pay client invalidation', () => {
 
     manager.configure(config);
 
-    expect(updateElementSpy).toBeCalledTimes(1);
+    expect(updateElementSpy).toHaveBeenCalledTimes(1);
   });
 
   it('does not invalidate client when merchantInfo is equivalent', () => {
@@ -617,7 +617,7 @@ describe('Google Pay client invalidation', () => {
 
     manager.configure(config);
 
-    expect(updateElementSpy).toBeCalledTimes(1);
+    expect(updateElementSpy).toHaveBeenCalledTimes(1);
   });
 
   it('invalidates client when mutating merchantId', () => {
@@ -635,7 +635,7 @@ describe('Google Pay client invalidation', () => {
 
     manager.configure(config);
 
-    expect(updateElementSpy).toBeCalledTimes(2);
+    expect(updateElementSpy).toHaveBeenCalledTimes(2);
   });
 });
 
@@ -698,7 +698,7 @@ describe('createButton', () => {
     };
     await manager.configure(config);
 
-    expect(createButtonSpy).toBeCalledWith(
+    expect(createButtonSpy).toHaveBeenCalledWith(
       expect.objectContaining<google.payments.api.ButtonOptions>({
         onClick: expect.any(Function),
       }),
@@ -718,7 +718,7 @@ describe('createButton', () => {
     };
     await manager.configure(config);
 
-    expect(createButtonSpy).toBeCalledWith(
+    expect(createButtonSpy).toHaveBeenCalledWith(
       expect.objectContaining<google.payments.api.ButtonOptions>({
         buttonType: 'donate',
         buttonColor: 'white',
@@ -768,7 +768,7 @@ describe('Events', () => {
     const event = new Event('click', { cancelable: true });
     await manager.handleClick(event);
 
-    expect(loadPaymentDataSpy).toBeCalled();
+    expect(loadPaymentDataSpy).toHaveBeenCalled();
   });
 
   it('calls onLoadPaymentData when onClick does not prevent default', async () => {
@@ -781,8 +781,8 @@ describe('Events', () => {
     const event = new Event('click', { cancelable: true });
     await manager.handleClick(event);
 
-    expect(clickSpy).toBeCalled();
-    expect(loadPaymentDataSpy).toBeCalled();
+    expect(clickSpy).toHaveBeenCalled();
+    expect(loadPaymentDataSpy).toHaveBeenCalled();
   });
 
   it('does not call onLoadPaymentData when onClick prevents default', async () => {
@@ -797,6 +797,6 @@ describe('Events', () => {
     const event = new Event('click', { cancelable: true });
     await manager.handleClick(event);
 
-    expect(loadPaymentDataSpy).not.toBeCalled();
+    expect(loadPaymentDataSpy).not.toHaveBeenCalled();
   });
 });

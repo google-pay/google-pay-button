@@ -55,7 +55,7 @@ export default class GooglePayButton extends React.Component<Props> {
     this.manager.configure(this.props);
   }
 
-  render(): JSX.Element {
+  render(): React.ReactNode {
     return (
       <div
         ref={this.elementRef}

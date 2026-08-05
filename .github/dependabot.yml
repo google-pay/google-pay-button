@@ -5,6 +5,11 @@ updates:
     directory: '/'
     schedule:
       interval: 'weekly'
+    groups:
+      react:
+        patterns:
+          - 'react*'
+          - '@types/react*'
 
   # Scan the Custom Element library
   - package-ecosystem: 'npm'

@@ -16,13 +16,14 @@
 
 import GooglePayButton from './GooglePayButton';
 import React from 'react';
-import ReactDOM from 'react-dom';
+import { createRoot } from 'react-dom/client';
 import defaults from '../lib/__setup__/defaults';
 
 describe('Render', () => {
   it('renders without crashing', () => {
     const div = document.createElement('div');
-    ReactDOM.render(<GooglePayButton {...defaults} />, div);
-    ReactDOM.unmountComponentAtNode(div);
+    const root = createRoot(div);
+    root.render(<GooglePayButton {...defaults} />);
+    root.unmount();
   });
 });

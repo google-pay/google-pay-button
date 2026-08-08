@@ -36,7 +36,7 @@ export interface Config {
   onCancel?: (reason: google.payments.api.PaymentsError) => void;
   onError?: (error: Error | google.payments.api.PaymentsError) => void;
   onReadyToPayChange?: (result: ReadyToPayChangeResponse) => void;
-  onClick?: (event: Event) => void;
+  onClick?: (event: Event) => void | Promise<boolean>;
   buttonType?: google.payments.api.ButtonType;
   buttonColor?: google.payments.api.ButtonColor;
   buttonRadius?: number;
@@ -335,11 +335,17 @@ export class ButtonManager {
     const request = this.createLoadPaymentDataRequest(config);
 
     try {
+      let shouldProceed: boolean | null = null;
+
       if (config.onClick) {
-        config.onClick(event);
+        const onClickResult = await config.onClick(event);
+
+        if (typeof onClickResult === 'boolean') {
+          shouldProceed = onClickResult;
+        }
       }
 
-      if (event.defaultPrevented) {
+      if (event.defaultPrevented || shouldProceed === false) {
         return;
       }
 

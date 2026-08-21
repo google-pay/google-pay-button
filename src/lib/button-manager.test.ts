@@ -181,6 +181,18 @@ describe('PaymentsClient options', () => {
 
     expect(options.merchantInfo).not.toBe(undefined);
   });
+
+  it('populates nonce when creating PaymentsClient options', () => {
+    const manager = new ButtonManager(managerOptions);
+    const config: Config = {
+      ...defaults,
+      nonce: 'rAnd0mN0nc3',
+    };
+
+    const options = manager.createClientOptions(config);
+
+    expect(options.nonce).toBe('rAnd0mN0nc3');
+  });
 });
 
 // TODO: #13 re-enable inferrence if/when we agree as a team
@@ -634,6 +646,23 @@ describe('Google Pay client invalidation', () => {
     config.paymentRequest.merchantInfo.merchantId = '01234567890123456789';
 
     manager.configure(config);
+
+    expect(updateElementSpy).toHaveBeenCalledTimes(2);
+  });
+
+  it('invalidates client when nonce changes', () => {
+    const manager = new ButtonManager(managerOptions);
+    const config1: Config = {
+      ...defaults,
+      nonce: 'nonce1',
+    };
+    const config2: Config = {
+      ...defaults,
+      nonce: 'nonce2',
+    };
+
+    manager.configure(config1);
+    manager.configure(config2);
 
     expect(updateElementSpy).toHaveBeenCalledTimes(2);
   });

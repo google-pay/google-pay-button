@@ -157,6 +157,14 @@ integrating Google Pay into your website.
     </td>
   </tr>
   <tr>
+    <td><p>nonce</p></td>
+    <td><p><code>string</code></p></td>
+    <td>
+      <p>Optional.</p>
+      <p>Content Security Policy (CSP) nonce string passed to the script tag (when loading <code>pay.js</code>) and to the <code>PaymentsClient</code> instance.</p>
+    </td>
+  </tr>
+  <tr>
     <td><p>paymentRequest</p></td>
     <td><p><a href="https://developers.google.com/pay/api/web/reference/request-objects#PaymentDataRequest"><code>PaymentDataRequest</code></a></p></td>
     <td>

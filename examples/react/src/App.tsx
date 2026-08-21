@@ -34,6 +34,7 @@ import DirectIntegrationExample from './examples/DirectIntegrationExample';
 import ButtonSizeExample from './examples/ButtonSizeExample';
 import OnClickExample from './examples/OnClickExample';
 import OnErrorExample from './examples/OnErrorExample';
+import CspNonceExample from './examples/CspNonceExample';
 
 const App: React.FC = () => {
   const [amount, setAmount] = useState('100.00');
@@ -167,6 +168,7 @@ const App: React.FC = () => {
       <DynamicPriceUpdateExample {...props} />
       <ButtonSizeExample {...props} />
       <OnClickExample {...props} />
+      <CspNonceExample {...props} />
     </div>
   );
 };

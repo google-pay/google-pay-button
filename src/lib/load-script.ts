@@ -26,8 +26,9 @@ let cachedScripts: Record<string, Promise<any>> = {};
  * Multiple requests to the same resource will return the same promise.
  *
  * @param src Script URL to load
+ * @param nonce CSP nonce string
  */
-export function loadScript(src: string): Promise<void> {
+export function loadScript(src: string, nonce?: string): Promise<void> {
   const existing = cachedScripts[src];
   if (existing) {
     return existing;
@@ -38,6 +39,9 @@ export function loadScript(src: string): Promise<void> {
     const script = document.createElement('script');
     script.src = src;
     script.async = true;
+    if (nonce) {
+      script.nonce = nonce;
+    }
 
     // Script event listener callbacks for load and error
     const onScriptLoad = (): void => {

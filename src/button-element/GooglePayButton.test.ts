@@ -69,4 +69,24 @@ describe('Render', () => {
 
     expect(throwError).toHaveBeenCalledWith(new Error('Required property not set: environment'));
   });
+
+  it('passes nonce to configuration when set', async () => {
+    const button = new GooglePayButton();
+    button.paymentRequest = {
+      ...defaults.paymentRequest,
+    };
+    button.environment = defaults.environment;
+    button.nonce = 'rAnd0mN0nc3';
+
+    const configureSpy = jest.spyOn(ButtonManager.prototype, 'configure');
+
+    await button.connectedCallback();
+
+    expect(button.nonce).toBe('rAnd0mN0nc3');
+    expect(configureSpy).toHaveBeenCalledWith(
+      expect.objectContaining({
+        nonce: 'rAnd0mN0nc3',
+      }),
+    );
+  });
 });

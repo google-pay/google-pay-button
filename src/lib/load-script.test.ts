@@ -45,6 +45,11 @@ it('resolved when script loads', () => {
   expect(result).resolves.toBe(undefined);
 });
 
+it('sets script nonce attribute when provided', () => {
+  loadScript('https://pay.google.com/gp/p/js/pay.js', 'rAnd0mN0nc3');
+  expect(scriptElement.nonce).toBe('rAnd0mN0nc3');
+});
+
 it('rejects when script errors', () => {
   const result = loadScript('https://pay.google.com/gp/p/js/pay.js');
   scriptElement.dispatchEvent(new Event('error'));

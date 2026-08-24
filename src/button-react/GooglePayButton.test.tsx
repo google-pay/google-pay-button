@@ -26,4 +26,11 @@ describe('Render', () => {
     root.render(<GooglePayButton {...defaults} />);
     root.unmount();
   });
+
+  it('renders with nonce without crashing', () => {
+    const div = document.createElement('div');
+    const root = createRoot(div);
+    root.render(<GooglePayButton {...defaults} nonce="rAnd0mN0nc3" />);
+    root.unmount();
+  });
 });

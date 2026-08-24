@@ -43,6 +43,7 @@ export interface Config {
   buttonSizeMode?: google.payments.api.ButtonSizeMode;
   buttonLocale?: string;
   buttonBorderType?: google.payments.api.ButtonBorderType;
+  nonce?: string;
 }
 
 interface ButtonManagerOptions {
@@ -82,7 +83,7 @@ export class ButtonManager {
   async mount(element: Element): Promise<void> {
     if (!this.isGooglePayLoaded()) {
       try {
-        await loadScript('https://pay.google.com/gp/p/js/pay.js');
+        await loadScript('https://pay.google.com/gp/p/js/pay.js', this.config?.nonce);
       } catch (err) {
         if (this.config?.onError) {
           this.config.onError(err as Error);
@@ -131,6 +132,10 @@ export class ButtonManager {
       environment: config.environment,
       merchantInfo: this.createMerchantInfo(config),
     };
+
+    if (config.nonce) {
+      clientConfig.nonce = config.nonce;
+    }
 
     if (config.onPaymentDataChanged || config.onPaymentAuthorized) {
       clientConfig.paymentDataCallbacks = {};
@@ -430,6 +435,7 @@ export class ButtonManager {
       config.paymentRequest.merchantInfo.softwareInfo?.id,
       config.paymentRequest.merchantInfo.softwareInfo?.version,
       config.paymentRequest.allowedPaymentMethods,
+      config.nonce,
     ];
   }
 }

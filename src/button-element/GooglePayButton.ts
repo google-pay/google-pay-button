@@ -66,6 +66,9 @@ class GooglePayButton extends HTMLElement {
   @Alias('buttonbordertype')
   buttonBorderType?: google.payments.api.ButtonBorderType;
 
+  @NotifyAttribute()
+  nonce?: string;
+
   @Notify()
   @Alias('paymentDataChangedCallback')
   @Alias('paymentdatachangedcallback')
@@ -171,6 +174,7 @@ class GooglePayButton extends HTMLElement {
       buttonSizeMode: this.buttonSizeMode,
       buttonLocale: this.buttonLocale,
       buttonBorderType: this.buttonBorderType,
+      nonce: this.nonce,
       onReadyToPayChange: result => {
         if (this.onReadyToPayChange) {
           this.onReadyToPayChange(result);
@@ -206,8 +210,8 @@ class GooglePayButton extends HTMLElement {
   });
 
   async connectedCallback(): Promise<void> {
-    await this.manager.mount(this);
-    return this.initializeButton();
+    await this.initializeButton();
+    return this.manager.mount(this);
   }
 
   disconnectedCallback(): void {

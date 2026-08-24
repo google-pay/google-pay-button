@@ -1,5 +1,17 @@
 # Changelog
 
+## [4.1.0](https://github.com/google-pay/google-pay-button/compare/v4.0.1...v4.1.0) (2026-08-24)
+
+
+### Features
+
+* add CSP nonce support across Google Pay components ([#345](https://github.com/google-pay/google-pay-button/issues/345)) ([#479](https://github.com/google-pay/google-pay-button/issues/479)) ([d62d92f](https://github.com/google-pay/google-pay-button/commit/d62d92f997eb40bec28fe53824a4de441aacc102))
+
+
+### Bug Fixes
+
+* **tests:** update deprecated jest matchers and fix tsconfig exclude glob ([#468](https://github.com/google-pay/google-pay-button/issues/468)) ([4946b0a](https://github.com/google-pay/google-pay-button/commit/4946b0a87077d37c054acd339034bab5627445db))
+
 ## [4.0.1](https://github.com/google-pay/google-pay-button/compare/v4.0.0...v4.0.1) (2026-07-06)
 
 

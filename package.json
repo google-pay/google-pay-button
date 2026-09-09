@@ -47,7 +47,7 @@
     "eslint-plugin-react": "^7.37.5",
     "globals": "^17.11.0",
     "husky": "^9.1.7",
-    "jest": "^30.4.2",
+    "jest": "^30.5.1",
     "jest-environment-jsdom": "^30.4.1",
     "prettier": "^3.9.6",
     "react": "^19.2.8",

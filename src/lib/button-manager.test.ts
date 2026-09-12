@@ -828,4 +828,30 @@ describe('Events', () => {
 
     expect(loadPaymentDataSpy).not.toHaveBeenCalled();
   });
+
+  it('does not call onLoadPaymentData when onClick returns a Promise with false', async () => {
+    manager.configure({
+      ...defaults,
+      onClick: _ => Promise.resolve(false),
+      onLoadPaymentData: loadPaymentDataSpy,
+    });
+
+    const event = new Event('click', { cancelable: true });
+    await manager.handleClick(event);
+
+    expect(loadPaymentDataSpy).not.toBeCalled();
+  });
+
+  it('calls onLoadPaymentData when onClick returns a Promise with true', async () => {
+    manager.configure({
+      ...defaults,
+      onClick: _ => Promise.resolve(true),
+      onLoadPaymentData: loadPaymentDataSpy,
+    });
+
+    const event = new Event('click', { cancelable: true });
+    await manager.handleClick(event);
+
+    expect(loadPaymentDataSpy).toBeCalled();
+  });
 });

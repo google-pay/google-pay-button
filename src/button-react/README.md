@@ -209,6 +209,7 @@ integrating Google Pay into your website.
     <td>
       <p>Invoked when the Google Pay button is clicked, before the payment sheet is displayed.</p>
       <p>Display of the payment sheet can be prevented by calling <code>event.preventDefault()</code>.</p>
+      <p>It is possible to return <code>Promise</code> with a <code>boolean</code> value from the click handler to delay showing the payment sheet or even prevent it, by returning <code>false</code>. Return <code>true</code> to let the regular behavior continue.</p>
     </td>
   </tr>
   <tr>
